@@ -1,0 +1,20 @@
+[
+    {
+      "previousjobid":1,
+      "userid":"91ccc3b4-d4cc-46c2-a58b-20560bc4c109",
+      "Company":"Officemax",
+      "City, State":"Orangeburg, South Carolina",
+      "Start Date":"10/1/2021",
+      "End Date":"10/30/2021",
+      "Job Desc":"Computer Support/Consultant"
+    },
+    {
+      "previousjobid":2,
+      "userid":"91ccc3b4-d4cc-46c2-a58b-20560bc4c109",
+      "Company":"Cobblestone Country Club",
+      "City, State":"Columbia, South Carolina",
+      "Start Date":"3/17/2021",
+      "End Date":"08/02/2020",
+      "Job Desc":"Cart Manager"
+    }
+  ]

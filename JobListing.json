@@ -1,0 +1,26 @@
+[
+    {
+        "id":1,
+        "Employer":"Techvolt",
+        "Job Title":"Computer Technician",
+        "Job Description": "Repair computers",
+        "Location":"Greenville, South Carolina",
+        "Pay Rate":13.50,
+        "Employer Link":"www.techvolt.com",
+        "Date Posted":"1/1/2021",
+        "Expiration":false,
+        "Expiration Date":""
+      },
+      {
+        "id":2,
+        "Employer":"Sneaks",
+        "Job Title":"Computer Repairman",
+        "Job Description": "Manage and repair all computers onsite",
+        "Location":"Charleston, South Carolina",
+        "Pay Rate":11.50,
+        "Employer Link":"www.Sneaks.com",
+        "Date Posted":"2/1/2021",
+        "Expiration":false,
+        "Expiration Date":""
+      }
+]

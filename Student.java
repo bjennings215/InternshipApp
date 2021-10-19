@@ -8,7 +8,7 @@ public class Student extends User {
     private ArrayList<Review> reviewsMade;
 
     public Student(String username, String password) {
-
+        super(username, password);
     }
 
     public Resume getResume() {

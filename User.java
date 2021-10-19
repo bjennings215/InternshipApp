@@ -1,17 +1,14 @@
+public abstract class User {
+    private String username;
+    private String password;
 
-public class User {
-	String username;
-	String password;
-	
-	public User() {
-		
-	}
-	
-	public boolean createAccount(String username, String password) {
-		return false;
-	}
-	
-	public boolean logIn(String username, String password) {
-		return false;
-	}
+    protected boolean createAccount(String username, String password)
+    {
+        return true;
+    }
+    
+    protected boolean login(String username, String password)
+    {
+        return true;
+    }
 }

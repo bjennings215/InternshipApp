@@ -1,43 +1,43 @@
 import java.util.Date;
 
 public class Education {
-	String university;
-	String major;
-	String minor;
-	String location;
-	String concentration;
-	Date graduationDate;
-	GradeLevel gradeLevel;
+	private String university;
+	private String major;
+	private String minor;
+	private String location;
+	private String concentration;
+	private Date graduationDate;
+	private GradeLevel gradeLevel;
 	
 	public Education() {
 		
 	}
 	
 	public String getUniversity() {
-		return university;
+		return this.university;
 	}
 	
 	public String getcampusLocation() {
-		return location;
+		return this.location;
 	}
 	
 	public String getMajor() {
-		return major;
+		return this.major;
 	}
 	
 	public String getMinor() {
-		return minor;
+		return this.minor;
 	}
 	
 	public String getConcentration() {
-		return concentration;
+		return this.concentration;
 	}
 	
 	public Date getGradutationDate() {
-		return graduationDate;
+		return this.graduationDate;
 	}
 	
 	public GradeLevel getGradeLevel() {
-		return gradeLevel;
+		return this.gradeLevel;
 	}
 }

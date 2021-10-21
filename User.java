@@ -4,11 +4,11 @@ public class User {
 	private UUID id;
 	private String username;
 	private String password;
-	boolean contains_xd;
-	private boolean is_employer;
+	boolean contains_xd = false;
+	private boolean is_employer = false;
 	private boolean is_student;
 	
-	public User(String username, String password, boolean contains_xd, boolean is_employer) {
+	public User(String username, String password, boolean contains_xd, boolean is_employer, boolean is_student) {
 		this.id = UUID.randomUUID();
 		this.username = username;
 		this.password = password;
@@ -45,17 +45,28 @@ public class User {
 
 	//gets the account type for each user
 	public boolean getAccounttype() {
-		if(contains_xd = true) {
+		if(this.username.contains("_xd")) {
+			contains_xd = true;
+			return contains_xd;
+		}
+		if(!this.username.contains("_xd")) {
+			contains_xd = false;
 			return contains_xd;
 		}
 		if(is_employer = true) {
 			return is_employer;
 		}
-		else {
+		if(is_employer = false) {
+			return is_employer;
+		}
+		if(is_student = true) {
 			return is_student;
 		}
+		if(is_student = false) {
+			return is_student;
+		}
+		return false;
 	}
-
 	
 	
 

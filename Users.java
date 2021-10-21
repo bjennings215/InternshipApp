@@ -18,9 +18,9 @@ public class Users {
     }
 
     //check to see if user already exist
-    public boolean haveUser(String username) {
+    public boolean haveUser(String userName) {
 		for(User user : userlist) {
-			if(user.getUsername().equals(username)) {
+			if(user.getUsername().equals(userName)) {
 				return true;
 			}
 		}
@@ -43,23 +43,24 @@ public class Users {
         return userlist;
     }
 
+
     //adds user to Arraylist and writes to JSON file(database)
-    public void addUser(String username, String password) {
-        userlist.add(new User(username,password));
+    public void addUser(String username, String password,boolean contains_xd, boolean is_employer) {
+        userlist.add(new User(username,password,contains_xd,is_employer));
         DataWriter.saveUsers();
     }
 
     //removes user from ArrayList and removes from JSON file(database)
-    public void removeUser(String username, String password) {
-        userlist.remove(new User(username,password));
+    public void removeUser(String username, String password,boolean contains_xd, boolean is_employer) {
+        userlist.remove(new User(username,password,contains_xd,is_employer));
         DataWriter.saveUsers();
     }
 
 
-    public void editUser(String username, String password) {
+    public void editUser(String username, String password,boolean contains_xd, boolean is_employer) {
         for(int i = 0; i < userlist.size(); i++){
             if(userlist.get(i).getUsername().equals(username)){
-                userlist.set(i,new User(username,password));
+                userlist.set(i,new User(username,password,contains_xd,is_employer));
                 DataWriter.saveUsers();
             }
         }

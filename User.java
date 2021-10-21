@@ -4,21 +4,25 @@ public class User {
 	private UUID id;
 	private String username;
 	private String password;
+	private boolean contains_xd;
+	private boolean is_employer;
+	private boolean is_student;
 	
-	public User() {
-		
-	}
-
-	public User(String username, String password) {
+	public User(String username, String password, boolean contains_xd, boolean is_employer) {
 		this.id = UUID.randomUUID();
 		this.username = username;
 		this.password = password;
+		this.contains_xd = contains_xd;
+		this.is_employer = is_employer;
 	}
 
-	public User(UUID id,String username, String password) {
+	public User(UUID id,String username, String password, boolean contains_xd, boolean is_employer) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
+		this.contains_xd = contains_xd;
+		this.is_employer = is_employer;
+
 	}
 
 	public UUID getUuid() {
@@ -40,6 +44,20 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	//gets the account type for each user
+	public boolean getAccounttype() {
+		if(contains_xd = true) {
+			return contains_xd;
+		}
+		if(is_employer = true) {
+			return is_employer;
+		}
+		else {
+			return is_student;
+		}
+	}
+
 	
 	
 

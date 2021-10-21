@@ -12,7 +12,7 @@ public class DataWriter extends UserDataContants {
 		ArrayList<User> userList = users.getUsers();
 		JSONArray jsonUsers = new JSONArray();
 		
-		// get  curretn JSON objects
+		// get  current JSON objects
 		for(int i=0; i< userList.size(); i++) {
 			jsonUsers.add(getUserJSON(userList.get(i)));
 		}
@@ -36,6 +36,7 @@ public class DataWriter extends UserDataContants {
 		userDetails.put(USER_PASSWORD_STRING, user.getPassword());
 		userDetails.put(USER_ADMIN_ACC_STRING, user.getAccounttype());
 		userDetails.put(USER_EMP_ACC_STRING, user.getAccounttype());
+		userDetails.put(USER_STU_ACC_STRING, user.getAccounttype());
         
         return userDetails;
 	}

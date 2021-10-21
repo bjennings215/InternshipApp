@@ -5,7 +5,8 @@
         "Username": "JohnDoe_xd",
         "Password": "JavaIsCool",
         "Admin Account contains _xd": true,
-        "Employer Account": false
+        "Employer Account": false,
+        "Student Account": false
     },
     {
         "userid": "4277b635-6e46-4601-ae88-9a3bda7a69be",
@@ -13,7 +14,8 @@
         "Username": "JackMiller",
         "Password": "INeedAJob",
         "Admin Account contains_xd": false,
-        "Employer Account": false
+        "Employer Account": false,
+        "Student Account" : true
     },
     {
         "userid": "2cdfd49f-26bc-4756-ab29-37b63839fbd8",
@@ -21,6 +23,7 @@
         "Username": "JeffreySmith",
         "Password": "needNewHires!",
         "Admin Account contains _xd": false,
-        "Employer Account": true
+        "Employer Account": true,
+        "Student Account": false
     }
 ]

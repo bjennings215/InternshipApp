@@ -7,4 +7,5 @@ public abstract class UserDataContants {
     protected static final String USER_PASSWORD_STRING = "Password";
     protected static final String USER_ADMIN_ACC_STRING = "Admin Account contains_xd";
     protected static final String USER_EMP_ACC_STRING = "Exployer Account";
+    protected static final String USER_STU_ACC_STRING = "Student Account";
 }

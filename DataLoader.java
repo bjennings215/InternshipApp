@@ -23,8 +23,9 @@ public class DataLoader extends UserDataContants {
                 String password = (String) userJSON.get(USER_PASSWORD_STRING);
                 Boolean contains_xd = (Boolean) userJSON.get(USER_ADMIN_ACC_STRING);
                 Boolean is_employer = (Boolean) userJSON.get(USER_EMP_ACC_STRING);
+                Boolean is_student = (Boolean) userJSON.get(USER_STU_ACC_STRING);
 
-                users.add(new User(username,password,contains_xd,is_employer));
+                users.add(new User(username,password,contains_xd,is_employer,is_student));
             }
             return users;
         } catch (Exception exception) {

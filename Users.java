@@ -45,13 +45,13 @@ public class Users {
 
 
     //adds user to Arraylist and writes to JSON file(database)
-    public void addUser(String username, String password,boolean contains_xd, boolean is_employer) {
-        userlist.add(new User(username,password,contains_xd,is_employer));
+    public void addUser(String username, String password,boolean contains_xd, boolean is_employer, boolean is_student) {
+        userlist.add(new User(username,password,contains_xd,is_employer,is_student));
         DataWriter.saveUsers();
     }
 
     //removes user from ArrayList and removes from JSON file(database)
-    public void removeUser(String username, String password,boolean contains_xd, boolean is_employer) {
+    public void removeUser(String username, String password,boolean contains_xd, boolean is_employer, boolean is_student) {
         for(int i = 0; i < userlist.size(); i++){
             if(userlist.get(i).getUsername().equals(username)){
                 userlist.remove(i);
@@ -61,10 +61,10 @@ public class Users {
     }
 
 
-    public void editUser(String username, String password,boolean contains_xd, boolean is_employer) {
+    public void editUser(String username, String password,boolean contains_xd, boolean is_employer, boolean is_student) {
         for(int i = 0; i < userlist.size(); i++){
             if(userlist.get(i).getUsername().equals(username)){
-                userlist.set(i,new User(username,password,contains_xd,is_employer));
+                userlist.set(i,new User(username,password,contains_xd,is_employer,is_student));
                 DataWriter.saveUsers();
             }
         }

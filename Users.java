@@ -18,9 +18,9 @@ public class Users {
     }
 
     //check to see if user already exist
-    public boolean haveUser(String userName) {
+    public boolean haveUser(String username) {
 		for(User user : userlist) {
-			if(user.getUsername().equals(userName)) {
+			if(user.getUsername().equals(username)) {
 				return true;
 			}
 		}

@@ -7,6 +7,7 @@ public class Student extends User {
     private ArrayList<JobListing> favoriteJobs;
     private ArrayList<Review> reviewsMade;
 
+    
     public Student(String username, String password) {
         super(username, password);
     }

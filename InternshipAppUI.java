@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class InternshipAppUI {
 
     private String[] logInCommands = { "Log in", "Create new account" };
+    private String[] userTypeCommands = { "Student", "Employer", "Administrator" };
     private Scanner scanner;
     private Users allUsers;
     private Student student;
@@ -16,16 +17,23 @@ public class InternshipAppUI {
 
     public void run() {
         initialLogInMenu();
+        displayStudentMainMenu();
     }
 
     public void initialLogInMenu() {
         System.out.println("Welcome to the Internship Application!");
 
-        printPossibleCommands(logInCommands);
-        if (getUserCommand(logInCommands.length) == 1) {
-            loggingIn();
-        } else if(getUserCommand(logInCommands.length) == 2) {
-            
+        while (true) {
+            printPossibleCommands(logInCommands);
+            int userDecision = getUserCommand(logInCommands);
+            if (userDecision == 1) {
+                loggingIn();
+                return;
+            } else if (userDecision == 2) {
+                establishAccountCreation();
+            } else {
+                System.out.println("Invalid Command");
+            }
         }
     }
 
@@ -37,7 +45,7 @@ public class InternshipAppUI {
             System.out.print("Password: ");
             String password = scanner.next();
             //if (verifyLoginCredentials(username, password)) {
-                //return;
+            //    return;
             //}
             System.out.println("Either username or password is incorrect");
             attempts++;
@@ -51,6 +59,43 @@ public class InternshipAppUI {
             return true;
         }
         return false;
+    }
+
+    public void establishAccountCreation() {
+        System.out.println("\nWhat type of account do you wish to create?");
+        while (true) {
+            printPossibleCommands(userTypeCommands);
+            int userDecision = getUserCommand(userTypeCommands);
+            if (userDecision == 1) {
+                System.out.println("\nWelcome new Student!");
+                System.out.println("Enter new username and password below");
+                System.out.print("Username: ");
+                String username = scanner.next();
+                System.out.print("Password: ");
+                String password = scanner.next();
+                //Create and add new student
+                break;
+            } else if (userDecision == 2) {
+                System.out.println("\nWelcome new Employer!");
+                System.out.println("Enter new username and password below");
+                System.out.print("Username: ");
+                String username = scanner.next();
+                System.out.print("Password: ");
+                String password = scanner.next();
+                //Create and add new employer
+                break;
+            } else if (userDecision == 3) {
+                System.out.println("\nWelcome new Administrator!");
+                System.out.println("Enter new username and password below");
+                System.out.print("Username: ");
+                String username = scanner.next();
+                System.out.print("Password: ");
+                String password = scanner.next();
+                //Create and add new administrator
+                break;
+            }
+            System.out.println("Invalid Command");
+        }
     }
 
     public void displayAdminMainMenu() {
@@ -107,13 +152,15 @@ public class InternshipAppUI {
         }
     }
 
-    public int getUserCommand(int numOfPossibleCommands) {
+    public int getUserCommand(String[] possibleCommands) {
+
+        int numOfPossibleCommands = possibleCommands.length;
 
         System.out.println("Type the number of the option you wish to choose below");
 
         int userChoice = Integer.parseInt(scanner.nextLine());
 
-        if (userChoice > 0 && userChoice <= numOfPossibleCommands - 1)
+        if (userChoice > 0 && userChoice <= numOfPossibleCommands)
             return userChoice;
         return -1;
     }

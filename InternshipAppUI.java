@@ -23,9 +23,9 @@ public class InternshipAppUI {
 
     public void run() {
         initialLogInMenu();
-        //displayStudentMainMenu();
-        //displayEmployerMainMenu();
-        //displayAdminMainMenu();
+        displayStudentMainMenu();
+        displayEmployerMainMenu();
+        displayAdminMainMenu();
     }
 
     public void initialLogInMenu() {

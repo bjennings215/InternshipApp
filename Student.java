@@ -8,10 +8,6 @@ public class Student extends User {
     private ArrayList<JobListing> favoriteJobs;
     private ArrayList<Review> reviewsMade;
 
-    // public Student() {
-        
-    // }
-
     public Student(UUID id, String username, String password) {
         super(id, username, password);
     }
@@ -32,7 +28,7 @@ public class Student extends User {
         return this.reviewsMade;
     }
 
-    public void createResume() {
+    public void createResume(Resume resume) {
 
     }
 

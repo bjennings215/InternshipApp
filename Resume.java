@@ -23,12 +23,8 @@ public class Resume {
         return this.lastName;
     }
 
-    public GradeLevel getGradeLevel() {
-        return this.gradeLevel;
-    }
-
-    public double getGradePointAverage() {
-        return this.gradePointAverage;
+    public Education getEducation() {
+        return this.education;
     }
 
     public ArrayList<JobExperience> getJobExperiences() {
@@ -41,6 +37,10 @@ public class Resume {
 
     public ArrayList<String> getExtracurriculars() {
         return this.extracurriculars;
+    }
+
+    public void addNewEducation(Education education) {
+        
     }
 
     public void addNewJob(JobExperience jobExperience) {

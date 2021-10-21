@@ -4,7 +4,7 @@ public class User {
 	private UUID id;
 	private String username;
 	private String password;
-	private boolean contains_xd;
+	boolean contains_xd;
 	private boolean is_employer;
 	private boolean is_student;
 	
@@ -16,12 +16,10 @@ public class User {
 		this.is_employer = is_employer;
 	}
 
-	public User(UUID id,String username, String password, boolean contains_xd, boolean is_employer) {
+	public User(UUID id,String username, String password) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
-		this.contains_xd = contains_xd;
-		this.is_employer = is_employer;
 
 	}
 

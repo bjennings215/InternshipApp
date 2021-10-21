@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 //Guardians of the Git
+import java.util.UUID;
 
 
 public class Employer extends User {
@@ -7,16 +8,13 @@ public class Employer extends User {
    private ArrayList<JobListing> jobListing;
    private ArrayList<Student> favoriteStudents;
    
-   public Employer() {
 
-   }
-
-   public Employer(String username, String password) {
-		super(username, password);
+   public Employer(UUID id,String username, String password) {
+		super(id, username, password);
 	}
    
-   public Employer(String username, String password, String company) {
-	   super(username, password);
+   public Employer(UUID id, String username, String password, String company) {
+	   super(id, username, password);
       this.company = company;
    }
    

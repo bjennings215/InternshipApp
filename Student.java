@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Student extends User {
     
@@ -7,12 +8,12 @@ public class Student extends User {
     private ArrayList<JobListing> favoriteJobs;
     private ArrayList<Review> reviewsMade;
 
-    public Student() {
+    // public Student() {
         
-    }
+    // }
 
-    public Student(String username, String password) {
-        super(username, password);
+    public Student(UUID id, String username, String password) {
+        super(id, username, password);
     }
 
     public Resume getResume() {

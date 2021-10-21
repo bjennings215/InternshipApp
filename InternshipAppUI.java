@@ -3,8 +3,14 @@ import java.util.Scanner;
 
 public class InternshipAppUI {
 
-    private String[] logInCommands = { "Log in", "Create new account" };
-    private String[] userTypeCommands = { "Student", "Employer", "Administrator" };
+    private static final String[] LOGIN_COMMANDS = { "Log in", "Create new account" };
+    private static final String[] USER_TYPE_COMMANDS = { "Student", "Employer", "Administrator" };
+    private static final String[] STUDENT_MAIN_MENU_COMMANDS = { "Browse Job Listings", "See Jobs Applied To",
+            "See Reviews Made", "Edit Resume", "Edit Account", "Log Off" };
+    private static final String[] EMPLOYER_MAIN_MENU_COMMANDS = { "Post New Job Listing", "See Posted Job Listings",
+            "Search Students", "Log Out" };
+    private static final String[] ADMIN_MAIN_MENU_COMMANDS = { "Browse All Job Listings", "Browse All Students",
+            "Search Job Listings", "Search Students" };
     private Scanner scanner;
     private Users allUsers;
     private Student student;
@@ -17,23 +23,25 @@ public class InternshipAppUI {
 
     public void run() {
         initialLogInMenu();
-        displayStudentMainMenu();
+        //displayStudentMainMenu();
+        //displayEmployerMainMenu();
+        //displayAdminMainMenu();
     }
 
     public void initialLogInMenu() {
         System.out.println("Welcome to the Internship Application!");
 
         while (true) {
-            printPossibleCommands(logInCommands);
-            int userDecision = getUserCommand(logInCommands);
+            printPossibleCommands(LOGIN_COMMANDS);
+            int userDecision = getUserCommand(LOGIN_COMMANDS);
             if (userDecision == 1) {
                 loggingIn();
                 return;
             } else if (userDecision == 2) {
                 establishAccountCreation();
-            } else {
-                System.out.println("Invalid Command");
+                return;
             }
+            System.out.println("Invalid Command");
         }
     }
 
@@ -41,9 +49,14 @@ public class InternshipAppUI {
         int attempts = 0;
         while (attempts < 3) {
             System.out.print("Username: ");
-            String username = scanner.next();
+            String username = scanner.nextLine();
             System.out.print("Password: ");
-            String password = scanner.next();
+            String password = scanner.nextLine();
+            //Testing logging in correctly
+            //if(username != null) {
+            //    return;
+            //}
+            //Code that will be used in the end
             //if (verifyLoginCredentials(username, password)) {
             //    return;
             //}
@@ -61,53 +74,75 @@ public class InternshipAppUI {
         return false;
     }
 
+    /**
+    public String determineAccountType() {
+
+    }
+    */
+
     public void establishAccountCreation() {
         System.out.println("\nWhat type of account do you wish to create?");
         while (true) {
-            printPossibleCommands(userTypeCommands);
-            int userDecision = getUserCommand(userTypeCommands);
+            printPossibleCommands(USER_TYPE_COMMANDS);
+            int userDecision = getUserCommand(USER_TYPE_COMMANDS);
             if (userDecision == 1) {
                 System.out.println("\nWelcome new Student!");
                 System.out.println("Enter new username and password below");
                 System.out.print("Username: ");
-                String username = scanner.next();
+                String username = scanner.nextLine();
                 System.out.print("Password: ");
-                String password = scanner.next();
-                //Create and add new student
+                String password = scanner.nextLine();
+                // Creates and adds new student
                 break;
             } else if (userDecision == 2) {
                 System.out.println("\nWelcome new Employer!");
                 System.out.println("Enter new username and password below");
                 System.out.print("Username: ");
-                String username = scanner.next();
+                String username = scanner.nextLine();
                 System.out.print("Password: ");
-                String password = scanner.next();
-                //Create and add new employer
+                String password = scanner.nextLine();
+                // Creates and adds new employer
                 break;
             } else if (userDecision == 3) {
                 System.out.println("\nWelcome new Administrator!");
                 System.out.println("Enter new username and password below");
                 System.out.print("Username: ");
-                String username = scanner.next();
+                String username = scanner.nextLine();
                 System.out.print("Password: ");
-                String password = scanner.next();
-                //Create and add new administrator
+                String password = scanner.nextLine();
+                // Creates and adds new administrator
                 break;
             }
             System.out.println("Invalid Command");
         }
     }
 
-    public void displayAdminMainMenu() {
+    public void displayStudentMainMenu() {
+        System.out.println("\nMain Menu");
+        printPossibleCommands(STUDENT_MAIN_MENU_COMMANDS);
+        int userDecision = getUserCommand(STUDENT_MAIN_MENU_COMMANDS);
+        if(userDecision == 1) {
+            System.out.println("Option 1");
+        }
 
     }
 
     public void displayEmployerMainMenu() {
-
+        System.out.println("\nMain Menu");
+        printPossibleCommands(EMPLOYER_MAIN_MENU_COMMANDS);
+        int userDecision = getUserCommand(EMPLOYER_MAIN_MENU_COMMANDS);
+        if(userDecision == 1) {
+            System.out.println("Option 1");
+        }
     }
 
-    public void displayStudentMainMenu() {
-        System.out.println("Made it to the main menu");
+    public void displayAdminMainMenu() {
+        System.out.println("\nMain Menu");
+        printPossibleCommands(ADMIN_MAIN_MENU_COMMANDS);
+        int userDecision = getUserCommand(ADMIN_MAIN_MENU_COMMANDS);
+        if(userDecision == 1) {
+            System.out.println("Option 1");
+        }
     }
 
     public void searchStudent() {

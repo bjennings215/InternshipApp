@@ -2,6 +2,10 @@
 
 public class Administrator {
 	
+	public Administrator() {
+		
+	}
+
 	public Administrator(String username, String password) {
 		
 	}

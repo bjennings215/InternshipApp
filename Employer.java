@@ -2,17 +2,22 @@ import java.util.ArrayList;
 //Guardians of the Git
 
 
-public class Employer {
+public class Employer extends User {
    String company;
    private ArrayList<JobListing> jobListing;
    private ArrayList<Student> favoriteStudents;
    
+   public Employer() {
+
+   }
+
    public Employer(String username, String password) {
-		
+		super(username, password);
 	}
    
    public Employer(String username, String password, String company) {
-	   
+	   super(username, password);
+      this.company = company;
    }
    
    public String getCompany() {

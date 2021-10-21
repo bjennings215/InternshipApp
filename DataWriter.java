@@ -12,7 +12,7 @@ public class DataWriter extends UserDataContants {
 		ArrayList<User> userList = users.getUsers();
 		JSONArray jsonUsers = new JSONArray();
 		
-		// get JSON objects
+		// get  curretn JSON objects
 		for(int i=0; i< userList.size(); i++) {
 			jsonUsers.add(getUserJSON(userList.get(i)));
 		}

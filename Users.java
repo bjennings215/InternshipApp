@@ -52,8 +52,12 @@ public class Users {
 
     //removes user from ArrayList and removes from JSON file(database)
     public void removeUser(String username, String password,boolean contains_xd, boolean is_employer) {
-        userlist.remove(new User(username,password,contains_xd,is_employer));
-        DataWriter.saveUsers();
+        for(int i = 0; i < userlist.size(); i++){
+            if(userlist.get(i).getUsername().equals(username)){
+                userlist.remove(i);
+                DataWriter.saveUsers();
+            }
+        }
     }
 
 

@@ -12,7 +12,10 @@
       "GPA":"3.4",
       "Skills":["Java","mySQL","C++","MTA:Networking Fundamentals"],
       "Extra-Cirriculars":["Robotics"],
-      "Status":"Unemployed"
+      "Status":"Unemployed",
+      "Previous Experiences":["Officemax"],
+      "Job Length":["12 Months"],
+      "Job Desc":["Computer Support/Consultant"]
     },
     {
       "resumeid":2,
@@ -27,7 +30,10 @@
       "GPA":"3.1",
       "Skills":["Networking","Information Security"],
       "Extra-Cirriculars":["Cheerleading Captain"],
-      "Status":"Employed"
+      "Status":"Employed",
+      "Previous Experiences":["Cobblestone Country Club"],
+      "Job Length":["48 Months"],
+      "Job Desc":["Computer Support/Consultant"]
     },
     {
       "resumeid":3,
@@ -42,7 +48,10 @@
       "GPA":"2.8",
       "Skills":["Aquisition of Motor Skills","Biomechanics of Human Movements"],
       "Extra-Cirriculars":["Powerlifter","Personal Trainer"],
-      "Status":"Unemployed"
+      "Status":"Unemployed",
+      "Previous Experiences":["Philly Special"],
+      "Job Length":["3 Months"],
+      "Job Desc":["Cook/ Dish Washer"]
     }
   ]
   

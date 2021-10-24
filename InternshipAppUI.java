@@ -1,8 +1,12 @@
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Date;
+import java.util.ArrayList;
 
 public class InternshipAppUI {
+
+    private static final String[] USERNAME_AND_PASSWORD_PROMPTS = { "Username", "Password" };
 
     private static final String[] LOGIN_COMMANDS = { "Log in", "Create new account" };
     private static final String[] USER_TYPE_COMMANDS = { "Student", "Employer", "Administrator" };
@@ -11,7 +15,9 @@ public class InternshipAppUI {
     private static final String[] EMPLOYER_MAIN_MENU_COMMANDS = { "Post New Job Listing", "See Posted Job Listings",
             "Search Students", "Log Out" };
     private static final String[] ADMIN_MAIN_MENU_COMMANDS = { "Browse All Job Listings", "Browse All Students",
-            "Search Job Listings", "Search Students" };
+            "Search Job Listings", "Search Students", "Log Off" };
+    private static final String[] RESUME_CREATION_COMMANDS = { "Education", "Previous Work Experience",
+            "Skills and Extracurriculars", "Finish Resume Creation" };
     private Scanner scanner;
     private Users allUsers;
     private Student student;
@@ -24,10 +30,14 @@ public class InternshipAppUI {
 
     public void run() {
         initialLogInMenu();
-        //displayStudentMainMenu();
-        //displayEmployerMainMenu();
-        //displayAdminMainMenu();
+
+        
+        studentMainMenu();
+        // employerMainMenu();
+        // adminMainMenu();
     }
+
+//---------------------------------------------------------LOG IN FUNCTIONALITY----------------------------------------------------------------
 
     public void initialLogInMenu() {
         System.out.println("Welcome to the Internship Application!");
@@ -39,7 +49,7 @@ public class InternshipAppUI {
                 loggingIn();
                 return;
             } else if (userDecision == 2) {
-                establishAccountCreation();
+                newAccountCreation();
                 return;
             }
             System.out.println("Invalid Command");
@@ -53,14 +63,14 @@ public class InternshipAppUI {
             String username = scanner.nextLine();
             System.out.print("Password: ");
             String password = scanner.nextLine();
-            //Testing logging in correctly
-            //if(username != null) {
-            //    return;
-            //}
-            //Code that will be used in the end
-            //if (verifyLoginCredentials(username, password)) {
-            //    return;
-            //}
+            // Testing logging in correctly
+            if(username != null) {
+                return;
+            }
+            // Code that will be used in the end
+            // if (verifyLoginCredentials(username, password)) {
+            // return;
+            // }
             System.out.println("Either username or password is incorrect");
             attempts++;
         }
@@ -76,18 +86,26 @@ public class InternshipAppUI {
     }
 
     /**
-    public String determineAccountType() {
+     * public String determineAccountType() {
+     * 
+     * }
+     */
 
+<<<<<<< HEAD
     }
     */
 
     public void establishAccountCreation() {
         Users users = Users.getInstance();
+=======
+    public void newAccountCreation() {
+>>>>>>> 977cb352b76af32b8d641552cd4759e10d7ebdea
         System.out.println("\nWhat type of account do you wish to create?");
         while (true) {
             printPossibleCommands(USER_TYPE_COMMANDS);
             int userDecision = getUserCommand(USER_TYPE_COMMANDS);
             if (userDecision == 1) {
+<<<<<<< HEAD
                 // System.out.println("\nWelcome new Student!");
                 // System.out.println("Enter new username and password below");
                 // System.out.print("Username: ");
@@ -120,6 +138,16 @@ public class InternshipAppUI {
                 //         System.out.println(school);
                 //     }
                 // }
+=======
+                System.out.println("\nWelcome new Student!");
+                System.out.println("Enter new username and password below");
+                System.out.print("Username: ");
+                String username = scanner.nextLine();
+                System.out.print("Password: ");
+                String password = scanner.nextLine();
+                // Creates and adds new student
+                createStudentResume(username, password);
+>>>>>>> 977cb352b76af32b8d641552cd4759e10d7ebdea
                 break;
             } else if (userDecision == 2) {
                 System.out.println("\nWelcome new Employer!");
@@ -144,6 +172,7 @@ public class InternshipAppUI {
         }
     }
 
+<<<<<<< HEAD
     // public void studentAccInfo(String username, String accounttype, String school) {
     //     Users users = Users.getInstance();
     //     ArrayList<User> accountInfo  = users.getUsers();
@@ -157,29 +186,125 @@ public class InternshipAppUI {
     // }
 
     public void displayStudentMainMenu() {
+=======
+//------------------------------------------------RESUME CREATION DISPLAY AND FUNCTIONALITY----------------------------------------------------
+
+    public void createStudentResume(String username, String password) {
+        System.out.println("\nYou will now be prompted to set up your Resume\n");
+        System.out.print("First Name: ");
+        String userFirstName = scanner.nextLine();
+        System.out.print("Last Name: ");
+        String userLastName = scanner.nextLine();
+        while (true) {
+            System.out.println("\nChoose one of the options below to add information to your Resume");
+            printPossibleCommands(RESUME_CREATION_COMMANDS);
+            int userDecision = getUserCommand(RESUME_CREATION_COMMANDS);
+            if (userDecision == 1) {
+                newEducationEntry();
+            } else if (userDecision == 2) {
+                newJobExperienceEntry();
+            } else if (userDecision == 3) {
+                newSkillsAndExtracurricularEntry();
+            } else if (userDecision == 4) {
+                //this.student.createResume(new Resume());
+                System.out.println("Congratulations! Resume creation finished!");
+                break;
+            } else {
+                System.out.println("Invalid Command");
+            }
+        }
+    }
+
+    public void newEducationEntry() {
+        System.out.println("\nFill out the information below to add a new education experience\n"
+                + "(Enter 'Null' if field does not apply)\n");
+        System.out.print("University Name: ");
+        String uniName = scanner.nextLine();
+        System.out.print("Grade Point Average: ");
+        double GPA = Double.parseDouble(scanner.nextLine());
+        System.out.print("Major: ");
+        String major = scanner.nextLine();
+        System.out.print("Minor: ");
+        String minor = scanner.nextLine();
+        System.out.print("Concentration: ");
+        String concentration = scanner.nextLine();
+        System.out.print("Grade Level: ");
+        String gradeLevel = scanner.nextLine();
+        System.out.print("Graduation (MM/YYYY): ");
+        String graduation = scanner.nextLine();
+        // Create new Resume with information
+        // Will condense
+    }
+
+    public void newJobExperienceEntry() {
+        System.out.println("\nFill out the information below to add a new work experience\n"
+                + "(Enter 'Null' if field does not apply)\n");
+        System.out.print("Company: ");
+        String company = scanner.nextLine();
+        System.out.print("City, State: ");
+        String location = scanner.nextLine();
+        System.out.print("Start Date: ");
+        String startDate = scanner.nextLine();
+        System.out.print("End Date: ");
+        String endDate = scanner.nextLine();
+        // Create Job Experience with information
+        // Will condense
+    }
+
+    public void newSkillsAndExtracurricularEntry() {
+        System.out.println("\nEnter any skills or extracurriculars below\nSeperate all entries with a comma and press 'Enter' when finished");
+        String[] skillsAndExtracurriculars = scanner.nextLine().split(",");
+        //Adds all to persons Resume
+    }
+
+//------------------------------------------------STUDENT MAIN MENU DISPLAY AND FUNCTIONALITY----------------------------------------------------
+
+    public void studentMainMenu() {
+>>>>>>> 977cb352b76af32b8d641552cd4759e10d7ebdea
         System.out.println("\nMain Menu");
         printPossibleCommands(STUDENT_MAIN_MENU_COMMANDS);
         int userDecision = getUserCommand(STUDENT_MAIN_MENU_COMMANDS);
-        if(userDecision == 1) {
-            System.out.println("Option 1");
+        if (userDecision == 1) {
+            printAllJobListings();
+        } else if (userDecision == 2) {
+            System.out.println(this.student.getJobsAppliedTo());
+        } else if (userDecision == 3) {
+            System.out.println(this.student.getReviewsMade());
+        } else if (userDecision == 4) {
+
+        } else if (userDecision == 5) {
+
+        } else if (userDecision == 6) {
+
+        } else {
+            System.out.println("\nInvalid command");
         }
 
     }
 
-    public void displayEmployerMainMenu() {
+    public ArrayList<JobListing> printAllJobListings() {
+        //For loop that runs through each Job Listing and prints them all to the console
+        return new ArrayList<JobListing>();
+    }
+
+//------------------------------------------------EMPLOYER MAIN MENU DISPLAY AND FUNCTIONALITY----------------------------------------------------
+
+    public void employerMainMenu() {
         System.out.println("\nMain Menu");
         printPossibleCommands(EMPLOYER_MAIN_MENU_COMMANDS);
         int userDecision = getUserCommand(EMPLOYER_MAIN_MENU_COMMANDS);
-        if(userDecision == 1) {
+        if (userDecision == 1) {
             System.out.println("Option 1");
         }
     }
 
-    public void displayAdminMainMenu() {
+//----------------------------------------------ADMINISTRATOR MAIN MENU DISPLAY AND FUNCTIONALITY----------------------------------------------------
+
+    public void adminMainMenu() {
         System.out.println("\nMain Menu");
         printPossibleCommands(ADMIN_MAIN_MENU_COMMANDS);
         int userDecision = getUserCommand(ADMIN_MAIN_MENU_COMMANDS);
-        if(userDecision == 1) {
+        if (userDecision == 1) {
             System.out.println("Option 1");
         }
     }
@@ -220,6 +345,8 @@ public class InternshipAppUI {
 
     }
 
+//--------------------------------------------------------GENERAL FUNCTIONALITY---------------------------------------------------------------
+
     public void printPossibleCommands(String[] availableCommands) {
         for (int i = 0; i < availableCommands.length; i++) {
             System.out.println((i + 1) + ". " + availableCommands[i]);
@@ -239,6 +366,13 @@ public class InternshipAppUI {
         return -1;
     }
 
+    /**
+     * public String[] getUserInformation(String[] prompts) { String[]
+     * informationGathered = new String[prompts.length]; for(int i = 0; i <
+     * prompts.length; i++) { System.out.println(prompts[i]); String userInfo =
+     * scanner.nextLine(); informationGathered[i] = userInfo; } return
+     * informationGathered; }
+     */
     public static void main(String[] args) {
 
         InternshipAppUI internshipAppInterface = new InternshipAppUI();

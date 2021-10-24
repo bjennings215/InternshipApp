@@ -4,14 +4,18 @@ public class Resume {
 
     private String firstName;
     private String lastName;
-    private GradeLevel gradeLevel;
+    private String gradeLevel;
     private double gradePointAverage;
     private ArrayList<JobExperience> jobExperiences;
-    private ArrayList<String> skills;
-    private ArrayList<String> extracurriculars;
+    private String[] skillsAndExtracurriculars;
     private Education education;
 
     public Resume() {
+
+    }
+
+    public Resume(String firstName, String lastName, double gradePointAverage, String gradeLevel,
+            ArrayList<JobExperience> jobExperiences, String[] skillsAndExtracurriculars, Education education) {
 
     }
 
@@ -23,35 +27,47 @@ public class Resume {
         return this.lastName;
     }
 
-    public GradeLevel getGradeLevel() {
+    public double getGradePointAverage() {
+        return this.gradePointAverage;
+    }
+
+    public String getGradeLevel() {
         return this.gradeLevel;
     }
 
-    public double getGradePointAverage() {
-        return this.gradePointAverage;
+    public Education getEducation() {
+        return this.education;
     }
 
     public ArrayList<JobExperience> getJobExperiences() {
         return this.jobExperiences;
     }
 
-    public ArrayList<String> getSkills() {
-        return this.skills;
+    public String[] getSkillsAndExtracurriculars() {
+        return this.skillsAndExtracurriculars;
     }
 
-    public ArrayList<String> getExtracurriculars() {
-        return this.extracurriculars;
+    public void addNewEducation(Education education) {
+
     }
 
     public void addNewJob(JobExperience jobExperience) {
 
     }
 
-    public void addNewSkill(String skill) {
+    public void addNewSkillAndExtracurricular(String skill) {
 
     }
 
-    public void addNewExtracurricular(String extracurricular) {
+    public boolean removeEducation(Education education) {
+        return true;
+    }
 
+    public boolean removeJobExperience(JobExperience jobExperience) {
+        return true;
+    }
+
+    public boolean removeSkillOrExtracurricular(String skillOrExtracurricular) {
+        return true;
     }
 }

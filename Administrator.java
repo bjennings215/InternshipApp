@@ -1,13 +1,9 @@
-//Guardian of the Git
+import java.util.UUID;
 
-public class Administrator {
+public class Administrator extends User {
 	
-	public Administrator() {
-		
-	}
-
-	public Administrator(String username, String password) {
-		
+	public Administrator(UUID id, String username, String password) {
+		super(id, username, password);
 	}
 	
 	private boolean editJobListing(JobListing jobListing) {

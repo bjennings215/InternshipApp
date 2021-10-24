@@ -2,7 +2,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 
 public class JobListing {
-    
+
     private String jobTitle;
     private String jobCompany;
     private String jobDescription;
@@ -52,9 +52,22 @@ public class JobListing {
 
     public ArrayList<Review> getJobReviews() {
         return this.jobReviews;
-    }    
+    }
 
     public Date getJobExpDate() {
         return this.jobExpDate;
+    }
+
+    public String shortToString() {
+        return this.jobTitle + "\n" + this.jobCompany + "\n" + this.jobDescription;
+    }
+
+    public String longToSTring() {
+        String returnString = this.jobTitle + "\n" + this.jobCompany + "\n" + this.jobNumberRating + "\n"
+                + this.jobCityLocation + ", " + this.jobStateLocation + "\n" + this.jobDescription + "\nReviews made of previous experiences in this role\n";
+        for (Review review : this.jobReviews) {
+            returnString.concat(review.toString()+"\n");
+        }
+        return returnString;
     }
 }

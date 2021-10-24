@@ -9,25 +9,33 @@ public class JobExperience {
     private Date startDate;
     private Date endDate;
 
-    public String getCompany(){
+    public String getCompany() {
         return this.company;
     }
-    public String getLocation(){
-        return this.cityLocation+this.stateLocation;
+
+    public String getLocation() {
+        return this.cityLocation + this.stateLocation;
     }
-    public String getDescription(){
+
+    public String getDescription() {
         return this.description;
     }
-    public int getNumberOfMonths(){
-        int numberofMonths;
-        Calendar first=Calendar.getInstance();
-        first.setTime(startDate);
-        int firstMonth=first.get(Calendar.MONTH); //this will give the month of the start date  
 
-        Calendar second=Calendar.getInstance();
+    public int getNumberOfMonths() {
+        int numberofMonths;
+        Calendar first = Calendar.getInstance();
         first.setTime(startDate);
-        int secondMonth=second.get(Calendar.MONTH);
-        numberofMonths=secondMonth-firstMonth; //this will giv the month of the end date
-        return numberofMonths;   
+        int firstMonth = first.get(Calendar.MONTH); // this will give the month of the start date
+
+        Calendar second = Calendar.getInstance();
+        first.setTime(startDate);
+        int secondMonth = second.get(Calendar.MONTH);
+        numberofMonths = secondMonth - firstMonth; // this will giv the month of the end date
+        return numberofMonths;
+    }
+
+    public String toString() {
+        return "Company: " + this.company + "\nLocation: " + this.stateLocation + ", " + this.cityLocation
+                + "\nLength: " + this.startDate + " - " + this.endDate + this.description;
     }
 }

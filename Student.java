@@ -6,6 +6,7 @@ public class Student extends User {
     private Resume resume;
     private boolean employementStatus;
     private ArrayList<JobListing> favoriteJobs;
+    private ArrayList<JobListing> jobsAppliedTo;
     private ArrayList<Review> reviewsMade;
 
     public Student(UUID id, String username, String password) {
@@ -22,6 +23,10 @@ public class Student extends User {
 
     public ArrayList<JobListing> getFavoriteJobs() {
         return this.favoriteJobs;
+    }
+
+    public ArrayList<JobListing> getJobsAppliedTo() {
+        return this.jobsAppliedTo;
     }
 
     public ArrayList<Review> getReviewsMade() {

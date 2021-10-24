@@ -30,10 +30,13 @@ public class InternshipAppUI {
     public void run() {
         initialLogInMenu();
 
-        displayStudentMainMenu();
-        // displayEmployerMainMenu();
-        // displayAdminMainMenu();
+        
+        studentMainMenu();
+        // employerMainMenu();
+        // adminMainMenu();
     }
+
+//---------------------------------------------------------LOG IN FUNCTIONALITY----------------------------------------------------------------
 
     public void initialLogInMenu() {
         System.out.println("Welcome to the Internship Application!");
@@ -125,8 +128,10 @@ public class InternshipAppUI {
         }
     }
 
+//------------------------------------------------RESUME CREATION DISPLAY AND FUNCTIONALITY----------------------------------------------------
+
     public void createStudentResume(String username, String password) {
-        System.out.println("You will now be prompted to set up your Resume\n");
+        System.out.println("\nYou will now be prompted to set up your Resume\n");
         System.out.print("First Name: ");
         String userFirstName = scanner.nextLine();
         System.out.print("Last Name: ");
@@ -142,7 +147,7 @@ public class InternshipAppUI {
             } else if (userDecision == 3) {
                 newSkillsAndExtracurricularEntry();
             } else if (userDecision == 4) {
-                this.student.createResume(new Resume());
+                //this.student.createResume(new Resume());
                 System.out.println("Congratulations! Resume creation finished!");
                 break;
             } else {
@@ -156,7 +161,7 @@ public class InternshipAppUI {
                 + "(Enter 'Null' if field does not apply)\n");
         System.out.print("University Name: ");
         String uniName = scanner.nextLine();
-        System.out.print("Grade Point AVerage:");
+        System.out.print("Grade Point Average: ");
         double GPA = Double.parseDouble(scanner.nextLine());
         System.out.print("Major: ");
         String major = scanner.nextLine();
@@ -193,17 +198,38 @@ public class InternshipAppUI {
         //Adds all to persons Resume
     }
 
-    public void displayStudentMainMenu() {
+//------------------------------------------------STUDENT MAIN MENU DISPLAY AND FUNCTIONALITY----------------------------------------------------
+
+    public void studentMainMenu() {
         System.out.println("\nMain Menu");
         printPossibleCommands(STUDENT_MAIN_MENU_COMMANDS);
         int userDecision = getUserCommand(STUDENT_MAIN_MENU_COMMANDS);
         if (userDecision == 1) {
-            System.out.println("Option 1");
+            printAllJobListings();
+        } else if (userDecision == 2) {
+            System.out.println(this.student.getJobsAppliedTo());
+        } else if (userDecision == 3) {
+            System.out.println(this.student.getReviewsMade());
+        } else if (userDecision == 4) {
+
+        } else if (userDecision == 5) {
+
+        } else if (userDecision == 6) {
+
+        } else {
+            System.out.println("\nInvalid command");
         }
 
     }
 
-    public void displayEmployerMainMenu() {
+    public ArrayList<JobListing> printAllJobListings() {
+        //For loop that runs through each Job Listing and prints them all to the console
+        return new ArrayList<JobListing>();
+    }
+
+//------------------------------------------------EMPLOYER MAIN MENU DISPLAY AND FUNCTIONALITY----------------------------------------------------
+
+    public void employerMainMenu() {
         System.out.println("\nMain Menu");
         printPossibleCommands(EMPLOYER_MAIN_MENU_COMMANDS);
         int userDecision = getUserCommand(EMPLOYER_MAIN_MENU_COMMANDS);
@@ -212,7 +238,9 @@ public class InternshipAppUI {
         }
     }
 
-    public void displayAdminMainMenu() {
+//----------------------------------------------ADMINISTRATOR MAIN MENU DISPLAY AND FUNCTIONALITY----------------------------------------------------
+
+    public void adminMainMenu() {
         System.out.println("\nMain Menu");
         printPossibleCommands(ADMIN_MAIN_MENU_COMMANDS);
         int userDecision = getUserCommand(ADMIN_MAIN_MENU_COMMANDS);
@@ -256,6 +284,8 @@ public class InternshipAppUI {
     public void deleteJobListing() {
 
     }
+
+//--------------------------------------------------------GENERAL FUNCTIONALITY---------------------------------------------------------------
 
     public void printPossibleCommands(String[] availableCommands) {
         for (int i = 0; i < availableCommands.length; i++) {

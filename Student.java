@@ -10,7 +10,6 @@ public class Student extends User {
     private ArrayList<Review> reviewsMade;
     private String school;
 
-<<<<<<< HEAD
     // public Student() {
         
     // }
@@ -22,10 +21,6 @@ public class Student extends User {
         super(id, username,password,accounttype,school,company,firstname,lastname,major,minor,concentration,
         gradeLevel,gpa,skills,extraCurr,status,prevExp,explength,jobdesc);
         this.school = school;
-=======
-    public Student(UUID id, String username, String password) {
-        super(id, username, password);
->>>>>>> 977cb352b76af32b8d641552cd4759e10d7ebdea
     }
 
     public Resume getResume() {

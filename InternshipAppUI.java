@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class InternshipAppUI {
@@ -81,18 +82,44 @@ public class InternshipAppUI {
     */
 
     public void establishAccountCreation() {
+        Users users = Users.getInstance();
         System.out.println("\nWhat type of account do you wish to create?");
         while (true) {
             printPossibleCommands(USER_TYPE_COMMANDS);
             int userDecision = getUserCommand(USER_TYPE_COMMANDS);
             if (userDecision == 1) {
-                System.out.println("\nWelcome new Student!");
-                System.out.println("Enter new username and password below");
-                System.out.print("Username: ");
-                String username = scanner.nextLine();
-                System.out.print("Password: ");
-                String password = scanner.nextLine();
-                // Creates and adds new student
+                // System.out.println("\nWelcome new Student!");
+                // System.out.println("Enter new username and password below");
+                // System.out.print("Username: ");
+                // String username = scanner.nextLine();
+                // System.out.print("Password: ");
+                // String password = scanner.nextLine();
+                // String accounttype = "Student";
+                // String school = null;
+                // String firstname = null;
+                // String lastname = null;
+                // String major = null;
+                // String minor = null;
+                // String concentration = null;
+                // String gradeLevel = null;
+                // String company = null;
+                // String gpa = null;
+                // ArrayList<String> skills = null;
+                // ArrayList<String> extraCurr = null;
+                // ArrayList<String> prevExp = null;
+                // ArrayList<String> explength = null;
+                // ArrayList<String> jobdesc = null;
+                // String status = null;
+                // users.addUser(username,password,accounttype,school,company,firstname,lastname,major,minor,concentration,
+                // gradeLevel,gpa,skills,extraCurr,status,prevExp,explength,jobdesc);
+                // ArrayList<User> accountInfo  = users.getUsers();
+                // for(User user : accountInfo){
+                //     if(user.getUsername().equals(username)){
+                //         System.out.println(username);
+                //         System.out.println(accounttype);
+                //         System.out.println(school);
+                //     }
+                // }
                 break;
             } else if (userDecision == 2) {
                 System.out.println("\nWelcome new Employer!");
@@ -116,6 +143,18 @@ public class InternshipAppUI {
             System.out.println("Invalid Command");
         }
     }
+
+    // public void studentAccInfo(String username, String accounttype, String school) {
+    //     Users users = Users.getInstance();
+    //     ArrayList<User> accountInfo  = users.getUsers();
+    //             for(User user : accountInfo){
+    //                 if(user.getUsername().equals(username)){
+    //                     System.out.println(username);
+    //                     System.out.println(accounttype);
+    //                     System.out.println(school);
+    //                 }
+    //             }
+    // }
 
     public void displayStudentMainMenu() {
         System.out.println("\nMain Menu");

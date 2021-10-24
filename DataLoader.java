@@ -21,11 +21,27 @@ public class DataLoader extends UserDataContants {
                 JSONObject userJSON = (JSONObject)UsersJSON.get(i);
                 String username = (String) userJSON.get(USER_USERNAME_STRING);
                 String password = (String) userJSON.get(USER_PASSWORD_STRING);
-                Boolean contains_xd = (Boolean) userJSON.get(USER_ADMIN_ACC_STRING);
-                Boolean is_employer = (Boolean) userJSON.get(USER_EMP_ACC_STRING);
-                Boolean is_student = (Boolean) userJSON.get(USER_STU_ACC_STRING);
+                String accounttype = (String) userJSON.get(USER_ACC_TYPE_STRING);
+                String firstname = (String) userJSON.get(USER_FIRST_NAME_STRING);
+                String lastname = (String) userJSON.get(USER_LAST_NAME_STRING);
+                String school = (String) userJSON.get(USER_RESUME_SCHOOL_STRING);
+                String major = (String) userJSON.get(USER_RESUME_MAJOR_STRING);
+                String minor = (String) userJSON.get(USER_RESUME_MINOR_STRING);
+                String concentration = (String) userJSON.get(USER_RESUME_CONC_STRING);
+                String gradeLevel = (String) userJSON.get(USER_RESUME_GL_STRING);
+                String gpa = (String) userJSON.get(USER_RESUME_GPA_STRING);
+                ArrayList<String> skills = (ArrayList<String>) userJSON.get(USER_RESUME_SKILLS_STRING);
+                ArrayList<String> extraCurr = (ArrayList<String>) userJSON.get(USER_RESUME_EC_STRING);
+                String status = (String) userJSON.get(USER_RESUME_STATUS_STRING);
+                ArrayList<String> prevExp = (ArrayList<String>) userJSON.get(USER_RESUME_PREVEXP_STRING);
+                ArrayList<String> explength = (ArrayList<String>) userJSON.get(USER_RESUME_EXPLENGTH_STRING);
+                ArrayList<String> jobdesc = (ArrayList<String>) userJSON.get(USER_RESUME_JOBDESC_STRING);
+                String company = (String) userJSON.get(USER_EMPLOYER_COMPANY_STRING);
 
-                users.add(new User(username,password,contains_xd,is_employer,is_student));
+
+
+                users.add(new User(username,password,accounttype,school,company,firstname,lastname,major,minor,concentration,
+                gradeLevel,gpa,skills,extraCurr,status,prevExp,explength,jobdesc));
             }
             return users;
         } catch (Exception exception) {

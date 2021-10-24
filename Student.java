@@ -7,13 +7,19 @@ public class Student extends User {
     private boolean employementStatus;
     private ArrayList<JobListing> favoriteJobs;
     private ArrayList<Review> reviewsMade;
+    private String school;
 
     // public Student() {
         
     // }
 
-    public Student(UUID id, String username, String password) {
-        super(id, username, password);
+    public Student(UUID id, String username, String password, String accounttype, String school, String company, String firstname, 
+	String lastname, String major, String minor, String concentration, String gradeLevel, String gpa, 
+	ArrayList<String> skills, ArrayList<String> extraCurr, String status, ArrayList<String> prevExp, ArrayList<String> explength, 
+	ArrayList<String> jobdesc) {
+        super(id, username,password,accounttype,school,company,firstname,lastname,major,minor,concentration,
+        gradeLevel,gpa,skills,extraCurr,status,prevExp,explength,jobdesc);
+        this.school = school;
     }
 
     public Resume getResume() {
@@ -84,4 +90,7 @@ public class Student extends User {
         return true;
     }
 
+    public String getSchool() {
+        return school;
+    }
 }

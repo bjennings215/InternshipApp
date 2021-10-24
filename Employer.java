@@ -9,12 +9,16 @@ public class Employer extends User {
    private ArrayList<Student> favoriteStudents;
    
 
-   public Employer(UUID id,String username, String password) {
-		super(id, username, password);
-	}
+   // public Employer(UUID id,String username, String password, String accounttype) {
+	// 	super(id, username, password, accounttype);
+	// }
    
-   public Employer(UUID id, String username, String password, String company) {
-	   super(id, username, password);
+   public Employer(UUID id, String username, String password, String accounttype, String school, String company, String firstname, 
+	String lastname, String major, String minor, String concentration, String gradeLevel, String gpa, 
+	ArrayList<String> skills, ArrayList<String> extraCurr, String status, ArrayList<String> prevExp, ArrayList<String> explength, 
+	ArrayList<String> jobdesc) {
+	   super(id, username,password,accounttype,school,company,firstname,lastname,major,minor,concentration,
+      gradeLevel,gpa,skills,extraCurr,status,prevExp,explength,jobdesc);
       this.company = company;
    }
    

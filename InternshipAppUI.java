@@ -19,13 +19,13 @@ public class InternshipAppUI {
     private static final String[] RESUME_CREATION_COMMANDS = { "Education", "Previous Work Experience",
             "Skills and Extracurriculars", "Finish Resume Creation" };
     private Scanner scanner;
-    private Users allUsers;
     private Student student;
     private Employer employer;
     private Administrator admin;
 
     InternshipAppUI() {
         this.scanner = new Scanner(System.in);
+        
     }
 
     public void run() {
@@ -63,15 +63,12 @@ public class InternshipAppUI {
             String username = scanner.nextLine();
             System.out.print("Password: ");
             String password = scanner.nextLine();
-            // Testing logging in correctly
-            if(username != null) {
+
+            if (verifyLoginCredentials(username, password)) {
+                System.out.println("\nWelcome User!");
                 return;
             }
-            // Code that will be used in the end
-            // if (verifyLoginCredentials(username, password)) {
-            // return;
-            // }
-            System.out.println("Either username or password is incorrect");
+            System.out.println("\nEither username or password is incorrect");
             attempts++;
         }
         System.out.println("You have used too many attempts. Please try again later.\nGoodbye");
@@ -79,6 +76,7 @@ public class InternshipAppUI {
     }
 
     public boolean verifyLoginCredentials(String username, String password) {
+        Users allUsers = Users.getInstance();
         if (allUsers.haveUser(username) && allUsers.getUser(username).getPassword().equals(password)) {
             return true;
         }
@@ -105,6 +103,7 @@ public class InternshipAppUI {
                 System.out.print("Password: ");
                 String password = scanner.nextLine();
                 //Creates and adds new student
+                /**
                 String accounttype = "Student";
                 String school = null;
                 String firstname = null;
@@ -130,7 +129,7 @@ public class InternshipAppUI {
                         System.out.println(accounttype);
                         System.out.println(school);
                     }
-                }
+                }  */
                 break;
                 //createStudentResume(username, password);
                 //break;
@@ -244,7 +243,8 @@ public class InternshipAppUI {
         } else if (userDecision == 5) {
 
         } else if (userDecision == 6) {
-
+            System.out.println("Thanks for using the internship app!\nGoodbye!");
+            System.exit(0);
         } else {
             System.out.println("\nInvalid command");
         }

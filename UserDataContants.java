@@ -8,6 +8,8 @@ public abstract class UserDataContants {
     protected static final String USER_ACC_TYPE_STRING = "Account Type";
     protected static final String USER_FIRST_NAME_STRING = "First Name";
     protected static final String USER_LAST_NAME_STRING = "Last Name";
+    protected static final String USER_EMAIL_STRING = "Email Address";
+    protected static final String USER_PHONE_NUMBER_STRING = "Phone Number";
     protected static final String USER_RESUME_MAJOR_STRING = "Major";
     protected static final String USER_RESUME_MINOR_STRING = "Minor";
     protected static final String USER_RESUME_SCHOOL_STRING = "School";

@@ -37,6 +37,8 @@ public class DataWriter extends UserDataContants {
 		userDetails.put(USER_ACC_TYPE_STRING, user.getAccounttype());
 		userDetails.put(USER_FIRST_NAME_STRING, user.getFirstName());
 		userDetails.put(USER_LAST_NAME_STRING, user.getLastName());
+		userDetails.put(USER_EMAIL_STRING, user.getEmail());
+		userDetails.put(USER_PHONE_NUMBER_STRING, user.getphoneNumber());
 		userDetails.put(USER_RESUME_SCHOOL_STRING, user.getSchool());
 		userDetails.put(USER_RESUME_MAJOR_STRING, user.getMajor());
 		userDetails.put(USER_RESUME_MINOR_STRING, user.getMinor());

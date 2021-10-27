@@ -11,6 +11,8 @@ public class User {
 	private String company;
 	private String firstname;
 	private String lastname;
+	private String email;
+	private String phoneNumber;
 	private String major;
 	private String concentration;
 	private String minor;
@@ -23,7 +25,7 @@ public class User {
 	private ArrayList<String> jobdesc;
 	
 	public User(String username, String password, String accounttype, String school, String company, String firstname, 
-	String lastname, String major, String minor, String concentration, String gradeLevel, String gpa, 
+	String lastname, String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel, String gpa, 
 	ArrayList<String> skills, ArrayList<String> extraCurr, String status, ArrayList<String> prevExp, ArrayList<String> explength, 
 	ArrayList<String> jobdesc) {
 		this.id = UUID.randomUUID();
@@ -34,6 +36,8 @@ public class User {
 		this.company = company;
 		this.firstname = firstname;
 		this.lastname = lastname;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
 		this.major = major;
 		this.minor = minor;
 		this.concentration =concentration;
@@ -48,7 +52,7 @@ public class User {
 	}
 
 	public User(UUID id, String username, String password, String accounttype, String school, String company, String firstname, 
-	String lastname, String major, String minor, String concentration, String gradeLevel, String gpa, 
+	String lastname, String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel, String gpa, 
 	ArrayList<String> skills, ArrayList<String> extraCurr, String status, ArrayList<String> prevExp, ArrayList<String> explength, 
 	ArrayList<String> jobdesc) {
 		this.id = id;
@@ -59,6 +63,8 @@ public class User {
 		this.company = company;
 		this.firstname = firstname;
 		this.lastname = lastname;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
 		this.major = major;
 		this.minor = minor;
 		this.concentration =concentration;
@@ -103,6 +109,14 @@ public class User {
 
 	public String setName() {
 		return firstname +" "+ lastname;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getphoneNumber() {
+		return phoneNumber;
 	}
 
 	public String getCompany() {

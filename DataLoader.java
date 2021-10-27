@@ -24,6 +24,8 @@ public class DataLoader extends UserDataContants {
                 String accounttype = (String) userJSON.get(USER_ACC_TYPE_STRING);
                 String firstname = (String) userJSON.get(USER_FIRST_NAME_STRING);
                 String lastname = (String) userJSON.get(USER_LAST_NAME_STRING);
+                String email = (String) userJSON.get(USER_EMAIL_STRING);
+                String phoneNumber = (String) userJSON.get(USER_PHONE_NUMBER_STRING);
                 String school = (String) userJSON.get(USER_RESUME_SCHOOL_STRING);
                 String major = (String) userJSON.get(USER_RESUME_MAJOR_STRING);
                 String minor = (String) userJSON.get(USER_RESUME_MINOR_STRING);
@@ -40,7 +42,7 @@ public class DataLoader extends UserDataContants {
 
 
 
-                users.add(new User(username,password,accounttype,school,company,firstname,lastname,major,minor,concentration,
+                users.add(new User(username,password,accounttype,school,company,firstname,lastname,email,phoneNumber,major,minor,concentration,
                 gradeLevel,gpa,skills,extraCurr,status,prevExp,explength,jobdesc));
             }
             return users;

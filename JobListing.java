@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 public class JobListing {
 
+    private String link;
     private String jobTitle;
     private String jobCompany;
     private String jobDescription;

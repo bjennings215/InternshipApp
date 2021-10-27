@@ -63,11 +63,15 @@ public class Student extends User {
         return true;
     }
 
-    public boolean addFavorite() {
+    public boolean addJobAppliedTo(JobListing jobListing) {
+        if(getJobsAppliedTo().contains(jobListing)) {
+            System.out.println("You have already applied to this job!");
+            return false;
+        }
         return true;
     }
 
-    public boolean removeFavorite() {
+    public boolean removeJobAppliedTo() {
         return true;
     }
 

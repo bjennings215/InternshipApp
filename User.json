@@ -11,7 +11,6 @@
         "School": null,
         "Major": null,
         "Username": "JohnDoe_xd",
-<<<<<<< HEAD
         "Password": "JavaIsCool",
         "first name":"John",
         "last name":"Doe",
@@ -28,16 +27,6 @@
         "Job Length":null,
         "Job Desc":null,
         "Company" : null
-=======
-        "Skills": null,
-        "GPA": null,
-        "Minor": null,
-        "Last Name": null,
-        "Extra-Cirriculars": null,
-        "Job Length": null,
-        "Account Type": "Admin",
-        "Password": "JavaIsCool"
->>>>>>> 41b99d774f1ea32ca87a2870cf9a41dd508e5900
     },
     {
         "Status": null,
@@ -51,7 +40,6 @@
         "School": null,
         "Major": null,
         "Username": "JackMiller",
-<<<<<<< HEAD
         "Password": "INeedAJob",
         "first name":"John",
         "last name":"Doe",
@@ -68,16 +56,6 @@
         "Job Length":["12 Months"],
         "Job Desc":["Computer Support/Consultant"],
         "Company" : null
-=======
-        "Skills": null,
-        "GPA": null,
-        "Minor": null,
-        "Last Name": null,
-        "Extra-Cirriculars": null,
-        "Job Length": null,
-        "Account Type": "Student",
-        "Password": "INeedAJob"
->>>>>>> 41b99d774f1ea32ca87a2870cf9a41dd508e5900
     },
     {
         "Status": null,
@@ -91,7 +69,6 @@
         "School": null,
         "Major": null,
         "Username": "JeffreySmith",
-<<<<<<< HEAD
         "Password": "needNewHires!",
         "University":null,
         "Major":null,
@@ -106,36 +83,5 @@
         "Job Length":null,
         "Job Desc":null,
         "Company" : "Volt-tech"
-=======
-        "Skills": null,
-        "GPA": null,
-        "Minor": null,
-        "Last Name": null,
-        "Extra-Cirriculars": null,
-        "Job Length": null,
-        "Account Type": "Employer",
-        "Password": "needNewHires!"
-    },
-    {
-        "Status": null,
-        "Company": null,
-        "First Name": null,
-        "Job Description": null,
-        "Concentration": null,
-        "userid": "d18d5164-5af0-4145-b256-c3390f37ba44",
-        "Grade Level": null,
-        "Previous Experience": null,
-        "School": null,
-        "Major": null,
-        "Username": "adamtrickett14",
-        "Skills": null,
-        "GPA": null,
-        "Minor": null,
-        "Last Name": null,
-        "Extra-Cirriculars": null,
-        "Job Length": null,
-        "Account Type": "Student",
-        "Password": "adam1414!"
->>>>>>> 41b99d774f1ea32ca87a2870cf9a41dd508e5900
     }
 ]

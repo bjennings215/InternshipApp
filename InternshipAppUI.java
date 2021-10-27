@@ -19,13 +19,13 @@ public class InternshipAppUI {
     private static final String[] RESUME_CREATION_COMMANDS = { "Education", "Previous Work Experience",
             "Skills and Extracurriculars", "Finish Resume Creation" };
     private Scanner scanner;
-    private Users allUsers;
     private Student student;
     private Employer employer;
     private Administrator admin;
 
     InternshipAppUI() {
         this.scanner = new Scanner(System.in);
+        
     }
 
     public void run() {
@@ -63,15 +63,12 @@ public class InternshipAppUI {
             String username = scanner.nextLine();
             System.out.print("Password: ");
             String password = scanner.nextLine();
-            // Testing logging in correctly
-            if(username != null) {
+
+            if (verifyLoginCredentials(username, password)) {
+                System.out.println("\nWelcome User!");
                 return;
             }
-            // Code that will be used in the end
-            // if (verifyLoginCredentials(username, password)) {
-            // return;
-            // }
-            System.out.println("Either username or password is incorrect");
+            System.out.println("\nEither username or password is incorrect");
             attempts++;
         }
         System.out.println("You have used too many attempts. Please try again later.\nGoodbye");
@@ -79,6 +76,7 @@ public class InternshipAppUI {
     }
 
     public boolean verifyLoginCredentials(String username, String password) {
+        Users allUsers = Users.getInstance();
         if (allUsers.haveUser(username) && allUsers.getUser(username).getPassword().equals(password)) {
             return true;
         }
@@ -105,6 +103,7 @@ public class InternshipAppUI {
                 System.out.print("Password: ");
                 String password = scanner.nextLine();
                 //Creates and adds new student
+<<<<<<< HEAD
                 // String accounttype = "Student";
                 // String school = null;
                 // String firstname = null;
@@ -134,6 +133,35 @@ public class InternshipAppUI {
                 // break;
                 // comment out below statement
                 createStudentResume(username, password);
+=======
+                /**
+                String accounttype = "Student";
+                String school = null;
+                String firstname = null;
+                String lastname = null;
+                String major = null;
+                String minor = null;
+                String concentration = null;
+                String gradeLevel = null;
+                String company = null;
+                String gpa = null;
+                ArrayList<String> skills = null;
+                ArrayList<String> extraCurr = null;
+                ArrayList<String> prevExp = null;
+                ArrayList<String> explength = null;
+                ArrayList<String> jobdesc = null;
+                String status = null;
+                users.addUser(username,password,accounttype,school,company,firstname,lastname,major,minor,concentration,
+                gradeLevel,gpa,skills,extraCurr,status,prevExp,explength,jobdesc);
+                ArrayList<User> accountInfo  = users.getUsers();
+                for(User user : accountInfo){
+                    if(user.getUsername().equals(username)){
+                        System.out.println(username);
+                        System.out.println(accounttype);
+                        System.out.println(school);
+                    }
+                }  */
+>>>>>>> 41b99d774f1ea32ca87a2870cf9a41dd508e5900
                 break;
             } else if (userDecision == 2) {
                 System.out.println("\nWelcome new Employer!");
@@ -245,7 +273,8 @@ public class InternshipAppUI {
         } else if (userDecision == 5) {
 
         } else if (userDecision == 6) {
-
+            System.out.println("Thanks for using the internship app!\nGoodbye!");
+            System.exit(0);
         } else {
             System.out.println("\nInvalid command");
         }

@@ -58,6 +58,7 @@
         "Company" : null
     },
     {
+        "Account Type": "Employer",
         "Status": null,
         "Company": null,
         "First Name": null,

@@ -6,8 +6,6 @@ import java.util.ArrayList;
 
 public class InternshipAppUI {
 
-    private static final String[] USERNAME_AND_PASSWORD_PROMPTS = { "Username", "Password" };
-
     private static final String[] LOGIN_COMMANDS = { "Log in", "Create new account" };
     private static final String[] USER_TYPE_COMMANDS = { "Student", "Employer", "Administrator" };
     private static final String[] STUDENT_MAIN_MENU_COMMANDS = { "Browse Job Listings", "See Jobs Applied To",
@@ -28,6 +26,7 @@ public class InternshipAppUI {
     private static final String[] BROWSE_JOBS_APPLIED_COMMANDS = { "Unapply to Job Listing", "See Job Listing Reviews",
             "Return" };
     private Scanner scanner;
+    private User user;
     private JobListing jobListing;
     private Student student;
     private Employer employer;
@@ -35,15 +34,21 @@ public class InternshipAppUI {
 
     InternshipAppUI() {
         this.scanner = new Scanner(System.in);
-
     }
 
     public void run() {
         initialLogInMenu();
 
-        studentMainMenuFunctionality();
-        // employerMainMenuFunctionality();
-        // adminMainMenuFunctionality();
+        if(this.user.getAccounttype().equals("Student")) {
+            studentMainMenuFunctionality();
+        } else if (this.user.getAccounttype().equals("Employer")) {
+            employerMainMenuFunctionality();
+        } else if (this.user.getAccounttype().equals("Admin")) {
+            adminMainMenuFunctionality();
+        } else {
+            System.out.println("There has been an error with your account.\nUnable to run the Internship App.");
+            System.exit(0);
+        }
     }
 
     // -------------------------------------LOG IN FUNCTIONALITY-----------------------------------------------
@@ -66,6 +71,8 @@ public class InternshipAppUI {
     }
 
     public void loggingIn() {
+        Users allUsers = Users.getInstance();
+        
         int attempts = 0;
         while (attempts < 3) {
             System.out.print("Username: ");
@@ -75,6 +82,7 @@ public class InternshipAppUI {
 
             if (verifyLoginCredentials(username, password)) {
                 System.out.println("\nWelcome User!");
+                this.user = allUsers.getUser(username);
                 return;
             }
             System.out.println("\nEither username or password is incorrect");
@@ -91,13 +99,7 @@ public class InternshipAppUI {
         }
         return false;
     }
-
-    /**
-     * public String determineAccountType() {
-     * 
-     * }
-     */
-
+  
     public void newAccountCreation() {
         Users users = Users.getInstance();
         System.out.println("\nWhat type of account do you wish to create?");
@@ -338,8 +340,7 @@ public class InternshipAppUI {
         return new ArrayList<JobListing>();
     }
 
-    // -------------------------------------------EMPLOYER MAIN MENU DISPLAY AND
-    // FUNCTIONALITY-------------------------------------------------
+    // ----------------------------------EMPLOYER MAIN MENU DISPLAY AND FUNCTIONALITY--------------------------------------------
 
     public void employerMainMenuFunctionality() {
         System.out.println("\nMain Menu");
@@ -348,9 +349,9 @@ public class InternshipAppUI {
         if (userDecision == 1) {
             System.out.println("Option 1");
         } else if (userDecision == 2) {
-
+            postNewJobListing();
         } else if (userDecision == 3) {
-
+            seeAllPostedJobListings();
         } else if (userDecision == 4) {
             System.out.println("Thanks for using the internship app!\nGoodbye!");
             System.exit(0);
@@ -359,8 +360,15 @@ public class InternshipAppUI {
         }
     }
 
-    // ----------------------------------------ADMINISTRATOR MAIN MENU DISPLAY AND
-    // FUNCTIONALITY-----------------------------------------------
+    public void postNewJobListing() {
+
+    }
+
+    public void seeAllPostedJobListings() {
+
+    }
+
+    // ---------------------------------ADMINISTRATOR MAIN MENU DISPLAY AND FUNCTIONALITY-------------------------------------------
 
     public void adminMainMenuFunctionality() {
         System.out.println("\nMain Menu");
@@ -418,8 +426,7 @@ public class InternshipAppUI {
 
     }
 
-    // -----------------------------------------------------GENERAL
-    // FUNCTIONALITY-------------------------------------------------------
+    // -----------------------------------------------GENERAL FUNCTIONALITY---------------------------------------------------
 
     public void printPossibleCommands(String[] availableCommands) {
         for (int i = 0; i < availableCommands.length; i++) {

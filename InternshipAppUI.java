@@ -114,40 +114,40 @@ public class InternshipAppUI {
                 System.out.print("Password: ");
                 String password = scanner.nextLine();
                 //Creates and adds new student
-                String accounttype = "Student";
-                String school = null;
-                String firstname = null;
-                String lastname = null;
-                String major = null;
-                String minor = null;
-                String email = "btj2@email.sc.edu";
-                String phoneNumber = "999-9999";
-                String concentration = null;
-                String gradeLevel = null;
-                String company = null;
-                String gpa = null;
-                ArrayList<String> skills = null;
-                ArrayList<String> extraCurr = null;
-                String jobOccupation = null;
-                String jobtype = null;
-                String prevExp = null;
-                String explength = null;
-                ArrayList<String> jobdesc = new ArrayList<String>();
-                jobdesc.add("Fix computers");
-                jobdesc.add("Sell computer");
-                String status = null;
-                users.addUser(username,password,accounttype,school,company,firstname,lastname,email,phoneNumber,major,minor,concentration,
-                gradeLevel,gpa,skills,extraCurr,status,jobOccupation,jobtype,prevExp,explength,jobdesc);
-                ArrayList<User> accountInfo  = users.getUsers();
-                for(User user : accountInfo){
-                    if(user.getUsername().equals(username)){
-                        System.out.println(username);
-                        System.out.println(accounttype);
-                        System.out.println(school);
-                    }
-                }  
-                break;
-                // createStudentResume(username, password);
+                // String accounttype = "Student";
+                // String school = null;
+                // String firstname = null;
+                // String lastname = null;
+                // String major = null;
+                // String minor = null;
+                // String email = "btj2@email.sc.edu";
+                // String phoneNumber = "999-9999";
+                // String concentration = null;
+                // String gradeLevel = null;
+                // String company = null;
+                // String gpa = null;
+                // ArrayList<String> skills = null;
+                // ArrayList<String> extraCurr = null;
+                // String jobOccupation = null;
+                // String jobtype = null;
+                // String prevExp = null;
+                // String explength = null;
+                // ArrayList<String> jobdesc = new ArrayList<String>();
+                // jobdesc.add("Fix computers");
+                // jobdesc.add("Sell computer");
+                // String status = null;
+                // users.addUser(username,password,accounttype,school,company,firstname,lastname,email,phoneNumber,major,minor,concentration,
+                // gradeLevel,gpa,skills,extraCurr,status,jobOccupation,jobtype,prevExp,explength,jobdesc);
+                // ArrayList<User> accountInfo  = users.getUsers();
+                // for(User user : accountInfo){
+                //     if(user.getUsername().equals(username)){
+                //         System.out.println(username);
+                //         System.out.println(accounttype);
+                //         System.out.println(school);
+                //     }
+                // }  
+                // break;
+                 createStudentResume(username, password);
                 // break;
             } else if (userDecision == 2) {
                 System.out.println("\nWelcome new Employer!");

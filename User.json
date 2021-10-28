@@ -13,7 +13,7 @@
         ],
         "First Name": null,
         "Concentration": null,
-        "userid": "fb2ab110-2947-4237-bca8-b3c1d675a555",
+        "userid": "447c60c3-8a05-480b-b0f5-7e8b6acbd047",
         "Grade Level": null,
         "School": null,
         "Major": null,
@@ -42,7 +42,7 @@
         ],
         "First Name": "John",
         "Concentration": "Computer Science",
-        "userid": "a43fee33-89af-45e2-957c-bd7ba9102763",
+        "userid": "8e2e65d7-0d86-49f5-9b70-23c35a79e09f",
         "Grade Level": "Junior",
         "School": "University of South Carolina",
         "Major": "Computer Information Systems",
@@ -78,7 +78,7 @@
         ],
         "First Name": null,
         "Concentration": null,
-        "userid": "b709d47a-e6c3-4f74-9379-7664d22db0a1",
+        "userid": "e3aaf431-96c3-43ac-b824-3977c99bb36b",
         "Grade Level": null,
         "School": null,
         "Major": null,
@@ -102,15 +102,12 @@
                 "Job Type": null,
                 "Previous Experiences": null,
                 "Job Length": null,
-                "Job Desc": [
-                    "Fix computers",
-                    "Sell computer"
-                ]
+                "Job Desc": null
             }
         ],
         "First Name": null,
         "Concentration": null,
-        "userid": "506680c3-e71c-48c1-8c13-b1850d07cd34",
+        "userid": "468e12ca-c8c7-4e69-b28a-a6f115c71b12",
         "Grade Level": null,
         "School": null,
         "Major": null,
@@ -134,15 +131,12 @@
                 "Job Type": null,
                 "Previous Experiences": null,
                 "Job Length": null,
-                "Job Desc": [
-                    "Fix computers",
-                    "Sell computer"
-                ]
+                "Job Desc": null
             }
         ],
         "First Name": null,
         "Concentration": null,
-        "userid": "5070de7d-bc5f-4f73-bfe8-9c249fb03724",
+        "userid": "0433fc34-2a9a-44de-9bd9-963f3eb22be6",
         "Grade Level": null,
         "School": null,
         "Major": null,
@@ -166,15 +160,12 @@
                 "Job Type": null,
                 "Previous Experiences": null,
                 "Job Length": null,
-                "Job Desc": [
-                    "Fix computers",
-                    "Sell computer"
-                ]
+                "Job Desc": null
             }
         ],
         "First Name": null,
         "Concentration": null,
-        "userid": "9460f201-2066-4458-998f-369948fc742a",
+        "userid": "ff328bff-1563-474b-9125-739e699db933",
         "Grade Level": null,
         "School": null,
         "Major": null,
@@ -187,6 +178,38 @@
         "Extra-Cirriculars": null,
         "Account Type": "Student",
         "Password": "celtics rule",
+        "Email Address": "btj2@email.sc.edu"
+    },
+    {
+        "Status": null,
+        "Company": null,
+        "Experiences": [
+            {
+                "Job Occupation": null,
+                "Job Type": null,
+                "Previous Experiences": null,
+                "Job Length": null,
+                "Job Desc": [
+                    "Fix computers",
+                    "Sell computer"
+                ]
+            }
+        ],
+        "First Name": null,
+        "Concentration": null,
+        "userid": "bed4f251-29b4-4b0d-9bfd-91a1e81abcd0",
+        "Grade Level": null,
+        "School": null,
+        "Major": null,
+        "Username": "brandon",
+        "Skills": null,
+        "GPA": null,
+        "Minor": null,
+        "Last Name": null,
+        "Phone Number": "999-9999",
+        "Extra-Cirriculars": null,
+        "Account Type": "Student",
+        "Password": "tree",
         "Email Address": "btj2@email.sc.edu"
     }
 ]

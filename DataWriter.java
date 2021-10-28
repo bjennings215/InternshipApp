@@ -50,15 +50,15 @@ public class DataWriter extends UserDataContants {
 		userDetails.put(USER_RESUME_SKILLS_STRING, user.getSkills());
 		userDetails.put(USER_RESUME_EC_STRING, user.getExtracurr());
 		userDetails.put(USER_RESUME_STATUS_STRING, user.getStatus());
-		//JSONArray experiences = new JSONArray();
+		JSONArray experiences = new JSONArray();
 		Map m = new LinkedHashMap(5);
-		userDetails.put(USER_RESUME_JOB_OCCUPATION_STRING, user.getjobOccupation());
-		userDetails.put(USER_RESUME_JOB_TYPE_STRING, user.getjobType());
-		userDetails.put(USER_RESUME_PREVEXP_STRING, user.getPrevExp());
-		userDetails.put(USER_RESUME_EXPLENGTH_STRING, user.getExpLength());
-		userDetails.put(USER_RESUME_JOBDESC_STRING, user.getJobDesc());
-		//experiences.add(m);
-		//userDetails.put(USER_RESUME_EXP_STRING,experiences);
+		m.put(USER_RESUME_JOB_OCCUPATION_STRING, user.getjobOccupation());
+		m.put(USER_RESUME_JOB_TYPE_STRING, user.getjobType());
+		m.put(USER_RESUME_PREVEXP_STRING, user.getPrevExp());
+		m.put(USER_RESUME_EXPLENGTH_STRING, user.getExpLength());
+		m.put(USER_RESUME_JOBDESC_STRING, user.getJobDesc());
+		experiences.add(m);
+		userDetails.put(USER_RESUME_EXP_STRING,experiences);
 		userDetails.put(USER_EMPLOYER_COMPANY_STRING, user.getCompany());
 		
         return userDetails;

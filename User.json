@@ -1,5 +1,6 @@
 [
     {
+        "Account Type": "Admin",
         "Status": null,
         "Company": null,
         "First Name": null,
@@ -29,6 +30,7 @@
         "Company" : null
     },
     {
+        "Account Type": "Student",
         "Status": null,
         "Company": null,
         "First Name": null,

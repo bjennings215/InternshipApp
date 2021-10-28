@@ -19,9 +19,12 @@ public abstract class UserDataContants {
     protected static final String USER_RESUME_SKILLS_STRING = "Skills";
     protected static final String USER_RESUME_EC_STRING = "Extra-Cirriculars";
     protected static final String USER_RESUME_STATUS_STRING = "Status";
-    protected static final String USER_RESUME_PREVEXP_STRING = "Previous Experience";
+    protected static final String USER_RESUME_EXP_STRING = "Experiences";
+    protected static final String USER_RESUME_JOB_OCCUPATION_STRING = "Job Occupation";
+    protected static final String USER_RESUME_JOB_TYPE_STRING = "Job Type";
+    protected static final String USER_RESUME_PREVEXP_STRING = "Previous Experiences";
     protected static final String USER_RESUME_EXPLENGTH_STRING = "Job Length";
-    protected static final String USER_RESUME_JOBDESC_STRING = "Job Description";
+    protected static final String USER_RESUME_JOBDESC_STRING = "Job Desc";
     protected static final String USER_EMPLOYER_COMPANY_STRING = "Company";
 
 

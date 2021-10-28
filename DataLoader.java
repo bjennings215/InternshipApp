@@ -1,5 +1,8 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -32,18 +35,22 @@ public class DataLoader extends UserDataContants {
                 String concentration = (String) userJSON.get(USER_RESUME_CONC_STRING);
                 String gradeLevel = (String) userJSON.get(USER_RESUME_GL_STRING);
                 String gpa = (String) userJSON.get(USER_RESUME_GPA_STRING);
-                ArrayList<String> skills = (ArrayList<String>) userJSON.get(USER_RESUME_SKILLS_STRING);
-                ArrayList<String> extraCurr = (ArrayList<String>) userJSON.get(USER_RESUME_EC_STRING);
+                JSONArray skills = (JSONArray) userJSON.get(USER_RESUME_SKILLS_STRING);
+                JSONArray extraCurr = (JSONArray) userJSON.get(USER_RESUME_EC_STRING);
                 String status = (String) userJSON.get(USER_RESUME_STATUS_STRING);
-                ArrayList<String> prevExp = (ArrayList<String>) userJSON.get(USER_RESUME_PREVEXP_STRING);
-                ArrayList<String> explength = (ArrayList<String>) userJSON.get(USER_RESUME_EXPLENGTH_STRING);
-                ArrayList<String> jobdesc = (ArrayList<String>) userJSON.get(USER_RESUME_JOBDESC_STRING);
+                //JSONArray experiences = (JSONArray) userJSON.get(USER_RESUME_EXP_STRING);
+                    String jobOccupation = (String) userJSON.get(USER_RESUME_JOB_OCCUPATION_STRING);
+                    String jobtype = (String) userJSON.get(USER_RESUME_JOB_TYPE_STRING);
+                    String prevExp = (String) userJSON.get(USER_RESUME_PREVEXP_STRING);
+                    String explength = (String) userJSON.get(USER_RESUME_EXPLENGTH_STRING);
+                    JSONArray jobdesc = (JSONArray) userJSON.get(USER_RESUME_JOBDESC_STRING);
+                
                 String company = (String) userJSON.get(USER_EMPLOYER_COMPANY_STRING);
 
 
 
                 users.add(new User(username,password,accounttype,school,company,firstname,lastname,email,phoneNumber,major,minor,concentration,
-                gradeLevel,gpa,skills,extraCurr,status,prevExp,explength,jobdesc));
+                gradeLevel,gpa,skills,extraCurr,status,jobOccupation,jobtype,prevExp,explength,jobdesc));
             }
             return users;
         } catch (Exception exception) {

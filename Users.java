@@ -47,17 +47,17 @@ public class Users {
     //adds user to Arraylist and writes to JSON file(database)
     public void addUser(String username, String password, String accounttype, String school, String company, String firstname, 
 	String lastname, String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel, String gpa, 
-	ArrayList<String> skills, ArrayList<String> extraCurr, String status, ArrayList<String> prevExp, ArrayList<String> explength, 
+	ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp, String explength, 
 	ArrayList<String> jobdesc) {
         userlist.add(new User(username,password,accounttype,school,company,firstname,lastname,email,phoneNumber,major,minor,concentration,
-        gradeLevel,gpa,skills,extraCurr,status,prevExp,explength,jobdesc));
+        gradeLevel,gpa,skills,extraCurr,status,jobOccupation,jobtype,prevExp,explength,jobdesc));
         DataWriter.saveUsers();
     }
 
     //removes user from ArrayList and removes from JSON file(database)
     public void removeUser(String username, String password, String accounttype, String school, String company, String firstname, 
 	String lastname, String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel, String gpa, 
-	ArrayList<String> skills, ArrayList<String> extraCurr, String status, ArrayList<String> prevExp, ArrayList<String> explength, 
+	ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp, String explength, 
 	ArrayList<String> jobdesc) {
         for(int i = 0; i < userlist.size(); i++){
             if(userlist.get(i).getUsername().equals(username)){
@@ -70,12 +70,12 @@ public class Users {
 
     public void editUser(String username, String password, String accounttype, String school, String company, String firstname, 
 	String lastname, String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel, String gpa, 
-	ArrayList<String> skills, ArrayList<String> extraCurr, String status, ArrayList<String> prevExp, ArrayList<String> explength, 
+	ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp, String explength, 
 	ArrayList<String> jobdesc) {
         for(int i = 0; i < userlist.size(); i++){
             if(userlist.get(i).getUsername().equals(username)){
                 userlist.set(i, new User(username,password,accounttype,school,company,firstname,lastname,email,phoneNumber,major,minor,concentration,
-                gradeLevel,gpa,skills,extraCurr,status,prevExp,explength,jobdesc));
+                gradeLevel,gpa,skills,extraCurr,status,jobOccupation,jobtype,prevExp,explength,jobdesc));
                 DataWriter.saveUsers();
             }
         }

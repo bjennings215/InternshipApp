@@ -4,5 +4,10 @@ public class Database {
     
     public static ArrayList<User> getUsers() {
         return new ArrayList<User>();
+
+    }
+
+    public static ArrayList<JobListing> getJobListings() {
+        return new ArrayList<JobListing>();
     }
 }

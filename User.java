@@ -20,13 +20,15 @@ public class User {
 	private String gpa;
 	private ArrayList<String> extraCurr;
 	private String status;
-	private ArrayList<String> prevExp;
-	private ArrayList<String> explength;
+	private String jobOccupation;
+	private String jobtype;
+	private String prevExp;
+	private String explength;
 	private ArrayList<String> jobdesc;
 	
 	public User(String username, String password, String accounttype, String school, String company, String firstname, 
 	String lastname, String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel, String gpa, 
-	ArrayList<String> skills, ArrayList<String> extraCurr, String status, ArrayList<String> prevExp, ArrayList<String> explength, 
+	ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp, String explength, 
 	ArrayList<String> jobdesc) {
 		this.id = UUID.randomUUID();
 		this.username = username;
@@ -46,6 +48,8 @@ public class User {
 		this.skills = skills;
 		this.extraCurr = extraCurr;
 		this.status = status;
+		this.jobOccupation = jobOccupation;
+		this.jobtype = jobtype;
 		this.prevExp = prevExp;
 		this.explength = explength;
 		this.jobdesc = jobdesc;
@@ -53,7 +57,7 @@ public class User {
 
 	public User(UUID id, String username, String password, String accounttype, String school, String company, String firstname, 
 	String lastname, String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel, String gpa, 
-	ArrayList<String> skills, ArrayList<String> extraCurr, String status, ArrayList<String> prevExp, ArrayList<String> explength, 
+	ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp, String explength, 
 	ArrayList<String> jobdesc) {
 		this.id = id;
 		this.username = username;
@@ -73,6 +77,8 @@ public class User {
 		this.skills = skills;
 		this.extraCurr = extraCurr;
 		this.status = status;
+		this.jobOccupation = jobOccupation;
+		this.jobtype = jobtype;
 		this.prevExp = prevExp;
 		this.explength = explength;
 		this.jobdesc = jobdesc;
@@ -155,16 +161,24 @@ public class User {
 		return status;
 	}
 
-	public ArrayList<String> getPrevExp() {
+	public String getPrevExp() {
 		return prevExp;
 	}
 
-	public ArrayList<String> getExpLength() {
+	public String getExpLength() {
 		return explength;
 	}
 
 	public ArrayList<String> getJobDesc() {
 		return jobdesc;
+	}
+
+	public String getjobOccupation() {
+		return jobOccupation;
+	}
+
+	public String getjobType() {
+		return jobtype;
 	}
 	// public String getAccountType2() {
 	// 	return null;

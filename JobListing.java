@@ -1,8 +1,10 @@
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class JobListing {
 
+    private UUID jobid;
     private String link;
     private String jobTitle;
     private String jobCompany;
@@ -18,6 +20,10 @@ public class JobListing {
 
     public JobListing() {
 
+    }
+
+    public UUID getJobID() {
+        return this.jobid;
     }
 
     public String getJobTitle() {
@@ -48,9 +54,9 @@ public class JobListing {
         return this.jobWagePerHour;
     }
 
-    public double getJobNumberRating() {
-        return this.jobNumberRating;
-    }
+    // public double getJobNumberRating() {
+    //     return this.jobNumberRating;
+    // }
 
     public ArrayList<Review> getJobReviews() {
         return this.jobReviews;
@@ -66,6 +72,10 @@ public class JobListing {
 
     public String shortToString() {
         return this.jobTitle + "\n" + this.jobCompany + "\n" + this.jobDescription;
+    }
+
+    public String getLink() {
+        return this.link;
     }
 
     public String longToSTring() {

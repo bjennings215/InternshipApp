@@ -1,6 +1,6 @@
 [
     {
-        "id": "269f8e9a-672e-4057-bd9e-0127c50628d2",
+        "jobid": "269f8e9a-672e-4057-bd9e-0127c50628d2",
         "Employer":"Techvolt",
         "Job Title":"Computer Technician",
         "Job Description": "Repair computers",
@@ -13,7 +13,7 @@
         "Expiration Date":""
       },
       {
-        "id": "28d686c0-5e5c-4181-91af-bb5deef6d935",
+        "jobid": "28d686c0-5e5c-4181-91af-bb5deef6d935",
         "Employer":"Sneaks",
         "Job Title":"Computer Repairman",
         "Job Description": "Manage and repair all computers onsite",

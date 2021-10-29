@@ -12,6 +12,6 @@ public class Review {
         return this.writtenReview;
     }
     public String toString(){
-        return "";
+        return "Rating: "+numberRating+ "Review: "+writtenReview;
     }
 }

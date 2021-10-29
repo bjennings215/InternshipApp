@@ -59,8 +59,4 @@ public class DataLoader extends UserDataContants {
         return null;
     }
 
-    public static ArrayList<JobListing> InputJobListing() {
-        ArrayList<JobListing> jobListings = new ArrayList<JobListing>();
-        return jobListings;
-    }
 }

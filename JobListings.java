@@ -6,7 +6,7 @@ public class JobListings {
         private static ArrayList<JobListing> joblist= new ArrayList<JobListing>();
     
         private JobListings() {
-            joblist = DataLoader.InputJobListing();
+            joblist = JobListingDataLoader.InputJobListing();
         }
     
         //Singleton 

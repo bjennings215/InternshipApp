@@ -5,7 +5,7 @@ import java.util.UUID;
 
 public class Employer extends User {
    String company;
-   private ArrayList<JobListing> jobListing;
+   private ArrayList<JobListing> jobListings;
    private ArrayList<Student> favoriteStudents;
    
 
@@ -23,15 +23,15 @@ public class Employer extends User {
    }
    
    public String getCompany() {
-	   return "";
+	   return this.company;
    }
    
-   public ArrayList<JobListing> getJobListing() {
-	   return jobListing;
+   public ArrayList<JobListing> getJobListings() {
+	   return this.jobListings;
    }
    
-   public ArrayList<Student> getFavoriteStudent() {
-	   return null;
+   public ArrayList<Student> getFavoriteStudents() {
+	   return this.favoriteStudents;
    }
    
    public boolean createJobListing() {

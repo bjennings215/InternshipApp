@@ -26,6 +26,12 @@ public class User {
 	private String explength;
 	private ArrayList<String> jobdesc;
 	
+	public User(String username, String password, String accountType) {
+		this.username = username;
+		this.password = password;
+		this.accounttype = accountType;
+	}
+
 	public User(String username, String password, String accounttype, String school, String company, String firstname, 
 	String lastname, String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel, String gpa, 
 	ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp, String explength, 
@@ -83,6 +89,26 @@ public class User {
 		this.explength = explength;
 		this.jobdesc = jobdesc;
 
+	}
+
+	public void setUUID(UUID id) {
+		this.id = id;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setAccountType(String accountType) {
+		this.accounttype = accountType;
+	}
+
+	public void setSchool(String school) {
+		this.school = school;
 	}
 
 	public UUID getUuid() {

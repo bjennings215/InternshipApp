@@ -13,6 +13,7 @@ public class JobListing {
     private double jobWagePerHour;
     private double jobNumberRating;
     private ArrayList<Review> jobReviews;
+    private ArrayList<Student> studentsApplied;
     private Date jobExpDate;
 
     public JobListing() {
@@ -53,6 +54,10 @@ public class JobListing {
 
     public ArrayList<Review> getJobReviews() {
         return this.jobReviews;
+    }
+
+    public ArrayList<Student> getStudentsApplied() {
+        return this.studentsApplied;
     }
 
     public Date getJobExpDate() {

@@ -43,7 +43,7 @@ public class DataLoader extends UserDataContants {
                     String jobtype = (String) userJSON.get(USER_RESUME_JOB_TYPE_STRING);
                     String prevExp = (String) userJSON.get(USER_RESUME_PREVEXP_STRING);
                     String explength = (String) userJSON.get(USER_RESUME_EXPLENGTH_STRING);
-                    JSONArray jobdesc = (JSONArray) userJSON.get(USER_RESUME_JOBDESC_STRING);
+                    String jobdesc = (String) userJSON.get(USER_RESUME_JOBDESC_STRING);
                 
                 String company = (String) userJSON.get(USER_EMPLOYER_COMPANY_STRING);
 

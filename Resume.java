@@ -5,18 +5,27 @@ public class Resume {
     private String firstName;
     private String lastName;
     private String gradeLevel;
-    private double gradePointAverage;
+    private String gradePointAverage;
     private ArrayList<JobExperience> jobExperiences;
-    private String[] skillsAndExtracurriculars;
+    private ArrayList<String> skills;
+    private ArrayList<String> extracurriculars;
     private Education education;
 
     public Resume() {
 
     }
 
-    public Resume(String firstName, String lastName, double gradePointAverage, String gradeLevel,
-            ArrayList<JobExperience> jobExperiences, String[] skillsAndExtracurriculars, Education education) {
+    public Resume(String firstName, String lastName, String gradePointAverage, String gradeLevel,
+            ArrayList<JobExperience> jobExperiences, ArrayList<String> skills, ArrayList<String> extracurriculars, Education education) {
 
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.gradePointAverage = gradePointAverage;
+                this.gradeLevel = gradeLevel;
+                this.jobExperiences = jobExperiences;
+                this.skills = skills;
+                this.extracurriculars = extracurriculars;
+                this.education = education;
     }
 
     public String getFirstName() {
@@ -27,7 +36,7 @@ public class Resume {
         return this.lastName;
     }
 
-    public double getGradePointAverage() {
+    public String getGradePointAverage() {
         return this.gradePointAverage;
     }
 
@@ -43,20 +52,22 @@ public class Resume {
         return this.jobExperiences;
     }
 
-    public String[] getSkillsAndExtracurriculars() {
-        return this.skillsAndExtracurriculars;
+    public ArrayList<String> getSkills() {
+        return this.skills;
     }
 
-    public void addNewEducation(Education education) {
-
+    public ArrayList<String> getExtracurriculars() {
+        return this.extracurriculars;
     }
 
     public void addNewJob(JobExperience jobExperience) {
-
+        this.getJobExperiences().add(jobExperience);
     }
 
-    public void addNewSkillAndExtracurricular(String skill) {
-
+    public void addNewSkills(ArrayList<String> skills) {
+        for(String skill:skills) {
+            
+        }
     }
 
     public boolean removeEducation(Education education) {

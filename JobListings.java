@@ -44,9 +44,11 @@ public class JobListings {
     
     
         //adds user to Arraylist and writes to JSON file(database)
-        public void addJob() {
-            joblist.add(new JobListing());
-            DataWriter.saveUsers();
+        public void addJob(String link, String jobTitle, String jobCompany, String jobDescription, String jobCityLocation, 
+        String jobStateLocation, String numofMonths, String jobWagePerHour,ArrayList<Review> jobReviews, ArrayList<Student> studentsApplied, String jobExpDate) {
+            joblist.add(new JobListing(link, jobTitle,  jobCompany,  jobDescription,jobCityLocation, 
+            jobStateLocation, numofMonths, jobWagePerHour, jobReviews,  studentsApplied,  jobExpDate));
+            JobListingDataWriter.saveJobListng();
         }
     
         //removes user from ArrayList and removes from JSON file(database)
@@ -54,17 +56,19 @@ public class JobListings {
             for(int i = 0; i < joblist.size(); i++){
                 if(joblist.get(i).getJobTitle().equals(jobTitle)){
                     joblist.remove(i);
-                    DataWriter.saveUsers();
+                    JobListingDataWriter.saveJobListng();
                 }
             }
         }
     
     
-        public void editJob(String jobTitle) {
+        public void editJob(String link, String jobTitle, String jobCompany, String jobDescription, String jobCityLocation, 
+        String jobStateLocation, String numofMonths, String jobWagePerHour,ArrayList<Review> jobReviews, ArrayList<Student> studentsApplied, String jobExpDate) {
             for(int i = 0; i < joblist.size(); i++){
                 if(joblist.get(i).getJobTitle().equals(jobTitle)){
-                    joblist.set(i, new JobListing());
-                    DataWriter.saveUsers();
+                    joblist.set(i, new JobListing(link, jobTitle,  jobCompany,  jobDescription,jobCityLocation, 
+                    jobStateLocation, numofMonths, jobWagePerHour, jobReviews,  studentsApplied,  jobExpDate));
+                    JobListingDataWriter.saveJobListng();
                 }
             }
         }

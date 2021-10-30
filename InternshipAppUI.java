@@ -116,21 +116,20 @@ public class InternshipAppUI {
                 System.out.print("Password: ");
                 String password = scanner.nextLine();
                 // Creates and adds new student
-                /**
-                 * String accounttype = "Student"; String school = null; String firstname =
-                 * null; String lastname = null; String major = null; String minor = null;
-                 * String concentration = null; String gradeLevel = null; String company = null;
-                 * String gpa = null; ArrayList<String> skills = null; ArrayList<String>
-                 * extraCurr = null; ArrayList<String> prevExp = null; ArrayList<String>
-                 * explength = null; ArrayList<String> jobdesc = null; String status = null;
-                 * users.addUser(username,password,accounttype,school,company,firstname,lastname,major,minor,concentration,
-                 * gradeLevel,gpa,skills,extraCurr,status,prevExp,explength,jobdesc);
-                 * ArrayList<User> accountInfo = users.getUsers(); for(User user : accountInfo){
-                 * if(user.getUsername().equals(username)){ System.out.println(username);
-                 * System.out.println(accounttype); System.out.println(school); } }
-                 */
-                break;
-                // createStudentResume(username, password);
+                
+                //   String accounttype = "Student"; String school = null; String firstname = null; String lastname = null; String major = null; String minor = null;
+                //   String concentration = null; String gradeLevel = null; String company = null;
+                //   String gpa = null; ArrayList<String> skills = null; ArrayList<String>
+                //   extraCurr = null; String prevExp = null; String
+                //   explength = null; ArrayList<String> jobdesc = null; String status = null; String email = null; String phoneNumber = null; String jobOccupation = null; String jobtype = null;
+                //   users.editUser(username,password,accounttype,school,company,firstname,lastname,email,phoneNumber,major,minor,concentration,
+                //   gradeLevel,gpa,skills,extraCurr,status,jobOccupation,jobtype,prevExp,explength,jobdesc);
+                //   ArrayList<User> accountInfo = users.getUsers(); for(User user : accountInfo){
+                //   if(user.getUsername().equals(username)){ System.out.println(username);
+                //   System.out.println(accounttype); System.out.println(school); } }
+                
+                
+                 createStudentResume(username, password);
                 // break;
             } else if (userDecision == 2) {
                 System.out.println("\nWelcome new Employer!");
@@ -140,7 +139,7 @@ public class InternshipAppUI {
                 System.out.print("Password: ");
                 String password = scanner.nextLine();
                 // Creates and adds new employer
-                break;
+                employerMainMenuFunctionality();
             } else if (userDecision == 3) {
                 System.out.println("\nWelcome new Administrator!");
                 System.out.println("Enter new username and password below");
@@ -396,6 +395,7 @@ public class InternshipAppUI {
     }
 
     public void postNewJobListing() {
+        JobListings jobListings = JobListings.getInstance();
         System.out.print("Job Title: ");
         String jobTitle = scanner.nextLine();
         System.out.print("Job Description: ");
@@ -403,17 +403,27 @@ public class InternshipAppUI {
         System.out.print("Location (City, State): ");
         String location = scanner.nextLine();
         System.out.print("Wage Per Hour: ");
-        double wagePerHour = Double.valueOf(scanner.nextLine());
+        String jobWagePerHour = scanner.nextLine();
         System.out.print("Number of Months: ");
-        int numOfMonths = Integer.valueOf(scanner.nextLine());
+        String numofMonths = scanner.nextLine();
         System.out.print("Employer Website Link: ");
         String employerLink = scanner.nextLine();
         System.out.print("Date Posted: ");
         String datePosted = scanner.nextLine();
-        this.employer.getJobListings().add(new JobListing());
+        //this.employer.getJobListings().add(new JobListing());
         System.out.println("\nNew Job Listing Created!");
         // Add job listing to the array of job listings and to the employer's job
         // listings
+        String link ="";
+        String jobCompany ="";
+        String jobCityLocation= "";
+        String jobStateLocation= "";
+        ArrayList<Review> jobReviews = null;
+        ArrayList<Student> studentsApplied = null;
+        String jobExpDate = "";
+
+       jobListings.addJob(link, jobTitle, jobCompany, jobDescription, jobCityLocation, jobStateLocation, numofMonths, jobWagePerHour, 
+       jobReviews, studentsApplied, jobExpDate);
     }
 
     public void seeAllPostedJobListings() {

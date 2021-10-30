@@ -1,6 +1,7 @@
-import java.sql.Date;
+
 import java.util.ArrayList;
 import java.util.UUID;
+
 
 public class JobListing {
 
@@ -11,47 +12,73 @@ public class JobListing {
     private String jobDescription;
     private String jobCityLocation;
     private String jobStateLocation;
-    private int numofMonths;
-    private double jobWagePerHour;
-    private double jobNumberRating;
+    private String numofMonths;
+    private String jobWagePerHour;
+    //private  jobNumberRating;
     private ArrayList<Review> jobReviews;
     private ArrayList<Student> studentsApplied;
-    private Date jobExpDate;
+    private String jobExpDate;
 
-    public JobListing() {
+    public JobListing(String link, String jobTitle, String jobCompany, String jobDescription, String jobCityLocation, 
+    String jobStateLocation, String numofMonths, String jobWagePerHour,ArrayList<Review> jobReviews, ArrayList<Student> studentsApplied, String jobExpDate) {
+        this.jobid = UUID.randomUUID();
+        this.link = link;
+        this.jobTitle = jobTitle;
+        this.jobCompany = jobCompany;
+        this.jobCityLocation = jobCityLocation;
+        this.jobStateLocation = jobStateLocation;
+        this.numofMonths = numofMonths;
+        this.jobWagePerHour = jobWagePerHour;
+        this.jobReviews = jobReviews;
+        this.studentsApplied = studentsApplied;
+        this.jobExpDate = jobExpDate;
+    }
 
+    public JobListing(UUID jobid,String link, String jobTitle, String jobCompany, String jobDescription, String jobCityLocation, 
+    String jobStateLocation, String numofMonths, String jobWagePerHour,ArrayList<Review> jobReviews, ArrayList<Student> studentsApplied, String jobExpDate){
+        this.jobid = jobid;
+        this.link = link;
+        this.jobTitle = jobTitle;
+        this.jobCompany = jobCompany;
+        this.jobCityLocation = jobCityLocation;
+        this.jobStateLocation = jobStateLocation;
+        this.numofMonths = numofMonths;
+        this.jobWagePerHour = jobWagePerHour;
+        this.jobReviews = jobReviews;
+        this.studentsApplied = studentsApplied;
+        this.jobExpDate = jobExpDate;
     }
 
     public UUID getJobID() {
-        return this.jobid;
+        return jobid;
     }
 
     public String getJobTitle() {
-        return this.jobTitle;
+        return jobTitle;
     }
 
     public String getJobCompany() {
-        return this.jobCompany;
+        return jobCompany;
     }
 
     public String getJobDescription() {
-        return this.jobDescription;
+        return jobDescription;
     }
 
     public String getJobCityLocation() {
-        return this.jobCityLocation;
+        return jobCityLocation;
     }
 
     public String getJobStateLocation() {
-        return this.jobStateLocation;
+        return jobStateLocation;
     }
 
-    public int getNumOfMonths() {
-        return this.numofMonths;
+    public String getNumOfMonths() {
+        return numofMonths;
     }
 
-    public double getWagePerHour() {
-        return this.jobWagePerHour;
+    public String getWagePerHour() {
+        return jobWagePerHour;
     }
 
     // public double getJobNumberRating() {
@@ -59,15 +86,15 @@ public class JobListing {
     // }
 
     public ArrayList<Review> getJobReviews() {
-        return this.jobReviews;
+        return jobReviews;
     }
 
     public ArrayList<Student> getStudentsApplied() {
-        return this.studentsApplied;
+        return studentsApplied;
     }
 
-    public Date getJobExpDate() {
-        return this.jobExpDate;
+    public String getJobExpDate() {
+        return jobExpDate;
     }
 
     public String shortToString() {
@@ -79,7 +106,7 @@ public class JobListing {
     }
 
     public String longToSTring() {
-        String returnString = this.jobTitle + "\n" + this.jobCompany + "\n" + this.jobNumberRating + "\n"
+        String returnString = this.jobTitle + "\n" + this.jobCompany + "\n"
                 + this.jobCityLocation + ", " + this.jobStateLocation + "\n" + this.jobDescription + "\nReviews made of previous experiences in this role\n";
         for (Review review : this.jobReviews) {
             returnString.concat(review.toString()+"\n");

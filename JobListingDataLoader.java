@@ -23,16 +23,18 @@ public class JobListingDataLoader extends JobListingDataConstants{
                 String link = (String) jobListingJSON.get(JOB_LINK_STRING);
                 String jobCompany = (String) jobListingJSON.get(JOB_COMPANY_STRING);
                 String jobDescription = (String) jobListingJSON.get(JOB_DESC_STRING);
-                String jobLocation = (String) jobListingJSON.get(JOB_LOCATION_STRING);
-                double numofMonths = (double) jobListingJSON.get(JOB_NUMOFMONTHS_STRING);
-                double jobWagePerHour = (double) jobListingJSON.get(JOB_WAGE_STRING);
+                String jobCityLocation = (String) jobListingJSON.get(JOB_CITY_LOCATION_STRING);
+                String jobStateLocation = (String) jobListingJSON.get(JOB_STATE_LOCATION_STRING);
+                String numofMonths = (String) jobListingJSON.get(JOB_NUMOFMONTHS_STRING);
+                String jobWagePerHour = (String) jobListingJSON.get(JOB_WAGE_STRING);
                 JSONArray jobReviews  = (JSONArray) jobListingJSON.get(JOB_REVIEW_MAJOR_STRING);
-                JSONArray major = (JSONArray) jobListingJSON.get(JOB_STUDENTS_APPLIED_STRING);
-                Date jobExpDate = (Date) jobListingJSON.get(JOB_JOBEXPDATE_STRING);
+                JSONArray studentsApplied = (JSONArray) jobListingJSON.get(JOB_STUDENTS_APPLIED_STRING);
+                String jobExpDate = (String) jobListingJSON.get(JOB_JOBEXPDATE_STRING);
 
 
 
-                jobListings.add(new JobListing());
+                jobListings.add(new JobListing(link, jobTitle,  jobCompany,  jobDescription,jobCityLocation, 
+                jobStateLocation, numofMonths, jobWagePerHour, jobReviews,  studentsApplied,  jobExpDate));
             }
             return jobListings;
         } catch (Exception exception) {

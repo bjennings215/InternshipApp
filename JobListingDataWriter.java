@@ -37,7 +37,8 @@ public class JobListingDataWriter extends JobListingDataConstants {
 		jobDetails.put(JOB_TITLE_STRING, jobListing.getJobTitle());
 		jobDetails.put(JOB_COMPANY_STRING, jobListing.getJobCompany());
 		jobDetails.put(JOB_DESC_STRING, jobListing.getJobDescription());
-		jobDetails.put(JOB_LOCATION_STRING, jobListing.getJobCityLocation());
+		jobDetails.put(JOB_CITY_LOCATION_STRING, jobListing.getJobCityLocation());
+		jobDetails.put(JOB_CITY_LOCATION_STRING, jobListing.getJobStateLocation());
 		jobDetails.put(JOB_NUMOFMONTHS_STRING, jobListing.getNumOfMonths());
 		jobDetails.put(JOB_LINK_STRING, jobListing.getLink());
 		jobDetails.put(JOB_WAGE_STRING, jobListing.getWagePerHour());

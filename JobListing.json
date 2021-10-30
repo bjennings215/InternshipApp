@@ -1,27 +1,41 @@
 [
-    {
-        "jobid": "269f8e9a-672e-4057-bd9e-0127c50628d2",
-        "Employer":"Techvolt",
-        "Job Title":"Computer Technician",
-        "Job Description": "Repair computers",
-        "Location":"Greenville, South Carolina",
-        "Pay Rate":13.50,
-        "Number of Months": 9,
-        "Employer Link":"www.techvolt.com",
-        "Date Posted":"1/1/2021",
-        "Expiration":false,
-        "Expiration Date":""
-      },
-      {
-        "jobid": "28d686c0-5e5c-4181-91af-bb5deef6d935",
-        "Employer":"Sneaks",
-        "Job Title":"Computer Repairman",
-        "Job Description": "Manage and repair all computers onsite",
-        "Location":"Charleston, South Carolina",
-        "Pay Rate":11.50,
-        "Employer Link":"www.Sneaks.com",
-        "Date Posted":"2/1/2021",
-        "Expiration":false,
-        "Expiration Date":""
-      }
+  {
+    "Expiration Date": "",
+    "jobid": "44145115-7985-4a6f-b555-f72c301efe49",
+    "Company Link": "www.techvolt.com",
+    "Reviews": [],
+    "Student Applied": null,
+    "Employer": "Techvolt",
+    "Pay Rate": "13.50",
+    "Number of Months": "9",
+    "Job Description": null,
+    "Job Title": "Computer Technician",
+    "City Location": "South Carolina"
+  },
+  {
+    "Expiration Date": "",
+    "jobid": "e622319d-f65a-4456-9668-7082564abab2",
+    "Company Link": "www.Sneaks.com",
+    "Reviews": [],
+    "Student Applied": null,
+    "Employer": "Sneaks",
+    "Pay Rate": "11.50",
+    "Number of Months": "6",
+    "Job Description": null,
+    "Job Title": "Computer Repairman",
+    "City Location": "South Carolina"
+  },
+  {
+    "Expiration Date": "",
+    "jobid": "733cd21e-8342-4331-b3b1-0ff3240effc5",
+    "Company Link": "",
+    "Reviews": null,
+    "Student Applied": null,
+    "Employer": "",
+    "Pay Rate": "17.50",
+    "Number of Months": "forever",
+    "Job Description": null,
+    "Job Title": "data intern",
+    "City Location": ""
+  }
 ]

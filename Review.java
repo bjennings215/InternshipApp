@@ -1,11 +1,11 @@
 public class Review {
-    private double numberRating;
+    private String numberRating;
     private String writtenReview;
 
-    public Review(double numberRating,String writtenReview){
+    public Review(String numberRating,String writtenReview){
 
     }
-    public double getNumberRating(){
+    public String getNumberRating(){
         return this.numberRating;
     }
     public String getWrittenReview(){

@@ -5,7 +5,8 @@ public abstract class JobListingDataConstants {
     protected static final String JOB_TITLE_STRING = "Job Title";
     protected static final String JOB_COMPANY_STRING = "Employer";
     protected static final String JOB_DESC_STRING = "Job Description";
-    protected static final String JOB_LOCATION_STRING = "Location";
+    protected static final String JOB_CITY_LOCATION_STRING = "City Location";
+    protected static final String JOB_STATE_LOCATION_STRING = "State Location";
     protected static final String JOB_NUMOFMONTHS_STRING = "Number of Months";
     protected static final String JOB_WAGE_STRING = "Pay Rate";
     protected static final String JOB_REVIEW_MAJOR_STRING = "Reviews";

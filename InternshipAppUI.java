@@ -623,7 +623,7 @@ public class InternshipAppUI {
     }
 
     public void seeAllPostedJobListings() {
-        while (true) {
+         while (true) {
             int count = 0;
             for (JobListing jobListing : this.employer.getJobListings()) {
                 System.out.println("\n[" + count + "]: " + jobListing.shortToString());

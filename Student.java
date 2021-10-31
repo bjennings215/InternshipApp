@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class Student extends User {
-    
+
     private Resume resume;
     private boolean employementStatus;
     private ArrayList<JobListing> favoriteJobs;
@@ -10,17 +10,30 @@ public class Student extends User {
     private ArrayList<Review> reviewsMade;
     private String school;
 
-    // public Student() {
-        
-    // }
-
-    public Student(UUID id, String username, String password, String accounttype, String school, String company, String firstname, 
-	String lastname, String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel, String gpa, 
-	ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp, String explength, 
-	String jobdesc) {
-        super(id, username,password,accounttype,school,company,firstname,lastname,email,phoneNumber,major,minor,concentration,
-        gradeLevel,gpa,skills,extraCurr,status,jobOccupation,jobtype,prevExp,explength,jobdesc);
+    public Student(UUID id, String username, String password, String accounttype, String school, String company,
+            String firstname, String lastname, String email, String phoneNumber, String major, String minor,
+            String concentration, String gradeLevel, String gpa, ArrayList<String> skills, ArrayList<String> extraCurr,
+            String status, String jobOccupation, String jobtype, String prevExp, String explength, String jobdesc) {
+        super(id, username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major,
+                minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
+                explength, jobdesc);
         this.school = school;
+        this.favoriteJobs = new ArrayList<>();
+        this.jobsAppliedTo = new ArrayList<>();
+        this.reviewsMade = new ArrayList<>();
+    }
+
+    public Student(String username, String password, String accounttype, String school, String company,
+    String firstname, String lastname, String email, String phoneNumber, String major, String minor,
+    String concentration, String gradeLevel, String gpa, ArrayList<String> skills, ArrayList<String> extraCurr,
+    String status, String jobOccupation, String jobtype, String prevExp, String explength, String jobdesc) {
+        super(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major,
+                minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
+                explength, jobdesc);
+        this.school = school;
+        this.favoriteJobs = new ArrayList<>();
+        this.jobsAppliedTo = new ArrayList<>();
+        this.reviewsMade = new ArrayList<>();
     }
 
     public Resume getResume() {
@@ -64,7 +77,7 @@ public class Student extends User {
     }
 
     public boolean addJobAppliedTo(JobListing jobListing) {
-        if(getJobsAppliedTo().contains(jobListing)) {
+        if (getJobsAppliedTo().contains(jobListing)) {
             System.out.println("You have already applied to this job!");
             return false;
         }
@@ -101,5 +114,16 @@ public class Student extends User {
 
     public String getSchool() {
         return school;
+    }
+
+    public String shortToString() {
+        return "Name: " + getFirstName() + " " + getLastName() + "\nGrade Level: " + getGradeLevel() + "\nStatus: "
+                + getStatus() + "\nMajor: " + getMajor() + "\nGPA: " + getGPA();
+    }
+
+    public String longToString() {
+        return "Name: " + getFirstName() + " " + getLastName() + "\nGrade Level: " + getGradeLevel() + "\nStatus: "
+                + getStatus() + "\nMajor: " + getMajor() + "\nGPA: " + getGPA() + "\nMinor: " + getMinor()
+                + "\nConcentration: " + getConcentation();
     }
 }

@@ -24,8 +24,8 @@ public class InternshipAppUI {
 
     private static final String[] STUDENT_DETAILED_JOB_LISTING_COMMANDS = { "Apply to Job", "Return" };
 
-    private static final String[] EMPLOYER_DETAILED_JOB_LISTING_COMMANDS = { "See All Applicants",
-            "Delete Job Listing" };
+    private static final String[] EMPLOYER_DETAILED_JOB_LISTING_COMMANDS = { "See All Applicants", "Edit Job Listing",
+            "Delete Job Listing", "Return" };
 
     private Scanner scanner;
     private User user;
@@ -155,6 +155,10 @@ public class InternshipAppUI {
         String jobOccupation = null;
         String jobtype = null;
 
+        this.student = new Student(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
+        major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
+        prevExp, explength, jobdesc);
+
         this.user = new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
                 major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
                 prevExp, explength, jobdesc);
@@ -204,6 +208,10 @@ public class InternshipAppUI {
         String jobOccupation = null;
         String jobtype = null;
 
+        this.employer = new Employer(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
+        major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
+        prevExp, explength, jobdesc);
+
         this.user = new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
                 major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
                 prevExp, explength, jobdesc);
@@ -250,6 +258,10 @@ public class InternshipAppUI {
         String jobOccupation = null;
         String jobtype = null;
 
+        this.admin = new Administrator(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
+        major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
+        prevExp, explength, jobdesc);
+
         this.user = new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
                 major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
                 prevExp, explength, jobdesc);
@@ -281,11 +293,10 @@ public class InternshipAppUI {
     // --------------RESUME CREATION AND EDITING DISPLAY AND
     // FUNCTIONALITY----------------------
 
-    public void createStudentResume(String username, String password, String accounttype, String firstname,
-            String lastname, String school, String company, String email, String phoneNumber, String major,
-            String minor, String concentration, String gradeLevel, String gpa, ArrayList<String> skills,
-            ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp,
-            String explength, String jobdesc) {
+    public void createStudentResume(String username, String password, String accounttype, String school, String company, String firstname, 
+	String lastname, String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel, String gpa, 
+	ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp, String explength, 
+	String jobdesc) {
         System.out.println("\nYou will now be prompted to set up your Resume\n");
         System.out.print("First Name: ");
         firstname = scanner.nextLine();
@@ -458,12 +469,8 @@ public class InternshipAppUI {
     }
 
     public void browseJobListings() {
-        int count = 1;
-        for (JobListing jobListing : jobListings.getJobList()) {
-            System.out.println("\n[" + count + "]: " + jobListing.shortToString());
-            count++;
-        }
         while (true) {
+            printAllJobListings();
             System.out.println(
                     "\nEnter the number of a job listing to see more details.\nIf finished viewing listings enter '0' to return");
             int userInput = Integer.valueOf(scanner.nextLine());
@@ -483,8 +490,8 @@ public class InternshipAppUI {
         int userInput = getUserCommand(STUDENT_DETAILED_JOB_LISTING_COMMANDS);
         while (true) {
             if (userInput == 1) {
-                // this.user.applyToJob(jobListing);
-                // this.user.addJobAppliedTo(jobListing);
+                this.student.applyToJob(jobListing);
+                this.student.addJobAppliedTo(jobListing);
             } else if (userInput == 2) {
                 break;
             } else {
@@ -502,16 +509,14 @@ public class InternshipAppUI {
             count++;
         }
         System.out.println(
-                "Enter the number of a Job Listing to see more information and/or apply\nEnter '0' if you wish to return");
+                "\nEnter the number of a job listing to see more details.\nIf finished viewing listings enter '0' to return");
         int userInput = Integer.valueOf(scanner.nextLine());
-        while (true) {
-            if (userInput > 0 && userInput <= this.student.getJobsAppliedTo().size()) {
-                studentDetailedJobListing(this.student.getJobsAppliedTo().get(userInput - 1));
-            } else if (userInput == 0) {
-                return;
-            } else {
-                System.out.println("Invalid command");
-            }
+        if (userInput == 0) {
+            return;
+        } else if (userInput > 0 && userInput <= jobListings.getJobList().size()) {
+            studentDetailedJobListing(jobListings.getJobList().get(userInput - 1));
+        } else {
+            System.out.println("Invalid Command");
         }
     }
 
@@ -553,10 +558,12 @@ public class InternshipAppUI {
         }
     }
 
-    public ArrayList<JobListing> printAllJobListings() {
-        // For loop that runs through each Job Listing and prints them all to the
-        // console
-        return new ArrayList<JobListing>();
+    public void printAllJobListings() {
+        int count = 1;
+        for (JobListing jobListing : jobListings.getJobList()) {
+            System.out.println("\n[" + count + "]: " + jobListing.shortToString());
+            count++;
+        }
     }
 
     // -----------------------------EMPLOYER MAIN MENU DISPLAY AND
@@ -570,7 +577,7 @@ public class InternshipAppUI {
             if (userDecision == 1) {
                 postNewJobListing();
             } else if (userDecision == 2) {
-                postNewJobListing();
+                seeAllPostedJobListings();
             } else if (userDecision == 3) {
                 seeAllPostedJobListings();
             } else if (userDecision == 4) {
@@ -595,33 +602,36 @@ public class InternshipAppUI {
         System.out.print("Number of Months: ");
         String numofMonths = scanner.nextLine();
         System.out.print("Employer Website Link: ");
-        String employerLink = scanner.nextLine();
+        String companyLink = scanner.nextLine();
         System.out.print("Date Posted: ");
         String jobExpDate = scanner.nextLine();
-        // this.employer.getJobListings().add(new JobListing());
         System.out.println("\nNew Job Listing Created!");
-        // Add job listing to the array of job listings and to the employer's job
-        // listings
-        String link = "";
-        String jobCompany = "";
-        String jobCityLocation = "";
-        String jobStateLocation = "";
-        ArrayList<Review> jobReviews = null;
-        ArrayList<Student> studentsApplied = null;
 
-        jobListings.addJob(link, jobTitle, jobCompany, jobDescription, jobCityLocation, jobStateLocation, numofMonths,
-                jobWagePerHour, jobReviews, studentsApplied, jobExpDate);
+        String jobCompany = this.user.getCompany();
+        String[] locations = location.split(", ");
+        String jobCityLocation = locations[0];
+        String jobStateLocation = locations[1];
+        ArrayList<Review> jobReviews = new ArrayList<>();
+        ArrayList<Student> studentsApplied = new ArrayList<>();
+
+        this.employer.getJobListings().add(new JobListing(jobTitle, jobCompany, jobDescription,
+        jobCityLocation, jobStateLocation, numofMonths, companyLink, jobWagePerHour,
+        jobReviews, studentsApplied, jobExpDate));
+
+        jobListings.addJob(jobTitle, jobCompany, jobDescription, jobCityLocation, jobStateLocation, numofMonths,
+                companyLink, jobWagePerHour, jobReviews, studentsApplied, jobExpDate);
     }
 
     public void seeAllPostedJobListings() {
-        int count = 0;
-        for (JobListing jobListing : this.employer.getJobListings()) {
-            System.out.println("\n[" + count + "]: " + jobListing.shortToString());
-            count++;
-        }
-        System.out.println("Enter the number of a job listing to see more details.\nEnter '0' if you wish to return");
-        int userInput = Integer.valueOf(scanner.nextLine());
         while (true) {
+            int count = 0;
+            for (JobListing jobListing : this.employer.getJobListings()) {
+                System.out.println("\n[" + count + "]: " + jobListing.shortToString());
+                count++;
+            }
+            System.out
+                    .println("Enter the number of a job listing to see more details.\nEnter '0' if you wish to return");
+            int userInput = Integer.valueOf(scanner.nextLine());
             if (userInput > 0 && userInput <= this.employer.getJobListings().size()) {
                 employerDetailedJobListing(this.employer.getJobListings().get(userInput - 1));
             } else if (userInput == 0) {
@@ -633,14 +643,28 @@ public class InternshipAppUI {
     }
 
     public void employerDetailedJobListing(JobListing jobListing) {
-        jobListing.longToString();
+        System.out.println(jobListing.longToString());
         printPossibleCommands(EMPLOYER_DETAILED_JOB_LISTING_COMMANDS);
         getUserCommand(EMPLOYER_DETAILED_JOB_LISTING_COMMANDS);
         int userInput = Integer.valueOf(scanner.nextLine());
         while (true) {
             if (userInput == 1) {
+                viewAllApplicants(jobListing);
+            } else if (userInput == 2) {
 
+            } else if (userInput == 3) {
+
+            } else if (userInput == 4) {
+
+            } else {
+                System.out.println("Invalid Command");
             }
+        }
+    }
+
+    public void viewAllApplicants(JobListing jobListing) {
+        for(Student student:jobListing.getStudentsApplied()) {
+            System.out.println(student.shortToString());
         }
     }
 

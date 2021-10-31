@@ -22,8 +22,8 @@ public class JobListing {
     private LocalDate post_Date;
     private String jobExpDate;
 
-    public JobListing(String companyLink, String jobTitle, String jobCompany, String jobDescription,
-            String jobCityLocation, String jobStateLocation, String numofMonths, String jobWagePerHour,
+    public JobListing(String jobTitle, String jobCompany, String jobDescription,
+            String jobCityLocation, String jobStateLocation, String numofMonths, String companyLink, String jobWagePerHour,
             ArrayList<Review> jobReviews, ArrayList<Student> studentsApplied, String jobExpDate) {
         this.jobid = UUID.randomUUID();
         this.post_Date = LocalDate.now();

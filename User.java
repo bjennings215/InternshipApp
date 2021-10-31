@@ -24,7 +24,7 @@ public class User {
 	private String jobtype;
 	private String prevExp;
 	private String explength;
-	private ArrayList<String> jobdesc;
+	private String jobdesc;
 	
 	public User(String username, String password, String accountType) {
 		this.username = username;
@@ -35,7 +35,7 @@ public class User {
 	public User(String username, String password, String accounttype, String school, String company, String firstname, 
 	String lastname, String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel, String gpa, 
 	ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp, String explength, 
-	ArrayList<String> jobdesc) {
+	String jobdesc) {
 		this.id = UUID.randomUUID();
 		this.username = username;
 		this.password = password;
@@ -64,7 +64,7 @@ public class User {
 	public User(UUID id, String username, String password, String accounttype, String school, String company, String firstname, 
 	String lastname, String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel, String gpa, 
 	ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp, String explength, 
-	ArrayList<String> jobdesc) {
+	String jobdesc) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
@@ -195,7 +195,7 @@ public class User {
 		return explength;
 	}
 
-	public ArrayList<String> getJobDesc() {
+	public String getJobDesc() {
 		return jobdesc;
 	}
 

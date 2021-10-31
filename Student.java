@@ -4,11 +4,13 @@ import java.util.UUID;
 public class Student extends User {
     
     private Resume resume;
-    private boolean employementStatus;
     private ArrayList<JobListing> favoriteJobs;
     private ArrayList<JobListing> jobsAppliedTo;
     private ArrayList<Review> reviewsMade;
     private String school;
+    Users users;
+    private ArrayList<JobListing> joblist;
+    private JobListing jobListing;
 
     // public Student() {
         
@@ -101,5 +103,15 @@ public class Student extends User {
 
     public String getSchool() {
         return school;
+    }
+
+    public ArrayList<JobListing> Apply(String firstname, String lastname,String phoneNumber, String email) {
+        Users users = Users.getInstance();
+        JobListings jobListings = JobListings.getInstance();
+        joblist = jobListings.getJobList();
+        String applicant = firstname +" "+ lastname+" "+ phoneNumber+" "+email;
+        ArrayList<String> studentsApplied = new ArrayList<String>();
+        studentsApplied.add(applicant);
+        return joblist;
     }
 }

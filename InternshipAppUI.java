@@ -262,7 +262,6 @@ public class InternshipAppUI {
             if (user.getUsername().equals(username)) {
                 System.out.println(username);
                 System.out.println(accounttype);
-                System.out.println(school);
             }
         }
     }
@@ -607,7 +606,7 @@ public class InternshipAppUI {
         String jobCityLocation = "";
         String jobStateLocation = "";
         ArrayList<Review> jobReviews = null;
-        ArrayList<Student> studentsApplied = null;
+        ArrayList<String> studentsApplied = null;
 
         jobListings.addJob(link, jobTitle, jobCompany, jobDescription, jobCityLocation, jobStateLocation, numofMonths,
                 jobWagePerHour, jobReviews, studentsApplied, jobExpDate);
@@ -623,24 +622,27 @@ public class InternshipAppUI {
         System.out.println("Enter the number of a job listing to see more details.\nEnter '0' if you wish to return");
         int userInput = Integer.valueOf(scanner.nextLine());
         while (true) {
-            if (userInput > 0 && userInput <= this.employer.getJobListings().size()) {
-                employerDetailedJobListing(this.employer.getJobListings().get(userInput - 1));
+            for(int i = 1; i < jobListings.getJobList().size(); i++){
+            if (userInput == i) {
+                employerDetailedJobListing(jobListings.getJobList().get(i));
             } else if (userInput == 0) {
                 return;
             } else {
                 System.out.println("Invalid command");
+                return;
             }
         }
     }
+    }
 
     public void employerDetailedJobListing(JobListing jobListing) {
-        jobListing.longToString();
+        System.out.println(jobListing.longToString());
         printPossibleCommands(EMPLOYER_DETAILED_JOB_LISTING_COMMANDS);
         getUserCommand(EMPLOYER_DETAILED_JOB_LISTING_COMMANDS);
         int userInput = Integer.valueOf(scanner.nextLine());
         while (true) {
             if (userInput == 1) {
-
+                
             }
         }
     }

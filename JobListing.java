@@ -18,13 +18,13 @@ public class JobListing {
     private String jobWagePerHour;
     // private jobNumberRating;
     private ArrayList<Review> jobReviews;
-    private ArrayList<Student> studentsApplied;
+    private ArrayList<String> studentsApplied;
     private LocalDate post_Date;
     private String jobExpDate;
 
     public JobListing(String companyLink, String jobTitle, String jobCompany, String jobDescription,
             String jobCityLocation, String jobStateLocation, String numofMonths, String jobWagePerHour,
-            ArrayList<Review> jobReviews, ArrayList<Student> studentsApplied, String jobExpDate) {
+            ArrayList<Review> jobReviews, ArrayList<String> studentsApplied, String jobExpDate) {
         this.jobid = UUID.randomUUID();
         this.post_Date = LocalDate.now();
         this.compnayLink = companyLink;
@@ -42,7 +42,7 @@ public class JobListing {
 
     public JobListing(UUID jobid, LocalDate post_Date, String companyLink, String jobTitle, String jobCompany,
             String jobDescription, String jobCityLocation, String jobStateLocation, String numofMonths,
-            String jobWagePerHour, ArrayList<Review> jobReviews, ArrayList<Student> studentsApplied,
+            String jobWagePerHour, ArrayList<Review> jobReviews, ArrayList<String> studentsApplied,
             String jobExpDate) {
         this.jobid = jobid;
         this.post_Date = post_Date;
@@ -111,7 +111,7 @@ public class JobListing {
         return jobReviews;
     }
 
-    public ArrayList<Student> getStudentsApplied() {
+    public ArrayList<String> getStudentsApplied() {
         return studentsApplied;
     }
 

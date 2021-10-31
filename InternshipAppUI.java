@@ -34,10 +34,12 @@ public class InternshipAppUI {
     private Employer employer;
     private Administrator admin;
     private Users users;
+    private JobListings jobListings;
 
     InternshipAppUI() {
         this.scanner = new Scanner(System.in);
         users = Users.getInstance();
+        jobListings = JobListings.getInstance();
     }
 
     public void run() {
@@ -55,8 +57,7 @@ public class InternshipAppUI {
         }
     }
 
-    // -----------------------------------LOG IN
-    // FUNCTIONALITY------------------------------------
+    // -------------------------LOG IN FUNCTIONALITY--------------------------------
 
     public void initialLogInMenu() {
         System.out.println("Welcome to the Internship Application!");
@@ -169,9 +170,9 @@ public class InternshipAppUI {
             }
         }
 
-        createStudentResume(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major,
-        minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
-        explength, jobdesc);
+        createStudentResume(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
+                major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
+                prevExp, explength, jobdesc);
     }
 
     public void newEmployerAccountCreation() {
@@ -277,13 +278,14 @@ public class InternshipAppUI {
         }
     }
 
-    // -------------------RESUME CREATION AND EDITING DISPLAY AND
-    // FUNCTIONALITY-----------------------------
+    // --------------RESUME CREATION AND EDITING DISPLAY AND
+    // FUNCTIONALITY----------------------
 
-    public void createStudentResume(String username, String password, String accounttype, String firstname, String lastname, String school, String company,
-            String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel,
-            String gpa, ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation,
-            String jobtype, String prevExp, String explength, String jobdesc) {
+    public void createStudentResume(String username, String password, String accounttype, String firstname,
+            String lastname, String school, String company, String email, String phoneNumber, String major,
+            String minor, String concentration, String gradeLevel, String gpa, ArrayList<String> skills,
+            ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp,
+            String explength, String jobdesc) {
         System.out.println("\nYou will now be prompted to set up your Resume\n");
         System.out.print("First Name: ");
         firstname = scanner.nextLine();
@@ -297,21 +299,21 @@ public class InternshipAppUI {
             printPossibleCommands(RESUME_CREATION_COMMANDS);
             int userDecision = getUserCommand(RESUME_CREATION_COMMANDS);
             if (userDecision == 1) {
-                newEducationEntry(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major,
-                minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
-                explength, jobdesc);
+                newEducationEntry(username, password, accounttype, school, company, firstname, lastname, email,
+                        phoneNumber, major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status,
+                        jobOccupation, jobtype, prevExp, explength, jobdesc);
             } else if (userDecision == 2) {
-                newJobExperienceEntry(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major,
-                minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
-                explength, jobdesc);
+                newJobExperienceEntry(username, password, accounttype, school, company, firstname, lastname, email,
+                        phoneNumber, major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status,
+                        jobOccupation, jobtype, prevExp, explength, jobdesc);
             } else if (userDecision == 3) {
-                newSkillsEntry(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major,
-                minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
-                explength, jobdesc);
+                newSkillsEntry(username, password, accounttype, school, company, firstname, lastname, email,
+                        phoneNumber, major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status,
+                        jobOccupation, jobtype, prevExp, explength, jobdesc);
             } else if (userDecision == 4) {
-                newExtraCurricularEntry(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major,
-                minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
-                explength, jobdesc);
+                newExtraCurricularEntry(username, password, accounttype, school, company, firstname, lastname, email,
+                        phoneNumber, major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status,
+                        jobOccupation, jobtype, prevExp, explength, jobdesc);
             } else if (userDecision == 5) {
                 // this.student.createResume(new Resume());
                 System.out.println("Congratulations! Resume creation finished!");
@@ -322,10 +324,11 @@ public class InternshipAppUI {
         }
     }
 
-    public void newEducationEntry(String username, String password, String accounttype, String firstname, String lastname, String school, String company,
-    String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel,
-    String gpa, ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation,
-    String jobtype, String prevExp, String explength, String jobdesc) {
+    public void newEducationEntry(String username, String password, String accounttype, String firstname,
+            String lastname, String school, String company, String email, String phoneNumber, String major,
+            String minor, String concentration, String gradeLevel, String gpa, ArrayList<String> skills,
+            ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp,
+            String explength, String jobdesc) {
         System.out.println("\nFill out the information below to add a new education experience\n"
                 + "(Enter 'Null' if field does not apply)\n");
         System.out.print("University Name: ");
@@ -346,10 +349,11 @@ public class InternshipAppUI {
                 explength, jobdesc);
     }
 
-    public void newJobExperienceEntry(String username, String password, String accounttype, String firstname, String lastname, String school, String company,
-    String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel,
-    String gpa, ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation,
-    String jobtype, String prevExp, String explength, String jobdesc) {
+    public void newJobExperienceEntry(String username, String password, String accounttype, String firstname,
+            String lastname, String school, String company, String email, String phoneNumber, String major,
+            String minor, String concentration, String gradeLevel, String gpa, ArrayList<String> skills,
+            ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp,
+            String explength, String jobdesc) {
         System.out.println("\nFill out the information below to add a new work experience\n"
                 + "(Enter 'Null' if field does not apply)\n");
         System.out.print("Job: ");
@@ -363,21 +367,20 @@ public class InternshipAppUI {
         System.out.print("Please enter description: ");
         jobdesc = scanner.nextLine();
 
-
         users.editUser(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major,
                 minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
                 explength, jobdesc);
     }
 
-    public void newSkillsEntry(String username, String password, String accounttype, String firstname, String lastname, String school, String company,
-    String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel,
-    String gpa, ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation,
-    String jobtype, String prevExp, String explength, String jobdesc) {
+    public void newSkillsEntry(String username, String password, String accounttype, String firstname, String lastname,
+            String school, String company, String email, String phoneNumber, String major, String minor,
+            String concentration, String gradeLevel, String gpa, ArrayList<String> skills, ArrayList<String> extraCurr,
+            String status, String jobOccupation, String jobtype, String prevExp, String explength, String jobdesc) {
         System.out.println(
                 "\nEnter all skills below\nType an entry and press 'Enter'\nType 'Done' when finished entering skills to exit");
         while (true) {
             String newEntry = scanner.nextLine();
-            if(newEntry.equalsIgnoreCase("done")) {
+            if (newEntry.equalsIgnoreCase("done")) {
                 break;
             }
             skills.add(newEntry);
@@ -389,15 +392,16 @@ public class InternshipAppUI {
                 explength, jobdesc);
     }
 
-    public void newExtraCurricularEntry(String username, String password, String accounttype, String firstname, String lastname, String school, String company,
-    String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel,
-    String gpa, ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation,
-    String jobtype, String prevExp, String explength, String jobdesc) {
+    public void newExtraCurricularEntry(String username, String password, String accounttype, String firstname,
+            String lastname, String school, String company, String email, String phoneNumber, String major,
+            String minor, String concentration, String gradeLevel, String gpa, ArrayList<String> skills,
+            ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp,
+            String explength, String jobdesc) {
         System.out.println(
                 "\nEnter all extracurriculars below\nType an entry and press 'Enter'\nType 'Done' when finished entering skills to exit");
         while (true) {
             String newEntry = scanner.nextLine();
-            if(newEntry.equalsIgnoreCase("done")) {
+            if (newEntry.equalsIgnoreCase("done")) {
                 break;
             }
             extraCurr.add(newEntry);
@@ -454,30 +458,40 @@ public class InternshipAppUI {
     }
 
     public void browseJobListings() {
-
-        // for(int i = 0; i <= jobListings.length; i++) {
-        // System.out.println("[1]: "this.jobListing[i].shortToString);
-        // }
-        // System.out.println("Enter the number of a certain job listing to see more
-        // details");
-        // int userInput = Integer.valueOf(scanner.nextLine());
-        // seeDetailedJobListing(this.jobListing[i-1]);
-    }
-
-    public void studentDetailedJobListing(JobListing jobListing) {
-        this.jobListing.longToSTring();
-        printPossibleCommands(STUDENT_DETAILED_JOB_LISTING_COMMANDS);
-        int userInput = getUserCommand(STUDENT_DETAILED_JOB_LISTING_COMMANDS);
+        int count = 1;
+        for (JobListing jobListing : jobListings.getJobList()) {
+            System.out.println("\n[" + count + "]: " + jobListing.shortToString());
+            count++;
+        }
         while (true) {
-            if (userInput == 1) {
-                this.student.applyToJob(jobListing);
-                this.student.addJobAppliedTo(jobListing);
-            } else if (userInput == 2) {
+            System.out.println(
+                    "\nEnter the number of a job listing to see more details.\nIf finished viewing listings enter '0' to return");
+            int userInput = Integer.valueOf(scanner.nextLine());
+            if (userInput == 0) {
                 return;
+            } else if (userInput > 0 && userInput <= jobListings.getJobList().size()) {
+                studentDetailedJobListing(jobListings.getJobList().get(userInput - 1));
             } else {
                 System.out.println("Invalid Command");
             }
         }
+    }
+
+    public void studentDetailedJobListing(JobListing jobListing) {
+        System.out.println(jobListing.longToString());
+        printPossibleCommands(STUDENT_DETAILED_JOB_LISTING_COMMANDS);
+        int userInput = getUserCommand(STUDENT_DETAILED_JOB_LISTING_COMMANDS);
+        while (true) {
+            if (userInput == 1) {
+                // this.user.applyToJob(jobListing);
+                // this.user.addJobAppliedTo(jobListing);
+            } else if (userInput == 2) {
+                break;
+            } else {
+                System.out.println("Invalid Command");
+            }
+        }
+        return;
     }
 
     public void browseJobsApplied() {
@@ -584,7 +598,7 @@ public class InternshipAppUI {
         String employerLink = scanner.nextLine();
         System.out.print("Date Posted: ");
         String jobExpDate = scanner.nextLine();
-        //this.employer.getJobListings().add(new JobListing());
+        // this.employer.getJobListings().add(new JobListing());
         System.out.println("\nNew Job Listing Created!");
         // Add job listing to the array of job listings and to the employer's job
         // listings
@@ -619,7 +633,7 @@ public class InternshipAppUI {
     }
 
     public void employerDetailedJobListing(JobListing jobListing) {
-        jobListing.longToSTring();
+        jobListing.longToString();
         printPossibleCommands(EMPLOYER_DETAILED_JOB_LISTING_COMMANDS);
         getUserCommand(EMPLOYER_DETAILED_JOB_LISTING_COMMANDS);
         int userInput = Integer.valueOf(scanner.nextLine());

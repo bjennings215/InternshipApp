@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class JobListings {
     
         private static JobListings joblistings = null;
-        private static ArrayList<JobListing> joblist= new ArrayList<JobListing>();
+        private static ArrayList<JobListing> joblist = new ArrayList<JobListing>();
     
         private JobListings() {
             joblist = JobListingDataLoader.InputJobListing();
@@ -18,7 +18,7 @@ public class JobListings {
         }
     
         //check to see if user already exist
-        public boolean haveUser(String jobTitle) {
+        public boolean haveJobListing(String jobTitle) {
             for(JobListing jobListing : joblist) {
                 if(jobListing.getJobTitle().equals(jobTitle)) {
                     return true;

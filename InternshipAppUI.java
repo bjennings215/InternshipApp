@@ -433,14 +433,14 @@ public class InternshipAppUI {
         String jobDescription = scanner.nextLine();
         System.out.print("Location (City, State): ");
         String location = scanner.nextLine();
-        System.out.print("Wage Per Hour: ");
+        System.out.print("Wage Per Hour: $");
         String jobWagePerHour = scanner.nextLine();
         System.out.print("Number of Months: ");
         String numofMonths = scanner.nextLine();
         System.out.print("Employer Website Link: ");
         String employerLink = scanner.nextLine();
         System.out.print("Date Posted: ");
-        String datePosted = scanner.nextLine();
+        String jobExpDate = scanner.nextLine();
         //this.employer.getJobListings().add(new JobListing());
         System.out.println("\nNew Job Listing Created!");
         // Add job listing to the array of job listings and to the employer's job
@@ -451,7 +451,6 @@ public class InternshipAppUI {
         String jobStateLocation= "";
         ArrayList<Review> jobReviews = null;
         ArrayList<Student> studentsApplied = null;
-        String jobExpDate = "";
 
        jobListings.addJob(link, jobTitle, jobCompany, jobDescription, jobCityLocation, jobStateLocation, numofMonths, jobWagePerHour, 
        jobReviews, studentsApplied, jobExpDate);

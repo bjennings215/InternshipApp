@@ -34,6 +34,7 @@ public class JobListingDataWriter extends JobListingDataConstants {
     public static JSONObject getJobListingJSON(JobListing jobListing) {
 		JSONObject jobDetails = new JSONObject();
 		jobDetails.put(JOB_ID, jobListing.getJobID().toString());
+		jobDetails.put(JOB_POST_DATE_STRING,jobListing.getpostDate().toString());
 		jobDetails.put(JOB_TITLE_STRING, jobListing.getJobTitle());
 		jobDetails.put(JOB_COMPANY_STRING, jobListing.getJobCompany());
 		jobDetails.put(JOB_DESC_STRING, jobListing.getJobDescription());

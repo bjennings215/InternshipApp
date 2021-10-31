@@ -1,54 +1,58 @@
 [
     {
-        "Expiration Date": "",
-        "jobid": "dbfad0fe-7740-45d4-9ad6-7ba25c0ee858",
+        "Expiration Date": "N\/A",
+        "jobid": "eaf326d4-7ed4-4bdb-b1cf-cb4b7c444afb",
         "Company Link": "www.techvolt.com",
         "Reviews": [],
-        "Student Applied": null,
+        "Student Applied": [],
         "Employer": "Techvolt",
         "Pay Rate": "13.50",
+        "Date Posted": "2021-10-30",
         "Number of Months": "9",
-        "Job Description": null,
+        "Job Description": "fix computers. have",
         "Job Title": "Computer Technician",
-        "City Location": null
+        "City Location": ""
     },
     {
         "Expiration Date": "",
-        "jobid": "f800e587-9e27-4747-8c85-4bd1ac2e6d32",
+        "jobid": "27a3620f-c38a-421a-843f-e314293c1795",
         "Company Link": "www.Sneaks.com",
         "Reviews": [],
-        "Student Applied": null,
+        "Student Applied": [],
         "Employer": "Sneaks",
         "Pay Rate": "11.50",
+        "Date Posted": "2021-10-30",
         "Number of Months": "6",
         "Job Description": null,
         "Job Title": "Computer Repairman",
-        "City Location": null
+        "City Location": ""
     },
     {
         "Expiration Date": "",
-        "jobid": "d7c2d746-ba72-4ac0-9e15-fd209e03985d",
+        "jobid": "fec505cb-62e3-49cf-9ecd-003901d5476f",
         "Company Link": "",
-        "Reviews": null,
-        "Student Applied": null,
+        "Reviews": [],
+        "Student Applied": [],
         "Employer": "",
         "Pay Rate": "17.50",
+        "Date Posted": "2021-10-30",
         "Number of Months": "forever",
         "Job Description": null,
         "Job Title": "data intern",
-        "City Location": null
+        "City Location": ""
     },
     {
-        "Expiration Date": "",
-        "jobid": "bee1e353-c8cb-401f-8229-f8e21665de35",
+        "Expiration Date": "10-14-2021",
+        "jobid": "23c0bb29-6827-4c3c-b4a4-4be0f0f64be0",
         "Company Link": "",
         "Reviews": null,
         "Student Applied": null,
         "Employer": "",
-        "Pay Rate": "7.50 plus free meal",
-        "Number of Months": "N\\A",
-        "Job Description": null,
-        "Job Title": "Cart manager",
+        "Pay Rate": "16.50",
+        "Date Posted": "2021-10-30",
+        "Number of Months": "9",
+        "Job Description": "fix computer",
+        "Job Title": "Computer Tech",
         "City Location": ""
     }
 ]

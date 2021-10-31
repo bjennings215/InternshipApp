@@ -2,6 +2,7 @@ public abstract class JobListingDataConstants {
     protected static final String JOB_FILE_STRING = "JobListing.json";
     protected static final String JOB_STRING = "jobListing";
     protected static final String JOB_ID = "jobid";
+    protected static final String JOB_POST_DATE_STRING = "Date Posted";
     protected static final String JOB_TITLE_STRING = "Job Title";
     protected static final String JOB_COMPANY_STRING = "Employer";
     protected static final String JOB_DESC_STRING = "Job Description";

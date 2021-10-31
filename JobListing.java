@@ -1,5 +1,9 @@
 
+
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.UUID;
 
 
@@ -17,14 +21,17 @@ public class JobListing {
     //private  jobNumberRating;
     private ArrayList<Review> jobReviews;
     private ArrayList<Student> studentsApplied;
+    private LocalDate post_Date;
     private String jobExpDate;
 
     public JobListing(String link, String jobTitle, String jobCompany, String jobDescription, String jobCityLocation, 
     String jobStateLocation, String numofMonths, String jobWagePerHour,ArrayList<Review> jobReviews, ArrayList<Student> studentsApplied, String jobExpDate) {
         this.jobid = UUID.randomUUID();
+        this.post_Date = LocalDate.now();
         this.link = link;
         this.jobTitle = jobTitle;
         this.jobCompany = jobCompany;
+        this.jobDescription = jobDescription;
         this.jobCityLocation = jobCityLocation;
         this.jobStateLocation = jobStateLocation;
         this.numofMonths = numofMonths;
@@ -34,12 +41,14 @@ public class JobListing {
         this.jobExpDate = jobExpDate;
     }
 
-    public JobListing(UUID jobid,String link, String jobTitle, String jobCompany, String jobDescription, String jobCityLocation, 
+    public JobListing(UUID jobid, LocalDate post_Date, String link, String jobTitle, String jobCompany, String jobDescription, String jobCityLocation, 
     String jobStateLocation, String numofMonths, String jobWagePerHour,ArrayList<Review> jobReviews, ArrayList<Student> studentsApplied, String jobExpDate){
         this.jobid = jobid;
+        this.post_Date = post_Date;
         this.link = link;
         this.jobTitle = jobTitle;
         this.jobCompany = jobCompany;
+        this.jobDescription = jobDescription;
         this.jobCityLocation = jobCityLocation;
         this.jobStateLocation = jobStateLocation;
         this.numofMonths = numofMonths;
@@ -51,6 +60,10 @@ public class JobListing {
 
     public UUID getJobID() {
         return jobid;
+    }
+
+    public LocalDate getpostDate(){
+        return post_Date;
     }
 
     public String getJobTitle() {

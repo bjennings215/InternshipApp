@@ -147,7 +147,7 @@ public class User {
 		return email;
 	}
 
-	public String getphoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
@@ -167,7 +167,7 @@ public class User {
 		return concentration;
 	}
 
-	public String gradelevel() {
+	public String getGradeLevel() {
 		return gradeLevel;
 	}
 

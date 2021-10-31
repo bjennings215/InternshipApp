@@ -81,4 +81,13 @@ public class Resume {
     public boolean removeSkillOrExtracurricular(String skillOrExtracurricular) {
         return true;
     }
+
+    public String shortToString() {
+        return "Name: " + this.firstName + " " + this.lastName + "\nGrade Level: " + this.gradeLevel + "GPA; " + this.gradePointAverage;
+                
+    }
+
+    public String longToString() {
+        return "";
+    }
 }

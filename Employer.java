@@ -4,10 +4,9 @@ import java.util.UUID;
 
 
 public class Employer extends User {
-   String company;
+   private String company;
    private ArrayList<JobListing> jobListings;
    private ArrayList<Student> favoriteStudents;
-   
 
    // public Employer(UUID id,String username, String password, String accounttype) {
 	// 	super(id, username, password, accounttype);
@@ -21,6 +20,20 @@ public class Employer extends User {
       minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
       explength, jobdesc);
       this.company = company;
+      this.jobListings = new ArrayList<>();
+      this.favoriteStudents = new ArrayList<>();
+   }
+
+   public Employer(String username, String password, String accounttype, String school, String company, String firstname, 
+	String lastname, String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel, String gpa, 
+	ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp, String explength, 
+	String jobdesc) {
+      super(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major,
+      minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
+      explength, jobdesc);
+      this.company = company;
+      this.jobListings = new ArrayList<>();
+      this.favoriteStudents = new ArrayList<>();
    }
    
    public String getCompany() {

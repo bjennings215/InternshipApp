@@ -614,8 +614,9 @@ public class InternshipAppUI {
     }
 
     public void seeAllPostedJobListings() {
-        int count = 0;
-        for (JobListing jobListing : this.employer.getJobListings()) {
+        JobListings jobListings = JobListings.getInstance();
+        int count = 1;
+        for (JobListing jobListing : jobListings.getJobList()) {
             System.out.println("\n[" + count + "]: " + jobListing.shortToString());
             count++;
         }

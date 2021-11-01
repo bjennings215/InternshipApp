@@ -155,9 +155,9 @@ public class InternshipAppUI {
         String jobOccupation = null;
         String jobtype = null;
 
-        this.student = new Student(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
-        major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
-        prevExp, explength, jobdesc);
+        this.student = new Student(username, password, accounttype, school, company, firstname, lastname, email,
+                phoneNumber, major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation,
+                jobtype, prevExp, explength, jobdesc);
 
         this.user = new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
                 major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
@@ -211,9 +211,9 @@ public class InternshipAppUI {
         String jobOccupation = null;
         String jobtype = null;
 
-        this.employer = new Employer(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
-        major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
-        prevExp, explength, jobdesc);
+        this.employer = new Employer(username, password, accounttype, school, company, firstname, lastname, email,
+                phoneNumber, major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation,
+                jobtype, prevExp, explength, jobdesc);
 
         this.user = new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
                 major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
@@ -261,9 +261,9 @@ public class InternshipAppUI {
         String jobOccupation = null;
         String jobtype = null;
 
-        this.admin = new Administrator(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
-        major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
-        prevExp, explength, jobdesc);
+        this.admin = new Administrator(username, password, accounttype, school, company, firstname, lastname, email,
+                phoneNumber, major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation,
+                jobtype, prevExp, explength, jobdesc);
 
         this.user = new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
                 major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
@@ -295,10 +295,10 @@ public class InternshipAppUI {
     // --------------RESUME CREATION AND EDITING DISPLAY AND
     // FUNCTIONALITY----------------------
 
-    public void createStudentResume(String username, String password, String accounttype, String school, String company, String firstname, 
-	String lastname, String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel, String gpa, 
-	ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp, String explength, 
-	String jobdesc) {
+    public void createStudentResume(String username, String password, String accounttype, String school, String company,
+            String firstname, String lastname, String email, String phoneNumber, String major, String minor,
+            String concentration, String gradeLevel, String gpa, ArrayList<String> skills, ArrayList<String> extraCurr,
+            String status, String jobOccupation, String jobtype, String prevExp, String explength, String jobdesc) {
         System.out.println("\nYou will now be prompted to set up your Resume\n");
         System.out.print("First Name: ");
         firstname = scanner.nextLine();
@@ -426,7 +426,39 @@ public class InternshipAppUI {
                 explength, jobdesc);
     }
 
-    public void editResumeEducation() {
+    public void editResumeEducation(String username, String password, String accounttype, String firstname,
+            String lastname, String school, String company, String email, String phoneNumber, String major,
+            String minor, String concentration, String gradeLevel, String gpa, ArrayList<String> skills,
+            ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp,
+            String explength, String jobdesc) {
+        int choice = scanner.nextInt();
+        System.out.println(
+                "Enter 1 to edit the grade level\nEnter 2 to edit the School\nEnter 3 to edit the Major\nEnter 4 to edit the Minor\nEnter 5 to edit the GPA\nEnter 0 to return back to menu");
+                
+        while(choice!=0){
+            if (choice == 1) {
+                gradeLevel=scanner.nextLine();
+
+            }
+            else if (choice ==2){
+                school=scanner.nextLine();
+            }
+            else if (choice ==3 ) {
+                major=scanner.nextLine();
+            }
+            else if (choice ==4 ) {
+                minor=scanner.nextLine();
+            }
+            else if (choice ==5) {
+                gpa=scanner.nextLine();
+            }
+            else if (choice ==0) {
+                break;
+            }
+            else {
+                System.out.println("invalid command");
+            }
+        }
 
     }
 
@@ -581,7 +613,7 @@ public class InternshipAppUI {
             } else if (userDecision == 2) {
                 seeAllPostedJobListings();
             } else if (userDecision == 3) {
-                
+
             } else if (userDecision == 4) {
                 System.out.println("Thanks for using the internship app!\nGoodbye!");
                 System.exit(0);
@@ -616,9 +648,8 @@ public class InternshipAppUI {
         ArrayList<Review> jobReviews = new ArrayList<>();
         ArrayList<Student> studentsApplied = new ArrayList<>();
 
-        this.employer.getJobListings().add(new JobListing(jobTitle, jobCompany, jobDescription,
-        jobCityLocation, jobStateLocation, numofMonths, companyLink, jobWagePerHour,
-        jobReviews, studentsApplied, jobExpDate));
+        this.employer.getJobListings().add(new JobListing(jobTitle, jobCompany, jobDescription, jobCityLocation,
+                jobStateLocation, numofMonths, companyLink, jobWagePerHour, jobReviews, studentsApplied, jobExpDate));
 
         jobListings.addJob(jobTitle, jobCompany, jobDescription, jobCityLocation, jobStateLocation, numofMonths,
                 companyLink, jobWagePerHour, jobReviews, studentsApplied, jobExpDate);
@@ -634,17 +665,17 @@ public class InternshipAppUI {
         System.out.println("Enter the number of a job listing to see more details.\nEnter '0' if you wish to return");
         int userInput = Integer.valueOf(scanner.nextLine());
         while (true) {
-            for(int i = 1; i < jobListings.getJobList().size(); i++){
-            if (userInput == i) {
-                employerDetailedJobListing(jobListings.getJobList().get(i));
-            } else if (userInput == 0) {
-                return;
-            } else {
-                System.out.println("Invalid command");
-                return;
+            for (int i = 1; i < jobListings.getJobList().size(); i++) {
+                if (userInput == i) {
+                    employerDetailedJobListing(jobListings.getJobList().get(i));
+                } else if (userInput == 0) {
+                    return;
+                } else {
+                    System.out.println("Invalid command");
+                    return;
+                }
             }
         }
-    }
     }
 
     public void employerDetailedJobListing(JobListing jobListing) {
@@ -668,7 +699,7 @@ public class InternshipAppUI {
     }
 
     public void viewAllApplicants(JobListing jobListing) {
-        for(Student student:jobListing.getStudentsApplied()) {
+        for (Student student : jobListing.getStudentsApplied()) {
             System.out.println(student.shortToString());
         }
     }

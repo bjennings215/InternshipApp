@@ -2,8 +2,6 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class Student extends User {
-
-    private Resume resume;
     private ArrayList<JobListing> favoriteJobs;
     private ArrayList<JobListing> jobsAppliedTo;
     private ArrayList<Review> reviewsMade;
@@ -37,18 +35,13 @@ public class Student extends User {
         this.jobsAppliedTo = new ArrayList<>();
         this.reviewsMade = new ArrayList<>();
     }
-
-    public Resume getResume() {
-        return this.resume;
-    }
-
     public boolean getEmployementStatus() {
         return true;
     }
 
-    public ArrayList<JobListing> getFavoriteJobs() {
-        return this.favoriteJobs;
-    }
+    // public ArrayList<JobListing> getFavoriteJobs() {
+    //     return this.favoriteJobs;
+    // }
 
     public ArrayList<JobListing> getJobsAppliedTo() {
         return this.jobsAppliedTo;
@@ -57,11 +50,6 @@ public class Student extends User {
     public ArrayList<Review> getReviewsMade() {
         return this.reviewsMade;
     }
-
-    public void createResume(Resume resume) {
-
-    }
-
     public void editResume() {
 
     }

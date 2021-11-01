@@ -1,1 +1,386 @@
-[{"Status":null,"Company":null,"Experiences":[{"Job Occupation":null,"Job Type":null,"Previous Experiences":null,"Job Length":null,"Job Desc":null}],"First Name":null,"Concentration":null,"userid":"e936a4ef-3611-4057-bea6-0569f4d06037","Grade Level":null,"School":null,"Major":null,"Username":"JohnDoe_xd","Skills":null,"GPA":null,"Minor":null,"Last Name":null,"Phone Number":null,"Extra-Cirriculars":null,"Account Type":"Administrator","Password":"JavaIsCool","Email Address":null},{"Status":"Unemployed","Company":null,"Experiences":[{"Job Occupation":null,"Job Type":null,"Previous Experiences":null,"Job Length":null,"Job Desc":null}],"First Name":"John","Concentration":"Computer Science","userid":"aaf6408a-c67f-4a16-8fc2-6fab0bbd93d5","Grade Level":"Junior","School":"University of South Carolina","Major":"Computer Information Systems","Username":"JackMiller","Skills":["Java","mySQL","C++","MTA:Networking Fundamentals"],"GPA":"3.4","Minor":null,"Last Name":"Doe","Phone Number":null,"Extra-Cirriculars":["Robotics"],"Account Type":"Student","Password":"INeedAJob","Email Address":null},{"Status":null,"Company":"Volt-tech","Experiences":[{"Job Occupation":null,"Job Type":null,"Previous Experiences":null,"Job Length":null,"Job Desc":null}],"First Name":null,"Concentration":null,"userid":"81c0ba8d-4d2c-42f6-8584-96b313edda95","Grade Level":null,"School":null,"Major":null,"Username":"JeffreySmith","Skills":null,"GPA":null,"Minor":null,"Last Name":null,"Phone Number":null,"Extra-Cirriculars":null,"Account Type":"Employer","Password":"needNewHires!","Email Address":null},{"Status":null,"Company":null,"Experiences":[{"Job Occupation":null,"Job Type":null,"Previous Experiences":null,"Job Length":null,"Job Desc":null}],"First Name":null,"Concentration":null,"userid":"422bdbdf-ea25-4bef-a09b-5f366a755788","Grade Level":null,"School":null,"Major":null,"Username":"bjj","Skills":null,"GPA":null,"Minor":null,"Last Name":null,"Phone Number":"999-9999","Extra-Cirriculars":null,"Account Type":"Student","Password":"dfsfafasd","Email Address":"btj2@email.sc.edu"},{"Status":null,"Company":null,"Experiences":[{"Job Occupation":null,"Job Type":null,"Previous Experiences":null,"Job Length":null,"Job Desc":null}],"First Name":null,"Concentration":null,"userid":"60813db0-9ebb-4616-a9f9-11e9117c1b00","Grade Level":null,"School":null,"Major":null,"Username":"brady smoak","Skills":null,"GPA":null,"Minor":null,"Last Name":null,"Phone Number":"999-9999","Extra-Cirriculars":null,"Account Type":"Student","Password":"celtics rule","Email Address":"btj2@email.sc.edu"},{"Status":null,"Company":null,"Experiences":[{"Job Occupation":null,"Job Type":null,"Previous Experiences":null,"Job Length":null,"Job Desc":null}],"First Name":null,"Concentration":null,"userid":"db3e6951-10f0-430c-851a-b5bb93cbe488","Grade Level":null,"School":null,"Major":null,"Username":"brandon","Skills":null,"GPA":null,"Minor":null,"Last Name":null,"Phone Number":"999-9999","Extra-Cirriculars":null,"Account Type":"Student","Password":"tree","Email Address":"btj2@email.sc.edu"},{"Status":null,"Company":"brandon","Experiences":[{"Job Occupation":null,"Job Type":null,"Previous Experiences":null,"Job Length":null,"Job Desc":null}],"First Name":null,"Concentration":null,"userid":"b78a0262-4000-4cd2-8b27-ce99452d5b01","Grade Level":null,"School":null,"Major":null,"Username":"btj","Skills":null,"GPA":null,"Minor":null,"Last Name":"jennings","Phone Number":null,"Extra-Cirriculars":null,"Account Type":"Student","Password":"1234","Email Address":null},{"Status":null,"Company":null,"Experiences":[{"Job Occupation":null,"Job Type":null,"Previous Experiences":null,"Job Length":null,"Job Desc":null}],"First Name":"adam","Concentration":"a","userid":"7459cde2-0290-4322-ad4d-c96c6f5cd567","Grade Level":"a","School":"a","Major":"a","Username":"adamrt","Skills":null,"GPA":"a","Minor":"a","Last Name":"a","Phone Number":null,"Extra-Cirriculars":null,"Account Type":"Student","Password":"adam","Email Address":null},{"Status":null,"Company":null,"Experiences":[{"Job Occupation":null,"Job Type":null,"Previous Experiences":null,"Job Length":null,"Job Desc":null}],"First Name":"adam","Concentration":"a","userid":"6b17f0c5-ddd6-440d-ac14-140db4a17759","Grade Level":"a","School":"a","Major":"a","Username":"adamrt","Skills":null,"GPA":"a","Minor":"a","Last Name":"a","Phone Number":null,"Extra-Cirriculars":null,"Account Type":"Student","Password":"adam","Email Address":null},{"Status":null,"Company":null,"Experiences":[{"Job Occupation":null,"Job Type":null,"Previous Experiences":null,"Job Length":null,"Job Desc":null}],"First Name":"adam","Concentration":null,"userid":"8fc48caf-cf7f-4da0-a636-b878f658c128","Grade Level":null,"School":null,"Major":null,"Username":"aaaaaaa","Skills":null,"GPA":null,"Minor":null,"Last Name":"adam","Phone Number":null,"Extra-Cirriculars":null,"Account Type":"Student","Password":"adam","Email Address":null},{"Status":null,"Company":null,"Experiences":[{"Job Occupation":null,"Job Type":null,"Previous Experiences":null,"Job Length":null,"Job Desc":null}],"First Name":null,"Concentration":null,"userid":"33b1816c-b3ab-409a-b18b-89934031a564","Grade Level":null,"School":null,"Major":null,"Username":"employerman","Skills":null,"GPA":null,"Minor":null,"Last Name":null,"Phone Number":null,"Extra-Cirriculars":null,"Account Type":"Employer","Password":"adam","Email Address":null},{"Status":null,"Company":null,"Experiences":[{"Job Occupation":null,"Job Type":null,"Previous Experiences":null,"Job Length":null,"Job Desc":null}],"First Name":"Adam","Concentration":null,"userid":"eaf475ae-fb6d-4c8e-a745-75323b480a72","Grade Level":null,"School":null,"Major":null,"Username":"adammmm","Skills":null,"GPA":null,"Minor":null,"Last Name":"Trickett","Phone Number":null,"Extra-Cirriculars":null,"Account Type":"Student","Password":"adam","Email Address":null},{"Status":null,"Company":null,"Experiences":[{"Job Occupation":null,"Job Type":null,"Previous Experiences":null,"Job Length":null,"Job Desc":null}],"First Name":null,"Concentration":null,"userid":"45c549aa-1f33-4f5a-87bb-0f9bfbdf666e","Grade Level":null,"School":null,"Major":null,"Username":"adamemp","Skills":[],"GPA":null,"Minor":null,"Last Name":null,"Phone Number":null,"Extra-Cirriculars":[],"Account Type":"Employer","Password":"adam","Email Address":null}]
+[
+    {
+        "Status": null,
+        "Company": null,
+        "Experiences": [
+            {
+                "Job Occupation": null,
+                "Job Type": null,
+                "Previous Experiences": null,
+                "Job Length": null,
+                "Job Desc": null
+            }
+        ],
+        "First Name": null,
+        "Concentration": null,
+        "userid": "e936a4ef-3611-4057-bea6-0569f4d06037",
+        "Grade Level": null,
+        "School": null,
+        "Major": null,
+        "Username": "JohnDoe_xd",
+        "Skills": null,
+        "GPA": null,
+        "Minor": null,
+        "Last Name": null,
+        "Phone Number": null,
+        "Extra-Cirriculars": null,
+        "Account Type": "Administrator",
+        "Password": "JavaIsCool",
+        "Email Address": null
+    },
+    {
+        "Status": "Unemployed",
+        "Company": null,
+        "Experiences": [
+            {
+                "Job Occupation": null,
+                "Job Type": null,
+                "Previous Experiences": null,
+                "Job Length": null,
+                "Job Desc": null
+            }
+        ],
+        "First Name": "John",
+        "Concentration": "Computer Science",
+        "userid": "aaf6408a-c67f-4a16-8fc2-6fab0bbd93d5",
+        "Grade Level": "Junior",
+        "School": "University of South Carolina",
+        "Major": "Computer Information Systems",
+        "Username": "JackMiller",
+        "Skills": [
+            "Java",
+            "mySQL",
+            "C++",
+            "MTA:Networking Fundamentals"
+        ],
+        "GPA": "3.4",
+        "Minor": null,
+        "Last Name": "Doe",
+        "Phone Number": null,
+        "Extra-Cirriculars": [
+            "Robotics"
+        ],
+        "Account Type": "Student",
+        "Password": "INeedAJob",
+        "Email Address": null
+    },
+    {
+        "Status": null,
+        "Company": "Volt-tech",
+        "Experiences": [
+            {
+                "Job Occupation": null,
+                "Job Type": null,
+                "Previous Experiences": null,
+                "Job Length": null,
+                "Job Desc": null
+            }
+        ],
+        "First Name": null,
+        "Concentration": null,
+        "userid": "81c0ba8d-4d2c-42f6-8584-96b313edda95",
+        "Grade Level": null,
+        "School": null,
+        "Major": null,
+        "Username": "JeffreySmith",
+        "Skills": null,
+        "GPA": null,
+        "Minor": null,
+        "Last Name": null,
+        "Phone Number": null,
+        "Extra-Cirriculars": null,
+        "Account Type": "Employer",
+        "Password": "needNewHires!",
+        "Email Address": null
+    },
+    {
+        "Status": null,
+        "Company": null,
+        "Experiences": [
+            {
+                "Job Occupation": null,
+                "Job Type": null,
+                "Previous Experiences": null,
+                "Job Length": null,
+                "Job Desc": null
+            }
+        ],
+        "First Name": null,
+        "Concentration": null,
+        "userid": "422bdbdf-ea25-4bef-a09b-5f366a755788",
+        "Grade Level": null,
+        "School": null,
+        "Major": null,
+        "Username": "bjj",
+        "Skills": null,
+        "GPA": null,
+        "Minor": null,
+        "Last Name": null,
+        "Phone Number": "999-9999",
+        "Extra-Cirriculars": null,
+        "Account Type": "Student",
+        "Password": "dfsfafasd",
+        "Email Address": "btj2@email.sc.edu"
+    },
+    {
+        "Status": null,
+        "Company": null,
+        "Experiences": [
+            {
+                "Job Occupation": null,
+                "Job Type": null,
+                "Previous Experiences": null,
+                "Job Length": null,
+                "Job Desc": null
+            }
+        ],
+        "First Name": null,
+        "Concentration": null,
+        "userid": "60813db0-9ebb-4616-a9f9-11e9117c1b00",
+        "Grade Level": null,
+        "School": null,
+        "Major": null,
+        "Username": "brady smoak",
+        "Skills": null,
+        "GPA": null,
+        "Minor": null,
+        "Last Name": null,
+        "Phone Number": "999-9999",
+        "Extra-Cirriculars": null,
+        "Account Type": "Student",
+        "Password": "celtics rule",
+        "Email Address": "btj2@email.sc.edu"
+    },
+    {
+        "Status": null,
+        "Company": null,
+        "Experiences": [
+            {
+                "Job Occupation": null,
+                "Job Type": null,
+                "Previous Experiences": null,
+                "Job Length": null,
+                "Job Desc": null
+            }
+        ],
+        "First Name": null,
+        "Concentration": null,
+        "userid": "db3e6951-10f0-430c-851a-b5bb93cbe488",
+        "Grade Level": null,
+        "School": null,
+        "Major": null,
+        "Username": "brandon",
+        "Skills": null,
+        "GPA": null,
+        "Minor": null,
+        "Last Name": null,
+        "Phone Number": "999-9999",
+        "Extra-Cirriculars": null,
+        "Account Type": "Student",
+        "Password": "tree",
+        "Email Address": "btj2@email.sc.edu"
+    },
+    {
+        "Status": null,
+        "Company": "brandon",
+        "Experiences": [
+            {
+                "Job Occupation": null,
+                "Job Type": null,
+                "Previous Experiences": null,
+                "Job Length": null,
+                "Job Desc": null
+            }
+        ],
+        "First Name": null,
+        "Concentration": null,
+        "userid": "b78a0262-4000-4cd2-8b27-ce99452d5b01",
+        "Grade Level": null,
+        "School": null,
+        "Major": null,
+        "Username": "btj",
+        "Skills": null,
+        "GPA": null,
+        "Minor": null,
+        "Last Name": "jennings",
+        "Phone Number": null,
+        "Extra-Cirriculars": null,
+        "Account Type": "Student",
+        "Password": "1234",
+        "Email Address": null
+    },
+    {
+        "Status": null,
+        "Company": null,
+        "Experiences": [
+            {
+                "Job Occupation": null,
+                "Job Type": null,
+                "Previous Experiences": null,
+                "Job Length": null,
+                "Job Desc": null
+            }
+        ],
+        "First Name": "adam",
+        "Concentration": "a",
+        "userid": "7459cde2-0290-4322-ad4d-c96c6f5cd567",
+        "Grade Level": "a",
+        "School": "a",
+        "Major": "a",
+        "Username": "adamrt",
+        "Skills": null,
+        "GPA": "a",
+        "Minor": "a",
+        "Last Name": "a",
+        "Phone Number": null,
+        "Extra-Cirriculars": null,
+        "Account Type": "Student",
+        "Password": "adam",
+        "Email Address": null
+    },
+    {
+        "Status": null,
+        "Company": null,
+        "Experiences": [
+            {
+                "Job Occupation": null,
+                "Job Type": null,
+                "Previous Experiences": null,
+                "Job Length": null,
+                "Job Desc": null
+            }
+        ],
+        "First Name": "adam",
+        "Concentration": "a",
+        "userid": "6b17f0c5-ddd6-440d-ac14-140db4a17759",
+        "Grade Level": "a",
+        "School": "a",
+        "Major": "a",
+        "Username": "adamrt",
+        "Skills": null,
+        "GPA": "a",
+        "Minor": "a",
+        "Last Name": "a",
+        "Phone Number": null,
+        "Extra-Cirriculars": null,
+        "Account Type": "Student",
+        "Password": "adam",
+        "Email Address": null
+    },
+    {
+        "Status": null,
+        "Company": null,
+        "Experiences": [
+            {
+                "Job Occupation": null,
+                "Job Type": null,
+                "Previous Experiences": null,
+                "Job Length": null,
+                "Job Desc": null
+            }
+        ],
+        "First Name": "adam",
+        "Concentration": null,
+        "userid": "8fc48caf-cf7f-4da0-a636-b878f658c128",
+        "Grade Level": null,
+        "School": null,
+        "Major": null,
+        "Username": "aaaaaaa",
+        "Skills": null,
+        "GPA": null,
+        "Minor": null,
+        "Last Name": "adam",
+        "Phone Number": null,
+        "Extra-Cirriculars": null,
+        "Account Type": "Student",
+        "Password": "adam",
+        "Email Address": null
+    },
+    {
+        "Status": null,
+        "Company": null,
+        "Experiences": [
+            {
+                "Job Occupation": null,
+                "Job Type": null,
+                "Previous Experiences": null,
+                "Job Length": null,
+                "Job Desc": null
+            }
+        ],
+        "First Name": null,
+        "Concentration": null,
+        "userid": "33b1816c-b3ab-409a-b18b-89934031a564",
+        "Grade Level": null,
+        "School": null,
+        "Major": null,
+        "Username": "employerman",
+        "Skills": null,
+        "GPA": null,
+        "Minor": null,
+        "Last Name": null,
+        "Phone Number": null,
+        "Extra-Cirriculars": null,
+        "Account Type": "Employer",
+        "Password": "adam",
+        "Email Address": null
+    },
+    {
+        "Status": null,
+        "Company": null,
+        "Experiences": [
+            {
+                "Job Occupation": null,
+                "Job Type": null,
+                "Previous Experiences": null,
+                "Job Length": null,
+                "Job Desc": null
+            }
+        ],
+        "First Name": "Adam",
+        "Concentration": null,
+        "userid": "eaf475ae-fb6d-4c8e-a745-75323b480a72",
+        "Grade Level": null,
+        "School": null,
+        "Major": null,
+        "Username": "adammmm",
+        "Skills": null,
+        "GPA": null,
+        "Minor": null,
+        "Last Name": "Trickett",
+        "Phone Number": null,
+        "Extra-Cirriculars": null,
+        "Account Type": "Student",
+        "Password": "adam",
+        "Email Address": null
+    },
+    {
+        "Status": null,
+        "Company": null,
+        "Experiences": [
+            {
+                "Job Occupation": null,
+                "Job Type": null,
+                "Previous Experiences": null,
+                "Job Length": null,
+                "Job Desc": null
+            }
+        ],
+        "First Name": null,
+        "Concentration": null,
+        "userid": "45c549aa-1f33-4f5a-87bb-0f9bfbdf666e",
+        "Grade Level": null,
+        "School": null,
+        "Major": null,
+        "Username": "adamemp",
+        "Skills": [],
+        "GPA": null,
+        "Minor": null,
+        "Last Name": null,
+        "Phone Number": null,
+        "Extra-Cirriculars": [],
+        "Account Type": "Employer",
+        "Password": "adam",
+        "Email Address": null
+    }
+]

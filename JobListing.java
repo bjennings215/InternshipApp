@@ -123,7 +123,7 @@ public class JobListing {
         String returnString = this.jobTitle + "\nCompany: " + this.jobCompany + "\nLocation: " + this.jobCityLocation
                 + ", " + this.jobStateLocation + "\nLength: " + this.numofMonths + "\nEarnings Per Hour: "
                 + this.jobWagePerHour + "\nCompany Link: " + this.compnayLink + "\nDescription: " + this.jobDescription
-                + "\nReviews made of previous experiences in this role\n";
+                + "\nReviews made of previous experiences in this role\n" + this.jobReviews + "\nStudent that Applied:\n" + this.studentsApplied;
         for (Review review : this.jobReviews) {
             returnString.concat(review.toString() + "\n");
         }

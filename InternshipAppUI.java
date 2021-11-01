@@ -10,7 +10,7 @@ public class InternshipAppUI {
     private static final String[] LOGIN_COMMANDS = { "Log in", "Create new account" };
     private static final String[] USER_TYPE_COMMANDS = { "Student", "Employer", "Administrator" };
     private static final String[] STUDENT_MAIN_MENU_COMMANDS = { "Browse Job Listings", "See Jobs Applied To",
-            "See Reviews Made", "Edit Resume", "Edit Account", "Log Off" };
+            "See Reviews Made", "See Resume Details",  "Edit Resume", "Edit Account", "Log Off" };
     private static final String[] EMPLOYER_MAIN_MENU_COMMANDS = { "Post New Job Listing", "See Posted Job Listings",
             "Search Students", "Log Off" };
     private static final String[] ADMIN_MAIN_MENU_COMMANDS = { "Browse All Job Listings", "Browse All Students",
@@ -101,9 +101,8 @@ public class InternshipAppUI {
     }
 
     public boolean verifyLoginCredentials(String username, String password) {
-        Users allUsers = Users.getInstance();
 
-        if (allUsers.haveUser(username) && allUsers.getUser(username).getPassword().equals(password)) {
+        if (users.haveUser(username) && users.getUser(username).getPassword().equals(password)) {
             return true;
         }
         return false;
@@ -164,17 +163,10 @@ public class InternshipAppUI {
         this.user = new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
                 major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
                 prevExp, explength, jobdesc);
+
         users.addUser(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major,
                 minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
                 explength, jobdesc);
-        ArrayList<User> accountInfo = users.getUsers();
-        for (User user : accountInfo) {
-            if (user.getUsername().equals(username)) {
-                System.out.println(username);
-                System.out.println(accounttype);
-                System.out.println(school);
-            }
-        }
 
         createStudentResume(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
                 major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
@@ -485,10 +477,12 @@ public class InternshipAppUI {
             } else if (userDecision == 3) {
                 seeReviewsMade();
             } else if (userDecision == 4) {
-                studentResumeEditingMenu();
+                seeResumeDetails();
             } else if (userDecision == 5) {
-                studentAccountEditingMenu();
+                studentResumeEditingMenu();
             } else if (userDecision == 6) {
+                studentAccountEditingMenu();
+            } else if (userDecision == 7) {
                 System.out.println("Thanks for using the internship app!\nGoodbye!");
                 System.exit(0);
             } else {
@@ -579,6 +573,10 @@ public class InternshipAppUI {
                 System.out.println("Invalid command");
             }
         }
+    }
+
+    public void seeResumeDetails() {
+        System.out.println(this.student.longToString());
     }
 
     public void studentResumeEditingMenu() {
@@ -803,6 +801,10 @@ public class InternshipAppUI {
         if (userInput == 1) {
             deleteJobListing(jobListing);
             return;
+        } else if (userInput == 2) {
+            return;
+        } else {
+            System.out.println("Invalid Command");
         }
     }
 

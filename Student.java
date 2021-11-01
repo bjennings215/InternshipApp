@@ -98,10 +98,6 @@ public class Student extends User {
 
     }
 
-    public boolean applyToJob(JobListing jobListing) {
-        return true;
-    }
-
     public String getSchool() {
         return school;
     }

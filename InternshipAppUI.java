@@ -26,7 +26,8 @@ public class InternshipAppUI {
 
     private static final String[] EMPLOYER_DETAILED_JOB_LISTING_COMMANDS = { "See All Applicants", "Edit Job Listing",
             "Delete Job Listing", "Return" };
-    private static final String[] VIEWING_STUDENT_DETAILS_COMMANDS = { "Accept Student for Position", "Reject Student for Position", "Return"};
+    private static final String[] VIEWING_STUDENT_DETAILS_COMMANDS = { "Accept Student for Position",
+            "Reject Student for Position", "Return" };
 
     private Scanner scanner;
     private User user;
@@ -108,7 +109,6 @@ public class InternshipAppUI {
     }
 
     public void newAccountCreation() {
-        Users users = Users.getInstance();
         System.out.println("\nWhat type of account do you wish to create?");
         while (true) {
             printPossibleCommands(USER_TYPE_COMMANDS);
@@ -412,7 +412,7 @@ public class InternshipAppUI {
             ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp,
             String explength, String jobdesc) {
         System.out.println(
-                "\nEnter all extracurriculars below\nType an entry and press 'Enter'\nType 'Done' when finished entering skills to exit");
+                "\nEnter all extracurriculars below\nType an entry and press 'Enter'\nType 'Done' when finished entering extracurriculars to exit");
         while (true) {
             String newEntry = scanner.nextLine();
             if (newEntry.equalsIgnoreCase("done")) {
@@ -515,12 +515,12 @@ public class InternshipAppUI {
 
     public void studentDetailedJobListing(JobListing jobListing) {
         System.out.println(jobListing.longToString());
-        printPossibleCommands(STUDENT_DETAILED_JOB_LISTING_COMMANDS);
-        int userInput = getUserCommand(STUDENT_DETAILED_JOB_LISTING_COMMANDS);
         while (true) {
+            printPossibleCommands(STUDENT_DETAILED_JOB_LISTING_COMMANDS);
+            int userInput = getUserCommand(STUDENT_DETAILED_JOB_LISTING_COMMANDS);
             if (userInput == 1) {
-                this.student.applyToJob(jobListing);
-                this.student.addJobAppliedTo(jobListing);
+                applyToJobListing(jobListing);
+                return;
             } else if (userInput == 2) {
                 break;
             } else {
@@ -530,11 +530,21 @@ public class InternshipAppUI {
         return;
     }
 
+    public void applyToJobListing(JobListing jobListing) {
+        if (jobListing.getStudentsApplied().contains(this.student)) {
+            System.out.println("You have already applied to this position");
+        } else {
+            jobListing.getStudentsApplied().add(student);
+            student.getJobsAppliedTo().add(jobListing);
+            System.out.println("You have successfully applied to this position!\nThis job listing will now appear in your list of Jobs Applied To!");
+        }
+    }
+
     public void browseJobsApplied() {
-        int count = 0;
+        int count = 1;
         System.out.println("\nAll Jobs Applied To");
         for (JobListing jobListing : this.student.getJobsAppliedTo()) {
-            System.out.println("\n [" + count + "]: " + jobListing);
+            System.out.println("\n [" + count + "]: " + jobListing.shortToString());
             count++;
         }
         System.out.println(
@@ -553,7 +563,7 @@ public class InternshipAppUI {
         int count = 0;
         System.out.println("\nAll Reviews Made");
         for (Review review : this.student.getReviewsMade()) {
-            System.out.println("\n [" + count + "]: " + jobListing);
+            System.out.println("\n [" + count + "]: " + review);
             count++;
         }
         System.out.println("Enter the number of a review to delete it.\nEnter '0' if you wish to return");
@@ -652,17 +662,13 @@ public class InternshipAppUI {
 
     public void seeAllPostedJobListings() {
         JobListings jobListings = JobListings.getInstance();
-        int count = 1;
-        for (JobListing jobListing : jobListings.getJobList()) {
-            System.out.println("\n[" + count + "]: " + jobListing.shortToString());
-            count++;
-        }
+        printAllJobListings();
         System.out.println("Enter the number of a job listing to see more details.\nEnter '0' if you wish to return");
         int userInput = Integer.valueOf(scanner.nextLine());
         while (true) {
             for (int i = 1; i < jobListings.getJobList().size(); i++) {
                 if (userInput == i) {
-                    employerDetailedJobListing(jobListings.getJobList().get(i-1));
+                    employerDetailedJobListing(jobListings.getJobList().get(i - 1));
                 } else if (userInput == 0) {
                     return;
                 } else {
@@ -704,7 +710,7 @@ public class InternshipAppUI {
         while (true) {
             for (int i = 1; i < jobListing.getStudentsApplied().size(); i++) {
                 if (userInput == i) {
-                    viewStudentDetails(jobListing.getStudentsApplied().get(i-1));
+                    viewStudentDetails(jobListing.getStudentsApplied().get(i - 1), jobListing);
                 } else if (userInput == 0) {
                     return;
                 } else {
@@ -715,22 +721,31 @@ public class InternshipAppUI {
         }
     }
 
-    public void viewStudentDetails(Student student) {
+    public void viewStudentDetails(Student student, JobListing jobListing) {
         System.out.println(student.longToString());
         while (true) {
             printPossibleCommands(VIEWING_STUDENT_DETAILS_COMMANDS);
             getUserCommand(VIEWING_STUDENT_DETAILS_COMMANDS);
             int userInput = Integer.valueOf(scanner.nextLine());
             if (userInput == 1) {
-
+                acceptStudent(student, jobListing);
             } else if (userInput == 2) {
-
+                rejectStudent(student, jobListing);
             } else if (userInput == 3) {
                 return;
             } else {
                 System.out.println("Invalid command");
             }
         }
+    }
+
+    public void acceptStudent(Student student, JobListing jobListing) {
+
+    }
+
+    public void rejectStudent(Student student, JobListing jobListing) {
+        jobListing.getStudentsApplied().remove(student);
+        student.getJobsAppliedTo().remove(jobListing);
     }
 
     public void editJobListing() {

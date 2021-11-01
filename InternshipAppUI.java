@@ -26,6 +26,7 @@ public class InternshipAppUI {
 
     private static final String[] EMPLOYER_DETAILED_JOB_LISTING_COMMANDS = { "See All Applicants", "Edit Job Listing",
             "Delete Job Listing", "Return" };
+    private static final String[] VIEWING_STUDENT_DETAILS_COMMANDS = { "Accept Student for Position", "Reject Student for Position", "Return"};
 
     private Scanner scanner;
     private User user;
@@ -434,28 +435,22 @@ public class InternshipAppUI {
         int choice = scanner.nextInt();
         System.out.println(
                 "Enter 1 to edit the grade level\nEnter 2 to edit the School\nEnter 3 to edit the Major\nEnter 4 to edit the Minor\nEnter 5 to edit the GPA\nEnter 0 to return back to menu");
-                
-        while(choice!=0){
-            if (choice == 1) {
-                gradeLevel=scanner.nextLine();
 
-            }
-            else if (choice ==2){
-                school=scanner.nextLine();
-            }
-            else if (choice ==3 ) {
-                major=scanner.nextLine();
-            }
-            else if (choice ==4 ) {
-                minor=scanner.nextLine();
-            }
-            else if (choice ==5) {
-                gpa=scanner.nextLine();
-            }
-            else if (choice ==0) {
+        while (choice != 0) {
+            if (choice == 1) {
+                gradeLevel = scanner.nextLine();
+
+            } else if (choice == 2) {
+                school = scanner.nextLine();
+            } else if (choice == 3) {
+                major = scanner.nextLine();
+            } else if (choice == 4) {
+                minor = scanner.nextLine();
+            } else if (choice == 5) {
+                gpa = scanner.nextLine();
+            } else if (choice == 0) {
                 break;
-            }
-            else {
+            } else {
                 System.out.println("invalid command");
             }
         }
@@ -667,7 +662,7 @@ public class InternshipAppUI {
         while (true) {
             for (int i = 1; i < jobListings.getJobList().size(); i++) {
                 if (userInput == i) {
-                    employerDetailedJobListing(jobListings.getJobList().get(i));
+                    employerDetailedJobListing(jobListings.getJobList().get(i-1));
                 } else if (userInput == 0) {
                     return;
                 } else {
@@ -687,11 +682,12 @@ public class InternshipAppUI {
             if (userInput == 1) {
                 viewAllApplicants(jobListing);
             } else if (userInput == 2) {
-
+                editJobListing();
             } else if (userInput == 3) {
-
+                this.employer.getJobListings().remove(jobListing);
+                jobListings.removeJob(jobListing.getJobTitle());
             } else if (userInput == 4) {
-
+                return;
             } else {
                 System.out.println("Invalid Command");
             }
@@ -699,9 +695,46 @@ public class InternshipAppUI {
     }
 
     public void viewAllApplicants(JobListing jobListing) {
+        int count = 1;
         for (Student student : jobListing.getStudentsApplied()) {
-            System.out.println(student.shortToString());
+            System.out.println("[" + count + "]: " + student.shortToString());
         }
+        System.out.println("Enter the number of a student to see more details\nEnter '0' if you wish to return");
+        int userInput = Integer.valueOf(scanner.nextLine());
+        while (true) {
+            for (int i = 1; i < jobListing.getStudentsApplied().size(); i++) {
+                if (userInput == i) {
+                    viewStudentDetails(jobListing.getStudentsApplied().get(i-1));
+                } else if (userInput == 0) {
+                    return;
+                } else {
+                    System.out.println("Invalid command");
+                    return;
+                }
+            }
+        }
+    }
+
+    public void viewStudentDetails(Student student) {
+        System.out.println(student.longToString());
+        while (true) {
+            printPossibleCommands(VIEWING_STUDENT_DETAILS_COMMANDS);
+            getUserCommand(VIEWING_STUDENT_DETAILS_COMMANDS);
+            int userInput = Integer.valueOf(scanner.nextLine());
+            if (userInput == 1) {
+
+            } else if (userInput == 2) {
+
+            } else if (userInput == 3) {
+                return;
+            } else {
+                System.out.println("Invalid command");
+            }
+        }
+    }
+
+    public void editJobListing() {
+
     }
 
     // -----------------------------ADMINISTRATOR MAIN MENU DISPLAY AND

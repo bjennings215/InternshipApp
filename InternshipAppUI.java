@@ -186,16 +186,19 @@ public class InternshipAppUI {
         String username = verifyAndSetUsername();
         System.out.print("Password: ");
         String password = scanner.nextLine();
+        System.out.print("First Name: ");
+        String firstname = scanner.nextLine();
+        System.out.print("Last Name: ");
+        String lastname = scanner.nextLine();
+        System.out.print("Company: ");
+        String company = scanner.nextLine();
 
         String accounttype = "Employer";
         String school = null;
-        String firstname = null;
-        String lastname = null;
         String major = null;
         String minor = null;
         String concentration = null;
         String gradeLevel = null;
-        String company = null;
         String gpa = null;
         ArrayList<String> skills = new ArrayList<>();
         ArrayList<String> extraCurr = new ArrayList<>();
@@ -578,7 +581,7 @@ public class InternshipAppUI {
             } else if (userDecision == 2) {
                 seeAllPostedJobListings();
             } else if (userDecision == 3) {
-                seeAllPostedJobListings();
+                
             } else if (userDecision == 4) {
                 System.out.println("Thanks for using the internship app!\nGoodbye!");
                 System.exit(0);

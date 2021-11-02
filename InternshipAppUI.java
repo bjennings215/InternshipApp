@@ -346,7 +346,7 @@ public class InternshipAppUI {
 
     public void studentMainMenuFunctionality() {
         while (true) {
-            System.out.println("\nMain Menu");
+            System.out.println("\n\nMain Menu");
             printPossibleCommands(STUDENT_MAIN_MENU_COMMANDS);
             int userDecision = getUserCommand(STUDENT_MAIN_MENU_COMMANDS);
             if (userDecision == 1) {
@@ -420,11 +420,9 @@ public class InternshipAppUI {
     }
 
     public void browseJobsApplied() {
-        int count = 1;
         System.out.println("\nAll Jobs Applied To");
         for (JobListing jobListing : this.student.getJobsAppliedTo()) {
-            System.out.println("\n [" + count + "]: " + jobListing.shortToString());
-            count++;
+            System.out.println("\n [" + jobListings.getJobList().indexOf(jobListing)+1 + "]: " + jobListing.shortToString());
         }
         System.out.println(
                 "\nEnter the number of a job listing to see more details.\nIf finished viewing listings enter '0' to return");
@@ -498,9 +496,10 @@ public class InternshipAppUI {
     }
 
     public void studentAccountEditingMenu() {
-        System.out.println("\nAccount Editing Menu Editing Menu");
+        System.out.println("\nAccount Editing Menu");
+        System.out.print("Enter New Username: ");
         String username = user.getUsername();
-        System.out.print("Password: ");
+        System.out.print("Enter New Password: ");
         String password = scanner.nextLine();
         String accounttype = "Student";
         String school = user.getSchool();
@@ -523,7 +522,7 @@ public class InternshipAppUI {
         System.out.print("Email: ");
         String email = scanner.nextLine();
         System.out.print("Phone Number: ");
-        String phoneNumber = user.getPhoneNumber();
+        String phoneNumber = scanner.nextLine();
         String jobOccupation = user.getjobOccupation();
         String jobtype = user.getjobType();
 
@@ -618,7 +617,7 @@ public class InternshipAppUI {
         }
         while (true) {
             System.out.println(
-                    "Enter the number of a student to see more details\nEnter '-1' if you wish to filter students\nEnter '0' if you wish to return");
+                    "\nEnter the number of a student to see more details\nEnter '-1' if you wish to filter students\nEnter '0' if you wish to return");
             int userInput = Integer.valueOf(scanner.nextLine());
             for (int i = 1; i < jobListing.getStudentsApplied().size(); i++) {
                 if (userInput == i) {

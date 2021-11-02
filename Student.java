@@ -160,7 +160,7 @@ public class Student extends User {
 
     public ArrayList<JobListing> filteringJobListings(ArrayList<JobListing> possibleJobs) {
         System.out
-              .println("Choose from the following filters\n Title, Wage, Type, Months, Employer, City, or State");
+              .println("Choose from the following filters\n Title, Wage, Company, City, or State");
         String userInput = scanner.nextLine().trim().toUpperCase();
   
         JobFilter filter = JobFilter.valueOf(userInput);

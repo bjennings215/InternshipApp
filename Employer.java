@@ -111,6 +111,8 @@ public class Employer extends User {
     */
    public void postNewJobListing() {
       JobListings jobListings = JobListings.getInstance();
+      System.out.print("Company: ");
+      String jobCompany = scanner.nextLine();
       System.out.print("Job Title: ");
       String jobTitle = scanner.nextLine();
       System.out.print("Job Description: ");
@@ -122,23 +124,22 @@ public class Employer extends User {
       System.out.print("Number of Months: ");
       String numofMonths = scanner.nextLine();
       System.out.print("Employer Website Link: ");
-      String companyLink = scanner.nextLine();
+      String link = scanner.nextLine();
       System.out.print("Date Posted: ");
       String jobExpDate = scanner.nextLine();
       System.out.println("\nNew Job Listing Created!");
 
-      String jobCompany = getCompany();
       String[] locations = location.split(", ");
       String jobCityLocation = locations[0];
       String jobStateLocation = locations[1];
       ArrayList<Review> jobReviews = new ArrayList<>();
       ArrayList<Student> studentsApplied = new ArrayList<>();
 
-      this.postedJobListings.add(new JobListing(jobTitle, jobCompany, jobDescription, jobCityLocation, jobStateLocation,
-            numofMonths, companyLink, jobWagePerHour, jobReviews, studentsApplied, jobExpDate));
+      this.postedJobListings.add(new JobListing(link, jobTitle,  jobCompany,  jobDescription, jobCityLocation, 
+      jobStateLocation, numofMonths, jobWagePerHour, jobReviews,  studentsApplied,  jobExpDate));
 
-      this.jobListings.addJob(jobTitle, jobCompany, jobDescription, jobCityLocation, jobStateLocation, numofMonths,
-            companyLink, jobWagePerHour, jobReviews, studentsApplied, jobExpDate);
+      this.jobListings.addJob(link, jobTitle,  jobCompany,  jobDescription,jobCityLocation, 
+      jobStateLocation, numofMonths, jobWagePerHour, jobReviews,  studentsApplied,  jobExpDate);
    }
 
    /**
@@ -186,16 +187,12 @@ public class Employer extends User {
       }
    }
 
-<<<<<<< HEAD
-   private ArrayList<Student> filteredByGPA(ArrayList<Student> possibleStudents) {
-=======
    /**
     * filtering through students by GPA
     * @param possibleStudents list of possible of students
     * @return the list of filtered students
     */
-   public ArrayList<Student> filteredByGPA(ArrayList<Student> possibleStudents) {
->>>>>>> 244b2e6f6c31ac4b9695e21974ab34a83b50ebd2
+   private ArrayList<Student> filteredByGPA(ArrayList<Student> possibleStudents) {
       System.out.println("The students GPA must be greater than what value? (4.0 being the greatest)");
       ArrayList<Student> filteredStudents = new ArrayList<>();
       double userInput = Double.valueOf(scanner.nextLine());
@@ -209,16 +206,12 @@ public class Employer extends User {
       return filteredStudents;
    }
 
-<<<<<<< HEAD
-   private ArrayList<Student> filteredByMajor(ArrayList<Student> possibleStudents) {
-=======
    /**
     * Filter possible students by major
     * @param possibleStudents list of possible students
     * @return the list of filtered students
     */
-   public ArrayList<Student> filteredByMajor(ArrayList<Student> possibleStudents) {
->>>>>>> 244b2e6f6c31ac4b9695e21974ab34a83b50ebd2
+   private ArrayList<Student> filteredByMajor(ArrayList<Student> possibleStudents) {
       System.out.println("What major would you like to filter by?");
       ArrayList<Student> filteredStudents = new ArrayList<>();
       String userInput = scanner.nextLine();
@@ -231,16 +224,12 @@ public class Employer extends User {
       return filteredStudents;
    }
 
-<<<<<<< HEAD
-   private ArrayList<Student> filteredByMinor(ArrayList<Student> possibleStudents) {
-=======
    /**
     * filter possible students by minor
     * @param possibleStudents list of possible students
     * @return list of filtered students
     */
-   public ArrayList<Student> filteredByMinor(ArrayList<Student> possibleStudents) {
->>>>>>> 244b2e6f6c31ac4b9695e21974ab34a83b50ebd2
+   private ArrayList<Student> filteredByMinor(ArrayList<Student> possibleStudents) {
       System.out.println("What minor would you like to filter by?");
       ArrayList<Student> filteredStudents = new ArrayList<>();
       String userInput = scanner.nextLine();
@@ -253,16 +242,12 @@ public class Employer extends User {
       return filteredStudents;
    }
 
-<<<<<<< HEAD
-   private ArrayList<Student> filteredBySkill(ArrayList<Student> possibleStudents) {
-=======
    /**
     * filter possible students by their skills
     * @param possibleStudents list of possible students
     * @return the list of filtered students
     */
-   public ArrayList<Student> filteredBySkill(ArrayList<Student> possibleStudents) {
->>>>>>> 244b2e6f6c31ac4b9695e21974ab34a83b50ebd2
+   private ArrayList<Student> filteredBySkill(ArrayList<Student> possibleStudents) {
       System.out.println("What skill would you like to filter by?");
       ArrayList<Student> filteredStudents = new ArrayList<>();
       String userInput = scanner.nextLine();
@@ -275,16 +260,12 @@ public class Employer extends User {
       return filteredStudents;
    }
 
-<<<<<<< HEAD
-   private ArrayList<Student> filteredByExtracurricular(ArrayList<Student> possibleStudents) {
-=======
    /**
     * filter possible students by their extracurricular activites
     * @param possibleStudents list of possible students
     * @return list of filtered students
     */
-   public ArrayList<Student> filteredByExtracurricular(ArrayList<Student> possibleStudents) {
->>>>>>> 244b2e6f6c31ac4b9695e21974ab34a83b50ebd2
+   private ArrayList<Student> filteredByExtracurricular(ArrayList<Student> possibleStudents) {
       System.out.println("What extracurricular would you like to filter by?");
       ArrayList<Student> filteredStudents = new ArrayList<>();
       String userInput = scanner.nextLine();
@@ -296,17 +277,12 @@ public class Employer extends User {
       }
       return filteredStudents;
    }
-<<<<<<< HEAD
-
-   private ArrayList<Student> filteredByGradeLevel(ArrayList<Student> possibleStudents) {
-=======
    /**
     * filter possible students by their grade level
     * @param possibleStudents list of possible students
     * @return list of filtered students
     */
-   public ArrayList<Student> filteredByGradeLevel(ArrayList<Student> possibleStudents) {
->>>>>>> 244b2e6f6c31ac4b9695e21974ab34a83b50ebd2
+   private ArrayList<Student> filteredByGradeLevel(ArrayList<Student> possibleStudents) {
       System.out.println("What skill would you like to filter by?");
       ArrayList<Student> filteredStudents = new ArrayList<>();
       String userInput = scanner.nextLine();

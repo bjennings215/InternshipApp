@@ -7,6 +7,7 @@ import java.util.UUID;
 
 /**
  * Creates a joblisting object
+ * 
  * @author Adam, Brandon, Brady, Esam
  */
 public class JobListing {
@@ -23,29 +24,30 @@ public class JobListing {
     // private jobNumberRating;
     private ArrayList<Review> jobReviews;
     private ArrayList<Student> studentsApplied;
-    private LocalDate post_Date;
+    private LocalDate postDate;
     private String jobExpDate;
 
     /**
      * retrives parameters
-     * @param jobTitle job title of listing
-     * @param jobCompany company of the listing
-     * @param jobDescription description of listing
-     * @param jobCityLocation city of listing
+     * 
+     * @param jobTitle         job title of listing
+     * @param jobCompany       company of the listing
+     * @param jobDescription   description of listing
+     * @param jobCityLocation  city of listing
      * @param jobStateLocation state of listing
-     * @param numofMonths how long is the position
-     * @param companyLink link for listing
-     * @param jobWagePerHour wage for listing
-     * @param jobReviews reviews for job
-     * @param studentsApplied list of students that have applied
-     * @param jobExpDate when the listing expires
+     * @param numofMonths      how long is the position
+     * @param companyLink      link for listing
+     * @param jobWagePerHour   wage for listing
+     * @param jobReviews       reviews for job
+     * @param studentsApplied  list of students that have applied
+     * @param jobExpDate       when the listing expires
      */
-    public JobListing(String jobTitle, String jobCompany, String jobDescription,
-            String jobCityLocation, String jobStateLocation, String numofMonths, String companyLink, String jobWagePerHour,
-            ArrayList<Review> jobReviews, ArrayList<Student> studentsApplied, String jobExpDate) {
+    public JobListing(String link, String jobTitle, String jobCompany, String jobDescription, String jobCityLocation,
+            String jobStateLocation, String numofMonths, String jobWagePerHour, ArrayList<Review> jobReviews,
+            ArrayList<Student> studentsApplied, String jobExpDate) {
         this.jobid = UUID.randomUUID();
-        this.post_Date = LocalDate.now();
-        this.compnayLink = companyLink;
+        this.postDate = LocalDate.now();
+        this.compnayLink = link;
         this.jobTitle = jobTitle;
         this.jobCompany = jobCompany;
         this.jobDescription = jobDescription;
@@ -60,25 +62,25 @@ public class JobListing {
 
     /**
      * sets parameters
-     * @param jobTitle job title of listing
-     * @param jobCompany company of the listing
-     * @param jobDescription description of listing
-     * @param jobCityLocation city of listing
+     * 
+     * @param jobTitle         job title of listing
+     * @param jobCompany       company of the listing
+     * @param jobDescription   description of listing
+     * @param jobCityLocation  city of listing
      * @param jobStateLocation state of listing
-     * @param numofMonths how long is the position
-     * @param companyLink link for listing
-     * @param jobWagePerHour wage for listing
-     * @param jobReviews reviews for job
-     * @param studentsApplied list of students that have applied
-     * @param jobExpDate when the listing expires
+     * @param numofMonths      how long is the position
+     * @param companyLink      link for listing
+     * @param jobWagePerHour   wage for listing
+     * @param jobReviews       reviews for job
+     * @param studentsApplied  list of students that have applied
+     * @param jobExpDate       when the listing expires
      */
-    public JobListing(UUID jobid, LocalDate post_Date, String companyLink, String jobTitle, String jobCompany,
-            String jobDescription, String jobCityLocation, String jobStateLocation, String numofMonths,
-            String jobWagePerHour, ArrayList<Review> jobReviews, ArrayList<Student> studentsApplied,
-            String jobExpDate) {
+    public JobListing(UUID jobid, String link, String jobTitle, String jobCompany, String jobDescription,
+            String jobCityLocation, String jobStateLocation, String numofMonths, String jobWagePerHour,
+            ArrayList<Review> jobReviews, ArrayList<Student> studentsApplied, String jobExpDat) {
         this.jobid = jobid;
-        this.post_Date = post_Date;
-        this.compnayLink = companyLink;
+        this.postDate = postDate;
+        this.compnayLink = link;
         this.jobTitle = jobTitle;
         this.jobCompany = jobCompany;
         this.jobDescription = jobDescription;
@@ -93,6 +95,7 @@ public class JobListing {
 
     /**
      * retrieves listin ID
+     * 
      * @return ID
      */
     public UUID getJobID() {
@@ -101,14 +104,16 @@ public class JobListing {
 
     /**
      * gets the date when listing was posting
+     * 
      * @return the date
      */
     public LocalDate getpostDate() {
-        return post_Date;
+        return postDate;
     }
 
     /**
      * retrieves job title
+     * 
      * @return job title
      */
     public String getJobTitle() {
@@ -117,6 +122,7 @@ public class JobListing {
 
     /**
      * retrieves company
+     * 
      * @return company
      */
     public String getJobCompany() {
@@ -125,6 +131,7 @@ public class JobListing {
 
     /**
      * retrieves job description
+     * 
      * @return job description
      */
     public String getJobDescription() {
@@ -133,6 +140,7 @@ public class JobListing {
 
     /**
      * retrieves city of job
+     * 
      * @return city
      */
     public String getJobCityLocation() {
@@ -141,6 +149,7 @@ public class JobListing {
 
     /**
      * retrieves state of job
+     * 
      * @return state
      */
     public String getJobStateLocation() {
@@ -149,6 +158,7 @@ public class JobListing {
 
     /**
      * retrieves length of job
+     * 
      * @return length
      */
     public String getNumOfMonths() {
@@ -157,6 +167,7 @@ public class JobListing {
 
     /**
      * wage of job
+     * 
      * @return wage
      */
     public String getWagePerHour() {
@@ -165,6 +176,7 @@ public class JobListing {
 
     /**
      * retrieves exp date of job
+     * 
      * @return exp date
      */
     public String getJobExpDate() {
@@ -173,6 +185,7 @@ public class JobListing {
 
     /**
      * retireves link of job
+     * 
      * @return link
      */
     public String getLink() {
@@ -185,6 +198,7 @@ public class JobListing {
 
     /**
      * retireves list of reviews for job
+     * 
      * @return list of reviews
      */
     public ArrayList<Review> getJobReviews() {
@@ -193,6 +207,7 @@ public class JobListing {
 
     /**
      * retrieves list of students that applies
+     * 
      * @return list of students
      */
     public ArrayList<Student> getStudentsApplied() {
@@ -201,6 +216,7 @@ public class JobListing {
 
     /**
      * short to String
+     * 
      * @return String
      */
     public String shortToString() {
@@ -209,6 +225,7 @@ public class JobListing {
 
     /**
      * long to string
+     * 
      * @return String
      */
     public String longToString() {

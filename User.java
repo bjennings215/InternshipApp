@@ -25,11 +25,13 @@ public class User {
 	private String prevExp;
 	private String explength;
 	private String jobdesc;
+	private JobListings jobListings;
 	
 	public User(String username, String password, String accountType) {
 		this.username = username;
 		this.password = password;
 		this.accounttype = accountType;
+		this.jobListings = JobListings.getInstance();
 	}
 
 	public User(String username, String password, String accounttype, String school, String company, String firstname, 
@@ -59,6 +61,7 @@ public class User {
 		this.prevExp = prevExp;
 		this.explength = explength;
 		this.jobdesc = jobdesc;
+		this.jobListings = JobListings.getInstance();
 	}
 
 	public User(UUID id, String username, String password, String accounttype, String school, String company, String firstname, 
@@ -88,6 +91,7 @@ public class User {
 		this.prevExp = prevExp;
 		this.explength = explength;
 		this.jobdesc = jobdesc;
+		this.jobListings = JobListings.getInstance();
 
 	}
 

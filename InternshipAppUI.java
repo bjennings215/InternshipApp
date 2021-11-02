@@ -600,14 +600,6 @@ public class InternshipAppUI {
         }
     }
 
-    public void printAllJobListings() {
-        int count = 1;
-        for (JobListing jobListing : jobListings.getJobList()) {
-            System.out.println("\n[" + count + "]: " + jobListing.shortToString());
-            count++;
-        }
-    }
-
     // -----------------------------EMPLOYER MAIN MENU DISPLAY AND
     // FUNCTIONALITY---------------------------------------
 
@@ -617,7 +609,7 @@ public class InternshipAppUI {
             printPossibleCommands(EMPLOYER_MAIN_MENU_COMMANDS);
             int userDecision = getUserCommand(EMPLOYER_MAIN_MENU_COMMANDS);
             if (userDecision == 1) {
-                postNewJobListing();
+                this.employer.postNewJobListing();
             } else if (userDecision == 2) {
                 seeAllPostedJobListings();
             } else if (userDecision == 3) {
@@ -631,44 +623,12 @@ public class InternshipAppUI {
         }
     }
 
-    public void postNewJobListing() {
-        JobListings jobListings = JobListings.getInstance();
-        System.out.print("Job Title: ");
-        String jobTitle = scanner.nextLine();
-        System.out.print("Job Description: ");
-        String jobDescription = scanner.nextLine();
-        System.out.print("Location (City, State): ");
-        String location = scanner.nextLine();
-        System.out.print("Wage Per Hour: $");
-        String jobWagePerHour = scanner.nextLine();
-        System.out.print("Number of Months: ");
-        String numofMonths = scanner.nextLine();
-        System.out.print("Employer Website Link: ");
-        String companyLink = scanner.nextLine();
-        System.out.print("Date Posted: ");
-        String jobExpDate = scanner.nextLine();
-        System.out.println("\nNew Job Listing Created!");
-
-        String jobCompany = this.user.getCompany();
-        String[] locations = location.split(", ");
-        String jobCityLocation = locations[0];
-        String jobStateLocation = locations[1];
-        ArrayList<Review> jobReviews = new ArrayList<>();
-        ArrayList<Student> studentsApplied = new ArrayList<>();
-
-        this.employer.getJobListings().add(new JobListing(jobTitle, jobCompany, jobDescription, jobCityLocation,
-                jobStateLocation, numofMonths, companyLink, jobWagePerHour, jobReviews, studentsApplied, jobExpDate));
-
-        jobListings.addJob(jobTitle, jobCompany, jobDescription, jobCityLocation, jobStateLocation, numofMonths,
-                companyLink, jobWagePerHour, jobReviews, studentsApplied, jobExpDate);
-    }
-
     public void seeAllPostedJobListings() {
-        JobListings jobListings = JobListings.getInstance();
         printAllJobListings();
-        System.out.println("Enter the number of a job listing to see more details.\nEnter '0' if you wish to return");
-        int userInput = Integer.valueOf(scanner.nextLine());
         while (true) {
+            System.out
+                    .println("Enter the number of a job listing to see more details.\nEnter '0' if you wish to return");
+            int userInput = Integer.valueOf(scanner.nextLine());
             for (int i = 1; i < jobListings.getJobList().size(); i++) {
                 if (userInput == i) {
                     employerDetailedJobListing(jobListings.getJobList().get(i - 1));
@@ -684,17 +644,16 @@ public class InternshipAppUI {
 
     public void employerDetailedJobListing(JobListing jobListing) {
         System.out.println(jobListing.longToString());
-        printPossibleCommands(EMPLOYER_DETAILED_JOB_LISTING_COMMANDS);
-        getUserCommand(EMPLOYER_DETAILED_JOB_LISTING_COMMANDS);
-        int userInput = Integer.valueOf(scanner.nextLine());
         while (true) {
+            printPossibleCommands(EMPLOYER_DETAILED_JOB_LISTING_COMMANDS);
+            getUserCommand(EMPLOYER_DETAILED_JOB_LISTING_COMMANDS);
+            int userInput = Integer.valueOf(scanner.nextLine());
             if (userInput == 1) {
                 viewAllApplicants(jobListing);
             } else if (userInput == 2) {
-                editJobListing();
+                this.employer.editJobListing(jobListing);
             } else if (userInput == 3) {
-                this.employer.getJobListings().remove(jobListing);
-                jobListings.removeJob(jobListing.getJobTitle());
+                this.employer.deleteJobListing(jobListing);
             } else if (userInput == 4) {
                 return;
             } else {
@@ -708,12 +667,12 @@ public class InternshipAppUI {
         for (Student student : jobListing.getStudentsApplied()) {
             System.out.println("[" + count + "]: " + student.shortToString());
         }
-        System.out.println("Enter the number of a student to see more details\nEnter '0' if you wish to return");
-        int userInput = Integer.valueOf(scanner.nextLine());
         while (true) {
+            System.out.println("Enter the number of a student to see more details\nEnter '0' if you wish to return");
+            int userInput = Integer.valueOf(scanner.nextLine());
             for (int i = 1; i < jobListing.getStudentsApplied().size(); i++) {
                 if (userInput == i) {
-                    viewStudentDetails(jobListing.getStudentsApplied().get(i - 1), jobListing);
+                    viewStudentDetailsMenu(jobListing.getStudentsApplied().get(i - 1), jobListing);
                 } else if (userInput == 0) {
                     return;
                 } else {
@@ -724,35 +683,22 @@ public class InternshipAppUI {
         }
     }
 
-    public void viewStudentDetails(Student student, JobListing jobListing) {
+    public void viewStudentDetailsMenu(Student student, JobListing jobListing) {
         System.out.println(student.longToString());
         while (true) {
             printPossibleCommands(EMPLOYER_VIEWING_STUDENT_DETAILS_COMMANDS);
             getUserCommand(EMPLOYER_VIEWING_STUDENT_DETAILS_COMMANDS);
             int userInput = Integer.valueOf(scanner.nextLine());
             if (userInput == 1) {
-                acceptStudent(student, jobListing);
+                this.employer.acceptStudent(student, jobListing);
             } else if (userInput == 2) {
-                rejectStudent(student, jobListing);
+                this.employer.rejectStudent(student, jobListing);
             } else if (userInput == 3) {
                 return;
             } else {
                 System.out.println("Invalid command");
             }
         }
-    }
-
-    public void acceptStudent(Student student, JobListing jobListing) {
-
-    }
-
-    public void rejectStudent(Student student, JobListing jobListing) {
-        jobListing.getStudentsApplied().remove(student);
-        student.getJobsAppliedTo().remove(jobListing);
-    }
-
-    public void editJobListing() {
-
     }
 
     // -----------------------------ADMINISTRATOR MAIN MENU DISPLAY AND
@@ -882,13 +828,14 @@ public class InternshipAppUI {
         return -1;
     }
 
-    /**
-     * public String[] getUserInformation(String[] prompts) { String[]
-     * informationGathered = new String[prompts.length]; for(int i = 0; i <
-     * prompts.length; i++) { System.out.println(prompts[i]); String userInfo =
-     * scanner.nextLine(); informationGathered[i] = userInfo; } return
-     * informationGathered; }
-     */
+	public void printAllJobListings() {
+        int count = 1;
+        for (JobListing jobListing : jobListings.getJobList()) {
+            System.out.println("\n[" + count + "]: " + jobListing.shortToString());
+            count++;
+        }
+    }
+
     public static void main(String[] args) {
 
         InternshipAppUI internshipAppInterface = new InternshipAppUI();

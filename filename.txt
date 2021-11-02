@@ -1,0 +1,13 @@
+School: University of South Carolina
+Major: Computer Information Systems
+Minor: null
+ConcentrationComputer Science
+Grade Level: Junior
+GPA: 3.4
+Skills :["Java","mySQL","C++","MTA:Networking Fundamentals"]
+Extra Curricular: ["Robotics"]
+jobOccupationnull
+Job Type: null
+Employer: null
+ Job Length: null
+Job Description: null

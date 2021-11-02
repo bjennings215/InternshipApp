@@ -210,4 +210,35 @@ public class User {
 	public String getjobType() {
 		return jobtype;
 	}
+	// public String getAccountType2() {
+	// 	return null;
+	// }
+	
+	
+
+	// public boolean createAccount(String username, String password) {
+	// 	if (username == null) {
+	// 		this.username = username;
+	// 		return true;
+	// 	}
+	// 	if (password == null) {
+	// 		this.password = password;
+	// 		return true;
+	// 	}
+	// 	else {
+	// 		return false;
+	// 	}
+	// }
+	
+	// public boolean logIn(String username, String password) {
+	// 	return false;
+	// }
+	public String UserResumetoFile() {
+		return "Resume\nFirstname: "+ this.firstname + "\nLastname: " + this.lastname + "\nPhoneNumber: " + this.phoneNumber + "\nEmail :" +
+		 this.email +  "\nSchool: " + this. school + "\nMajor: " + this.major + "\nMinor: " + this.minor +
+		"\nConcentration" + this.concentration +  "\nGrade Level: " + this.gradeLevel + "\nGPA: " +
+		this.gpa + "\nSkills :" + this.skills + "\nExtra Curricular: " + this.extraCurr + "\nJob Occupation: " +
+		this.jobOccupation + "\nJob Type: " + this.jobtype + "\nEmployer: " + this.prevExp + "\nJob Length: " +
+		this.explength + "\nJob Description: " + this.jobdesc; 
+	}
 }

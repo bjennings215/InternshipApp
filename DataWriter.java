@@ -7,8 +7,14 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;;
 
+/**
+ * @author Adam, Brandon, Brady, Esam
+ */
 public class DataWriter extends UserDataContants {
 
+	/**
+	 * Save users to JSON file
+	 */
     public static void saveUsers() {
         Users users = Users.getInstance();
 		ArrayList<User> userList = users.getUsers();
@@ -30,7 +36,11 @@ public class DataWriter extends UserDataContants {
         }
 	}
 
-    //set JSON object elements
+    /**
+	 * set JSON object elements
+	 * @param userUser being retrieved
+	 * @return user JSON object
+	 */
     public static JSONObject getUserJSON(User user) {
 		JSONObject userDetails = new JSONObject();
 		userDetails.put(USER_ID, user.getUuid().toString());

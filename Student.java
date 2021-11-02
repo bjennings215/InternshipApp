@@ -158,9 +158,94 @@ public class Student extends User {
         return jobListing.getJobReviews();
     }
 
-    public void filterJobListings(JobFilter jobFilter) {
+    public ArrayList<JobListing> filteringJobListings(ArrayList<JobListing> possibleJobs) {
+        System.out
+              .println("Choose from the following filters\n Title, Wage, Type, Months, Employer, City, or State");
+        String userInput = scanner.nextLine().trim().toUpperCase();
+  
+        JobFilter filter = JobFilter.valueOf(userInput);
+  
+        switch (filter) {
+        case TITLE:
+           return filteredByTitle(possibleJobs);
+        case WAGE:
+           return filteredByWage(possibleJobs);
+        case COMPANY:
+           return filteredByCompany(possibleJobs);
+        case CITY:
+           return filteredByCity(possibleJobs);
+        case STATE:
+            return filteredByState(possibleJobs);
+        default:
+           System.out.println("Invalid Command");
+           return null;
+        }
+     }
 
-    }
+     private ArrayList<JobListing> filteredByTitle(ArrayList<JobListing> possibleJobs) {
+        System.out.println("What job title would you like to filter by?");
+        ArrayList<JobListing> filteredJobs = new ArrayList<>();
+        String userInput = scanner.nextLine();
+        for (JobListing jobListing : possibleJobs) {
+           if (jobListing.getJobTitle().equalsIgnoreCase(userInput)) {
+              filteredJobs.add(jobListing);
+           }
+  
+        }
+        return filteredJobs;
+     }
+
+     private ArrayList<JobListing> filteredByWage(ArrayList<JobListing> possibleJobs) {
+        System.out.println("What would you like to be the minimum wage requirement?");
+        ArrayList<JobListing> filteredJobs = new ArrayList<>();
+        double userInput = Double.valueOf(scanner.nextLine());
+        for (JobListing jobListing : possibleJobs) {
+           double wageValue = Double.valueOf(jobListing.getWagePerHour());
+           if(wageValue > userInput) {
+               filteredJobs.add(jobListing);
+           }
+        }
+        return filteredJobs;
+     }
+
+     private ArrayList<JobListing> filteredByCompany(ArrayList<JobListing> possibleJobs) {
+        System.out.println("What company would you like to filter by?");
+        ArrayList<JobListing> filteredJobs = new ArrayList<>();
+        String userInput = scanner.nextLine();
+        for (JobListing jobListing : possibleJobs) {
+           if (jobListing.getJobCompany().equalsIgnoreCase(userInput)) {
+              filteredJobs.add(jobListing);
+           }
+  
+        }
+        return filteredJobs;
+     }
+
+     private ArrayList<JobListing> filteredByCity(ArrayList<JobListing> possibleJobs) {
+        System.out.println("What city would you like to filter by?");
+        ArrayList<JobListing> filteredJobs = new ArrayList<>();
+        String userInput = scanner.nextLine();
+        for (JobListing jobListing : possibleJobs) {
+           if (jobListing.getJobCityLocation().equalsIgnoreCase(userInput)) {
+              filteredJobs.add(jobListing);
+           }
+  
+        }
+        return filteredJobs;
+     }
+
+     private ArrayList<JobListing> filteredByState(ArrayList<JobListing> possibleJobs) {
+        System.out.println("What job title would you like to filter by?");
+        ArrayList<JobListing> filteredJobs = new ArrayList<>();
+        String userInput = scanner.nextLine();
+        for (JobListing jobListing : possibleJobs) {
+           if (jobListing.getJobStateLocation().equalsIgnoreCase(userInput)) {
+              filteredJobs.add(jobListing);
+           }
+  
+        }
+        return filteredJobs;
+     }
 
     public String shortToString() {
         return "Name: " + getFirstName() + " " + getLastName() + "\nGrade Level: " + getGradeLevel() + "\nStatus: "

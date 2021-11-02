@@ -68,7 +68,7 @@ public class JobListing {
     }
 
     public String getJobTitle() {
-        return jobTitle;
+        return this.jobTitle;
     }
 
     public String getJobCompany() {

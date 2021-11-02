@@ -17,7 +17,7 @@ public class InternshipAppUI {
     private static final String[] EMPLOYER_MAIN_MENU_COMMANDS = { "Post New Job Listing", "See Posted Job Listings",
             "Log Off" };
     private static final String[] ADMIN_MAIN_MENU_COMMANDS = { "Browse All Job Listings", "Browse All Students",
-            "Browse All Employers", "Search Job Listings", "Search Students", "Search Employers", "Log Off" };
+            "Browse All Employers", "Log Off" };
     private static final String[] RESUME_CREATION_COMMANDS = { "Education", "Previous Work Experience", "Skills",
             "Extracurriculars", "Finish Resume Creation" };
     private static final String[] STUDENT_DETAILED_JOB_LISTING_COMMANDS = { "Apply to Job", "Return" };
@@ -377,12 +377,14 @@ public class InternshipAppUI {
         while (true) {
             printAllJobListings();
             System.out.println(
-                    "\nEnter the number of a job listing to see more details.\nIf finished viewing listings enter '0' to return");
+                    "\nEnter the number of a job listing to see more details.\nTo filter job lisings enter '-1'\nIf finished viewing listings enter '0' to return");
             int userInput = Integer.valueOf(scanner.nextLine());
             if (userInput == 0) {
                 return;
             } else if (userInput > 0 && userInput <= jobListings.getJobList().size()) {
                 studentDetailedJobListing(jobListings.getJobList().get(userInput - 1));
+            } else if (userInput == -1) {
+                this.student.filteringJobListings(jobListings.getJobList());
             } else {
                 System.out.println("Invalid Command");
             }
@@ -568,30 +570,33 @@ public class InternshipAppUI {
     }
 
     public void seeAllPostedJobListings() {
-        printAllJobListings();
+        int count = 1;
+        for(JobListing jobListing : this.employer.getPostedJobListings()) {
+            System.out.println("\n[" + count + "]: " + jobListing.shortToString());
+            count++;
+        }
         while (true) {
             System.out
                     .println("Enter the number of a job listing to see more details.\nEnter '0' if you wish to return");
             int userInput = Integer.valueOf(scanner.nextLine());
-            for (int i = 1; i < jobListings.getJobList().size(); i++) {
-                if (userInput == i) {
-                    employerDetailedJobListing(jobListings.getJobList().get(i - 1));
+            
+                if (userInput > 0 && userInput <= this.employer.getPostedJobListings().size()) {
+                    employerDetailedJobListing(this.employer.getPostedJobListings().get(userInput - 1));
                 } else if (userInput == 0) {
                     return;
                 } else {
                     System.out.println("Invalid command");
                     return;
                 }
-            }
+            
         }
     }
 
     public void employerDetailedJobListing(JobListing jobListing) {
-        System.out.println(jobListing.longToString());
+        System.out.println("\n" + jobListing.longToString() + "\n");
         while (true) {
             printPossibleCommands(EMPLOYER_DETAILED_JOB_LISTING_COMMANDS);
-            getUserCommand(EMPLOYER_DETAILED_JOB_LISTING_COMMANDS);
-            int userInput = Integer.valueOf(scanner.nextLine());
+            int userInput = getUserCommand(EMPLOYER_DETAILED_JOB_LISTING_COMMANDS);
             if (userInput == 1) {
                 viewAllApplicants(jobListing);
             } else if (userInput == 2) {
@@ -685,12 +690,6 @@ public class InternshipAppUI {
             } else if (userDecision == 3) {
             
             } else if (userDecision == 4) {
-                //System.out.println(this.admin.searchJobListing().toString());
-            } else if (userDecision == 5) {
-                //System.out.println(this.admin.searchStudent().toString());
-            } else if (userDecision == 6) {
-                //System.out.println(this.admin.searchEmployer().toString());
-            } else if (userDecision == 7) {
                 System.out.println("Thanks for using the internship app!\nGoodbye!");
                 System.exit(0);
             } else {
@@ -834,7 +833,7 @@ public class InternshipAppUI {
 
         if (userChoice > 0 && userChoice <= numOfPossibleCommands)
             return userChoice;
-        return -1;
+        return -2;
     }
 
     public void printAllJobListings() {

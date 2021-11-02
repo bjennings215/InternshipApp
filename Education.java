@@ -6,8 +6,7 @@ public class Education {
 	private String minor;
 	private String location;
 	private String concentration;
-	private Date graduationDate;
-	private GradeLevel gradeLevel;
+	private String gradeLevel;
 	
 	public Education() {
 		
@@ -33,11 +32,7 @@ public class Education {
 		return this.concentration;
 	}
 	
-	public Date getGradutationDate() {
-		return this.graduationDate;
-	}
-	
-	public GradeLevel getGradeLevel() {
+	public String getGradeLevel() {
 		return this.gradeLevel;
 	}
 }

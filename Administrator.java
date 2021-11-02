@@ -22,12 +22,9 @@ public class Administrator extends User {
 		gradeLevel,gpa,skills,extraCurr,status,jobOccupation,jobtype,prevExp,explength,jobdesc);
 		this.allListings = JobListings.getInstance();
 	}
+
 	
-	private boolean editJobListing(JobListing jobListing) {
-		return false;
-	}
-	
-	private void deleteJobListing(JobListing jobListing) {
+	public void deleteJobListing(JobListing jobListing) {
 		if(allListings.getJobList().contains(jobListing)) {
             allListings.removeJob(jobListing.getJobTitle());
             System.out.println("Job listing sucessfully deleted");
@@ -36,35 +33,35 @@ public class Administrator extends User {
         }
 	}
 
-	private boolean deleteEmployer(Employer employer) {
+	public boolean deleteEmployer(Employer employer) {
 		return false;
 	}
 	
-	private boolean deleteStudent(Student student) {
+	public boolean deleteStudent(Student student) {
 		return false;
 	}
 	
-	private boolean deleteReview(Review review) {
+	public boolean deleteReview(Review review) {
 		return false;
 	}
 	
-	private void filterStudents(ResumeFilter studentFilter) {
+	public void filterStudents(ResumeFilter studentFilter) {
 		
 	}
 
-	private void filterJobListing(JobFilter jobFilter) {
+	public void filterJobListing(JobFilter jobFilter) {
 		
 	}
 	
-	private Student searchStudent(Student student) {
+	public Student searchStudent(Student student) {
 		return student;
 	}
 	
-	private Employer searchEmployer(Employer employer) {
+	public Employer searchEmployer(Employer employer) {
 		return employer;
 	}
 	
-	private JobListing searchJobListing(JobListing jobListing) {
+	public JobListing searchJobListing(JobListing jobListing) {
 		return jobListing;
 	}
 }

@@ -210,27 +210,4 @@ public class User {
 	public String getjobType() {
 		return jobtype;
 	}
-	// public String getAccountType2() {
-	// 	return null;
-	// }
-	
-	
-
-	// public boolean createAccount(String username, String password) {
-	// 	if (username == null) {
-	// 		this.username = username;
-	// 		return true;
-	// 	}
-	// 	if (password == null) {
-	// 		this.password = password;
-	// 		return true;
-	// 	}
-	// 	else {
-	// 		return false;
-	// 	}
-	// }
-	
-	// public boolean logIn(String username, String password) {
-	// 	return false;
-	// }
 }

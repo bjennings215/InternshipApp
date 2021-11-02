@@ -234,11 +234,31 @@ public class User {
 	// 	return false;
 	// }
 	public String UserResumetoFile() {
-		return "Resume\nFirstname: "+ this.firstname + "\nLastname: " + this.lastname + "\nPhoneNumber: " + this.phoneNumber + "\nEmail :" +
-		 this.email +  "\nSchool: " + this. school + "\nMajor: " + this.major + "\nMinor: " + this.minor +
-		"\nConcentration" + this.concentration +  "\nGrade Level: " + this.gradeLevel + "\nGPA: " +
-		this.gpa + "\nSkills :" + this.skills + "\nExtra Curricular: " + this.extraCurr + "\nJob Occupation: " +
-		this.jobOccupation + "\nJob Type: " + this.jobtype + "\nEmployer: " + this.prevExp + "\nJob Length: " +
-		this.explength + "\nJob Description: " + this.jobdesc; 
+		String string = " ";
+		string += "Resume\nFirstname: "+ this.firstname + "\nLastname: " + this.lastname + "\nPhoneNumber: " + this.phoneNumber + "\nEmail :" +
+		this.email +  "\nSchool: " + this. school + "\nMajor: " + this.major + "\nMinor: " + this.minor +
+	   "\nConcentration" + this.concentration +  "\nGrade Level: " + this.gradeLevel + "\nGPA: " +
+	    this.gpa + "\n";
+	    string += "\nExperience: \n";
+	    for(int index = 0; index < skills.size(); index++) {
+			String element = skills.get(index);
+			string += "- " + element + "\n";
+		}
+		string += "\n Extra Curriculars :\n";
+		for(int index = 0; index < extraCurr.size(); index++) {
+			String element = extraCurr.get(index);
+			string += "- " + element + "\n";
+		}
+		string += "\nExperience: \n - Job Occupation: " +
+		this.jobOccupation + "\n - Job Type: " + this.jobtype + "\n - Employer: " + this.prevExp + "\n - Job Length: " +
+		this.explength + "\n - Job Description: " + this.jobdesc; 
+
+		return string;
+		// return "Resume\nFirstname: "+ this.firstname + "\nLastname: " + this.lastname + "\nPhoneNumber: " + this.phoneNumber + "\nEmail :" +
+		//  this.email +  "\nSchool: " + this. school + "\nMajor: " + this.major + "\nMinor: " + this.minor +
+		// "\nConcentration" + this.concentration +  "\nGrade Level: " + this.gradeLevel + "\nGPA: " +
+		// this.gpa + "\nSkills :" + this.skills + "\nExtra Curricular: " + this.extraCurr + "\nExperience: \n - Job Occupation: " +
+		// this.jobOccupation + "\n - Job Type: " + this.jobtype + "\n - Employer: " + this.prevExp + "\n - Job Length: " +
+		// this.explength + "\n - Job Description: " + this.jobdesc; 
 	}
 }

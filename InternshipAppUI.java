@@ -1,4 +1,7 @@
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -10,7 +13,7 @@ public class InternshipAppUI {
     private static final String[] LOGIN_COMMANDS = { "Log in", "Create new account" };
     private static final String[] USER_TYPE_COMMANDS = { "Student", "Employer", "Administrator" };
     private static final String[] STUDENT_MAIN_MENU_COMMANDS = { "Browse Job Listings", "See Jobs Applied To",
-            "See Reviews Made", "See Resume Details", "Edit Resume", "Edit Account", "Log Off" };
+            "See Reviews Made", "See Resume Details", "Edit Resume", "Edit Account", "Print Resume", "Log Off" };
     private static final String[] EMPLOYER_MAIN_MENU_COMMANDS = { "Post New Job Listing", "See Posted Job Listings",
             "Search Students", "Log Off" };
     private static final String[] ADMIN_MAIN_MENU_COMMANDS = { "Browse All Job Listings", "Browse All Students",
@@ -152,11 +155,16 @@ public class InternshipAppUI {
         String username = verifyAndSetUsername();
         System.out.print("Password: ");
         String password = scanner.nextLine();
-
+        System.out.print("First Name: ");
+        String firstname = scanner.nextLine();
+        System.out.print("Last Name: ");
+        String lastname = scanner.nextLine();
+        System.out.print("Phone Number: ");
+        String phoneNumber = scanner.nextLine();
+        System.out.print("Email: ");
+        String email = scanner.nextLine();
         String accounttype = "Student";
         String school = null;
-        String firstname = null;
-        String lastname = null;
         String major = null;
         String minor = null;
         String concentration = null;
@@ -169,8 +177,6 @@ public class InternshipAppUI {
         String explength = null;
         String jobdesc = null;
         String status = null;
-        String email = null;
-        String phoneNumber = null;
         String jobOccupation = null;
         String jobtype = null;
 
@@ -300,7 +306,6 @@ public class InternshipAppUI {
             String concentration, String gradeLevel, String gpa, ArrayList<String> skills, ArrayList<String> extraCurr,
             String status, String jobOccupation, String jobtype, String prevExp, String explength, String jobdesc) {
         System.out.println("\nYou will now be prompted to set up your Resume\n");
-        System.out.print("First Name: ");
         firstname = scanner.nextLine();
         System.out.print("Last Name: ");
         lastname = scanner.nextLine();
@@ -486,6 +491,8 @@ public class InternshipAppUI {
             } else if (userDecision == 6) {
                 studentAccountEditingMenu();
             } else if (userDecision == 7) {
+                printResume();
+            } else if (userDecision == 8) {
                 System.out.println("Thanks for using the internship app!\nGoodbye!");
                 System.exit(0);
             } else {
@@ -584,20 +591,92 @@ public class InternshipAppUI {
 
     public void studentResumeEditingMenu() {
         System.out.println("\nResume Editing Menu");
-        printPossibleCommands(RESUME_EDITING_COMMANDS);
-        int userDecision = getUserCommand(RESUME_EDITING_COMMANDS);
-        if (userDecision == 1) {
+        String username = user.getUsername();
+        System.out.print("Password: ");
+        String password = user.getPassword();
+        String accounttype = "Student";
+        String school = null;
+        String firstname = user.getFirstName();
+        String lastname = user.getLastName();
+        String major = null;
+        String minor = null;
+        String concentration = null;
+        String gradeLevel = null;
+        String company = null;
+        String gpa = null;
+        ArrayList<String> skills = new ArrayList<>();
+        ArrayList<String> extraCurr = new ArrayList<>();
+        String prevExp = null;
+        String explength = null;
+        String jobdesc = null;
+        String status = null;
+        String email = user.getEmail();
+        String phoneNumber = user.getPhoneNumber();
+        String jobOccupation = null;
+        String jobtype = null;
 
-        }
+        this.user = new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
+                major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
+                prevExp, explength, jobdesc);
+
+        users.editUser(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major,
+                minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
+                explength, jobdesc);
+
+        createStudentResume(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
+                major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
+                prevExp, explength, jobdesc);
     }
 
     public void studentAccountEditingMenu() {
-        System.out.println("\nAccount Editing Menu");
-        printPossibleCommands(ACCOUNT_EDITING_COMMANDS);
-        int userDecision = getUserCommand(ACCOUNT_EDITING_COMMANDS);
-        if (userDecision == 1) {
+        System.out.println("\nAccount Editing Menu Editing Menu");
+        String username = user.getUsername();
+        System.out.print("Password: ");
+        String password = scanner.nextLine();
+        String accounttype = "Student";
+        String school = user.getSchool();
+        System.out.print("First Name: ");
+        String firstname = scanner.nextLine();
+        System.out.print("Last Name: ");
+        String lastname = scanner.nextLine();
+        String major = user.getMajor();
+        String minor = user.getMinor();
+        String concentration = user.getConcentation();
+        String gradeLevel = user.getGradeLevel();
+        String company = user.getCompany();
+        String gpa = user.getGPA();
+        ArrayList<String> skills = user.getSkills();
+        ArrayList<String> extraCurr = user.getExtracurr();
+        String prevExp = user.getPrevExp();
+        String explength = user.getExpLength();
+        String jobdesc = user.getJobDesc();
+        String status = user.getStatus();
+        System.out.print("Email: ");
+        String email = scanner.nextLine();
+        System.out.print("Phone Number: ");
+        String phoneNumber = user.getPhoneNumber();
+        String jobOccupation = user.getjobOccupation();
+        String jobtype = user.getjobType();
 
-        }
+        this.user = new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
+                major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
+                prevExp, explength, jobdesc);
+
+        users.editUser(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major,
+                minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
+                explength, jobdesc);
+    }
+
+    public void printResume() {
+        try {
+            FileWriter myWriter = new FileWriter("resume.txt");
+            myWriter.write(user.UserResumetoFile());
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+          } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+          }
     }
 
     // -----------------------------EMPLOYER MAIN MENU DISPLAY AND

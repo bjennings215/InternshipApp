@@ -1,5 +1,9 @@
 import java.util.Date;
 
+/**
+ * @author Adam, Brandon, Brady, Esam
+ * Creates an education object
+ */
 public class Education {
 	private String university;
 	private String major;
@@ -8,6 +12,9 @@ public class Education {
 	private String concentration;
 	private String gradeLevel;
 	
+	/**
+	 * 
+	 */
 	public Education() {
 		
 	}

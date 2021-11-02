@@ -1,4 +1,7 @@
-
+/**
+ * @author Adam Trickett, Brandon Jennings, Brady Smoak, Esam Sartawi
+ * this class saves all the constants that are used in the creation and editing of the user.json file
+ */
 public abstract class UserDataContants {
     protected static final String USER_FILE_STRING = "User.json";
     protected static final String USERS_STRING = "users";
@@ -26,6 +29,4 @@ public abstract class UserDataContants {
     protected static final String USER_RESUME_EXPLENGTH_STRING = "Job Length";
     protected static final String USER_RESUME_JOBDESC_STRING = "Job Desc";
     protected static final String USER_EMPLOYER_COMPANY_STRING = "Company";
-
-
 }

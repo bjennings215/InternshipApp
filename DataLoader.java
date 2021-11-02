@@ -8,9 +8,15 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;;
 
+/**
+ * @author Adam, Brandon, Brady, Esam
+ */
 public class DataLoader extends UserDataContants {
 
-    //Load Users from JSON File
+    /**
+     * Loads users from JSON file
+     * @return the list of users
+     */
     public static ArrayList<User> InputUsers() {
         ArrayList<User> users = new ArrayList<User>();
 

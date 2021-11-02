@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.util.UUID;
 
 /**
- * @authror Adam, Brandon, Brady, Esam
+ * @author Adam, Brandon, Brady, Esam
  */
 public class Administrator extends User {
 

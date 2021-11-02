@@ -42,28 +42,28 @@ public class Administrator extends User {
 		}
 	}
 
-	public void deleteEmployer(Employer employer) {
-		this.users.removeUser(employer.getUsername(), employer.getPassword(), employer.getAccounttype(),
-				employer.getSchool(), employer.getCompany(), employer.getFirstName(), employer.getLastName(),
-				employer.getEmail(), employer.getPhoneNumber(), employer.getMajor(), employer.getMinor(),
-				employer.getConcentation(), employer.getGradeLevel(), employer.getGPA(), employer.getSkills(),
-				employer.getExtracurr(), employer.getStatus(), employer.getjobOccupation(), employer.getjobType(),
-				employer.getPrevExp(), employer.getExpLength(), employer.getJobDesc());
+	public void deleteEmployer(User user) {
+		this.users.removeUser(user.getUsername(), user.getPassword(), user.getAccounttype(),
+				user.getSchool(), user.getCompany(), user.getFirstName(), user.getLastName(),
+				user.getEmail(), user.getPhoneNumber(), user.getMajor(), user.getMinor(),
+				user.getConcentation(), user.getGradeLevel(), user.getGPA(), user.getSkills(),
+				user.getExtracurr(), user.getStatus(), user.getjobOccupation(), user.getjobType(),
+				user.getPrevExp(), user.getExpLength(), user.getJobDesc());
 	}
 
-	public void deleteStudent(Student student) {
-		this.users.removeUser(student.getUsername(), student.getPassword(), student.getAccounttype(),
-				student.getSchool(), student.getCompany(), student.getFirstName(), student.getLastName(),
-				student.getEmail(), student.getPhoneNumber(), student.getMajor(), student.getMinor(),
-				student.getConcentation(), student.getGradeLevel(), student.getGPA(), student.getSkills(),
-				student.getExtracurr(), student.getStatus(), student.getjobOccupation(), student.getjobType(),
-				student.getPrevExp(), student.getExpLength(), student.getJobDesc());
+	public void deleteStudent(User user) {
+		this.users.removeUser(user.getUsername(), user.getPassword(), user.getAccounttype(),
+				user.getSchool(), user.getCompany(), user.getFirstName(), user.getLastName(),
+				user.getEmail(), user.getPhoneNumber(), user.getMajor(), user.getMinor(),
+				user.getConcentation(), user.getGradeLevel(), user.getGPA(), user.getSkills(),
+				user.getExtracurr(), user.getStatus(), user.getjobOccupation(), user.getjobType(),
+				user.getPrevExp(), user.getExpLength(), user.getJobDesc());
 	}
 
 	public boolean deleteReview(Review review) {
 		return false;
 	}
-
+/**
 	public User searchStudent() {
 		System.out.println("Enter the name of the student you want to search for");
 		System.out.print("First Name: ");
@@ -71,10 +71,14 @@ public class Administrator extends User {
 		System.out.print("Last Name: ");
 		String lastName = scanner.nextLine();
 		for(User user : users.getUsers()) {
-			if(user.getFirstName().equals(firstName) && user.getLastName().equals(lastName)) {
+			if(user.getFirstName() == null || user.getLastName() == null) {
+				System.out.println("\nCould not find a student with that name\nPlease try again");
+				return null;
+			} else if(user.getFirstName().equals(firstName) && user.getLastName().equals(lastName)) {
 				return user;
-			}
+			} 
 		}
+		System.out.println("\nCould not find a student with that name\nPlease try again");
 		return null;
 	}
 
@@ -85,10 +89,14 @@ public class Administrator extends User {
 		System.out.print("Last Name: ");
 		String lastName = scanner.nextLine();
 		for(User user : users.getUsers()) {
-			if(user.getFirstName().equals(firstName) && user.getLastName().equals(lastName)) {
+			if(user.getFirstName() == null || user.getLastName() == null) {
+				System.out.println("\nCould not find an employer with that name\nPlease try again");
+				return null;
+			} else if(user.getFirstName().equals(firstName) && user.getLastName().equals(lastName)) {
 				return user;
 			}
 		}
+		System.out.println("\nCould not find an employer with that name\nPlease try again");
 		return null;
 	}
 
@@ -96,6 +104,11 @@ public class Administrator extends User {
 		System.out.println("Enter the job title you wish to search for");
 		System.out.print("Job Title: ");
 		String jobTitle = scanner.nextLine();
-		return this.allListings.getJobListing(jobTitle);
+		if(this.allListings.haveJobListing(jobTitle)) {
+			return this.allListings.getJobListing(jobTitle);
+		} 
+		System.out.println("\nCould not find a student with that name\nPlease try again");
+		return null;
 	}
+	*/
 }

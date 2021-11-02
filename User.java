@@ -253,12 +253,6 @@ public class User {
 		this.jobOccupation + "\n - Job Type: " + this.jobtype + "\n - Employer: " + this.prevExp + "\n - Job Length: " +
 		this.explength + "\n - Job Description: " + this.jobdesc; 
 
-		return string;
-		// return "Resume\nFirstname: "+ this.firstname + "\nLastname: " + this.lastname + "\nPhoneNumber: " + this.phoneNumber + "\nEmail :" +
-		//  this.email +  "\nSchool: " + this. school + "\nMajor: " + this.major + "\nMinor: " + this.minor +
-		// "\nConcentration" + this.concentration +  "\nGrade Level: " + this.gradeLevel + "\nGPA: " +
-		// this.gpa + "\nSkills :" + this.skills + "\nExtra Curricular: " + this.extraCurr + "\nExperience: \n - Job Occupation: " +
-		// this.jobOccupation + "\n - Job Type: " + this.jobtype + "\n - Employer: " + this.prevExp + "\n - Job Length: " +
-		// this.explength + "\n - Job Description: " + this.jobdesc; 
+		return string; 
 	}
 }

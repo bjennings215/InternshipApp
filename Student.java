@@ -1,11 +1,14 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.UUID;
 
 public class Student extends User {
 
     private ArrayList<JobListing> jobsAppliedTo;
     private ArrayList<Review> reviewsMade;
+    private Scanner scanner;
     private Users users;
+    private JobListings jobListings;
 
     public Student(UUID id, String username, String password, String accounttype, String school, String company,
             String firstname, String lastname, String email, String phoneNumber, String major, String minor,
@@ -16,6 +19,9 @@ public class Student extends User {
                 explength, jobdesc);
         this.jobsAppliedTo = new ArrayList<>();
         this.reviewsMade = new ArrayList<>();
+        this.scanner = new Scanner(System.in);
+        this.users = Users.getInstance();
+        this.jobListings = JobListings.getInstance();
     }
 
     public Student(String username, String password, String accounttype, String school, String company,
@@ -27,6 +33,9 @@ public class Student extends User {
                 jobdesc);
         this.jobsAppliedTo = new ArrayList<>();
         this.reviewsMade = new ArrayList<>();
+        this.scanner = new Scanner(System.in);
+        this.users = Users.getInstance();
+        this.jobListings = JobListings.getInstance();
     }
 
     public ArrayList<JobListing> getJobsAppliedTo() {
@@ -37,28 +46,96 @@ public class Student extends User {
         return this.reviewsMade;
     }
 
-    public void editResume() {
+    public void newEducationEntry(String username, String password, String accounttype, String school, String company,
+            String firstname, String lastname, String email, String phoneNumber, String major, String minor,
+            String concentration, String gradeLevel, String gpa, ArrayList<String> skills, ArrayList<String> extraCurr,
+            String status, String jobOccupation, String jobtype, String prevExp, String explength, String jobdesc) {
+        System.out.println("\nFill out the information below to add a new education experience\n"
+                + "(Enter 'Null' if field does not apply)\n");
+        System.out.print("University Name: ");
+        school = scanner.nextLine();
+        System.out.print("Grade Point Average: ");
+        gpa = scanner.nextLine();
+        System.out.print("Major: ");
+        major = scanner.nextLine();
+        System.out.print("Minor: ");
+        minor = scanner.nextLine();
+        System.out.print("Concentration: ");
+        concentration = scanner.nextLine();
+        System.out.print("Grade Level: ");
+        gradeLevel = scanner.nextLine();
 
+        users.editUser(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major,
+                minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
+                explength, jobdesc);
     }
 
-    public boolean changeUsername() {
-        return true;
+    public void newJobExperienceEntry(String username, String password, String accounttype, String school,
+            String company, String firstname, String lastname, String email, String phoneNumber, String major,
+            String minor, String concentration, String gradeLevel, String gpa, ArrayList<String> skills,
+            ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp,
+            String explength, String jobdesc) {
+        System.out.println("\nFill out the information below to add a new work experience\n"
+                + "(Enter 'Null' if field does not apply)\n");
+        System.out.print("Job: ");
+        jobOccupation = scanner.nextLine();
+        System.out.print("Type (Part-Time, Full-Time, Internship): ");
+        jobtype = scanner.nextLine();
+        System.out.print("Employer: ");
+        prevExp = scanner.nextLine();
+        System.out.print("Length of Employment (MM/YYYY - MM/YYYY): ");
+        explength = scanner.nextLine();
+        System.out.print("Please enter description: ");
+        jobdesc = scanner.nextLine();
+
+        users.editUser(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major,
+                minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
+                explength, jobdesc);
     }
 
-    public boolean changePassword() {
-        return true;
-    }
-
-    public boolean changeEmployementStatus() {
-        return true;
-    }
-
-    public boolean addJobAppliedTo(JobListing jobListing) {
-        if (getJobsAppliedTo().contains(jobListing)) {
-            System.out.println("You have already applied to this job!");
-            return false;
+    public void newSkillsEntry(String username, String password, String accounttype, String school, String company,
+            String firstname, String lastname, String email, String phoneNumber, String major, String minor,
+            String concentration, String gradeLevel, String gpa, ArrayList<String> skills, ArrayList<String> extraCurr,
+            String status, String jobOccupation, String jobtype, String prevExp, String explength, String jobdesc) {
+        System.out.println(
+                "\nEnter all skills below\nType an entry and press 'Enter'\nType 'Done' when finished entering skills to exit");
+        while (true) {
+            String newEntry = scanner.nextLine();
+            if (newEntry.equalsIgnoreCase("done")) {
+                break;
+            }
+            skills.add(newEntry);
         }
-        return true;
+        System.out.println("All new skills added!");
+
+        users.editUser(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major,
+                minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
+                explength, jobdesc);
+    }
+
+    public void newExtraCurricularEntry(String username, String password, String accounttype, String school,
+            String company, String firstname, String lastname, String email, String phoneNumber, String major,
+            String minor, String concentration, String gradeLevel, String gpa, ArrayList<String> skills,
+            ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp,
+            String explength, String jobdesc) {
+        System.out.println(
+                "\nEnter all extracurriculars below\nType an entry and press 'Enter'\nType 'Done' when finished entering extracurriculars to exit");
+        while (true) {
+            String newEntry = scanner.nextLine();
+            if (newEntry.equalsIgnoreCase("done")) {
+                break;
+            }
+            extraCurr.add(newEntry);
+        }
+        System.out.println("All new extracurriculars added!");
+
+        users.editUser(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major,
+                minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
+                explength, jobdesc);
+    }
+
+    public void seeResumeDetails() {
+        System.out.println(longToString());
     }
 
     public boolean removeJobAppliedTo() {
@@ -92,16 +169,17 @@ public class Student extends User {
 
     public String longToString() {
         String returnString = "Name: " + getFirstName() + " " + getLastName() + "\nStatus: " + getStatus()
-                + "\n\nEducation Information: \nUniversity: "+ getSchool() + "\nGrade Level: " + getGradeLevel() + "\nGPA: " + getGPA() + "\nMajor: "
-                + getMajor() + "\nMinor: " + getMinor() + "\nConcentration: " + getConcentation() + "\n\nPrevious Work Experiences: \n Cannot Print this yet \n\nSkills";
-        for(String skill:getSkills()) {
+                + "\n\nEducation Information: \nUniversity: " + getSchool() + "\nGrade Level: " + getGradeLevel()
+                + "\nGPA: " + getGPA() + "\nMajor: " + getMajor() + "\nMinor: " + getMinor() + "\nConcentration: "
+                + getConcentation() + "\n\nPrevious Work Experiences: \n Cannot Print this yet \n\nSkills";
+        for (String skill : getSkills()) {
             returnString.concat(skill + "\n");
         }
         returnString.concat("\n\nExtracurriculars");
-        for(String extracurricular:getExtracurr()) {
+        for (String extracurricular : getExtracurr()) {
             returnString.concat(extracurricular + "\n");
         }
-        
+
         return returnString;
     }
 }

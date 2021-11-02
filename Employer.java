@@ -118,7 +118,7 @@ public class Employer extends User {
       for (Student student : possibleStudents) {
          double studentGPA = Double.valueOf(student.getGPA());
          if (studentGPA >= userInput) {
-            filteredStudents.add(student);   
+            filteredStudents.add(student);
          }
 
       }
@@ -131,7 +131,7 @@ public class Employer extends User {
       String userInput = scanner.nextLine();
       for (Student student : possibleStudents) {
          if (student.getMajor().equals(userInput)) {
-            filteredStudents.add(student);   
+            filteredStudents.add(student);
          }
 
       }
@@ -144,7 +144,7 @@ public class Employer extends User {
       String userInput = scanner.nextLine();
       for (Student student : possibleStudents) {
          if (student.getMinor().equals(userInput)) {
-            filteredStudents.add(student);   
+            filteredStudents.add(student);
          }
 
       }
@@ -157,7 +157,7 @@ public class Employer extends User {
       String userInput = scanner.nextLine();
       for (Student student : possibleStudents) {
          if (student.getSkills().contains(userInput)) {
-            filteredStudents.add(student);   
+            filteredStudents.add(student);
          }
 
       }
@@ -170,7 +170,7 @@ public class Employer extends User {
       String userInput = scanner.nextLine();
       for (Student student : possibleStudents) {
          if (student.getExtracurr().contains(userInput)) {
-            filteredStudents.add(student);   
+            filteredStudents.add(student);
          }
 
       }
@@ -183,7 +183,7 @@ public class Employer extends User {
       String userInput = scanner.nextLine();
       for (Student student : possibleStudents) {
          if (student.getGradeLevel().equals(userInput)) {
-            filteredStudents.add(student);   
+            filteredStudents.add(student);
          }
 
       }
@@ -201,6 +201,11 @@ public class Employer extends User {
       student.getJobsAppliedTo().remove(jobListng);
 
       System.out.println("The student has been removed from the list of potential employees");
+   }
+
+   public String toString() {
+      return "Name: " + getFirstName() + " " + getLastName() + "\nCompany: " + getCompany() + "\nJob Listings Created: "
+            + getPostedJobListings().size();
    }
 
 }

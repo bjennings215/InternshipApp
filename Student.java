@@ -69,8 +69,8 @@ public class Student extends User {
         return jobListing;
     }
 
-    public ArrayList<Review> seeJobListingReviews(JobListing jobListing) {
-        return jobListing.getJobReviews();
+    public ArrayList<String> seeJobListingReviews(JobListing jobListing) {
+        return jobListing.getJobSkills();
     }
 
     public ArrayList<JobListing> filteringJobListings(ArrayList<JobListing> possibleJobs) {
@@ -170,14 +170,9 @@ public class Student extends User {
         String returnString = "Name: " + getFirstName() + " " + getLastName() + "\nStatus: " + getStatus()
                 + "\n\nEducation Information: \nUniversity: " + getSchool() + "\nGrade Level: " + getGradeLevel()
                 + "\nGPA: " + getGPA() + "\nMajor: " + getMajor() + "\nMinor: " + getMinor() + "\nConcentration: "
-                + getConcentation() + "\n\nPrevious Work Experiences: \n Cannot Print this yet \n\nSkills";
-        for (String skill : getSkills()) {
-            returnString.concat(skill + "\n");
-        }
-        returnString.concat("\n\nExtracurriculars");
-        for (String extracurricular : getExtracurr()) {
-            returnString.concat(extracurricular + "\n");
-        }
+                + getConcentation() + "\n\nPrevious Work Experiences: \nJob: " + getjobOccupation() + "\nCompany: "
+                + getCompany() + "\nJob Type :" + getjobType() + "\nJob Length: " + getExpLength()
+                + "\nJob Description: " + getJobDesc() + "\nSkills:\n" + getSkills() + "\nExtracurriculars:\n" + getExtracurr();
 
         return returnString;
     }

@@ -1,3 +1,7 @@
+/**
+ * @author Adam Trickett, Brandon Jennings, Brady Smoak, Esam Sartawi
+ * this class saves all the constants that are used in the creation and editing of the joblisting.json file
+ */
 public abstract class JobListingDataConstants {
     protected static final String JOB_FILE_STRING = "JobListing.json";
     protected static final String JOB_STRING = "jobListing";
@@ -10,7 +14,7 @@ public abstract class JobListingDataConstants {
     protected static final String JOB_STATE_LOCATION_STRING = "State Location";
     protected static final String JOB_NUMOFMONTHS_STRING = "Number of Months";
     protected static final String JOB_WAGE_STRING = "Pay Rate";
-    protected static final String JOB_REVIEW_MAJOR_STRING = "Reviews";
+    protected static final String JOB_SKILLS_MAJOR_STRING = "Skills";
     protected static final String JOB_STUDENTS_APPLIED_STRING = "Student Applied";
     protected static final String JOB_JOBEXPDATE_STRING = "Expiration Date";
     protected static final String JOB_LINK_STRING = "Company Link";

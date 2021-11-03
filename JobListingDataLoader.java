@@ -27,14 +27,14 @@ public class JobListingDataLoader extends JobListingDataConstants{
                 String jobStateLocation = (String) jobListingJSON.get(JOB_STATE_LOCATION_STRING);
                 String numofMonths = (String) jobListingJSON.get(JOB_NUMOFMONTHS_STRING);
                 String jobWagePerHour = (String) jobListingJSON.get(JOB_WAGE_STRING);
-                JSONArray jobReviews  = (JSONArray) jobListingJSON.get(JOB_REVIEW_MAJOR_STRING);
+                JSONArray jobSkills  = (JSONArray) jobListingJSON.get(JOB_SKILLS_MAJOR_STRING);
                 JSONArray studentsApplied = (JSONArray) jobListingJSON.get(JOB_STUDENTS_APPLIED_STRING);
                 String jobExpDate = (String) jobListingJSON.get(JOB_JOBEXPDATE_STRING);
 
 
 
                 jobListings.add(new JobListing(link, jobTitle,  jobCompany,  jobDescription,jobCityLocation, 
-                jobStateLocation, numofMonths, jobWagePerHour, jobReviews,  studentsApplied,  jobExpDate));
+                jobStateLocation, numofMonths, jobWagePerHour, jobSkills,  studentsApplied,  jobExpDate));
             }
             return jobListings;
         } catch (Exception exception) {

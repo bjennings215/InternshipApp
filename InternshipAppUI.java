@@ -269,7 +269,8 @@ public class InternshipAppUI {
 
             
             }
-            ArrayList<JobListing> jobsApplied = new ArrayList<>();
+            ArrayList<String> jobsApplied = new ArrayList<>();
+            jobsApplied.add(new JobListing(null, jobdesc, jobdesc, jobdesc, jobdesc, jobdesc, jobdesc, jobdesc, jobdesc, null, null, jobdesc).longToString());
 
 
         this.student = new Student(username, password, accounttype, school, company, firstname, lastname, email,
@@ -317,7 +318,7 @@ public class InternshipAppUI {
         String phoneNumber = null;
         String jobOccupation = null;
         String jobtype = null;
-        ArrayList<JobListing> jobsApplied = new ArrayList<>();
+        ArrayList<String> jobsApplied = new ArrayList<>();
 
         this.employer = new Employer(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
         major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
@@ -368,7 +369,7 @@ public class InternshipAppUI {
         String phoneNumber = null;
         String jobOccupation = null;
         String jobtype = null;
-        ArrayList<JobListing> jobsApplied = new ArrayList<>();
+        ArrayList<String> jobsApplied = new ArrayList<>();
 
         this.admin = new Administrator(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
         major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
@@ -509,11 +510,13 @@ public class InternshipAppUI {
         if (jobListing.getStudentsApplied().contains(this.student)) {
             System.out.println("You have already applied to this position");
         } else {
+            
             jobListing.getStudentsApplied().add(student);
             student.getJobsAppliedTo().add(jobListing);
             System.out.println(
-                    "You have successfully applied to this position!\nThis job listing will now appear in your list of Jobs Applied To!");
-        }
+                    "You have successfully applied to this position!\nThis job listing will now appear in your list of Jobs Applied To!");       
+        } 
+
     }
 
     public void browseJobsApplied() {
@@ -579,7 +582,7 @@ public class InternshipAppUI {
         String phoneNumber = user.getPhoneNumber();
         String jobOccupation = null;
         String jobtype = null;
-        ArrayList<JobListing> jobsApplied = new ArrayList<>();
+        ArrayList<String> jobsApplied = new ArrayList<>();
 
         this.user = new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
                 major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
@@ -624,7 +627,7 @@ public class InternshipAppUI {
         String phoneNumber = scanner.nextLine();
         String jobOccupation = user.getjobOccupation();
         String jobtype = user.getjobType();
-        ArrayList<JobListing> jobsApplied = user.getJobsApplied();
+        ArrayList<String> jobsApplied = user.getJobsApplied();
 
         this.user = new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
                 major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,

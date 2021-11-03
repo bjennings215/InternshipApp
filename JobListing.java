@@ -232,9 +232,9 @@ public class JobListing {
                 + ", " + this.jobStateLocation + "\nLength: " + this.numofMonths + "\nEarnings Per Hour: "
                 + this.jobWagePerHour + "\nCompany Link: " + this.compnayLink + "\nDescription: " + this.jobDescription
                 + "\nReviews made of previous experiences in this role\n" + this.jobReviews;
-        for (Review review : this.jobReviews) {
-            returnString.concat(review.toString() + "\n");
-        }
+        // for (Review review : this.jobReviews) {
+        //     returnString.concat(review.toString() + "\n");
+        // }
         return returnString;
     }
 }

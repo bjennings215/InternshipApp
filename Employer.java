@@ -42,7 +42,7 @@ public class Employer extends User {
    public Employer(UUID id, String username, String password, String accounttype, String school, String company, String firstname, 
 	String lastname, String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel, String gpa, 
 	ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp, String explength, 
-	String jobdesc,ArrayList<JobListing> jobsApplied) {
+	String jobdesc,ArrayList<String> jobsApplied) {
       super(id, username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major, minor,
             concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp, explength,
             jobdesc,jobsApplied);
@@ -82,7 +82,7 @@ public class Employer extends User {
    public Employer(String username, String password, String accounttype, String school, String company, String firstname, 
 	String lastname, String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel, String gpa, 
 	ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp, String explength, 
-	String jobdesc,ArrayList<JobListing> jobsApplied) {
+	String jobdesc,ArrayList<String> jobsApplied) {
       super(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major, minor,
             concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp, explength,
             jobdesc,jobsApplied);

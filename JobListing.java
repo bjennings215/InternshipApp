@@ -230,9 +230,10 @@ public class JobListing {
     public String longToString() {
         String returnString = this.jobTitle + "\nCompany: " + this.jobCompany + "\nLocation: " + this.jobCityLocation
                 + ", " + this.jobStateLocation + "\nNumber of Months: " + this.numofMonths + "\nEarnings Per Hour: "
-                + this.jobWagePerHour + "\nCompany Link: " + this.compnayLink + "\nDescription: " + this.jobDescription
-                + "\nSkills necessary for this position\n" + this.jobSkills + "\n";
-
+                + this.jobWagePerHour + "\nCompany Link: " + this.compnayLink + "\nDescription: " + this.jobDescription;
+        // for (Review review : this.jobReviews) {
+        //     returnString.concat(review.toString() + "\n");
+        // }
         return returnString;
     }
 }

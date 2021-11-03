@@ -273,7 +273,7 @@ public class InternshipAppUI {
                     }
                 }
 
-                ArrayList<JobListing> jobsApplied = new ArrayList<>();
+                ArrayList<String> jobsApplied = new ArrayList<>();
 
                 this.student = new Student(username, password, accounttype, school, company, firstname, lastname, email,
                         phoneNumber, major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status,
@@ -286,6 +286,7 @@ public class InternshipAppUI {
                 users.addUser(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
                         major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
                         prevExp, explength, jobdesc, jobsApplied);
+
             } else if (userInput.equalsIgnoreCase("No")) {
                 String school = "None";
                 String major = "None";
@@ -301,7 +302,7 @@ public class InternshipAppUI {
                 String jobdesc = "None";
                 String jobOccupation = "None";
                 String jobtype = "None";
-                ArrayList<JobListing> jobsApplied = new ArrayList<>();
+                ArrayList<String> jobsApplied = new ArrayList<>();
 
                 this.student = new Student(username, password, accounttype, school, company, firstname, lastname, email,
                         phoneNumber, major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status,
@@ -352,7 +353,7 @@ public class InternshipAppUI {
         String phoneNumber = "None";
         String jobOccupation = "None";
         String jobtype = "None";
-        ArrayList<JobListing> jobsApplied = new ArrayList<>();
+        ArrayList<String> jobsApplied = new ArrayList<>();
 
         this.employer = new Employer(username, password, accounttype, school, company, firstname, lastname, email,
                 phoneNumber, major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation,
@@ -403,7 +404,7 @@ public class InternshipAppUI {
         String phoneNumber = "None";
         String jobOccupation = "None";
         String jobtype = "None";
-        ArrayList<JobListing> jobsApplied = new ArrayList<>();
+        ArrayList<String> jobsApplied = new ArrayList<>();
 
         this.admin = new Administrator(username, password, accounttype, school, company, firstname, lastname, email,
                 phoneNumber, major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation,
@@ -612,6 +613,7 @@ public class InternshipAppUI {
                 phoneNumber = scanner.nextLine();
                 System.out.print("Email: ");
                 email = scanner.nextLine();
+                break;
             } else if (userInput.equalsIgnoreCase("No")) {
                 break;
             } else {
@@ -641,6 +643,7 @@ public class InternshipAppUI {
                 concentration = scanner.nextLine();
                 System.out.print("Grade Level: ");
                 gradeLevel = scanner.nextLine();
+                break;
             } else if (userInput.equalsIgnoreCase("No")) {
                 break;
             } else {
@@ -726,7 +729,7 @@ public class InternshipAppUI {
             }
         }
 
-        ArrayList<JobListing> jobsApplied = this.user.getJobsApplied();
+        ArrayList<String> jobsApplied = this.user.getJobsApplied();
 
         this.student = new Student(username, password, accounttype, school, company, firstname, lastname, email,
                 phoneNumber, major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation,

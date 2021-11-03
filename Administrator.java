@@ -37,13 +37,13 @@ public class Administrator extends User {
 	 * @param explength null
 	 * @param jobdesc null
 	 */
-	public Administrator(UUID id, String username, String password, String accounttype, String school, String company,
-			String firstname, String lastname, String email, String phoneNumber, String major, String minor,
-			String concentration, String gradeLevel, String gpa, ArrayList<String> skills, ArrayList<String> extraCurr,
-			String status, String jobOccupation, String jobtype, String prevExp, String explength, String jobdesc) {
+	public Administrator(UUID id, String username, String password, String accounttype, String school, String company, String firstname, 
+	String lastname, String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel, String gpa, 
+	ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp, String explength, 
+	String jobdesc,ArrayList<JobListing> jobsApplied) {
 		super(id, username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major,
 				minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
-				explength, jobdesc);
+				explength, jobdesc,jobsApplied);
 		this.scanner = new Scanner(System.in);
 		this.allListings = JobListings.getInstance();
 		this.users = Users.getInstance();
@@ -75,13 +75,13 @@ public class Administrator extends User {
 	 * @param explength null
 	 * @param jobdesc null
 	 */
-	public Administrator(String username, String password, String accounttype, String school, String company,
-			String firstname, String lastname, String email, String phoneNumber, String major, String minor,
-			String concentration, String gradeLevel, String gpa, ArrayList<String> skills, ArrayList<String> extraCurr,
-			String status, String jobOccupation, String jobtype, String prevExp, String explength, String jobdesc) {
+	public Administrator(String username, String password, String accounttype, String school, String company, String firstname, 
+	String lastname, String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel, String gpa, 
+	ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp, String explength, 
+	String jobdesc,ArrayList<JobListing> jobsApplied) {
 		super(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major, minor,
 				concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp, explength,
-				jobdesc);
+				jobdesc,jobsApplied);
 		this.scanner = new Scanner(System.in);
 		this.allListings = JobListings.getInstance();
 		this.users = Users.getInstance();
@@ -109,7 +109,7 @@ public class Administrator extends User {
 				user.getEmail(), user.getPhoneNumber(), user.getMajor(), user.getMinor(),
 				user.getConcentation(), user.getGradeLevel(), user.getGPA(), user.getSkills(),
 				user.getExtracurr(), user.getStatus(), user.getjobOccupation(), user.getjobType(),
-				user.getPrevExp(), user.getExpLength(), user.getJobDesc());
+				user.getPrevExp(), user.getExpLength(), user.getJobDesc(),user.getJobsApplied());
 	}
 
 	/**
@@ -118,11 +118,11 @@ public class Administrator extends User {
 	 */
 	public void deleteStudent(User user) {
 		this.users.removeUser(user.getUsername(), user.getPassword(), user.getAccounttype(),
-				user.getSchool(), user.getCompany(), user.getFirstName(), user.getLastName(),
-				user.getEmail(), user.getPhoneNumber(), user.getMajor(), user.getMinor(),
-				user.getConcentation(), user.getGradeLevel(), user.getGPA(), user.getSkills(),
-				user.getExtracurr(), user.getStatus(), user.getjobOccupation(), user.getjobType(),
-				user.getPrevExp(), user.getExpLength(), user.getJobDesc());
+		user.getSchool(), user.getCompany(), user.getFirstName(), user.getLastName(),
+		user.getEmail(), user.getPhoneNumber(), user.getMajor(), user.getMinor(),
+		user.getConcentation(), user.getGradeLevel(), user.getGPA(), user.getSkills(),
+		user.getExtracurr(), user.getStatus(), user.getjobOccupation(), user.getjobType(),
+		user.getPrevExp(), user.getExpLength(), user.getJobDesc(),user.getJobsApplied());
 	}
 
 	/**

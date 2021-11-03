@@ -70,6 +70,7 @@ public class DataWriter extends UserDataContants {
 		experiences.add(m);
 		userDetails.put(USER_RESUME_EXP_STRING,experiences);
 		userDetails.put(USER_EMPLOYER_COMPANY_STRING, user.getCompany());
+		userDetails.put(USER_STUDENT_JOBS_APPLIED_STRING, user.getJobsApplied());
 		
         return userDetails;
 	}

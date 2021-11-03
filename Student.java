@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.UUID;
@@ -9,14 +11,15 @@ public class Student extends User {
     private Scanner scanner;
     private Users users;
     private JobListings jobListings;
+    private User user;
 
-    public Student(UUID id, String username, String password, String accounttype, String school, String company,
-            String firstname, String lastname, String email, String phoneNumber, String major, String minor,
-            String concentration, String gradeLevel, String gpa, ArrayList<String> skills, ArrayList<String> extraCurr,
-            String status, String jobOccupation, String jobtype, String prevExp, String explength, String jobdesc) {
+    public Student(UUID id, String username, String password, String accounttype, String school, String company, String firstname, 
+	String lastname, String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel, String gpa, 
+	ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp, String explength, 
+	String jobdesc,ArrayList<JobListing> jobsApplied) {
         super(id, username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major,
                 minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
-                explength, jobdesc);
+                explength, jobdesc,jobsApplied);
         this.jobsAppliedTo = new ArrayList<>();
         this.reviewsMade = new ArrayList<>();
         this.scanner = new Scanner(System.in);
@@ -24,13 +27,13 @@ public class Student extends User {
         this.jobListings = JobListings.getInstance();
     }
 
-    public Student(String username, String password, String accounttype, String school, String company,
-            String firstname, String lastname, String email, String phoneNumber, String major, String minor,
-            String concentration, String gradeLevel, String gpa, ArrayList<String> skills, ArrayList<String> extraCurr,
-            String status, String jobOccupation, String jobtype, String prevExp, String explength, String jobdesc) {
+    public Student(String username, String password, String accounttype, String school, String company, String firstname, 
+	String lastname, String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel, String gpa, 
+	ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp, String explength, 
+	String jobdesc,ArrayList<JobListing> jobsApplied) {
         super(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major, minor,
                 concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp, explength,
-                jobdesc);
+                jobdesc,jobsApplied);
         this.jobsAppliedTo = new ArrayList<>();
         this.reviewsMade = new ArrayList<>();
         this.scanner = new Scanner(System.in);
@@ -180,4 +183,16 @@ public class Student extends User {
 
         return returnString;
     }
+    public void printResume() {
+        try {
+            FileWriter myWriter = new FileWriter("resume.txt");
+            myWriter.write(user.UserResumetoFile());
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+
 }

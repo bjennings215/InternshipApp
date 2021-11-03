@@ -1,0 +1,28 @@
+ Resume
+Firstname: b
+Lastname: b
+PhoneNumber: b
+Email :b
+School: b
+Major: b
+Minor: b
+Concentrationb
+Grade Level: b
+GPA: b
+
+Experience: 
+- b
+- b
+- b
+
+ Extra Curriculars :
+- b
+- b
+- b
+
+Experience: 
+ - Job Occupation: b
+ - Job Type: b
+ - Employer: b
+ - Job Length: b
+ - Job Description: b

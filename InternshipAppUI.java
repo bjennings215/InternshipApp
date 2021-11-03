@@ -144,11 +144,19 @@ public class InternshipAppUI {
 
     public void newStudentAccountCreation() {
         System.out.println("\nWelcome new Student!");
+
+        String accounttype = "Student";
+        String status = "Looking for Work";
+
+        System.out.println("\nYou will be prompted to set up your account and Resume information below\n");
+
         System.out.println("Enter new username and password below");
 
         String username = verifyAndSetUsername();
         System.out.print("Password: ");
         String password = scanner.nextLine();
+
+        System.out.println("\nEnter basic information and contact information below\n");
         System.out.print("First Name: ");
         String firstname = scanner.nextLine();
         System.out.print("Last Name: ");
@@ -157,26 +165,112 @@ public class InternshipAppUI {
         String phoneNumber = scanner.nextLine();
         System.out.print("Email: ");
         String email = scanner.nextLine();
-        String accounttype = "Student";
-        String school = null;
-        String major = null;
-        String minor = null;
-        String concentration = null;
-        String gradeLevel = null;
-        String company = null;
-        String gpa = null;
-        ArrayList<String> skills = new ArrayList<>();
-        ArrayList<String> extraCurr = new ArrayList<>();
-        String prevExp = null;
-        String explength = null;
-        String jobdesc = null;
-        String status = null;
-        String jobOccupation = null;
-        String jobtype = null;
 
-        this.student = new Student(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
-        major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
-        prevExp, explength, jobdesc);
+        System.out.println("\nFill out the information below to add a new education experience\n"
+                + "(Enter 'Null' if field does not apply)\n");
+        System.out.print("University Name: ");
+        String school = scanner.nextLine();
+        System.out.print("Grade Point Average: ");
+        String gpa = scanner.nextLine();
+        System.out.print("Major: ");
+        String major = scanner.nextLine();
+        System.out.print("Minor: ");
+        String minor = scanner.nextLine();
+        System.out.print("Concentration: ");
+        String concentration = scanner.nextLine();
+        System.out.print("Grade Level: ");
+        String gradeLevel = scanner.nextLine();
+
+        String jobOccupation;
+        String company;
+        String jobtype;
+        String prevExp;
+        String explength;
+        String jobdesc;
+        while (true) {
+            System.out.println("\nWould you like to enter a previous job experience? Enter 'Yes' or 'No'\n");
+            String userInput = scanner.nextLine().trim();
+            if (userInput.equalsIgnoreCase("Yes")) {
+                System.out.println("\nFill out the information below to add a new work experience\n"
+                        + "(Enter 'Null' if field does not apply)\n");
+                System.out.print("Job: ");
+                jobOccupation = scanner.nextLine();
+                System.out.print("Company: ");
+                 company = scanner.nextLine();
+                System.out.print("Type (Part-Time, Full-Time, Internship): ");
+                 jobtype = scanner.nextLine();
+                System.out.print("Employer: ");
+                 prevExp = scanner.nextLine();
+                System.out.print("Length of Employment (MM/YYYY - MM/YYYY): ");
+                 explength = scanner.nextLine();
+                System.out.print("Please enter description: ");
+                 jobdesc = scanner.nextLine();
+                break;
+            } else if (userInput.equalsIgnoreCase("No")) {
+                 jobOccupation = "None";
+                 company = "None";
+                 jobtype = "None";
+                 prevExp = "None";
+                 explength = "None";
+                 jobdesc = "None";
+                break;
+            } else {
+                System.out.println("\nInvalid Command\n");
+            }
+        }
+
+        ArrayList<String> skills = new ArrayList<>();
+        while(true) {
+        System.out.println("\nWould you like to enter personal skills?\n");
+        String userInput = scanner.nextLine().trim().toUpperCase();
+            if (userInput.equalsIgnoreCase("Yes")) {
+                System.out.println(
+                    "\nEnter all skills below\nType an entry and press 'Enter'\nType 'Done' when finished entering skills to move on");
+            while (true) {
+                String newEntry = scanner.nextLine();
+                if (newEntry.equalsIgnoreCase("done")) {
+                    break;
+                }
+                skills.add(newEntry);
+            }
+            System.out.println("All new extracurriculars added!");
+            break;
+            } else if (userInput.equalsIgnoreCase("No")) {
+                skills = null;
+                break;
+            } else {
+                System.out.println("Invalid Command");
+            }
+            
+        }
+
+        ArrayList<String> extraCurr = new ArrayList<>();
+        while(true) {
+            System.out.println("\nWould you like to enter extracurricular activities?");
+            String userInput = scanner.nextLine().trim().toUpperCase();
+                if (userInput.equalsIgnoreCase("Yes")) {
+                    System.out.println(
+                        "\nEnter all extracurriculars below\nType an entry and press 'Enter'\nType 'Done' when finished entering extracurriculars to move on");
+                while (true) {
+                    String newEntry = scanner.nextLine();
+                    if (newEntry.equalsIgnoreCase("done")) {
+                        break;
+                    }
+                    extraCurr.add(newEntry);
+                }
+                System.out.println("\nAll new extracurriculars added!");
+                break;
+                } else if (userInput.equalsIgnoreCase("No")) {
+                    extraCurr = null;
+                    break;
+                } else {
+                    System.out.println("\nInvalid Command");
+                }
+            }
+
+        this.student = new Student(username, password, accounttype, school, company, firstname, lastname, email,
+                phoneNumber, major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation,
+                jobtype, prevExp, explength, jobdesc);
 
         this.user = new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
                 major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
@@ -186,9 +280,6 @@ public class InternshipAppUI {
                 minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
                 explength, jobdesc);
 
-        createStudentResume(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
-                major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
-                prevExp, explength, jobdesc);
     }
 
     public void newEmployerAccountCreation() {
@@ -223,9 +314,9 @@ public class InternshipAppUI {
         String jobOccupation = null;
         String jobtype = null;
 
-        this.employer = new Employer(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
-        major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
-        prevExp, explength, jobdesc);
+        this.employer = new Employer(username, password, accounttype, school, company, firstname, lastname, email,
+                phoneNumber, major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation,
+                jobtype, prevExp, explength, jobdesc);
 
         this.user = new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
                 major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
@@ -273,9 +364,9 @@ public class InternshipAppUI {
         String jobOccupation = null;
         String jobtype = null;
 
-        this.admin = new Administrator(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
-        major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
-        prevExp, explength, jobdesc);
+        this.admin = new Administrator(username, password, accounttype, school, company, firstname, lastname, email,
+                phoneNumber, major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation,
+                jobtype, prevExp, explength, jobdesc);
 
         this.user = new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
                 major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
@@ -306,7 +397,7 @@ public class InternshipAppUI {
 
     // --------------RESUME CREATION AND EDITING DISPLAY AND
     // FUNCTIONALITY----------------------
-
+/**
     public void createStudentResume(String username, String password, String accounttype, String school, String company,
             String firstname, String lastname, String email, String phoneNumber, String major, String minor,
             String concentration, String gradeLevel, String gpa, ArrayList<String> skills, ArrayList<String> extraCurr,
@@ -341,7 +432,7 @@ public class InternshipAppUI {
             }
         }
     }
-
+*/
     // -----------STUDENT MAIN MENU DISPLAY AND FUNCTIONALITY------------------
 
     public void studentMainMenuFunctionality() {
@@ -422,7 +513,8 @@ public class InternshipAppUI {
     public void browseJobsApplied() {
         System.out.println("\nAll Jobs Applied To");
         for (JobListing jobListing : this.student.getJobsAppliedTo()) {
-            System.out.println("\n [" + jobListings.getJobList().indexOf(jobListing)+1 + "]: " + jobListing.shortToString());
+            System.out.println(
+                    "\n [" + jobListings.getJobList().indexOf(jobListing) + 1 + "]: " + jobListing.shortToString());
         }
         System.out.println(
                 "\nEnter the number of a job listing to see more details.\nIf finished viewing listings enter '0' to return");
@@ -490,9 +582,9 @@ public class InternshipAppUI {
                 minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
                 explength, jobdesc);
 
-        createStudentResume(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
-                major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
-                prevExp, explength, jobdesc);
+        //createStudentResume(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
+        //        major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
+        //        prevExp, explength, jobdesc);
     }
 
     public void studentAccountEditingMenu() {
@@ -570,7 +662,7 @@ public class InternshipAppUI {
 
     public void seeAllPostedJobListings() {
         int count = 1;
-        for(JobListing jobListing : this.employer.getPostedJobListings()) {
+        for (JobListing jobListing : this.employer.getPostedJobListings()) {
             System.out.println("\n[" + count + "]: " + jobListing.shortToString());
             count++;
         }
@@ -578,16 +670,16 @@ public class InternshipAppUI {
             System.out
                     .println("Enter the number of a job listing to see more details.\nEnter '0' if you wish to return");
             int userInput = Integer.valueOf(scanner.nextLine());
-            
-                if (userInput > 0 && userInput <= this.employer.getPostedJobListings().size()) {
-                    employerDetailedJobListing(this.employer.getPostedJobListings().get(userInput - 1));
-                } else if (userInput == 0) {
-                    return;
-                } else {
-                    System.out.println("Invalid command");
-                    return;
-                }
-            
+
+            if (userInput > 0 && userInput <= this.employer.getPostedJobListings().size()) {
+                employerDetailedJobListing(this.employer.getPostedJobListings().get(userInput - 1));
+            } else if (userInput == 0) {
+                return;
+            } else {
+                System.out.println("Invalid command");
+                return;
+            }
+
         }
     }
 
@@ -687,7 +779,7 @@ public class InternshipAppUI {
             } else if (userDecision == 2) {
                 adminBrowseAllStudents();
             } else if (userDecision == 3) {
-            
+
             } else if (userDecision == 4) {
                 System.out.println("Thanks for using the internship app!\nGoodbye!");
                 System.exit(0);
@@ -742,7 +834,7 @@ public class InternshipAppUI {
                         + getAllStudentUsers().get(userInput - 1).getLastName() + "\'?\n'Yes' or 'No'");
                 String userConfirm = scanner.nextLine();
                 if (userConfirm.equalsIgnoreCase("Yes")) {
-                    this.admin.deleteStudent(getAllStudentUsers().get(userInput-1));
+                    this.admin.deleteStudent(getAllStudentUsers().get(userInput - 1));
                     System.out.println("\nStudent User Deleted");
                     break;
                 } else if (userConfirm.equalsIgnoreCase("No")) {
@@ -767,8 +859,8 @@ public class InternshipAppUI {
             System.out.println("[" + count + "]: " + user.UserResumetoFile());
         }
         while (true) {
-            System.out
-                    .println("Enter the number of an Employer user you wish to delete\nEnter '0' if you wish to return");
+            System.out.println(
+                    "Enter the number of an Employer user you wish to delete\nEnter '0' if you wish to return");
             int userInput = Integer.valueOf(scanner.nextLine());
             if (userInput > 0 && userInput <= getAllEmployerUsers().size()) {
                 System.out.println("Are you aure you want to delete user \'"
@@ -776,7 +868,7 @@ public class InternshipAppUI {
                         + getAllEmployerUsers().get(userInput - 1).getLastName() + "\'?\n'Yes' or 'No'");
                 String userConfirm = scanner.nextLine();
                 if (userConfirm.equalsIgnoreCase("Yes")) {
-                    this.admin.deleteEmployer(getAllStudentUsers().get(userInput-1));
+                    this.admin.deleteEmployer(getAllStudentUsers().get(userInput - 1));
                     System.out.println("\nEmployer User Deleted");
                     break;
                 } else if (userConfirm.equalsIgnoreCase("No")) {
@@ -798,8 +890,8 @@ public class InternshipAppUI {
 
     public ArrayList<User> getAllStudentUsers() {
         ArrayList<User> students = new ArrayList<>();
-        for(User user : users.getUsers()) {
-            if(user.getAccounttype().equals("Student")) {
+        for (User user : users.getUsers()) {
+            if (user.getAccounttype().equals("Student")) {
                 students.add(user);
             }
         }
@@ -808,8 +900,8 @@ public class InternshipAppUI {
 
     public ArrayList<User> getAllEmployerUsers() {
         ArrayList<User> employers = new ArrayList<>();
-        for(User user : users.getUsers()) {
-            if(user.getAccounttype().equals("Student")) {
+        for (User user : users.getUsers()) {
+            if (user.getAccounttype().equals("Student")) {
                 employers.add(user);
             }
         }

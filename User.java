@@ -53,6 +53,7 @@ public class User {
 	private String explength;
 	private String jobdesc;
 	private JobListings jobListings;
+	private ArrayList<JobListing> jobsApplied;
 	/**
 	 * constructor for the user.java file
 	 * @param username username
@@ -93,7 +94,7 @@ public class User {
 	public User(String username, String password, String accounttype, String school, String company, String firstname, 
 	String lastname, String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel, String gpa, 
 	ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp, String explength, 
-	String jobdesc) {
+	String jobdesc,ArrayList<JobListing> jobsApplied) {
 		this.id = UUID.randomUUID();
 		this.username = username;
 		this.password = password;
@@ -118,6 +119,7 @@ public class User {
 		this.explength = explength;
 		this.jobdesc = jobdesc;
 		this.jobListings = JobListings.getInstance();
+		this.jobsApplied = jobsApplied;
 	}
 	/**
 	* this is used to set the type user
@@ -147,7 +149,7 @@ public class User {
 	public User(UUID id, String username, String password, String accounttype, String school, String company, String firstname, 
 	String lastname, String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel, String gpa, 
 	ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp, String explength, 
-	String jobdesc) {
+	String jobdesc,ArrayList<JobListing> jobsApplied) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
@@ -172,6 +174,7 @@ public class User {
 		this.explength = explength;
 		this.jobdesc = jobdesc;
 		this.jobListings = JobListings.getInstance();
+		this.jobsApplied = jobsApplied;
 
 	}
 	/**
@@ -349,6 +352,10 @@ public class User {
 	 */
 	public String getjobType() {
 		return jobtype;
+	}
+
+	public ArrayList<JobListing> getJobsApplied() {
+		return jobsApplied;
 	}
 	/**
 	 * this returns a to string of all of the variables concatenated to go into the txt file

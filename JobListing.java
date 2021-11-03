@@ -21,7 +21,6 @@ public class JobListing {
     private String jobStateLocation;
     private String numofMonths;
     private String jobWagePerHour;
-    // private jobNumberRating;
     private ArrayList<Review> jobReviews;
     private ArrayList<Student> studentsApplied;
     private LocalDate postDate;

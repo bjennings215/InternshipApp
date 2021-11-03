@@ -29,4 +29,5 @@ public abstract class UserDataContants {
     protected static final String USER_RESUME_EXPLENGTH_STRING = "Job Length";
     protected static final String USER_RESUME_JOBDESC_STRING = "Job Desc";
     protected static final String USER_EMPLOYER_COMPANY_STRING = "Company";
+    protected static final String USER_STUDENT_JOBS_APPLIED_STRING = "Jobs Applied to";
 }

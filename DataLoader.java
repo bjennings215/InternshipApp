@@ -50,13 +50,13 @@ public class DataLoader extends UserDataContants {
                     String prevExp = (String) userJSON.get(USER_RESUME_PREVEXP_STRING);
                     String explength = (String) userJSON.get(USER_RESUME_EXPLENGTH_STRING);
                     String jobdesc = (String) userJSON.get(USER_RESUME_JOBDESC_STRING);
-                
+                JSONArray jobsApplied = (JSONArray) userJSON.get(USER_STUDENT_JOBS_APPLIED_STRING);
                 String company = (String) userJSON.get(USER_EMPLOYER_COMPANY_STRING);
 
 
 
                 users.add(new User(username,password,accounttype,school,company,firstname,lastname,email,phoneNumber,major,minor,concentration,
-                gradeLevel,gpa,skills,extraCurr,status,jobOccupation,jobtype,prevExp,explength,jobdesc));
+                gradeLevel,gpa,skills,extraCurr,status,jobOccupation,jobtype,prevExp,explength,jobdesc,jobsApplied));
             }
             return users;
         } catch (Exception exception) {

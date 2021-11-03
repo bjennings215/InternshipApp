@@ -90,6 +90,8 @@ public class Student extends User {
             return filteredByCity(possibleJobs);
         case STATE:
             return filteredByState(possibleJobs);
+        case SKILL:
+            return filteredBySkill(possibleJobs);
         default:
             System.out.println("Invalid Command");
             return null;
@@ -154,6 +156,19 @@ public class Student extends User {
         String userInput = scanner.nextLine();
         for (JobListing jobListing : possibleJobs) {
             if (jobListing.getJobStateLocation().equalsIgnoreCase(userInput)) {
+                filteredJobs.add(jobListing);
+            }
+
+        }
+        return filteredJobs;
+    }
+
+    private ArrayList<JobListing> filteredBySkill(ArrayList<JobListing> possibleJobs) {
+        System.out.println("What skill would you like to filter by?");
+        ArrayList<JobListing> filteredJobs = new ArrayList<>();
+        String userInput = scanner.nextLine();
+        for (JobListing jobListing : possibleJobs) {
+            if (jobListing.getJobSkills().contains(userInput)) {
                 filteredJobs.add(jobListing);
             }
 

@@ -1,3 +1,3 @@
 public enum JobFilter {
-    TITLE, WAGE, COMPANY, CITY, STATE
+    TITLE, WAGE, COMPANY, CITY, STATE, SKILL
 }

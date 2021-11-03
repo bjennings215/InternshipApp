@@ -245,19 +245,6 @@ public class InternshipAppUI {
         }
 
         ArrayList<String> extraCurr = new ArrayList<>();
-<<<<<<< HEAD
-        String prevExp = null;
-        String explength = null;
-        String jobdesc = null;
-        String status = null;
-        String jobOccupation = null;
-        String jobtype = null;
-        ArrayList<JobListing> jobsApplied = new ArrayList<>();
-
-        this.student = new Student(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
-        major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
-        prevExp, explength, jobdesc, jobsApplied);
-=======
         while(true) {
             System.out.println("\nWould you like to enter extracurricular activities?");
             String userInput = scanner.nextLine().trim().toUpperCase();
@@ -279,12 +266,15 @@ public class InternshipAppUI {
                 } else {
                     System.out.println("\nInvalid Command");
                 }
+
+            
             }
+            ArrayList<JobListing> jobsApplied = new ArrayList<>();
+
 
         this.student = new Student(username, password, accounttype, school, company, firstname, lastname, email,
                 phoneNumber, major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation,
-                jobtype, prevExp, explength, jobdesc);
->>>>>>> 23a77531f1a767664f7380452e1ed51dd031ed39
+                jobtype, prevExp, explength, jobdesc, jobsApplied);
 
         this.user = new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
                 major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
@@ -294,12 +284,6 @@ public class InternshipAppUI {
                 minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
                 explength, jobdesc,jobsApplied);
 
-<<<<<<< HEAD
-        createStudentResume(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
-                major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
-                prevExp, explength, jobdesc,jobsApplied);
-=======
->>>>>>> 23a77531f1a767664f7380452e1ed51dd031ed39
     }
 
     public void newEmployerAccountCreation() {
@@ -335,15 +319,9 @@ public class InternshipAppUI {
         String jobtype = null;
         ArrayList<JobListing> jobsApplied = new ArrayList<>();
 
-<<<<<<< HEAD
         this.employer = new Employer(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
         major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
         prevExp, explength, jobdesc,jobsApplied);
-=======
-        this.employer = new Employer(username, password, accounttype, school, company, firstname, lastname, email,
-                phoneNumber, major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation,
-                jobtype, prevExp, explength, jobdesc);
->>>>>>> 23a77531f1a767664f7380452e1ed51dd031ed39
 
         this.user = new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
                 major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
@@ -392,15 +370,9 @@ public class InternshipAppUI {
         String jobtype = null;
         ArrayList<JobListing> jobsApplied = new ArrayList<>();
 
-<<<<<<< HEAD
         this.admin = new Administrator(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
         major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
         prevExp, explength, jobdesc,jobsApplied);
-=======
-        this.admin = new Administrator(username, password, accounttype, school, company, firstname, lastname, email,
-                phoneNumber, major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation,
-                jobtype, prevExp, explength, jobdesc);
->>>>>>> 23a77531f1a767664f7380452e1ed51dd031ed39
 
         this.user = new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
                 major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
@@ -431,19 +403,11 @@ public class InternshipAppUI {
 
     // --------------RESUME CREATION AND EDITING DISPLAY AND
     // FUNCTIONALITY----------------------
-<<<<<<< HEAD
-
-    public void createStudentResume(String username, String password, String accounttype, String school, String company, String firstname, 
-	String lastname, String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel, String gpa, 
-	ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp, String explength, 
-	String jobdesc,ArrayList<JobListing> jobsApplied) {
-=======
 /**
     public void createStudentResume(String username, String password, String accounttype, String school, String company,
             String firstname, String lastname, String email, String phoneNumber, String major, String minor,
             String concentration, String gradeLevel, String gpa, ArrayList<String> skills, ArrayList<String> extraCurr,
             String status, String jobOccupation, String jobtype, String prevExp, String explength, String jobdesc) {
->>>>>>> 23a77531f1a767664f7380452e1ed51dd031ed39
         System.out.println("\nYou will now be prompted to set up your Resume\n");
 
         while (true) {
@@ -625,15 +589,9 @@ public class InternshipAppUI {
                 minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
                 explength, jobdesc,jobsApplied);
 
-<<<<<<< HEAD
-        createStudentResume(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
-                major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
-                prevExp, explength, jobdesc,jobsApplied);
-=======
         //createStudentResume(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
         //        major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
         //        prevExp, explength, jobdesc);
->>>>>>> 23a77531f1a767664f7380452e1ed51dd031ed39
     }
 
     public void studentAccountEditingMenu() {

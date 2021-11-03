@@ -49,65 +49,6 @@ public class Student extends User {
         return this.reviewsMade;
     }
 
-<<<<<<< HEAD
-    public void newEducationEntry(String username, String password, String accounttype, String school, String company, String firstname, 
-	String lastname, String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel, String gpa, 
-	ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp, String explength, 
-	String jobdesc,ArrayList<JobListing> jobsApplied) {
-        System.out.println("\nFill out the information below to add a new education experience\n"
-                + "(Enter 'Null' if field does not apply)\n");
-        System.out.print("University Name: ");
-        school = scanner.nextLine();
-        System.out.print("Grade Point Average: ");
-         gpa = scanner.nextLine();
-        System.out.print("Major: ");
-         major = scanner.nextLine();
-        System.out.print("Minor: ");
-         minor = scanner.nextLine();
-        System.out.print("Concentration: ");
-         concentration = scanner.nextLine();
-        System.out.print("Grade Level: ");
-        gradeLevel = scanner.nextLine();
-        System.out.println("\nFill out the information below to add a new work experience\n"
-                + "(Enter 'Null' if field does not apply)\n");
-        System.out.print("Job: ");
-        jobOccupation = scanner.nextLine();
-        System.out.print("Type (Part-Time, Full-Time, Internship): ");
-        jobtype = scanner.nextLine();
-        System.out.print("Employer: ");
-        prevExp = scanner.nextLine();
-        System.out.print("Length of Employment (MM/YYYY - MM/YYYY): ");
-        explength = scanner.nextLine();
-        System.out.print("Please enter description: ");
-        jobdesc = scanner.nextLine();
-        System.out.println(
-                "\nEnter all skills below\nType an entry and press 'Enter'\nType 'Done' when finished entering skills to exit");
-        while (true) {
-            String newEntry = scanner.nextLine();
-            if (newEntry.equalsIgnoreCase("done")) {
-                break;
-            }
-            skills.add(newEntry);
-        }
-        System.out.println("All new skills added!");
-        System.out.println(
-                "\nEnter all extracurriculars below\nType an entry and press 'Enter'\nType 'Done' when finished entering extracurriculars to exit");
-        while (true) {
-            String newEntry = scanner.nextLine();
-            if (newEntry.equalsIgnoreCase("done")) {
-                break;
-            }
-            extraCurr.add(newEntry);
-        }
-        System.out.println("All new extracurriculars added!");
-         jobsApplied = new ArrayList<>();
-        users.editUser(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major,
-                minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
-                explength, jobdesc,jobsApplied);
-    }
-
-=======
->>>>>>> 23a77531f1a767664f7380452e1ed51dd031ed39
     public void seeResumeDetails() {
         System.out.println(longToString());
     }
@@ -133,12 +74,7 @@ public class Student extends User {
     }
 
     public ArrayList<JobListing> filteringJobListings(ArrayList<JobListing> possibleJobs) {
-<<<<<<< HEAD
-        System.out
-              .println("Choose from the following filters\n Title, Wage, Type, Months, Employer, City, or State");
-=======
         System.out.println("Choose from the following filters\n Title, Wage, Company, City, or State");
->>>>>>> 23a77531f1a767664f7380452e1ed51dd031ed39
         String userInput = scanner.nextLine().trim().toUpperCase();
 
         JobFilter filter = JobFilter.valueOf(userInput);

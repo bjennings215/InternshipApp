@@ -22,7 +22,7 @@ public class JobListing {
     private String numofMonths;
     private String jobWagePerHour;
     // private jobNumberRating;
-    private ArrayList<Review> jobReviews;
+    private ArrayList<String> jobSkills;
     private ArrayList<Student> studentsApplied;
     private LocalDate postDate;
     private String jobExpDate;
@@ -38,12 +38,12 @@ public class JobListing {
      * @param numofMonths      how long is the position
      * @param companyLink      link for listing
      * @param jobWagePerHour   wage for listing
-     * @param jobReviews       reviews for job
+     * @param jobSkills       reviews for job
      * @param studentsApplied  list of students that have applied
      * @param jobExpDate       when the listing expires
      */
     public JobListing(String link, String jobTitle, String jobCompany, String jobDescription, String jobCityLocation,
-            String jobStateLocation, String numofMonths, String jobWagePerHour, ArrayList<Review> jobReviews,
+            String jobStateLocation, String numofMonths, String jobWagePerHour, ArrayList<String> jobSkills,
             ArrayList<Student> studentsApplied, String jobExpDate) {
         this.jobid = UUID.randomUUID();
         this.postDate = LocalDate.now();
@@ -55,7 +55,7 @@ public class JobListing {
         this.jobStateLocation = jobStateLocation;
         this.numofMonths = numofMonths;
         this.jobWagePerHour = jobWagePerHour;
-        this.jobReviews = jobReviews;
+        this.jobSkills = jobSkills;
         this.studentsApplied = studentsApplied;
         this.jobExpDate = jobExpDate;
     }
@@ -71,13 +71,13 @@ public class JobListing {
      * @param numofMonths      how long is the position
      * @param companyLink      link for listing
      * @param jobWagePerHour   wage for listing
-     * @param jobReviews       reviews for job
+     * @param jobSkills       reviews for job
      * @param studentsApplied  list of students that have applied
      * @param jobExpDate       when the listing expires
      */
     public JobListing(UUID jobid, String link, String jobTitle, String jobCompany, String jobDescription,
             String jobCityLocation, String jobStateLocation, String numofMonths, String jobWagePerHour,
-            ArrayList<Review> jobReviews, ArrayList<Student> studentsApplied, String jobExpDat) {
+            ArrayList<String> jobSkills, ArrayList<Student> studentsApplied, String jobExpDat) {
         this.jobid = jobid;
         this.postDate = postDate;
         this.compnayLink = link;
@@ -88,7 +88,7 @@ public class JobListing {
         this.jobStateLocation = jobStateLocation;
         this.numofMonths = numofMonths;
         this.jobWagePerHour = jobWagePerHour;
-        this.jobReviews = jobReviews;
+        this.jobSkills = jobSkills;
         this.studentsApplied = studentsApplied;
         this.jobExpDate = jobExpDate;
     }
@@ -201,8 +201,8 @@ public class JobListing {
      * 
      * @return list of reviews
      */
-    public ArrayList<Review> getJobReviews() {
-        return jobReviews;
+    public ArrayList<String> getJobSkills() {
+        return jobSkills;
     }
 
     /**
@@ -230,11 +230,11 @@ public class JobListing {
      */
     public String longToString() {
         String returnString = this.jobTitle + "\nCompany: " + this.jobCompany + "\nLocation: " + this.jobCityLocation
-                + ", " + this.jobStateLocation + "\nLength: " + this.numofMonths + "\nEarnings Per Hour: "
+                + ", " + this.jobStateLocation + "\nNumber of Months: " + this.numofMonths + "\nEarnings Per Hour: "
                 + this.jobWagePerHour + "\nCompany Link: " + this.compnayLink + "\nDescription: " + this.jobDescription
-                + "\nReviews made of previous experiences in this role\n" + this.jobReviews;
-        for (Review review : this.jobReviews) {
-            returnString.concat(review.toString() + "\n");
+                + "\nSkills necessary for this position\n" + this.jobSkills;
+        for (String skill : this.jobSkills) {
+            returnString.concat(skill + "\n");
         }
         return returnString;
     }

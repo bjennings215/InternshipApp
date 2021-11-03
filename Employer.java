@@ -3,8 +3,8 @@ import java.util.Scanner;
 import java.util.UUID;
 
 /**
- * @author Adam, Brandon, Brady, Esam
- * Makes an Employer object, extends from user
+ * @author Adam, Brandon, Brady, Esam Makes an Employer object, extends from
+ *         user
  */
 public class Employer extends User {
    private ArrayList<JobListing> postedJobListings;
@@ -14,29 +14,30 @@ public class Employer extends User {
 
    /**
     * Sets values of an employer
-    * @param id employer's if
-    * @param username employer's username
-    * @param password employer's password
-    * @param accounttype employer
-    * @param school null
-    * @param company employer's company
-    * @param firstname employer's first name
-    * @param lastname employer's last name
-    * @param email employer's email
-    * @param phoneNumber employer's number
-    * @param major null
-    * @param minor null
+    * 
+    * @param id            employer's if
+    * @param username      employer's username
+    * @param password      employer's password
+    * @param accounttype   employer
+    * @param school        null
+    * @param company       employer's company
+    * @param firstname     employer's first name
+    * @param lastname      employer's last name
+    * @param email         employer's email
+    * @param phoneNumber   employer's number
+    * @param major         null
+    * @param minor         null
     * @param concentration null
-    * @param gradeLevel null
-    * @param gpa null
-    * @param skills null
-    * @param extraCurr null
-    * @param status null
+    * @param gradeLevel    null
+    * @param gpa           null
+    * @param skills        null
+    * @param extraCurr     null
+    * @param status        null
     * @param jobOccupation null
-    * @param jobtype null
-    * @param prevExp null
-    * @param explength null
-    * @param jobdesc null
+    * @param jobtype       null
+    * @param prevExp       null
+    * @param explength     null
+    * @param jobdesc       null
     */
    public Employer(UUID id, String username, String password, String accounttype, String school, String company,
          String firstname, String lastname, String email, String phoneNumber, String major, String minor,
@@ -53,29 +54,30 @@ public class Employer extends User {
 
    /**
     * Sets values of an employer
-    * @param id employer's if
-    * @param username employer's username
-    * @param password employer's password
-    * @param accounttype employer
-    * @param school null
-    * @param company employer's company
-    * @param firstname employer's first name
-    * @param lastname employer's last name
-    * @param email employer's email
-    * @param phoneNumber employer's number
-    * @param major null
-    * @param minor null
+    * 
+    * @param id            employer's if
+    * @param username      employer's username
+    * @param password      employer's password
+    * @param accounttype   employer
+    * @param school        null
+    * @param company       employer's company
+    * @param firstname     employer's first name
+    * @param lastname      employer's last name
+    * @param email         employer's email
+    * @param phoneNumber   employer's number
+    * @param major         null
+    * @param minor         null
     * @param concentration null
-    * @param gradeLevel null
-    * @param gpa null
-    * @param skills null
-    * @param extraCurr null
-    * @param status null
+    * @param gradeLevel    null
+    * @param gpa           null
+    * @param skills        null
+    * @param extraCurr     null
+    * @param status        null
     * @param jobOccupation null
-    * @param jobtype null
-    * @param prevExp null
-    * @param explength null
-    * @param jobdesc null
+    * @param jobtype       null
+    * @param prevExp       null
+    * @param explength     null
+    * @param jobdesc       null
     */
    public Employer(String username, String password, String accounttype, String school, String company,
          String firstname, String lastname, String email, String phoneNumber, String major, String minor,
@@ -92,6 +94,7 @@ public class Employer extends User {
 
    /**
     * retrives the job lsitings that are posted
+    * 
     * @return list of job listings
     */
    public ArrayList<JobListing> getPostedJobListings() {
@@ -100,6 +103,7 @@ public class Employer extends User {
 
    /**
     * retrieves list of students that have been accepted
+    * 
     * @return list of students
     */
    public ArrayList<Student> getAcceptedStudents() {
@@ -127,19 +131,34 @@ public class Employer extends User {
       String link = scanner.nextLine();
       System.out.print("Date Posted: ");
       String jobExpDate = scanner.nextLine();
+      ArrayList<String> jobSkills = addJobListingNecessarySkills();
+
       System.out.println("\nNew Job Listing Created!");
 
       String[] locations = location.split(", ");
       String jobCityLocation = locations[0];
       String jobStateLocation = locations[1];
-      ArrayList<Review> jobReviews = new ArrayList<>();
       ArrayList<Student> studentsApplied = new ArrayList<>();
 
-      this.postedJobListings.add(new JobListing(link, jobTitle,  jobCompany,  jobDescription, jobCityLocation, 
-      jobStateLocation, numofMonths, jobWagePerHour, jobReviews,  studentsApplied,  jobExpDate));
+      this.postedJobListings.add(new JobListing(link, jobTitle, jobCompany, jobDescription, jobCityLocation,
+            jobStateLocation, numofMonths, jobWagePerHour, jobSkills, studentsApplied, jobExpDate));
 
-      this.jobListings.addJob(link, jobTitle,  jobCompany,  jobDescription,jobCityLocation, 
-      jobStateLocation, numofMonths, jobWagePerHour, jobReviews,  studentsApplied,  jobExpDate);
+      this.jobListings.addJob(link, jobTitle, jobCompany, jobDescription, jobCityLocation, jobStateLocation,
+            numofMonths, jobWagePerHour, jobSkills, studentsApplied, jobExpDate);
+   }
+
+   public ArrayList<String> addJobListingNecessarySkills() {
+      ArrayList<String> necessarySkills = new ArrayList<>();
+      System.out.println(
+            "\nEnter all skills for a potential employee to have below\nType an entry and press 'Enter'\nType 'Done' when finished entering skills to finish new Job Listing creation");
+      while (true) {
+         String newEntry = scanner.nextLine();
+         if (newEntry.equalsIgnoreCase("done")) {
+            break;
+         }
+         necessarySkills.add(newEntry);
+      }
+      return necessarySkills;
    }
 
    /**
@@ -158,7 +177,8 @@ public class Employer extends User {
 
    /**
     * allows user to filter through the students applying by different ways
-    * @param possibleStudents the list of possible students 
+    * 
+    * @param possibleStudents the list of possible students
     * @return the list of filtered students
     */
    public ArrayList<Student> filteringStudents(ArrayList<Student> possibleStudents) {
@@ -189,6 +209,7 @@ public class Employer extends User {
 
    /**
     * filtering through students by GPA
+    * 
     * @param possibleStudents list of possible of students
     * @return the list of filtered students
     */
@@ -208,6 +229,7 @@ public class Employer extends User {
 
    /**
     * Filter possible students by major
+    * 
     * @param possibleStudents list of possible students
     * @return the list of filtered students
     */
@@ -226,6 +248,7 @@ public class Employer extends User {
 
    /**
     * filter possible students by minor
+    * 
     * @param possibleStudents list of possible students
     * @return list of filtered students
     */
@@ -244,6 +267,7 @@ public class Employer extends User {
 
    /**
     * filter possible students by their skills
+    * 
     * @param possibleStudents list of possible students
     * @return the list of filtered students
     */
@@ -262,6 +286,7 @@ public class Employer extends User {
 
    /**
     * filter possible students by their extracurricular activites
+    * 
     * @param possibleStudents list of possible students
     * @return list of filtered students
     */
@@ -277,8 +302,10 @@ public class Employer extends User {
       }
       return filteredStudents;
    }
+
    /**
     * filter possible students by their grade level
+    * 
     * @param possibleStudents list of possible students
     * @return list of filtered students
     */
@@ -294,10 +321,11 @@ public class Employer extends User {
       }
       return filteredStudents;
    }
-   
+
    /**
     * allows user(employer) to accept students for the position
-    * @param student student being accepted
+    * 
+    * @param student    student being accepted
     * @param jobListing job they are being accepted for
     */
    public void acceptStudent(Student student, JobListing jobListing) {
@@ -308,7 +336,8 @@ public class Employer extends User {
 
    /**
     * allows employer to reject students for a position
-    * @param student student being rejected 
+    * 
+    * @param student   student being rejected
     * @param jobListng job listing they are bing rejected for
     */
    public void rejectStudent(Student student, JobListing jobListng) {
@@ -317,10 +346,10 @@ public class Employer extends User {
 
       System.out.println("The student has been removed from the list of potential employees");
    }
-   
-/**
- * prints out the employer object
- */
+
+   /**
+    * prints out the employer object
+    */
    public String toString() {
       return "Name: " + getFirstName() + " " + getLastName() + "\nCompany: " + getCompany() + "\nJob Listings Created: "
             + getPostedJobListings().size();

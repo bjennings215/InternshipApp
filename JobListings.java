@@ -45,9 +45,9 @@ public class JobListings {
     
         //adds user to Arraylist and writes to JSON file(database)
         public void addJob(String link, String jobTitle, String jobCompany, String jobDescription, String jobCityLocation, 
-        String jobStateLocation, String numofMonths, String jobWagePerHour,ArrayList<Review> jobReviews, ArrayList<Student> studentsApplied, String jobExpDate) {
+        String jobStateLocation, String numofMonths, String jobWagePerHour,ArrayList<String> jobSkills, ArrayList<Student> studentsApplied, String jobExpDate) {
             joblist.add(new JobListing(link, jobTitle,  jobCompany,  jobDescription,jobCityLocation, 
-            jobStateLocation, numofMonths, jobWagePerHour, jobReviews,  studentsApplied,  jobExpDate));
+            jobStateLocation, numofMonths, jobWagePerHour, jobSkills,  studentsApplied,  jobExpDate));
             JobListingDataWriter.saveJobListng();
         }
     
@@ -63,11 +63,11 @@ public class JobListings {
     
     
         public void editJob(String link, String jobTitle, String jobCompany, String jobDescription, String jobCityLocation, 
-        String jobStateLocation, String numofMonths, String jobWagePerHour,ArrayList<Review> jobReviews, ArrayList<Student> studentsApplied, String jobExpDate) {
+        String jobStateLocation, String numofMonths, String jobWagePerHour,ArrayList<String> jobSkills, ArrayList<Student> studentsApplied, String jobExpDate) {
             for(int i = 0; i < joblist.size(); i++){
                 if(joblist.get(i).getJobTitle().equals(jobTitle)){
                     joblist.set(i, new JobListing(link, jobTitle,  jobCompany,  jobDescription,jobCityLocation, 
-                    jobStateLocation, numofMonths, jobWagePerHour, jobReviews,  studentsApplied,  jobExpDate));
+                    jobStateLocation, numofMonths, jobWagePerHour, jobSkills,  studentsApplied,  jobExpDate));
                     JobListingDataWriter.saveJobListng();
                 }
             }

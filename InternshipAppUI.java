@@ -1,4 +1,3 @@
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -13,15 +12,9 @@ public class InternshipAppUI {
     private static final String[] LOGIN_COMMANDS = { "Log in", "Create new account" };
     private static final String[] USER_TYPE_COMMANDS = { "Student", "Employer", "Administrator" };
     private static final String[] STUDENT_MAIN_MENU_COMMANDS = { "Browse Job Listings", "See Jobs Applied To",
-<<<<<<< HEAD
-            "See Reviews Made", "See Resume Details", "Edit Resume", "Edit Account", "Print Resume", "Log Off", "Quits"};
-    private static final String[] EMPLOYER_MAIN_MENU_COMMANDS = { "Post New Job Listing", "See Posted Job Listings", "View Aplicants",
-            "Log Off", "Quits" };
-=======
             "See Reviews Made", "See Resume Details", "Edit Resume", "Print Resume", "Log Off" };
     private static final String[] EMPLOYER_MAIN_MENU_COMMANDS = { "Post New Job Listing", "See Posted Job Listings",
             "Log Off" };
->>>>>>> 2bebc2a254ad80eeee312f5730beb8965562ab57
     private static final String[] ADMIN_MAIN_MENU_COMMANDS = { "Browse All Job Listings", "Browse All Students",
             "Browse All Employers", "Log Off" };
     private static final String[] RESUME_CREATION_COMMANDS = { "Education", "Previous Work Experience", "Skills",
@@ -278,19 +271,6 @@ public class InternshipAppUI {
                         System.out.println("\nInvalid Command");
                     }
                 }
-<<<<<<< HEAD
-                System.out.println("\nAll new extracurriculars added!");
-                break;
-            } else if (userInput.equalsIgnoreCase("No")) {
-                extraCurr = null;
-                break;
-            } else {
-                System.out.println("\nInvalid Command");
-            }
-            ArrayList<String> jobsApplied = new ArrayList<>();
-            jobsApplied.add(new JobListing(null, jobdesc, jobdesc, jobdesc, jobdesc, jobdesc, jobdesc, jobdesc, jobdesc, null, null, jobdesc).shortToString());
-=======
->>>>>>> 2bebc2a254ad80eeee312f5730beb8965562ab57
 
                 ArrayList<String> jobsApplied = new ArrayList<>();
 
@@ -475,13 +455,7 @@ public class InternshipAppUI {
                 studentResumeEditingMenu();
             } else if (userDecision == 6) {
                 printResume();
-<<<<<<< HEAD
-            } else if (userDecision == 8) {
-                run();
-            } else if (userDecision == 9) {
-=======
             } else if (userDecision == 7) {
->>>>>>> 2bebc2a254ad80eeee312f5730beb8965562ab57
                 System.out.println("Thanks for using the internship app!\nGoodbye!");
                 System.exit(0);
             } else {
@@ -795,12 +769,9 @@ public class InternshipAppUI {
             } else if (userDecision == 2) {
                 seeAllPostedJobListings();
             } else if (userDecision == 3) {
-                viewAllApplicants(jobListing);
-            } else if (userDecision == 4) {
-               run();
-            } else if (userDecision == 5) {
-                System.out.println("Goodbye");
-            }else {
+                System.out.println("Thanks for using the internship app!\nGoodbye!");
+                System.exit(0);
+            } else {
                 System.out.println("\nInvalid Command");
             }
         }

@@ -172,14 +172,7 @@ public class Student extends User {
                 + "\nGPA: " + getGPA() + "\nMajor: " + getMajor() + "\nMinor: " + getMinor() + "\nConcentration: "
                 + getConcentation() + "\n\nPrevious Work Experiences: \nJob: " + getjobOccupation() + "\nCompany: "
                 + getCompany() + "\nJob Type :" + getjobType() + "\nJob Length: " + getExpLength()
-                + "\nJob Description: " + getJobDesc() + "\nSkills";
-        for (String skill : getSkills()) {
-            returnString.concat(skill + "\n");
-        }
-        returnString.concat("\n\nExtracurriculars");
-        for (String extracurricular : getExtracurr()) {
-            returnString.concat(extracurricular + "\n");
-        }
+                + "\nJob Description: " + getJobDesc() + "\nSkills:\n" + getSkills() + "\nExtracurriculars:\n" + getExtracurr();
 
         return returnString;
     }

@@ -51,7 +51,8 @@ public class InternshipAppUI {
                     this.user.getEmail(), this.user.getPhoneNumber(), this.user.getMajor(), this.user.getMinor(),
                     this.user.getConcentation(), this.user.getGradeLevel(), this.user.getGPA(), this.user.getSkills(),
                     this.user.getExtracurr(), this.user.getStatus(), this.user.getjobOccupation(),
-                    this.user.getjobType(), this.user.getPrevExp(), this.user.getExpLength(), this.user.getJobDesc(), this.user.getJobsApplied());
+                    this.user.getjobType(), this.user.getPrevExp(), this.user.getExpLength(), this.user.getJobDesc(),
+                    this.user.getJobsApplied());
             studentMainMenuFunctionality();
         } else if (this.user.getAccounttype().equals("Employer")) {
             this.employer = new Employer(this.user.getUsername(), this.user.getPassword(), this.user.getAccounttype(),
@@ -59,7 +60,8 @@ public class InternshipAppUI {
                     this.user.getEmail(), this.user.getPhoneNumber(), this.user.getMajor(), this.user.getMinor(),
                     this.user.getConcentation(), this.user.getGradeLevel(), this.user.getGPA(), this.user.getSkills(),
                     this.user.getExtracurr(), this.user.getStatus(), this.user.getjobOccupation(),
-                    this.user.getjobType(), this.user.getPrevExp(), this.user.getExpLength(), this.user.getJobDesc(), this.user.getJobsApplied());
+                    this.user.getjobType(), this.user.getPrevExp(), this.user.getExpLength(), this.user.getJobDesc(),
+                    this.user.getJobsApplied());
             employerMainMenuFunctionality();
         } else if (this.user.getAccounttype().equals("Admin")) {
             this.admin = new Administrator(this.user.getUsername(), this.user.getPassword(), this.user.getAccounttype(),
@@ -67,7 +69,8 @@ public class InternshipAppUI {
                     this.user.getEmail(), this.user.getPhoneNumber(), this.user.getMajor(), this.user.getMinor(),
                     this.user.getConcentation(), this.user.getGradeLevel(), this.user.getGPA(), this.user.getSkills(),
                     this.user.getExtracurr(), this.user.getStatus(), this.user.getjobOccupation(),
-                    this.user.getjobType(), this.user.getPrevExp(), this.user.getExpLength(), this.user.getJobDesc(), this.user.getJobsApplied());
+                    this.user.getjobType(), this.user.getPrevExp(), this.user.getExpLength(), this.user.getJobDesc(),
+                    this.user.getJobsApplied());
             adminMainMenuFunctionality();
         } else {
             System.out.println("There has been an error with your account.\nUnable to run the Internship App.");
@@ -275,11 +278,11 @@ public class InternshipAppUI {
 
         this.user = new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
                 major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
-                prevExp, explength, jobdesc,jobsApplied);
+                prevExp, explength, jobdesc, jobsApplied);
 
         users.addUser(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major,
                 minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
-                explength, jobdesc,jobsApplied);
+                explength, jobdesc, jobsApplied);
 
     }
 
@@ -316,17 +319,17 @@ public class InternshipAppUI {
         String jobtype = null;
         ArrayList<JobListing> jobsApplied = new ArrayList<>();
 
-        this.employer = new Employer(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
-        major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
-        prevExp, explength, jobdesc,jobsApplied);
+        this.employer = new Employer(username, password, accounttype, school, company, firstname, lastname, email,
+                phoneNumber, major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation,
+                jobtype, prevExp, explength, jobdesc, jobsApplied);
 
         this.user = new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
                 major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
-                prevExp, explength, jobdesc,jobsApplied);
+                prevExp, explength, jobdesc, jobsApplied);
 
         users.addUser(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major,
                 minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
-                explength, jobdesc,jobsApplied);
+                explength, jobdesc, jobsApplied);
         ArrayList<User> accountInfo = users.getUsers();
         for (User user : accountInfo) {
             if (user.getUsername().equals(username)) {
@@ -367,17 +370,17 @@ public class InternshipAppUI {
         String jobtype = null;
         ArrayList<JobListing> jobsApplied = new ArrayList<>();
 
-        this.admin = new Administrator(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
-        major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
-        prevExp, explength, jobdesc,jobsApplied);
+        this.admin = new Administrator(username, password, accounttype, school, company, firstname, lastname, email,
+                phoneNumber, major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation,
+                jobtype, prevExp, explength, jobdesc, jobsApplied);
 
         this.user = new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
                 major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
-                prevExp, explength, jobdesc,jobsApplied);
+                prevExp, explength, jobdesc, jobsApplied);
 
         users.addUser(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major,
                 minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
-                explength, jobdesc,jobsApplied);
+                explength, jobdesc, jobsApplied);
         ArrayList<User> accountInfo = users.getUsers();
         for (User user : accountInfo) {
             if (user.getUsername().equals(username)) {
@@ -440,7 +443,29 @@ public class InternshipAppUI {
             } else if (userInput > 0 && userInput <= jobListings.getJobList().size()) {
                 studentDetailedJobListing(jobListings.getJobList().get(userInput - 1));
             } else if (userInput == -1) {
-                this.student.filteringJobListings(jobListings.getJobList());
+                ArrayList<JobListing> filteredListings = this.student.filteringJobListings(jobListings.getJobList());
+                printFilteredJobListings(filteredListings);
+            } else {
+                System.out.println("Invalid Command");
+            }
+        }
+    }
+
+    public void printFilteredJobListings(ArrayList<JobListing> filteredJobListings) {
+        while (true) {
+            int count = 1;
+            System.out.println("\nJob listings have been filtered!\n");
+            for (JobListing jobListing : filteredJobListings) {
+                System.out.println("\n[" + count + "]: " + jobListing.shortToString());
+                count++;
+            }
+            System.out.println(
+                    "\nEnter the number of a filtered job listing to see more details.\nIf finished viewing listings enter '0' to return");
+            int userInput = Integer.valueOf(scanner.nextLine());
+            if (userInput == 0) {
+                return;
+            } else if (userInput > 0 && userInput <= filteredJobListings.size()) {
+                studentDetailedJobListing(jobListings.getJobList().get(userInput - 1));
             } else {
                 System.out.println("Invalid Command");
             }
@@ -476,10 +501,10 @@ public class InternshipAppUI {
     }
 
     public void browseJobsApplied() {
-        System.out.println("\nAll Jobs Applied To");
+        System.out.println("\nAll Jobs Applied To\n");
         for (JobListing jobListing : this.student.getJobsAppliedTo()) {
             System.out.println(
-                    "\n [" + jobListings.getJobList().indexOf(jobListing) + 1 + "]: " + jobListing.shortToString());
+                    "\n [" + (jobListings.getJobList().indexOf(jobListing) +1) + "]: " + jobListing.shortToString());
         }
         System.out.println(
                 "\nEnter the number of a job listing to see more details.\nIf finished viewing listings enter '0' to return");
@@ -542,15 +567,17 @@ public class InternshipAppUI {
 
         this.user = new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
                 major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
-                prevExp, explength, jobdesc,jobsApplied);
+                prevExp, explength, jobdesc, jobsApplied);
 
         users.editUser(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major,
                 minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
                 explength, jobdesc, jobsApplied);
 
-        //createStudentResume(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
-        //        major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
-        //        prevExp, explength, jobdesc);
+        // createStudentResume(username, password, accounttype, school, company,
+        // firstname, lastname, email, phoneNumber,
+        // major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status,
+        // jobOccupation, jobtype,
+        // prevExp, explength, jobdesc);
     }
 
     public void studentAccountEditingMenu() {
@@ -587,11 +614,11 @@ public class InternshipAppUI {
 
         this.user = new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
                 major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
-                prevExp, explength, jobdesc,jobsApplied);
+                prevExp, explength, jobdesc, jobsApplied);
 
         users.editUser(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major,
                 minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
-                explength, jobdesc,jobsApplied);
+                explength, jobdesc, jobsApplied);
     }
 
     public void printResume() {

@@ -231,10 +231,8 @@ public class JobListing {
         String returnString = this.jobTitle + "\nCompany: " + this.jobCompany + "\nLocation: " + this.jobCityLocation
                 + ", " + this.jobStateLocation + "\nNumber of Months: " + this.numofMonths + "\nEarnings Per Hour: "
                 + this.jobWagePerHour + "\nCompany Link: " + this.compnayLink + "\nDescription: " + this.jobDescription
-                + "\nSkills necessary for this position\n" + this.jobSkills;
-        for (String skill : this.jobSkills) {
-            returnString.concat(skill + "\n");
-        }
+                + "\nSkills necessary for this position\n" + this.jobSkills + "\n";
+
         return returnString;
     }
 }

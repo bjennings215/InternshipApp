@@ -13,9 +13,15 @@ public class InternshipAppUI {
     private static final String[] LOGIN_COMMANDS = { "Log in", "Create new account" };
     private static final String[] USER_TYPE_COMMANDS = { "Student", "Employer", "Administrator" };
     private static final String[] STUDENT_MAIN_MENU_COMMANDS = { "Browse Job Listings", "See Jobs Applied To",
+<<<<<<< HEAD
             "See Reviews Made", "See Resume Details", "Edit Resume", "Edit Account", "Print Resume", "Log Off", "Quits"};
     private static final String[] EMPLOYER_MAIN_MENU_COMMANDS = { "Post New Job Listing", "See Posted Job Listings", "View Aplicants",
             "Log Off", "Quits" };
+=======
+            "See Reviews Made", "See Resume Details", "Edit Resume", "Print Resume", "Log Off" };
+    private static final String[] EMPLOYER_MAIN_MENU_COMMANDS = { "Post New Job Listing", "See Posted Job Listings",
+            "Log Off" };
+>>>>>>> 2bebc2a254ad80eeee312f5730beb8965562ab57
     private static final String[] ADMIN_MAIN_MENU_COMMANDS = { "Browse All Job Listings", "Browse All Students",
             "Browse All Employers", "Log Off" };
     private static final String[] RESUME_CREATION_COMMANDS = { "Education", "Previous Work Experience", "Skills",
@@ -151,7 +157,7 @@ public class InternshipAppUI {
         String accounttype = "Student";
         String status = "Looking for Work";
 
-        System.out.println("\nYou will be prompted to set up your account and Resume information below\n");
+        System.out.println("\nYou will be prompted to set up your account information below\n");
 
         System.out.println("Enter new username and password below");
 
@@ -169,97 +175,110 @@ public class InternshipAppUI {
         System.out.print("Email: ");
         String email = scanner.nextLine();
 
-        System.out.println("\nFill out the information below to add a new education experience\n"
-                + "(Enter 'Null' if field does not apply)\n");
-        System.out.print("University Name: ");
-        String school = scanner.nextLine();
-        System.out.print("Grade Point Average: ");
-        String gpa = scanner.nextLine();
-        System.out.print("Major: ");
-        String major = scanner.nextLine();
-        System.out.print("Minor: ");
-        String minor = scanner.nextLine();
-        System.out.print("Concentration: ");
-        String concentration = scanner.nextLine();
-        System.out.print("Grade Level: ");
-        String gradeLevel = scanner.nextLine();
-
-        String jobOccupation;
-        String company;
-        String jobtype;
-        String prevExp;
-        String explength;
-        String jobdesc;
         while (true) {
-            System.out.println("\nWould you like to enter a previous job experience? Enter 'Yes' or 'No'\n");
-            String userInput = scanner.nextLine().trim();
-            if (userInput.equalsIgnoreCase("Yes")) {
-                System.out.println("\nFill out the information below to add a new work experience\n"
-                        + "(Enter 'Null' if field does not apply)\n");
-                System.out.print("Job: ");
-                jobOccupation = scanner.nextLine();
-                System.out.print("Company: ");
-                company = scanner.nextLine();
-                System.out.print("Type (Part-Time, Full-Time, Internship): ");
-                jobtype = scanner.nextLine();
-                System.out.print("Length of Employment (MM/YYYY - MM/YYYY): ");
-                explength = scanner.nextLine();
-                System.out.print("Please enter description: ");
-                jobdesc = scanner.nextLine();
-                prevExp = "None";
-                break;
-            } else if (userInput.equalsIgnoreCase("No")) {
-                jobOccupation = "None";
-                company = "None";
-                jobtype = "None";
-                prevExp = "None";
-                explength = "None";
-                jobdesc = "None";
-                break;
-            } else {
-                System.out.println("\nInvalid Command\n");
-            }
-        }
+            System.out.println("\nWould you like to set up your resume now? Enter 'Yes' or 'No'");
+            String userInput = scanner.nextLine();
 
-        ArrayList<String> skills = new ArrayList<>();
-        while (true) {
-            System.out.println("\nWould you like to enter personal skills? Enter 'Yes' or 'No'\n\n");
-            String userInput = scanner.nextLine().trim();
             if (userInput.equalsIgnoreCase("Yes")) {
-                System.out.println(
-                        "\nEnter all skills below\nType an entry and press 'Enter'\nType 'Done' when finished entering skills to move on");
+                System.out.println("\nFill out the information below to add a new education experience\n"
+                        + "(Enter 'None' if field does not apply)\n");
+                System.out.print("University Name: ");
+                String school = scanner.nextLine();
+                System.out.print("Grade Point Average: ");
+                String gpa = scanner.nextLine();
+                System.out.print("Major: ");
+                String major = scanner.nextLine();
+                System.out.print("Minor: ");
+                String minor = scanner.nextLine();
+                System.out.print("Concentration: ");
+                String concentration = scanner.nextLine();
+                System.out.print("Grade Level: ");
+                String gradeLevel = scanner.nextLine();
+
+                String jobOccupation;
+                String company;
+                String jobtype;
+                String prevExp;
+                String explength;
+                String jobdesc;
                 while (true) {
-                    String newEntry = scanner.nextLine();
-                    if (newEntry.equalsIgnoreCase("done")) {
+                    System.out.println("\nWould you like to enter a previous job experience? Enter 'Yes' or 'No'\n");
+                    String jobInput = scanner.nextLine().trim();
+                    if (jobInput.equalsIgnoreCase("Yes")) {
+                        System.out.println("\nFill out the information below to add a new work experience\n"
+                                + "(Enter 'None' if field does not apply)\n");
+                        System.out.print("Job: ");
+                        jobOccupation = scanner.nextLine();
+                        System.out.print("Company: ");
+                        company = scanner.nextLine();
+                        System.out.print("Type (Part-Time, Full-Time, Internship): ");
+                        jobtype = scanner.nextLine();
+                        System.out.print("Length of Employment (MM/YYYY - MM/YYYY): ");
+                        explength = scanner.nextLine();
+                        System.out.print("Please enter description: ");
+                        jobdesc = scanner.nextLine();
+                        prevExp = "None";
                         break;
+                    } else if (jobInput.equalsIgnoreCase("No")) {
+                        jobOccupation = "None";
+                        company = "None";
+                        jobtype = "None";
+                        prevExp = "None";
+                        explength = "None";
+                        jobdesc = "None";
+                        break;
+                    } else {
+                        System.out.println("\nInvalid Command\n");
                     }
-                    skills.add(newEntry);
                 }
-                System.out.println("All new skills added!");
-                break;
-            } else if (userInput.equalsIgnoreCase("No")) {
-                skills = null;
-                break;
-            } else {
-                System.out.println("Invalid Command");
-            }
 
-        }
-
-        ArrayList<String> extraCurr = new ArrayList<>();
-        while (true) {
-            System.out.println("\nWould you like to enter extracurricular activities? Enter 'Yes' or 'No'\n");
-            String userInput = scanner.nextLine().trim();
-            if (userInput.equalsIgnoreCase("Yes")) {
-                System.out.println(
-                        "\nEnter all extracurriculars below\nType an entry and press 'Enter'\nType 'Done' when finished entering extracurriculars to move on");
+                ArrayList<String> skills = new ArrayList<>();
                 while (true) {
-                    String newEntry = scanner.nextLine();
-                    if (newEntry.equalsIgnoreCase("done")) {
+                    System.out.println("\nWould you like to enter personal skills? Enter 'Yes' or 'No'\n\n");
+                    String skillsInput = scanner.nextLine().trim();
+                    if (skillsInput.equalsIgnoreCase("Yes")) {
+                        System.out.println(
+                                "\nEnter all skills below\nType an entry and press 'Enter'\nType 'Done' when finished entering skills to move on");
+                        while (true) {
+                            String newEntry = scanner.nextLine();
+                            if (newEntry.equalsIgnoreCase("done")) {
+                                break;
+                            }
+                            skills.add(newEntry);
+                        }
+                        System.out.println("All new skills added!");
                         break;
+                    } else if (skillsInput.equalsIgnoreCase("No")) {
+                        break;
+                    } else {
+                        System.out.println("Invalid Command");
                     }
-                    extraCurr.add(newEntry);
+
                 }
+
+                ArrayList<String> extraCurr = new ArrayList<>();
+                while (true) {
+                    System.out.println("\nWould you like to enter extracurricular activities? Enter 'Yes' or 'No'\n");
+                    String extracurrInput = scanner.nextLine().trim();
+                    if (extracurrInput.equalsIgnoreCase("Yes")) {
+                        System.out.println(
+                                "\nEnter all extracurriculars below\nType an entry and press 'Enter'\nType 'Done' when finished entering extracurriculars to move on");
+                        while (true) {
+                            String newEntry = scanner.nextLine();
+                            if (newEntry.equalsIgnoreCase("done")) {
+                                break;
+                            }
+                            extraCurr.add(newEntry);
+                        }
+                        System.out.println("\nAll new extracurriculars added!");
+                        break;
+                    } else if (extracurrInput.equalsIgnoreCase("No")) {
+                        break;
+                    } else {
+                        System.out.println("\nInvalid Command");
+                    }
+                }
+<<<<<<< HEAD
                 System.out.println("\nAll new extracurriculars added!");
                 break;
             } else if (userInput.equalsIgnoreCase("No")) {
@@ -270,21 +289,56 @@ public class InternshipAppUI {
             }
             ArrayList<String> jobsApplied = new ArrayList<>();
             jobsApplied.add(new JobListing(null, jobdesc, jobdesc, jobdesc, jobdesc, jobdesc, jobdesc, jobdesc, jobdesc, null, null, jobdesc).shortToString());
+=======
+>>>>>>> 2bebc2a254ad80eeee312f5730beb8965562ab57
 
+                ArrayList<String> jobsApplied = new ArrayList<>();
 
-        this.student = new Student(username, password, accounttype, school, company, firstname, lastname, email,
-                phoneNumber, major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation,
-                jobtype, prevExp, explength, jobdesc, jobsApplied);
+                this.student = new Student(username, password, accounttype, school, company, firstname, lastname, email,
+                        phoneNumber, major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status,
+                        jobOccupation, jobtype, prevExp, explength, jobdesc, jobsApplied);
 
-        this.user = new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
-                major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
-                prevExp, explength, jobdesc, jobsApplied);
+                this.user = new User(username, password, accounttype, school, company, firstname, lastname, email,
+                        phoneNumber, major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status,
+                        jobOccupation, jobtype, prevExp, explength, jobdesc, jobsApplied);
 
-        users.addUser(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major,
-                minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
-                explength, jobdesc, jobsApplied);
+                users.addUser(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
+                        major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
+                        prevExp, explength, jobdesc, jobsApplied);
+
+            } else if (userInput.equalsIgnoreCase("No")) {
+                String school = "None";
+                String major = "None";
+                String minor = "None";
+                String concentration = "None";
+                String gradeLevel = "None";
+                String gpa = "None";
+                ArrayList<String> skills = new ArrayList<>();
+                ArrayList<String> extraCurr = new ArrayList<>();
+                String company = "None";
+                String prevExp = "None";
+                String explength = "None";
+                String jobdesc = "None";
+                String jobOccupation = "None";
+                String jobtype = "None";
+                ArrayList<String> jobsApplied = new ArrayList<>();
+
+                this.student = new Student(username, password, accounttype, school, company, firstname, lastname, email,
+                        phoneNumber, major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status,
+                        jobOccupation, jobtype, prevExp, explength, jobdesc, jobsApplied);
+
+                this.user = new User(username, password, accounttype, school, company, firstname, lastname, email,
+                        phoneNumber, major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status,
+                        jobOccupation, jobtype, prevExp, explength, jobdesc, jobsApplied);
+
+                users.addUser(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
+                        major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
+                        prevExp, explength, jobdesc, jobsApplied);
+                break;
+            } else {
+                System.out.println("Invalid Command");
+            }
         }
-
     }
 
     public void newEmployerAccountCreation() {
@@ -302,22 +356,22 @@ public class InternshipAppUI {
         String company = scanner.nextLine();
 
         String accounttype = "Employer";
-        String school = null;
-        String major = null;
-        String minor = null;
-        String concentration = null;
-        String gradeLevel = null;
-        String gpa = null;
+        String school = "None";
+        String major = "None";
+        String minor = "None";
+        String concentration = "None";
+        String gradeLevel = "None";
+        String gpa = "None";
         ArrayList<String> skills = new ArrayList<>();
         ArrayList<String> extraCurr = new ArrayList<>();
-        String prevExp = null;
-        String explength = null;
-        String jobdesc = null;
-        String status = null;
-        String email = null;
-        String phoneNumber = null;
-        String jobOccupation = null;
-        String jobtype = null;
+        String prevExp = "None";
+        String explength = "None";
+        String jobdesc = "None";
+        String status = "None";
+        String email = "None";
+        String phoneNumber = "None";
+        String jobOccupation = "None";
+        String jobtype = "None";
         ArrayList<String> jobsApplied = new ArrayList<>();
 
         this.employer = new Employer(username, password, accounttype, school, company, firstname, lastname, email,
@@ -350,25 +404,25 @@ public class InternshipAppUI {
         String password = scanner.nextLine();
 
         String accounttype = "Admin";
-        String school = null;
-        String firstname = null;
-        String lastname = null;
-        String major = null;
-        String minor = null;
-        String concentration = null;
-        String gradeLevel = null;
-        String company = null;
-        String gpa = null;
+        String school = "None";
+        String firstname = "None";
+        String lastname = "None";
+        String major = "None";
+        String minor = "None";
+        String concentration = "None";
+        String gradeLevel = "None";
+        String company = "None";
+        String gpa = "None";
         ArrayList<String> skills = new ArrayList<>();
         ArrayList<String> extraCurr = new ArrayList<>();
-        String prevExp = null;
-        String explength = null;
-        String jobdesc = null;
-        String status = null;
-        String email = null;
-        String phoneNumber = null;
-        String jobOccupation = null;
-        String jobtype = null;
+        String prevExp = "None";
+        String explength = "None";
+        String jobdesc = "None";
+        String status = "None";
+        String email = "None";
+        String phoneNumber = "None";
+        String jobOccupation = "None";
+        String jobtype = "None";
         ArrayList<String> jobsApplied = new ArrayList<>();
 
         this.admin = new Administrator(username, password, accounttype, school, company, firstname, lastname, email,
@@ -420,12 +474,14 @@ public class InternshipAppUI {
             } else if (userDecision == 5) {
                 studentResumeEditingMenu();
             } else if (userDecision == 6) {
-                studentAccountEditingMenu();
-            } else if (userDecision == 7) {
                 printResume();
+<<<<<<< HEAD
             } else if (userDecision == 8) {
                 run();
             } else if (userDecision == 9) {
+=======
+            } else if (userDecision == 7) {
+>>>>>>> 2bebc2a254ad80eeee312f5730beb8965562ab57
                 System.out.println("Thanks for using the internship app!\nGoodbye!");
                 System.exit(0);
             } else {
@@ -496,20 +552,18 @@ public class InternshipAppUI {
         if (jobListing.getStudentsApplied().contains(this.student)) {
             System.out.println("You have already applied to this position");
         } else {
-            
             jobListing.getStudentsApplied().add(student);
             student.getJobsAppliedTo().add(jobListing);
             System.out.println(
-                    "You have successfully applied to this position!\nThis job listing will now appear in your list of Jobs Applied To!");       
-        } 
-
+                    "You have successfully applied to this position!\nThis job listing will now appear in your list of Jobs Applied To!");
+        }
     }
 
     public void browseJobsApplied() {
         System.out.println("\nAll Jobs Applied To\n");
         for (JobListing jobListing : this.student.getJobsAppliedTo()) {
             System.out.println(
-                    "\n [" + (jobListings.getJobList().indexOf(jobListing) +1) + "]: " + jobListing.shortToString());
+                    "\n [" + (jobListings.getJobList().indexOf(jobListing) + 1) + "]: " + jobListing.shortToString());
         }
         System.out.println(
                 "\nEnter the number of a job listing to see more details.\nIf finished viewing listings enter '0' to return");
@@ -544,31 +598,167 @@ public class InternshipAppUI {
     }
 
     public void studentResumeEditingMenu() {
-        System.out.println("\nResume Editing Menu");
-        String username = user.getUsername();
+
+        System.out.println("\nYou will be prompted to edit Resume information below\n");
+
+        System.out.println("Before beginning enter new username and password below to confim identity");
+
+        String accounttype = this.user.getAccounttype();
+        String status = this.user.getStatus();
+
+        String username = this.user.getUsername();
+        String password = this.user.getPassword();
+
+        System.out.print("Username: ");
+        if (!scanner.nextLine().equals(this.user.getUsername())) {
+            System.out.println("Incorrect username.\nResume editing aborted");
+            return;
+        }
+
         System.out.print("Password: ");
-        String password = user.getPassword();
-        String accounttype = "Student";
-        String school = null;
-        String firstname = user.getFirstName();
-        String lastname = user.getLastName();
-        String major = null;
-        String minor = null;
-        String concentration = null;
-        String gradeLevel = null;
-        String company = null;
-        String gpa = null;
+        if (!scanner.nextLine().equals(this.user.getPassword())) {
+            System.out.println("Incorrect password.\nResume editing aborted");
+            return;
+        }
+
+        String firstname = this.user.getFirstName();
+        String lastname = this.user.getLastName();
+        String phoneNumber = this.user.getPhoneNumber();
+        String email = this.user.getEmail();
+        while (true) {
+            System.out.println("Would you like to edit your name or contact information? Enter 'Yes' or 'No'\n");
+            String userInput = scanner.nextLine();
+            if (userInput.equalsIgnoreCase("Yes")) {
+                System.out.println("\nEnter basic information and contact information below\n");
+                System.out.print("First Name: ");
+                firstname = scanner.nextLine();
+                System.out.print("Last Name: ");
+                lastname = scanner.nextLine();
+                System.out.print("Phone Number: ");
+                phoneNumber = scanner.nextLine();
+                System.out.print("Email: ");
+                email = scanner.nextLine();
+                break;
+            } else if (userInput.equalsIgnoreCase("No")) {
+                break;
+            } else {
+                System.out.println("Invalid Command");
+            }
+        }
+
+        String school = this.user.getSchool();
+        String gpa = this.user.getGPA();
+        String major = this.user.getMajor();
+        String minor = this.user.getMinor();
+        String concentration = this.user.getConcentation();
+        String gradeLevel = this.user.getGradeLevel();
+        while (true) {
+            System.out.println("\nWould you like to edit your education experience? Enter 'Yes' or 'No'\n");
+            String userInput = scanner.nextLine();
+            if (userInput.equalsIgnoreCase("Yes")) {
+                System.out.print("University Name: ");
+                school = scanner.nextLine();
+                System.out.print("Grade Point Average: ");
+                gpa = scanner.nextLine();
+                System.out.print("Major: ");
+                major = scanner.nextLine();
+                System.out.print("Minor: ");
+                minor = scanner.nextLine();
+                System.out.print("Concentration: ");
+                concentration = scanner.nextLine();
+                System.out.print("Grade Level: ");
+                gradeLevel = scanner.nextLine();
+                break;
+            } else if (userInput.equalsIgnoreCase("No")) {
+                break;
+            } else {
+                System.out.println("Invalid Command");
+            }
+        }
+
+        String jobOccupation = this.user.getjobOccupation();
+        String company = this.user.getCompany();
+        String jobtype = this.user.getjobType();
+        String prevExp = this.user.getPrevExp();
+        String explength = this.user.getExpLength();
+        String jobdesc = this.user.getJobDesc();
+        while (true) {
+            System.out.println("\nWould you like to edit your previous job experience? Enter 'Yes' or 'No'\n");
+            String userInput = scanner.nextLine().trim();
+            if (userInput.equalsIgnoreCase("Yes")) {
+                System.out.println("\nFill out the information below to add a new work experience\n"
+                        + "(Enter 'None' if field does not apply)\n");
+                System.out.print("Job: ");
+                jobOccupation = scanner.nextLine();
+                System.out.print("Company: ");
+                company = scanner.nextLine();
+                System.out.print("Type (Part-Time, Full-Time, Internship): ");
+                jobtype = scanner.nextLine();
+                System.out.print("Length of Employment (MM/YYYY - MM/YYYY): ");
+                explength = scanner.nextLine();
+                System.out.print("Please enter description: ");
+                jobdesc = scanner.nextLine();
+                prevExp = "None";
+                break;
+            } else if (userInput.equalsIgnoreCase("No")) {
+                break;
+            } else {
+                System.out.println("\nInvalid Command\n");
+            }
+        }
+
         ArrayList<String> skills = new ArrayList<>();
+        while (true) {
+            System.out.println("\nWould you like to edit personal skills? Enter 'Yes' or 'No'\n");
+            String userInput = scanner.nextLine().trim();
+            if (userInput.equalsIgnoreCase("Yes")) {
+                System.out.println(
+                        "\nEnter all skills below\nType an entry and press 'Enter'\nType 'Done' when finished entering skills to move on");
+                while (true) {
+                    String newEntry = scanner.nextLine();
+                    if (newEntry.equalsIgnoreCase("done")) {
+                        break;
+                    }
+                    skills.add(newEntry);
+                }
+                System.out.println("All new skills added!");
+                break;
+            } else if (userInput.equalsIgnoreCase("No")) {
+                break;
+            } else {
+                System.out.println("Invalid Command");
+            }
+
+        }
+
         ArrayList<String> extraCurr = new ArrayList<>();
-        String prevExp = null;
-        String explength = null;
-        String jobdesc = null;
-        String status = null;
-        String email = user.getEmail();
-        String phoneNumber = user.getPhoneNumber();
-        String jobOccupation = null;
-        String jobtype = null;
-        ArrayList<String> jobsApplied = new ArrayList<>();
+        while (true) {
+            System.out.println("\nWould you like to edit extracurricular activities? Enter 'Yes' or 'No'\n");
+            String userInput = scanner.nextLine().trim();
+            if (userInput.equalsIgnoreCase("Yes")) {
+                System.out.println(
+                        "\nEnter all extracurriculars below\nType an entry and press 'Enter'\nType 'Done' when finished entering extracurriculars to move on");
+                while (true) {
+                    String newEntry = scanner.nextLine();
+                    if (newEntry.equalsIgnoreCase("done")) {
+                        break;
+                    }
+                    extraCurr.add(newEntry);
+                }
+                System.out.println("\nAll new extracurriculars added!");
+                break;
+            } else if (userInput.equalsIgnoreCase("No")) {
+                break;
+            } else {
+                System.out.println("\nInvalid Command");
+            }
+        }
+
+        ArrayList<String> jobsApplied = this.user.getJobsApplied();
+
+        this.student = new Student(username, password, accounttype, school, company, firstname, lastname, email,
+                phoneNumber, major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation,
+                jobtype, prevExp, explength, jobdesc, jobsApplied);
 
         this.user = new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
                 major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
@@ -578,52 +768,6 @@ public class InternshipAppUI {
                 minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
                 explength, jobdesc, jobsApplied);
 
-        // createStudentResume(username, password, accounttype, school, company,
-        // firstname, lastname, email, phoneNumber,
-        // major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status,
-        // jobOccupation, jobtype,
-        // prevExp, explength, jobdesc);
-    }
-
-    public void studentAccountEditingMenu() {
-        System.out.println("\nAccount Editing Menu");
-        System.out.print("Enter New Username: ");
-        String username = user.getUsername();
-        System.out.print("Enter New Password: ");
-        String password = scanner.nextLine();
-        String accounttype = "Student";
-        String school = user.getSchool();
-        System.out.print("First Name: ");
-        String firstname = scanner.nextLine();
-        System.out.print("Last Name: ");
-        String lastname = scanner.nextLine();
-        String major = user.getMajor();
-        String minor = user.getMinor();
-        String concentration = user.getConcentation();
-        String gradeLevel = user.getGradeLevel();
-        String company = user.getCompany();
-        String gpa = user.getGPA();
-        ArrayList<String> skills = user.getSkills();
-        ArrayList<String> extraCurr = user.getExtracurr();
-        String prevExp = user.getPrevExp();
-        String explength = user.getExpLength();
-        String jobdesc = user.getJobDesc();
-        String status = user.getStatus();
-        System.out.print("Email: ");
-        String email = scanner.nextLine();
-        System.out.print("Phone Number: ");
-        String phoneNumber = scanner.nextLine();
-        String jobOccupation = user.getjobOccupation();
-        String jobtype = user.getjobType();
-        ArrayList<String> jobsApplied = user.getJobsApplied();
-
-        this.user = new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber,
-                major, minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype,
-                prevExp, explength, jobdesc, jobsApplied);
-
-        users.editUser(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major,
-                minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
-                explength, jobdesc, jobsApplied);
     }
 
     public void printResume() {

@@ -1,28 +1,27 @@
  Resume
-Firstname: b
-Lastname: b
-PhoneNumber: b
-Email :b
-School: b
-Major: b
-Minor: b
-Concentrationb
-Grade Level: b
-GPA: b
+Firstname: John
+Lastname: Doe
+PhoneNumber: null
+Email :null
+School: University of South Carolina
+Major: Computer Information Systems
+Minor: null
+ConcentrationComputer Science
+Grade Level: Junior
+GPA: 3.4
 
 Experience: 
-- b
-- b
-- b
+- Java
+- mySQL
+- C++
+- MTA:Networking Fundamentals
 
  Extra Curriculars :
-- b
-- b
-- b
+- Robotics
 
 Experience: 
- - Job Occupation: b
- - Job Type: b
- - Employer: b
- - Job Length: b
- - Job Description: b
+ - Job Occupation: null
+ - Job Type: null
+ - Employer: null
+ - Job Length: null
+ - Job Description: null

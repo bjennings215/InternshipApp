@@ -85,13 +85,13 @@ public class JobListingsTest {
     void testAddingSameJobListing() {
         jobListings.addJob("www.webdev.com", "Web Developer", "Web Creation Inc", "Create amazing websites!",
                 "Columbia", "South Carolina", "4", "12.50", null, null, null);
-        ArrayList<JobListing> returnedListings = new ArrayList<>();
+        int count = 0;
         for (JobListing jobListing : jobListings.getJobList()) {
             if (jobListing.getJobTitle().equals("Web Developer")) {
-                returnedListings.add(jobListing);
+                count++;
             }
         }
-        assertTrue(returnedListings.size() == 1);
+        assertTrue(count == 1);
     }
 
     @Test

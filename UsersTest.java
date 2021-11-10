@@ -1,5 +1,8 @@
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.ArrayList;
 
@@ -7,7 +10,7 @@ import org.junit.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
-class UsersTest {
+public class UsersTest {
 
     private Users users = Users.getInstance();
     private ArrayList<User> userList = users.getUsers();
@@ -63,7 +66,18 @@ class UsersTest {
     @Test
     void testGetUserUsername() {
         User getDave = users.getUser("daveJones");
-
+        assertEquals(getDave, new User("davejones", "dmjones1", "Student", "USC", null, "Dave", "Jones", "djones@gmail.com",
+        "123-456-7890", "Computer Science", null, null, "Senior", "3.5", null, null, "Unemployed", null, null,
+        null, null, null, null));
     }
+
+    @Test
+    void testGetUserwithEmpty() {
+        User getEmpty = users.getUser("");
+        assertNull(getEmpty);
+    }
+
+
+
 
 }

@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 public class DataWriterTest {
     private Users users = Users.getInstance();
 	private ArrayList<User> userList = users.getUsers();
+
 	
 	@BeforeEach
 	public void setup() {
@@ -55,7 +56,7 @@ public class DataWriterTest {
         userList.add(new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major, minor, concentration,
          gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp, explength, jobdesc, jobsApplied));
          DataWriter.saveUsers();
-         assertEquals("", DataLoader.InputUsers().get(1).getUsername());
+         assertEquals("", DataLoader.InputUsers().get(0).getUsername());
     }
 
     @Test
@@ -90,7 +91,7 @@ public class DataWriterTest {
         userList.add(new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major, minor, concentration,
          gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp, explength, jobdesc, jobsApplied));
          DataWriter.saveUsers();
-         assertEquals("david.greg", DataLoader.InputUsers().get(1).getUsername());
+         assertEquals("david.greg", DataLoader.InputUsers().get(0).getUsername());
     }
 
     @Test
@@ -148,6 +149,44 @@ public class DataWriterTest {
         userList.add(new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major, minor, concentration,
          gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp, explength, jobdesc, jobsApplied));
 		DataWriter.saveUsers();
-		assertEquals("daniel.smith", DataLoader.InputUsers().get(1).getUsername());
+		assertNotEquals("david.smith", DataLoader.InputUsers().get(0).getUsername());
 	}
+
+    @Test
+    public void testWritingMultipleSkills() {
+        String username = "";
+        String password = "";
+        String firstname = "";
+        String lastname = "";
+        String company = "";
+        String accounttype = "";
+        String school = "";
+        String major = "";
+        String minor = "";
+        String concentration = "";
+        String gradeLevel = "";
+        String gpa = "";
+        ArrayList<String> skills = new ArrayList<>();
+        skills.add("excel");
+        skills.add("powerpoint");
+        ArrayList<String> extraCurr = new ArrayList<>();
+        String prevExp = "";
+        String explength = "";
+        String jobdesc = "excel";
+        String status = "";
+        String email = "";
+        String phoneNumber = "";
+        String jobOccupation = "";
+        String jobtype = "";
+        ArrayList<String> jobsApplied = new ArrayList<>();
+        userList.add(new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major, minor, concentration,
+         gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp, explength, jobdesc, jobsApplied));
+         DataWriter.saveUsers();
+        ArrayList testskills = new ArrayList<String>();
+        testskills.add("excel");
+        testskills.add("powerpoint");
+         assertLinesMatch(testskills, DataLoader.InputUsers().get(0).getSkills());
+        
+    }
+
 }

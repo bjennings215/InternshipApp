@@ -54,6 +54,7 @@ public class DataWriterTest {
         ArrayList<String> jobsApplied = new ArrayList<>();
         userList.add(new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major, minor, concentration,
          gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp, explength, jobdesc, jobsApplied));
+         assertEquals("", DataLoader.InputUsers().get(1).getUsername());
     }
 
     @Test
@@ -87,6 +88,7 @@ public class DataWriterTest {
         jobsApplied.add("None\nCompany: None\nLocation: None, None\nLength: None\nEarnings Per Hour: None\nCompany Link: None\nDescription: None\nReviews made of previous experiences in this role\nnull");
         userList.add(new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major, minor, concentration,
          gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp, explength, jobdesc, jobsApplied));
+         assertEquals("david.greg", DataLoader.InputUsers().get(1).getUsername());
     }
 
     @Test

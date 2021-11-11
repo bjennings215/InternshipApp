@@ -12,7 +12,7 @@ public class DataWriterTest {
 	@BeforeEach
 	public void setup() {
 		Users.getInstance().getUsers().clear();
-		DataWriter.saveUsers();
+        DataWriter.saveUsers();
 	}
 
     @AfterEach
@@ -22,13 +22,13 @@ public class DataWriterTest {
 	}
 
     @Test
-	void testWritingZeroUsers() {
+	public void testWritingZeroUsers() {
 		userList = DataLoader.InputUsers();
 		assertEquals(0, userList.size());
 	}
 
     @Test
-    void testWritingEmptyFields(){
+    public void testWritingEmptyFields(){
         String username = "";
         String password = "";
         String firstname = "";
@@ -54,11 +54,12 @@ public class DataWriterTest {
         ArrayList<String> jobsApplied = new ArrayList<>();
         userList.add(new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major, minor, concentration,
          gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp, explength, jobdesc, jobsApplied));
+         DataWriter.saveUsers();
          assertEquals("", DataLoader.InputUsers().get(1).getUsername());
     }
 
     @Test
-    void testWritingAllFields() {
+    public void testWritingAllFields() {
         String username = "david.greg";
         String password = "1234";
         String firstname = "David";
@@ -88,6 +89,7 @@ public class DataWriterTest {
         jobsApplied.add("None\nCompany: None\nLocation: None, None\nLength: None\nEarnings Per Hour: None\nCompany Link: None\nDescription: None\nReviews made of previous experiences in this role\nnull");
         userList.add(new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major, minor, concentration,
          gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp, explength, jobdesc, jobsApplied));
+         DataWriter.saveUsers();
          assertEquals("david.greg", DataLoader.InputUsers().get(1).getUsername());
     }
 

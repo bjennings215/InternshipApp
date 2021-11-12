@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,7 +17,7 @@ public class JobListingsTest {
     private JobListings jobListings = JobListings.getInstance();
     private ArrayList<JobListing> allJobListings = jobListings.getJobList();
 
-    @BeforeEach
+    @BeforeClass
     public void setup() {
         allJobListings.clear();
         allJobListings.add(new JobListing("www.webdev.com", "Web Developer", "Web Creation Inc",
@@ -25,64 +27,63 @@ public class JobListingsTest {
         JobListingDataWriter.saveJobListng();
     }
 
-    @AfterEach
+    @AfterClass
     public void tearDown() {
         JobListings.getInstance().getJobList().clear();
         JobListingDataWriter.saveJobListng();
     }
 
     @Test
-    void testHasFirstItemInList() {
+    public void testHasFirstItemInList() {
         boolean hasWebDevListing = jobListings.haveJobListing("Web Developer");
         assertTrue(hasWebDevListing);
     }
 
     @Test
-    void testHasLastItemInList() {
+    public void testHasLastItemInList() {
         boolean hasGameDevListing = jobListings.haveJobListing("Game Developer");
         assertTrue(hasGameDevListing);
     }
 
     @Test
-    void testHasJobListingNotInList() {
-        boolean hasFakeJobListing = jobListings.haveJobListing("Software Engineer");
+    public void testHasJobListingNotInList() {
+        boolean hasFakeJobListing = jobListings.haveJobListing("Fake Job");
         assertFalse(hasFakeJobListing);
     }
 
     @Test
-    void testHasJobListingWithEmpty() {
+    public void testHasJobListingWithEmpty() {
         boolean hasEmptyJobListing = jobListings.haveJobListing("");
         assertFalse(hasEmptyJobListing);
     }
 
     @Test
-    void testHasJobListingWithNull() {
+    public void testHasJobListingWithNull() {
         boolean hasNullJobListing = jobListings.haveJobListing(null);
         assertFalse(hasNullJobListing);
     }
 
     @Test
-    void testGetJobListingByJobTitle() {
+    public void testGetJobListingByJobTitle() {
         JobListing webDevJobListing = jobListings.getJobListing("Web Developer");
-        assertEquals(webDevJobListing, new JobListing("www.webdev.com", "Web Developer", "Web Creation Inc",
-                "Create amazing websites!", "Columbia", "South Carolina", "4", "12.50", null, null, null));
+        assertEquals(webDevJobListing.getJobDescription(), "Create amazing websites!");
     }
 
     @Test
-    void testGetJobListingWithEmpty() {
+    public void testGetJobListingWithEmpty() {
         JobListing emptyJobListing = jobListings.getJobListing("");
         assertNull(emptyJobListing);
     }
 
     @Test
-    void testAddingValidJobListing() {
+    public void testAddingValidJobListing() {
         jobListings.addJob("www.softwareEngineers.com", "Software Engineer", "Software Engineer Inc",
                 "Create amazing new software!", "Charlotte", "North Carolina", "3", "9.50", null, null, null);
         assertTrue(jobListings.haveJobListing("Software Engineer"));
     }
 
     @Test
-    void testAddingSameJobListing() {
+    public void testAddingSameJobListing() {
         jobListings.addJob("www.webdev.com", "Web Developer", "Web Creation Inc", "Create amazing websites!",
                 "Columbia", "South Carolina", "4", "12.50", null, null, null);
         int count = 0;
@@ -95,30 +96,30 @@ public class JobListingsTest {
     }
 
     @Test
-    void testRemovingValidJobListing() {
+    public void testRemovingValidJobListing() {
         jobListings.removeJob("Web Developer");
         assertFalse(jobListings.haveJobListing("Web Developer"));
     }
 
     @Test
-    void testRemovingInvalidJobListing() {
+    public void testRemovingInvalidJobListing() {
         jobListings.removeJob("Network Programmer");
         assertFalse(jobListings.haveJobListing("Network Programmer"));
     }
 
     @Test
-    void testEditingSinglePartOfCurrentJobListing() {
+    public void testEditingSinglePartOfCurrentJobListing() {
         jobListings.editJob("www.webdev.com", "Web Developer", "Web Creation Inc", "Create amazing websites!",
                 "Charleston", "South Carolina", "4", "12.50", null, null, null);
         assertEquals("Charleston", jobListings.getJobListing("Web Developer").getJobCityLocation());
     }
 
     @Test
-    void testEditingMultiplePartsOfCurrentJobListing() {
+    public void testEditingMultiplePartsOfCurrentJobListing() {
         jobListings.editJob("www.webdev.com", "Web Developer", "Web Creation Company",
                 "Create the coolest websites ever!", "Charleston", "South Carolina", "3", "17.50", null, null, null);
-        assertEquals(jobListings.getJobListing("Web Developer"), new JobListing("www.webdev.com", "Web Developer", "Web Creation Company",
-                        "Create the coolest websites ever!", "Charleston", "South Carolina", "3", "17.50", null, null,
-                        null));
+        boolean sameJobDescription = (jobListings.getJobListing("Web Developer").getJobDescription().equals("Create the coolest websites ever!"));
+        boolean sameJobCity = (jobListings.getJobListing("Web Developer").getJobCityLocation().equals("Charleston"));
+        assertTrue(sameJobDescription && sameJobCity);
     }
 }

@@ -1,6 +1,5 @@
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
@@ -34,52 +33,49 @@ public class UsersTest {
     }
 
     @Test
-    void testHasFirstItemInList() {
+    public void testHasFirstItemInList() {
         boolean hasDave = users.haveUser("davejones");
         assertTrue(hasDave);
     }
 
     @Test
-    void testHasLastItemInList() {
+    public void testHasLastItemInList() {
         boolean hasAmy = users.haveUser("amyLove18");
         assertTrue(hasAmy);
     }
 
     @Test
-    void testHaveUserNotInlist() {
+    public void testHaveUserNotInlist() {
         boolean hasDerek = users.haveUser("derekp");
         assertFalse(hasDerek);
     }
 
     @Test
-    void testHaveUserWithEmpty() {
+    public void testHaveUserWithEmpty() {
         boolean hasEmpty = users.haveUser("");
         assertFalse(hasEmpty);
     }
 
     @Test
-    void testHaveUserWithNull() {
+    public void testHaveUserWithNull() {
         boolean hasNull = users.haveUser(null);
         assertFalse(hasNull);
     }
 
     @Test
-    void testGetUserUsername() {
-        User getDave = users.getUser("daveJones");
-        assertEquals(getDave,
-                new User("davejones", "dmjones1", "Student", "USC", null, "Dave", "Jones", "djones@gmail.com",
-                        "123-456-7890", "Computer Science", null, null, "Senior", "3.5", null, null, "Unemployed", null,
-                        null, null, null, null, null));
+    public void testGetUserUsername() {
+        String password = users.getUser("davejones").getPassword();
+        assertEquals(password, "dmjones1");
     }
 
     @Test
-    void testGetUserwithEmpty() {
+    public void testGetUserwithEmpty() {
         User getEmpty = users.getUser("");
         assertNull(getEmpty);
     }
 
     @Test
-    void testAddingBrandNewUser() {
+    public void testAddingBrandNewUser() {
         users.addUser("mikesmith22", "mikespassword", "Student", "USC", null, "Mike", "Smith", "msmith@email.sc.edu",
                 "987-654-3210", "Computer Science", "Statistics", null, "Junior", "3.1", null, null, "Unemployed", null,
                 null, null, null, null, null);
@@ -87,13 +83,13 @@ public class UsersTest {
     }
 
     @Test
-    void testAddingSameUser() {
+    public void testAddingSameUser() {
         users.addUser("davejones", "dmjones1", "Student", "USC", null, "Dave", "Jones", "djones@gmail.com",
                 "123-456-7890", "Computer Science", null, null, "Senior", "3.5", null, null, "Unemployed", null, null,
                 null, null, null, null);
         int count = 0;
         for (User user : users.getUsers()) {
-            if (user.getUsername().equals("daveJones")) {
+            if (user.getUsername().equals("davejones")) {
                 count++;
             }
         }
@@ -101,7 +97,7 @@ public class UsersTest {
     }
 
     @Test
-    void testRemovingCurrentUser() {
+    public void testRemovingCurrentUser() {
         users.removeUser("davejones", "dmjones1", "Student", "USC", null, "Dave", "Jones", "djones@gmail.com",
                 "123-456-7890", "Computer Science", null, null, "Senior", "3.5", null, null, "Unemployed", null, null,
                 null, null, null, null);
@@ -109,7 +105,7 @@ public class UsersTest {
     }
 
     @Test
-    void testRemovingFakeUser() {
+    public void testRemovingFakeUser() {
         int beginningSize = users.getUsers().size();
         users.removeUser("mikesmith22", "mikespassword", "Student", "USC", null, "Mike", "Smith", "msmith@email.sc.edu",
                 "987-654-3210", "Computer Science", "Statistics", null, "Junior", "3.1", null, null, "Unemployed", null,
@@ -118,7 +114,7 @@ public class UsersTest {
     }
 
     @Test
-    void testEditingSinglePartOfCurrentUser() {
+    public void testEditingSinglePartOfCurrentUser() {
         users.editUser("davejones", "dmjones1", "Student", "USC", null, "Dave", "Jones", "djones@gmail.com",
         "123-456-7890", "Computer Science", null, null, "Senior", "2.2", null, null, "Unemployed", null, null,
         null, null, null, null);
@@ -126,17 +122,15 @@ public class UsersTest {
     }
 
     @Test
-    void testEditingMultiplePartsOfCurrentUser() {
+    public void testEditingMultiplePartsOfCurrentUser() {
         users.editUser("davejones", "davidjones1000", "Student", "USC", null, "David", "Jones", "davidjones@gmail.com",
         "808-808-8008", "Computer Science", null, null, "Senior", "2.2", null, null, "Employed", null, null,
         null, null, null, null);
-        assertEquals(users.getUser("davejones"), new User("davejones", "davidjones1000", "Student", "USC", null, "David", "Jones", "davidjones@gmail.com",
-        "808-808-8008", "Computer Science", null, null, "Senior", "2.2", null, null, "Employed", null, null,
-        null, null, null, null));
+        assertTrue(users.getUser("davejones").getPassword().equals("davejones1000") && users.getUser("davejones").getGPA().equals("2.2")); 
     }
 
     @Test
-    void testEditingDoesNotMakeDuplicateUsers() {
+    public void testEditingDoesNotMakeDuplicateUsers() {
         int count = users.getUsers().size();
         users.editUser("davejonesEDITED", "dmjones1", "Student", "USC", null, "Dave", "Jones", "djones@gmail.com",
         "123-456-7890", "Computer Science", null, null, "Senior", "3.5", null, null, "Unemployed", null, null,

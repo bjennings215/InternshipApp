@@ -189,17 +189,29 @@ public class Employer extends User {
 
       switch (filter) {
       case GPA:
-         return filteredByGPA(possibleStudents);
+         System.out.println("The students GPA must be greater than what value? (4.0 being the greatest)");
+         double gpaMinimum = Double.valueOf(scanner.nextLine());
+         return filteredByGPA(possibleStudents, gpaMinimum);
       case MAJOR:
-         return filteredByMajor(possibleStudents);
+         System.out.println("What major would you like to filter by?");
+         String desiredMajor = scanner.nextLine();
+         return filteredByMajor(possibleStudents, desiredMajor);
       case MINOR:
-         return filteredByMinor(possibleStudents);
+         System.out.println("What minor would you like to filter by?");
+         String desiredMinor = scanner.nextLine();
+         return filteredByMinor(possibleStudents, desiredMinor);
       case SKILL:
-         return filteredBySkill(possibleStudents);
+         System.out.println("What skill would you like to filter by?");
+         String desiredSkill = scanner.nextLine();
+         return filteredBySkill(possibleStudents, desiredSkill);
       case EXTRACURRICULAR:
-         return filteredByExtracurricular(possibleStudents);
+      System.out.println("What extracurricular would you like to filter by?");
+         String desiredExc = scanner.nextLine();
+         return filteredByExtracurricular(possibleStudents, desiredExc);
       case GRADELEVEL:
-         return filteredByGradeLevel(possibleStudents);
+      System.out.println("What grade level would you like to filter by?");
+         String desiredGradeLevel = scanner.nextLine();
+         return filteredByGradeLevel(possibleStudents, desiredGradeLevel);
       default:
          System.out.println("Invalid Command");
          return null;
@@ -212,13 +224,11 @@ public class Employer extends User {
     * @param possibleStudents list of possible of students
     * @return the list of filtered students
     */
-   public ArrayList<Student> filteredByGPA(ArrayList<Student> possibleStudents) {
-      System.out.println("The students GPA must be greater than what value? (4.0 being the greatest)");
+   public ArrayList<Student> filteredByGPA(ArrayList<Student> possibleStudents, double gpaMinimum) {
       ArrayList<Student> filteredStudents = new ArrayList<>();
-      double userInput = Double.valueOf(scanner.nextLine());
       for (Student student : possibleStudents) {
          double studentGPA = Double.valueOf(student.getGPA());
-         if (studentGPA >= userInput) {
+         if (studentGPA >= gpaMinimum) {
             filteredStudents.add(student);
          }
 
@@ -232,12 +242,10 @@ public class Employer extends User {
     * @param possibleStudents list of possible students
     * @return the list of filtered students
     */
-   public ArrayList<Student> filteredByMajor(ArrayList<Student> possibleStudents) {
-      System.out.println("What major would you like to filter by?");
-      ArrayList<Student> filteredStudents = new ArrayList<>();
-      String userInput = scanner.nextLine();
+   public ArrayList<Student> filteredByMajor(ArrayList<Student> possibleStudents, String desiredMajor) {
+      ArrayList<Student> filteredStudents = new ArrayList<>();     
       for (Student student : possibleStudents) {
-         if (student.getMajor().equals(userInput)) {
+         if (student.getMajor().equals(desiredMajor)) {
             filteredStudents.add(student);
          }
 
@@ -251,12 +259,10 @@ public class Employer extends User {
     * @param possibleStudents list of possible students
     * @return list of filtered students
     */
-   public ArrayList<Student> filteredByMinor(ArrayList<Student> possibleStudents) {
-      System.out.println("What minor would you like to filter by?");
+   public ArrayList<Student> filteredByMinor(ArrayList<Student> possibleStudents, String desiredMinor) {
       ArrayList<Student> filteredStudents = new ArrayList<>();
-      String userInput = scanner.nextLine();
       for (Student student : possibleStudents) {
-         if (student.getMinor().equals(userInput)) {
+         if (student.getMinor().equals(desiredMinor)) {
             filteredStudents.add(student);
          }
 
@@ -270,12 +276,10 @@ public class Employer extends User {
     * @param possibleStudents list of possible students
     * @return the list of filtered students
     */
-   public ArrayList<Student> filteredBySkill(ArrayList<Student> possibleStudents) {
-      System.out.println("What skill would you like to filter by?");
+   public ArrayList<Student> filteredBySkill(ArrayList<Student> possibleStudents, String desiredSkill) {
       ArrayList<Student> filteredStudents = new ArrayList<>();
-      String userInput = scanner.nextLine();
       for (Student student : possibleStudents) {
-         if (student.getSkills().contains(userInput)) {
+         if (student.getSkills().contains(desiredSkill)) {
             filteredStudents.add(student);
          }
 
@@ -289,12 +293,10 @@ public class Employer extends User {
     * @param possibleStudents list of possible students
     * @return list of filtered students
     */
-   public ArrayList<Student> filteredByExtracurricular(ArrayList<Student> possibleStudents) {
-      System.out.println("What extracurricular would you like to filter by?");
+   public ArrayList<Student> filteredByExtracurricular(ArrayList<Student> possibleStudents, String desiredExc) {
       ArrayList<Student> filteredStudents = new ArrayList<>();
-      String userInput = scanner.nextLine();
       for (Student student : possibleStudents) {
-         if (student.getExtracurr().contains(userInput)) {
+         if (student.getExtracurr().contains(desiredExc)) {
             filteredStudents.add(student);
          }
 
@@ -308,12 +310,10 @@ public class Employer extends User {
     * @param possibleStudents list of possible students
     * @return list of filtered students
     */
-   public ArrayList<Student> filteredByGradeLevel(ArrayList<Student> possibleStudents) {
-      System.out.println("What skill would you like to filter by?");
+   public ArrayList<Student> filteredByGradeLevel(ArrayList<Student> possibleStudents, String desiredGrade) {
       ArrayList<Student> filteredStudents = new ArrayList<>();
-      String userInput = scanner.nextLine();
       for (Student student : possibleStudents) {
-         if (student.getGradeLevel().equals(userInput)) {
+         if (student.getGradeLevel().equals(desiredGrade)) {
             filteredStudents.add(student);
          }
 

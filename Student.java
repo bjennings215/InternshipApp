@@ -13,13 +13,14 @@ public class Student extends User {
     private JobListings jobListings;
     private User user;
 
-    public Student(UUID id, String username, String password, String accounttype, String school, String company, String firstname, 
-	String lastname, String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel, String gpa, 
-	ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp, String explength, 
-	String jobdesc,ArrayList<String> jobsApplied) {
+    public Student(UUID id, String username, String password, String accounttype, String school, String company,
+            String firstname, String lastname, String email, String phoneNumber, String major, String minor,
+            String concentration, String gradeLevel, String gpa, ArrayList<String> skills, ArrayList<String> extraCurr,
+            String status, String jobOccupation, String jobtype, String prevExp, String explength, String jobdesc,
+            ArrayList<String> jobsApplied) {
         super(id, username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major,
                 minor, concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp,
-                explength, jobdesc,jobsApplied);
+                explength, jobdesc, jobsApplied);
         this.jobsAppliedTo = new ArrayList<>();
         this.reviewsMade = new ArrayList<>();
         this.scanner = new Scanner(System.in);
@@ -27,13 +28,14 @@ public class Student extends User {
         this.jobListings = JobListings.getInstance();
     }
 
-    public Student(String username, String password, String accounttype, String school, String company, String firstname, 
-	String lastname, String email, String phoneNumber, String major, String minor, String concentration, String gradeLevel, String gpa, 
-	ArrayList<String> skills, ArrayList<String> extraCurr, String status, String jobOccupation, String jobtype, String prevExp, String explength, 
-	String jobdesc,ArrayList<String> jobsApplied) {
+    public Student(String username, String password, String accounttype, String school, String company,
+            String firstname, String lastname, String email, String phoneNumber, String major, String minor,
+            String concentration, String gradeLevel, String gpa, ArrayList<String> skills, ArrayList<String> extraCurr,
+            String status, String jobOccupation, String jobtype, String prevExp, String explength, String jobdesc,
+            ArrayList<String> jobsApplied) {
         super(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major, minor,
                 concentration, gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp, explength,
-                jobdesc,jobsApplied);
+                jobdesc, jobsApplied);
         this.jobsAppliedTo = new ArrayList<>();
         this.reviewsMade = new ArrayList<>();
         this.scanner = new Scanner(System.in);
@@ -81,29 +83,39 @@ public class Student extends User {
 
         switch (filter) {
         case TITLE:
-            return filteredByTitle(possibleJobs);
+            System.out.println("What job title would you like to filter by?");
+            String desiredTitle = scanner.nextLine();
+            return filteredByTitle(possibleJobs, desiredTitle);
         case WAGE:
-            return filteredByWage(possibleJobs);
+            System.out.println("What is the minimum job wage you would like to filter by?");
+            double desiredWage = Double.valueOf(scanner.nextLine());
+            return filteredByWage(possibleJobs, desiredWage);
         case COMPANY:
-            return filteredByCompany(possibleJobs);
+            System.out.println("What company would you like to filter by?");
+            String desiredCompany = scanner.nextLine();
+            return filteredByCompany(possibleJobs, desiredCompany);
         case CITY:
-            return filteredByCity(possibleJobs);
+            System.out.println("What city would you like to filter by?");
+            String desiredCity = scanner.nextLine();
+            return filteredByCity(possibleJobs, desiredCity);
         case STATE:
-            return filteredByState(possibleJobs);
+            System.out.println("What state would you like to filter by?");
+            String desiredState = scanner.nextLine();
+            return filteredByState(possibleJobs, desiredState);
         case SKILL:
-            return filteredBySkill(possibleJobs);
+            System.out.println("What skill would you like to filter by?");
+            String desiredSkill = scanner.nextLine();
+            return filteredBySkill(possibleJobs, desiredSkill);
         default:
             System.out.println("Invalid Command");
             return null;
         }
     }
 
-    private ArrayList<JobListing> filteredByTitle(ArrayList<JobListing> possibleJobs) {
-        System.out.println("What job title would you like to filter by?");
+    public ArrayList<JobListing> filteredByTitle(ArrayList<JobListing> possibleJobs, String desiredTitle) {
         ArrayList<JobListing> filteredJobs = new ArrayList<>();
-        String userInput = scanner.nextLine();
         for (JobListing jobListing : possibleJobs) {
-            if (jobListing.getJobTitle().equalsIgnoreCase(userInput)) {
+            if (jobListing.getJobTitle().equalsIgnoreCase(desiredTitle)) {
                 filteredJobs.add(jobListing);
             }
 
@@ -111,38 +123,21 @@ public class Student extends User {
         return filteredJobs;
     }
 
-    private ArrayList<JobListing> filteredByWage(ArrayList<JobListing> possibleJobs) {
-        System.out.println("What would you like to be the minimum wage requirement?");
+    public ArrayList<JobListing> filteredByWage(ArrayList<JobListing> possibleJobs, double desiredWage) {
         ArrayList<JobListing> filteredJobs = new ArrayList<>();
-        double userInput = Double.valueOf(scanner.nextLine());
         for (JobListing jobListing : possibleJobs) {
             double wageValue = Double.valueOf(jobListing.getWagePerHour());
-            if (wageValue > userInput) {
+            if (wageValue > desiredWage) {
                 filteredJobs.add(jobListing);
             }
         }
         return filteredJobs;
     }
 
-    private ArrayList<JobListing> filteredByCompany(ArrayList<JobListing> possibleJobs) {
-        System.out.println("What company would you like to filter by?");
+    public ArrayList<JobListing> filteredByCompany(ArrayList<JobListing> possibleJobs, String desiredCompany) {
         ArrayList<JobListing> filteredJobs = new ArrayList<>();
-        String userInput = scanner.nextLine();
         for (JobListing jobListing : possibleJobs) {
-            if (jobListing.getJobCompany().equalsIgnoreCase(userInput)) {
-                filteredJobs.add(jobListing);
-            }
-
-        }
-        return filteredJobs;
-    }
-
-    private ArrayList<JobListing> filteredByCity(ArrayList<JobListing> possibleJobs) {
-        System.out.println("What city would you like to filter by?");
-        ArrayList<JobListing> filteredJobs = new ArrayList<>();
-        String userInput = scanner.nextLine();
-        for (JobListing jobListing : possibleJobs) {
-            if (jobListing.getJobCityLocation().equalsIgnoreCase(userInput)) {
+            if (jobListing.getJobCompany().equalsIgnoreCase(desiredCompany)) {
                 filteredJobs.add(jobListing);
             }
 
@@ -150,12 +145,10 @@ public class Student extends User {
         return filteredJobs;
     }
 
-    private ArrayList<JobListing> filteredByState(ArrayList<JobListing> possibleJobs) {
-        System.out.println("What job title would you like to filter by?");
+    public ArrayList<JobListing> filteredByCity(ArrayList<JobListing> possibleJobs, String desiredCity) {
         ArrayList<JobListing> filteredJobs = new ArrayList<>();
-        String userInput = scanner.nextLine();
         for (JobListing jobListing : possibleJobs) {
-            if (jobListing.getJobStateLocation().equalsIgnoreCase(userInput)) {
+            if (jobListing.getJobCityLocation().equalsIgnoreCase(desiredCity)) {
                 filteredJobs.add(jobListing);
             }
 
@@ -163,12 +156,21 @@ public class Student extends User {
         return filteredJobs;
     }
 
-    private ArrayList<JobListing> filteredBySkill(ArrayList<JobListing> possibleJobs) {
-        System.out.println("What skill would you like to filter by?");
+    public ArrayList<JobListing> filteredByState(ArrayList<JobListing> possibleJobs, String desiredState) {
         ArrayList<JobListing> filteredJobs = new ArrayList<>();
-        String userInput = scanner.nextLine();
         for (JobListing jobListing : possibleJobs) {
-            if (jobListing.getJobSkills().contains(userInput)) {
+            if (jobListing.getJobStateLocation().equalsIgnoreCase(desiredState)) {
+                filteredJobs.add(jobListing);
+            }
+
+        }
+        return filteredJobs;
+    }
+
+    public ArrayList<JobListing> filteredBySkill(ArrayList<JobListing> possibleJobs, String desiredSkill) {
+        ArrayList<JobListing> filteredJobs = new ArrayList<>();
+        for (JobListing jobListing : possibleJobs) {
+            if (jobListing.getJobSkills().contains(desiredSkill)) {
                 filteredJobs.add(jobListing);
             }
 
@@ -187,10 +189,12 @@ public class Student extends User {
                 + "\nGPA: " + getGPA() + "\nMajor: " + getMajor() + "\nMinor: " + getMinor() + "\nConcentration: "
                 + getConcentation() + "\n\nPrevious Work Experiences: \nJob: " + getjobOccupation() + "\nCompany: "
                 + getCompany() + "\nJob Type :" + getjobType() + "\nJob Length: " + getExpLength()
-                + "\nJob Description: " + getJobDesc() + "\nSkills:\n" + getSkills() + "\nExtracurriculars:\n" + getExtracurr();
+                + "\nJob Description: " + getJobDesc() + "\nSkills:\n" + getSkills() + "\nExtracurriculars:\n"
+                + getExtracurr();
 
         return returnString;
     }
+
     public void printResume() {
         try {
             FileWriter myWriter = new FileWriter("resume.txt");

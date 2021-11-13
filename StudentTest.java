@@ -20,6 +20,9 @@ public class StudentTest {
 
     @BeforeEach
     public void setup() {
+        this.student = new Student("davejones", "dmjones1", "Student", "USC", null, "Dave", "Jones", "djones@gmail.com",
+                "123-456-7890", "Computer Science", null, null, "Senior", "3.5", null, null, "Unemployed", null, null,
+                null, null, null, null);
         allJobListings.clear();
         allJobListings.add(new JobListing("www.webdev.com", "Web Developer", "Web Creation Inc",
                 "Create amazing websites!", "Columbia", "South Carolina", "4", "12.50", null, null, null));
@@ -48,9 +51,16 @@ public class StudentTest {
     @Test
     public void testFilteringByWage() {
         this.student = new Student("davejones", "dmjones1", "Student", "USC", null, "Dave", "Jones", "djones@gmail.com",
-                "123-456-7890", "Computer Science", null, null, "Senior", 
-                "3.5", null, null, "Unemployed", null, null,
+                "123-456-7890", "Computer Science", null, null, "Senior", "3.5", null, null, "Unemployed", null, null,
                 null, null, null, null);
+        allJobListings.clear();
+        allJobListings.add(new JobListing("www.webdev.com", "Web Developer", "Web Creation Inc",
+                "Create amazing websites!", "Columbia", "South Carolina", "4", "12.50", null, null, null));
+        allJobListings.add(new JobListing("www.newgamedev.com", "Game Developer", "Game Creation Inc",
+                "Create amazing Games!", "Miami", "Florida", "3", "15.50", null, null, null));
+        allJobListings.add(new JobListing("www.softwareengineers.com", "Software Engineer", "Software Engineering Inc",
+                "Design great software!", "Charleston", "South Carolina", "4", "9.50", null, null, null));
+        JobListingDataWriter.saveJobListng();
         ArrayList<JobListing> filteredJobs = student.filteredByWage(allJobListings, 10.00);
         assertEquals(2, filteredJobs.size());
     }
@@ -58,9 +68,16 @@ public class StudentTest {
     @Test
     public void testFilteringByCompany() {
         this.student = new Student("davejones", "dmjones1", "Student", "USC", null, "Dave", "Jones", "djones@gmail.com",
-                "123-456-7890", "Computer Science", null, null, "Senior", 
-                "3.5", null, null, "Unemployed", null, null,
+                "123-456-7890", "Computer Science", null, null, "Senior", "3.5", null, null, "Unemployed", null, null,
                 null, null, null, null);
+        allJobListings.clear();
+        allJobListings.add(new JobListing("www.webdev.com", "Web Developer", "Web Creation Inc",
+                "Create amazing websites!", "Columbia", "South Carolina", "4", "12.50", null, null, null));
+        allJobListings.add(new JobListing("www.newgamedev.com", "Game Developer", "Game Creation Inc",
+                "Create amazing Games!", "Miami", "Florida", "3", "15.50", null, null, null));
+        allJobListings.add(new JobListing("www.softwareengineers.com", "Software Engineer", "Software Engineering Inc",
+                "Design great software!", "Charleston", "South Carolina", "4", "9.50", null, null, null));
+        JobListingDataWriter.saveJobListng();
         ArrayList<JobListing> filteredJobs = student.filteredByCompany(allJobListings, "Web Creation Inc");
         assertEquals(1, filteredJobs.size());
     }
@@ -68,9 +85,19 @@ public class StudentTest {
     @Test
     public void testFilteringByCity() {
         this.student = new Student("davejones", "dmjones1", "Student", "USC", null, "Dave", "Jones", "djones@gmail.com",
-                "123-456-7890", "Computer Science", null, null, "Senior", 
-                "3.5", null, null, "Unemployed", null, null,
+                "123-456-7890", "Computer Science", null, null, "Senior", "3.5", null, null, "Unemployed", null, null,
                 null, null, null, null);
+        this.student = new Student("davejones", "dmjones1", "Student", "USC", null, "Dave", "Jones", "djones@gmail.com",
+                "123-456-7890", "Computer Science", null, null, "Senior", "3.5", null, null, "Unemployed", null, null,
+                null, null, null, null);
+        allJobListings.clear();
+        allJobListings.add(new JobListing("www.webdev.com", "Web Developer", "Web Creation Inc",
+                "Create amazing websites!", "Columbia", "South Carolina", "4", "12.50", null, null, null));
+        allJobListings.add(new JobListing("www.newgamedev.com", "Game Developer", "Game Creation Inc",
+                "Create amazing Games!", "Miami", "Florida", "3", "15.50", null, null, null));
+        allJobListings.add(new JobListing("www.softwareengineers.com", "Software Engineer", "Software Engineering Inc",
+                "Design great software!", "Charleston", "South Carolina", "4", "9.50", null, null, null));
+        JobListingDataWriter.saveJobListng();
         ArrayList<JobListing> filteredJobs = student.filteredByCity(allJobListings, "Charleston");
         assertTrue(filteredJobs.size() == 1);
     }
@@ -78,9 +105,16 @@ public class StudentTest {
     @Test
     public void testFilteringByState() {
         this.student = new Student("davejones", "dmjones1", "Student", "USC", null, "Dave", "Jones", "djones@gmail.com",
-                "123-456-7890", "Computer Science", null, null, "Senior", 
-                "3.5", null, null, "Unemployed", null, null,
+                "123-456-7890", "Computer Science", null, null, "Senior", "3.5", null, null, "Unemployed", null, null,
                 null, null, null, null);
+        allJobListings.clear();
+        allJobListings.add(new JobListing("www.webdev.com", "Web Developer", "Web Creation Inc",
+                "Create amazing websites!", "Columbia", "South Carolina", "4", "12.50", null, null, null));
+        allJobListings.add(new JobListing("www.newgamedev.com", "Game Developer", "Game Creation Inc",
+                "Create amazing Games!", "Miami", "Florida", "3", "15.50", null, null, null));
+        allJobListings.add(new JobListing("www.softwareengineers.com", "Software Engineer", "Software Engineering Inc",
+                "Design great software!", "Charleston", "South Carolina", "4", "9.50", null, null, null));
+        JobListingDataWriter.saveJobListng();
         ArrayList<JobListing> filteredJobs = student.filteredByState(allJobListings, "South Carolina");
         assertTrue(filteredJobs.size() == 2);
     }
@@ -88,9 +122,28 @@ public class StudentTest {
     @Test
     public void testFilteringBySkill() {
         this.student = new Student("davejones", "dmjones1", "Student", "USC", null, "Dave", "Jones", "djones@gmail.com",
-                "123-456-7890", "Computer Science", null, null, "Senior", 
-                "3.5", null, null, "Unemployed", null, null,
+                "123-456-7890", "Computer Science", null, null, "Senior", "3.5", null, null, "Unemployed", null, null,
                 null, null, null, null);
+
+        ArrayList<String> jobOneSkills = new ArrayList<>();
+        ArrayList<String> jobTwoSkills = new ArrayList<>();
+        ArrayList<String> jobThreeSkills = new ArrayList<>();
+
+        jobOneSkills.add("JavaScript");
+        jobOneSkills.add("HTML");
+        jobTwoSkills.add("Python");
+        jobTwoSkills.add("Level Design");
+        jobThreeSkills.add("Java");
+        jobThreeSkills.add("JavaScript");
+
+        allJobListings.clear();
+        allJobListings.add(new JobListing("www.webdev.com", "Web Developer", "Web Creation Inc",
+                "Create amazing websites!", "Columbia", "South Carolina", "4", "12.50", jobOneSkills , null, null));
+        allJobListings.add(new JobListing("www.newgamedev.com", "Game Developer", "Game Creation Inc",
+                "Create amazing Games!", "Miami", "Florida", "3", "15.50", jobTwoSkills, null, null));
+        allJobListings.add(new JobListing("www.softwareengineers.com", "Software Engineer", "Software Engineering Inc",
+                "Design great software!", "Charleston", "South Carolina", "4", "9.50", jobThreeSkills, null, null));
+        JobListingDataWriter.saveJobListng();
         ArrayList<JobListing> filteredJobs = student.filteredBySkill(allJobListings, "JavaScript");
         assertTrue(filteredJobs.size() == 2);
     }

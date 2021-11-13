@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.ArrayList;
 
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -34,6 +36,15 @@ public class UsersTest {
 
     @Test
     public void testHasFirstItemInList() {
+        userList.clear();
+        userList.add(new User("davejones", "dmjones1", "Student", "USC", null, "Dave", "Jones", "djones@gmail.com",
+                "123-456-7890", "Computer Science", null, null, "Senior", "3.5", null, null, "Unemployed", null, null,
+                null, null, null, null));
+        userList.add(new User("amyLove18", "amyLove1", "Student", "USC", null, "Amy", "Love", "amymail@gmail.com",
+                "999-999-9999", "Computer Science", null, null, "Sophomore", "2.0", null, null, "Unemployed", null,
+                null, null, null, null, null));
+        DataWriter.saveUsers();
+        
         boolean hasDave = users.haveUser("davejones");
         assertTrue(hasDave);
     }
@@ -64,6 +75,14 @@ public class UsersTest {
 
     @Test
     public void testGetUserUsername() {
+        userList.clear();
+        userList.add(new User("davejones", "dmjones1", "Student", "USC", null, "Dave", "Jones", "djones@gmail.com",
+                "123-456-7890", "Computer Science", null, null, "Senior", "3.5", null, null, "Unemployed", null, null,
+                null, null, null, null));
+        userList.add(new User("amyLove18", "amyLove1", "Student", "USC", null, "Amy", "Love", "amymail@gmail.com",
+                "999-999-9999", "Computer Science", null, null, "Sophomore", "2.0", null, null, "Unemployed", null,
+                null, null, null, null, null));
+        DataWriter.saveUsers();
         String password = users.getUser("davejones").getPassword();
         assertEquals(password, "dmjones1");
     }
@@ -84,6 +103,15 @@ public class UsersTest {
 
     @Test
     public void testAddingSameUser() {
+        userList.clear();
+        userList.add(new User("davejones", "dmjones1", "Student", "USC", null, "Dave", "Jones", "djones@gmail.com",
+                "123-456-7890", "Computer Science", null, null, "Senior", "3.5", null, null, "Unemployed", null, null,
+                null, null, null, null));
+        userList.add(new User("amyLove18", "amyLove1", "Student", "USC", null, "Amy", "Love", "amymail@gmail.com",
+                "999-999-9999", "Computer Science", null, null, "Sophomore", "2.0", null, null, "Unemployed", null,
+                null, null, null, null, null));
+        DataWriter.saveUsers();
+        
         users.addUser("davejones", "dmjones1", "Student", "USC", null, "Dave", "Jones", "djones@gmail.com",
                 "123-456-7890", "Computer Science", null, null, "Senior", "3.5", null, null, "Unemployed", null, null,
                 null, null, null, null);
@@ -93,7 +121,7 @@ public class UsersTest {
                 count++;
             }
         }
-        assertTrue(count == 1);
+        assertEquals(1, count);
     }
 
     @Test
@@ -126,7 +154,7 @@ public class UsersTest {
         users.editUser("davejones", "davidjones1000", "Student", "USC", null, "David", "Jones", "davidjones@gmail.com",
         "808-808-8008", "Computer Science", null, null, "Senior", "2.2", null, null, "Employed", null, null,
         null, null, null, null);
-        assertTrue(users.getUser("davejones").getPassword().equals("davejones1000") && users.getUser("davejones").getGPA().equals("2.2")); 
+        assertTrue(users.getUser("davejones").getStatus().equals("Employed") && users.getUser("davejones").getGPA().equals("2.2")); 
     }
 
     @Test

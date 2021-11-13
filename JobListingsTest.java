@@ -17,7 +17,7 @@ public class JobListingsTest {
     private JobListings jobListings = JobListings.getInstance();
     private ArrayList<JobListing> allJobListings = jobListings.getJobList();
 
-    @BeforeClass
+    @BeforeEach
     public void setup() {
         allJobListings.clear();
         allJobListings.add(new JobListing("www.webdev.com", "Web Developer", "Web Creation Inc",
@@ -27,7 +27,7 @@ public class JobListingsTest {
         JobListingDataWriter.saveJobListng();
     }
 
-    @AfterClass
+    @AfterEach
     public void tearDown() {
         JobListings.getInstance().getJobList().clear();
         JobListingDataWriter.saveJobListng();
@@ -35,6 +35,13 @@ public class JobListingsTest {
 
     @Test
     public void testHasFirstItemInList() {
+        allJobListings.clear();
+        allJobListings.add(new JobListing("www.webdev.com", "Web Developer", "Web Creation Inc",
+                "Create amazing websites!", "Columbia", "South Carolina", "4", "12.50", null, null, null));
+        allJobListings.add(new JobListing("www.newgamedev.com", "Game Developer", "Game Creation Inc",
+                "Create amazing Games!", "Miami", "Florida", "3", "15.50", null, null, null));
+        JobListingDataWriter.saveJobListng();
+        
         boolean hasWebDevListing = jobListings.haveJobListing("Web Developer");
         assertTrue(hasWebDevListing);
     }
@@ -65,6 +72,13 @@ public class JobListingsTest {
 
     @Test
     public void testGetJobListingByJobTitle() {
+        allJobListings.clear();
+        allJobListings.add(new JobListing("www.webdev.com", "Web Developer", "Web Creation Inc",
+                "Create amazing websites!", "Columbia", "South Carolina", "4", "12.50", null, null, null));
+        allJobListings.add(new JobListing("www.newgamedev.com", "Game Developer", "Game Creation Inc",
+                "Create amazing Games!", "Miami", "Florida", "3", "15.50", null, null, null));
+        JobListingDataWriter.saveJobListng();
+        
         JobListing webDevJobListing = jobListings.getJobListing("Web Developer");
         assertEquals(webDevJobListing.getJobDescription(), "Create amazing websites!");
     }
@@ -84,6 +98,13 @@ public class JobListingsTest {
 
     @Test
     public void testAddingSameJobListing() {
+        allJobListings.clear();
+        allJobListings.add(new JobListing("www.webdev.com", "Web Developer", "Web Creation Inc",
+                "Create amazing websites!", "Columbia", "South Carolina", "4", "12.50", null, null, null));
+        allJobListings.add(new JobListing("www.newgamedev.com", "Game Developer", "Game Creation Inc",
+                "Create amazing Games!", "Miami", "Florida", "3", "15.50", null, null, null));
+        JobListingDataWriter.saveJobListng();
+        
         jobListings.addJob("www.webdev.com", "Web Developer", "Web Creation Inc", "Create amazing websites!",
                 "Columbia", "South Carolina", "4", "12.50", null, null, null);
         int count = 0;
@@ -92,7 +113,14 @@ public class JobListingsTest {
                 count++;
             }
         }
-        assertTrue(count == 1);
+        assertEquals(1, count);
+    }
+
+    @Test
+    public void testAddingNewListingAndKeepingOldListing() {
+        jobListings.addJob("www.softwareEngineers.com", "Software Engineer", "Software Engineer Inc",
+        "Create amazing new software!", "Charlotte", "North Carolina", "3", "9.50", null, null, null);
+        assertTrue(jobListings.haveJobListing("Software Engineer") && jobListings.haveJobListing("Web Developer"));
     }
 
     @Test
@@ -109,6 +137,13 @@ public class JobListingsTest {
 
     @Test
     public void testEditingSinglePartOfCurrentJobListing() {
+        allJobListings.clear();
+        allJobListings.add(new JobListing("www.webdev.com", "Web Developer", "Web Creation Inc",
+                "Create amazing websites!", "Columbia", "South Carolina", "4", "12.50", null, null, null));
+        allJobListings.add(new JobListing("www.newgamedev.com", "Game Developer", "Game Creation Inc",
+                "Create amazing Games!", "Miami", "Florida", "3", "15.50", null, null, null));
+        JobListingDataWriter.saveJobListng();
+        
         jobListings.editJob("www.webdev.com", "Web Developer", "Web Creation Inc", "Create amazing websites!",
                 "Charleston", "South Carolina", "4", "12.50", null, null, null);
         assertEquals("Charleston", jobListings.getJobListing("Web Developer").getJobCityLocation());
@@ -116,6 +151,13 @@ public class JobListingsTest {
 
     @Test
     public void testEditingMultiplePartsOfCurrentJobListing() {
+        allJobListings.clear();
+        allJobListings.add(new JobListing("www.webdev.com", "Web Developer", "Web Creation Inc",
+                "Create amazing websites!", "Columbia", "South Carolina", "4", "12.50", null, null, null));
+        allJobListings.add(new JobListing("www.newgamedev.com", "Game Developer", "Game Creation Inc",
+                "Create amazing Games!", "Miami", "Florida", "3", "15.50", null, null, null));
+        JobListingDataWriter.saveJobListng();
+        
         jobListings.editJob("www.webdev.com", "Web Developer", "Web Creation Company",
                 "Create the coolest websites ever!", "Charleston", "South Carolina", "3", "17.50", null, null, null);
         boolean sameJobDescription = (jobListings.getJobListing("Web Developer").getJobDescription().equals("Create the coolest websites ever!"));

@@ -98,7 +98,7 @@ public class JobListingDataWriterTest {
         jobList.add(new JobListing(link, jobTitle,  jobCompany,  jobDescription,jobCityLocation, 
         jobStateLocation, numofMonths, jobWagePerHour, jobSkills,  studentsApplied,  jobExpDate));
          JobListingDataWriter.saveJobListng();
-         assertEquals("www.oldjob.com", JobListingDataLoader.InputJobListing().get(0).getLink());
+         assertEquals("www.oldjob.com", JobListingDataLoader.InputJobListing().get(1).getLink());
 	}
 
     @Test
@@ -118,7 +118,7 @@ public class JobListingDataWriterTest {
         String jobExpDate="";
         jobList.add(new JobListing(link, jobTitle,  jobCompany,  jobDescription,jobCityLocation, 
         jobStateLocation, numofMonths, jobWagePerHour, jobSkills,  studentsApplied,  jobExpDate));
-         DataWriter.saveUsers();
+         JobListingDataWriter.saveJobListng();
         ArrayList testJobSkills = new ArrayList<String>();
         testJobSkills.add("working");
         testJobSkills.add("cleaning");

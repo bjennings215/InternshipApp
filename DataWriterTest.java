@@ -8,18 +8,28 @@ import org.junit.jupiter.api.Test;
 public class DataWriterTest {
     private Users users = Users.getInstance();
 	private ArrayList<User> userList = users.getUsers();
+    private JobListings jobListings = JobListings.getInstance();
+    private ArrayList<JobListing> joblist = jobListings.getJobList();
 
 	
 	@BeforeEach
 	public void setup() {
 		Users.getInstance().getUsers().clear();
+        JobListings.getInstance().getJobList().clear();
+        joblist.add(new JobListing("www.webdev.com", "Web Developer", "Web Creation Inc",
+        "Create amazing websites!", "Columbia", "South Carolina", "4", "12.50", null, null, null));
+        jobListings.addJob("www.webdev.com", "Web Developer", "Web Creation Inc",
+        "Create amazing websites!", "Columbia", "South Carolina", "4", "12.50", null, null, null);
         DataWriter.saveUsers();
+        JobListingDataWriter.saveJobListng();
 	}
 
     @AfterEach
 	public void tearDown() {
 		Users.getInstance().getUsers().clear();
+        JobListings.getInstance().getJobList().clear();
 		DataWriter.saveUsers();
+        JobListingDataWriter.saveJobListng();
 	}
 
     @Test
@@ -186,7 +196,113 @@ public class DataWriterTest {
         testskills.add("excel");
         testskills.add("powerpoint");
          assertLinesMatch(testskills, DataLoader.InputUsers().get(0).getSkills());
-        
     }
 
+    @Test
+    public void testWritingMultipleExtraCurr() {
+        String username = "";
+        String password = "";
+        String firstname = "";
+        String lastname = "";
+        String company = "";
+        String accounttype = "";
+        String school = "";
+        String major = "";
+        String minor = "";
+        String concentration = "";
+        String gradeLevel = "";
+        String gpa = "";
+        ArrayList<String> skills = new ArrayList<>();
+        ArrayList<String> extraCurr = new ArrayList<>();
+        extraCurr.add("football player");
+        extraCurr.add("chess club");
+        String prevExp = "";
+        String explength = "";
+        String jobdesc = "excel";
+        String status = "";
+        String email = "";
+        String phoneNumber = "";
+        String jobOccupation = "";
+        String jobtype = "";
+        ArrayList<String> jobsApplied = new ArrayList<>();
+        userList.add(new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major, minor, concentration,
+         gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp, explength, jobdesc, jobsApplied));
+         DataWriter.saveUsers();
+        ArrayList testExtraCurr = new ArrayList<String>();
+        testExtraCurr.add("football player");
+        testExtraCurr.add("chess club");
+         assertLinesMatch(testExtraCurr, DataLoader.InputUsers().get(0).getExtracurr());
+    }
+
+    @Test
+    public void testWritingJobApplied() {
+        String username = "";
+        String password = "";
+        String firstname = "";
+        String lastname = "";
+        String company = "";
+        String accounttype = "";
+        String school = "";
+        String major = "";
+        String minor = "";
+        String concentration = "";
+        String gradeLevel = "";
+        String gpa = "";
+        ArrayList<String> skills = new ArrayList<>();
+        ArrayList<String> extraCurr = new ArrayList<>();
+        extraCurr.add("football player");
+        extraCurr.add("chess club");
+        String prevExp = "";
+        String explength = "";
+        String jobdesc = "excel";
+        String status = "";
+        String email = "";
+        String phoneNumber = "";
+        String jobOccupation = "";
+        String jobtype = "";
+        ArrayList<String> jobsApplied = new ArrayList<>();
+        jobsApplied.add(jobListings.getJobListing("Web Developer").toString());
+        userList.add(new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major, minor, concentration,
+         gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp, explength, jobdesc, jobsApplied));
+         DataWriter.saveUsers();
+        ArrayList testjobApplied = new ArrayList<String>();
+        testjobApplied.add(jobListings.getJobListing("Web Developer").toString());
+         assertLinesMatch(testjobApplied, DataLoader.InputUsers().get(0).getJobsApplied());
+    }
+
+    @Test
+    public void testWritingNullField() {
+        String username = null;
+        String password = "";
+        String firstname = "";
+        String lastname = "";
+        String company = "";
+        String accounttype = "";
+        String school = "";
+        String major = "";
+        String minor = "";
+        String concentration = "";
+        String gradeLevel = "";
+        String gpa = "";
+        ArrayList<String> skills = new ArrayList<>();
+        ArrayList<String> extraCurr = new ArrayList<>();
+        extraCurr.add("football player");
+        extraCurr.add("chess club");
+        String prevExp = "";
+        String explength = "";
+        String jobdesc = "excel";
+        String status = "";
+        String email = "";
+        String phoneNumber = "";
+        String jobOccupation = "";
+        String jobtype = "";
+        ArrayList<String> jobsApplied = new ArrayList<>();
+        jobsApplied.add(jobListings.getJobListing("Web Developer").toString());
+        userList.add(new User(username, password, accounttype, school, company, firstname, lastname, email, phoneNumber, major, minor, concentration,
+         gradeLevel, gpa, skills, extraCurr, status, jobOccupation, jobtype, prevExp, explength, jobdesc, jobsApplied));
+         DataWriter.saveUsers();
+        ArrayList testjobApplied = new ArrayList<String>();
+        testjobApplied.add(jobListings.getJobListing("Web Developer").toString());
+         assertEquals(null, DataLoader.InputUsers().get(0).getUsername());
+    }
 }

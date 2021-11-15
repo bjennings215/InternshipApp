@@ -6,6 +6,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Written by Brady Smoak
+ */
 public class DataLoaderTest {
 	private Users users = Users.getInstance();
 	private ArrayList<User> userList = users.getUsers();
